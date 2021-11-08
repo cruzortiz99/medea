@@ -4,7 +4,7 @@ from rx.operators import subscribe_on
 
 from config import HOST, PORT
 from utils.threadpoll import POOL_SCHEDULER
-from utils.webbrowser import open_web_browser
+from utils.browser import open_web_browser
 
 APP = Flask(__name__)
 
