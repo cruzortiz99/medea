@@ -1,10 +1,11 @@
+
 import rx
 from flask import Flask
 from rx.operators import subscribe_on
 
 from config import HOST, PORT
-from utils.threadpoll import POOL_SCHEDULER
 from utils.browser import open_web_browser
+from utils.threadpoll import POOL_SCHEDULER
 
 APP = Flask(__name__)
 
