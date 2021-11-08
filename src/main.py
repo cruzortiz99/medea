@@ -14,7 +14,7 @@ def home():
     return rx.of("Hola mundo").run()
 
 
-def run_server(observer: rx.core.observer.observer.Observer, scheduler):
+def run_server(observer: rx.core.observer.observer.Observer, _):
     APP.run(host=HOST, port=PORT)
     observer.on_next(True)
     observer.on_completed()
