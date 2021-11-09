@@ -3,6 +3,7 @@
 ## Developer
 
 ```shell
-pip install -r requirements.txt
-python src/main.py
+$ cd server
+$ pip install -r requirements.txt
+$ python main.py
 ```
