@@ -1,12 +1,14 @@
 import React from "react"
-import logo from "./logo.svg"
+import logo from "../../assets/images/logo.svg"
+import { AppRoutedPage } from "../../routes/routes"
 import "./App.css"
 
-function App() {
+function App(props: AppRoutedPage) {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <h3>{props.pageName}</h3>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
