@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import { Container, Content, Header, Sidenav, Sidebar, Button } from "rsuite"
 import { AppRoutedPage } from "../../routes/routes"
 import { joinClasses } from "../../utils/css-classes"
@@ -8,13 +8,31 @@ function App(props: AppRoutedPage) {
   const [sideBarOpen, setSideBarOpen] = useState(true)
   return (
     <Container className={joinClasses(styles.appPage)}>
-      <Sidenav className={joinClasses(styles.sidebar)} expanded={sideBarOpen}>
-        <Sidenav.Header>MENEA</Sidenav.Header>
-        <Sidenav>
-          <Sidenav.Body>Links</Sidenav.Body>
+      <Sidebar collapsible width={sideBarOpen ? 270 : 70}>
+        <Sidenav
+          className={joinClasses(
+            styles.sidebar,
+            sideBarOpen ? styles.open : styles.close
+          )}
+          expanded={sideBarOpen}
+        >
+          <Sidenav.Header
+            className={joinClasses(styles.sidebar, styles.header)}
+          >
+            <h3>MENEA</h3>
+          </Sidenav.Header>
+          <Sidenav>
+            <Sidenav.Body className={joinClasses(styles.sidebar, styles.body)}>
+              Links
+            </Sidenav.Body>
+          </Sidenav>
+          <Container className={joinClasses(styles.sidebar, styles.footer)}>
+            <Button onClick={() => setSideBarOpen((state) => !state)}>
+              {sideBarOpen ? "Close" : "Open"}
+            </Button>
+          </Container>
         </Sidenav>
-        <Button onClick={() => setSideBarOpen((state) => !state)}>Open</Button>
-      </Sidenav>
+      </Sidebar>
       <Container className={styles.content}>
         <Content>Content</Content>
       </Container>
