@@ -2,7 +2,6 @@ import React from "react"
 import { suspenseWrapper } from "../components/atoms/SuspenseWrapper"
 import { Home } from "./lazyComponents"
 
-
 export type AppRoute = AppRoutedPage & {
   path: string
   component: (props: AppRoutedPage) => JSX.Element
@@ -16,7 +15,7 @@ const ROUTES: AppRoute[] = [
   {
     path: "/",
     pageName: "Home",
-    component: suspenseWrapper(Home)
+    component: suspenseWrapper(Home),
   },
 ]
 export default ROUTES
