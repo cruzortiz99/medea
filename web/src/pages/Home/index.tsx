@@ -36,10 +36,16 @@ function App(props: AppRoutedPage) {
           <Sidenav>
             <Sidenav.Body>
               <Nav className={joinClasses(styles.sidebar, styles.body)}>
-                <Nav.Item icon={<Dashboard />} style={{ height: "1rem" }}>
+                <Nav.Item
+                  icon={<Dashboard />}
+                  style={{ height: "40px", paddingTop: "12px" }}
+                >
                   {sideBarOpen && "Avisos y Fallas"}
                 </Nav.Item>
-                <Nav.Item icon={<Dashboard />} style={{ height: "1rem" }}>
+                <Nav.Item
+                  icon={<Dashboard />}
+                  style={{ height: "40px", paddingTop: "12px" }}
+                >
                   {sideBarOpen && "Avisos"}
                 </Nav.Item>
               </Nav>
