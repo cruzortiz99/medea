@@ -29,7 +29,7 @@ function App(props: AppRoutedPage) {
                 }
                 style={{ paddingTop: "0.25rem", height: "100%" }}
               >
-                {sideBarOpen && <h3>MENEA</h3>}
+                {sideBarOpen && <h3>MEDEA</h3>}
               </Nav.Item>
             </Nav>
           </Sidenav.Header>
