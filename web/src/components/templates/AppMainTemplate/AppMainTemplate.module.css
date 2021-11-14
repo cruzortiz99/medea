@@ -18,9 +18,13 @@
   height: 60px;
   margin-bottom: 0px;
 }
-.sidebar.body {
+.sidebar.left.body {
   height: calc(100vh - 60px - 40px);
 }
+.sidebar.right.body {
+  height: calc(100vh);
+}
+
 .sidebar.footer {
   max-height: 40px;
   height: 40px;
@@ -28,7 +32,26 @@
 .sidebar.close {
   width: 76px;
 }
+.sidebar.right.close {
+  width: 0px;
+}
+.sidebarButton.right {
+  position: absolute;
+  top: 20px;
+  left: -60px;
+  z-index: 10;
+}
+.fixed {
+  position: fixed;
+}
+.fixed.right {
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+
 .content {
   width: 100%;
   height: 100%;
+  position: relative;
 }

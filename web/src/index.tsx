@@ -1,11 +1,12 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import { BrowserRouter } from "react-router-dom"
+import "rsuite/dist/rsuite.min.css"
 import "./assets/css/index.css"
+import "./assets/css/variables.css"
 import reportWebVitals from "./reportWebVitals"
 import AppRouter from "./routes"
 import routes from "./routes/routes"
-import "rsuite/dist/rsuite.min.css"
 
 ReactDOM.render(
   <React.StrictMode>
