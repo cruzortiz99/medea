@@ -1,5 +1,6 @@
 import rx
 from flask import Flask, send_file
+from werkzeug.wrappers.response import Response
 
 from config import HOST, PORT
 from utils.browser import open_web_browser
@@ -7,12 +8,13 @@ from constants import ASSETS_FOLDER
 
 APP = Flask(
     __name__,
-    static_folder=ASSETS_FOLDER, static_url_path="/")
+    static_folder=ASSETS_FOLDER.joinpath("app"), static_url_path="/app/")
 
 
-@APP.route("/", methods=["GET"])
-def home():
-    return send_file(ASSETS_FOLDER.joinpath("index.html"))
+@APP.route("/", defaults={"subroute": ""}, methods=["GET"])
+@APP.route("/<path:subroute>", methods=["GET"])
+def home(subroute: str = "") -> Response:
+    return send_file(ASSETS_FOLDER.joinpath("app").joinpath("index.html"))
 
 
 if __name__ == '__main__':
