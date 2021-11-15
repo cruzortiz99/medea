@@ -15,7 +15,9 @@ APP.register_blueprint(WEB_APP)
 
 
 if __name__ == '__main__':
-    rx.create(open_web_browser(HOST, PORT)).subscribe(
+    rx.create(
+        open_web_browser(HOST, PORT)
+    ).subscribe(
         on_next=lambda _: APP.run(host=HOST, port=PORT),
         on_error=print,
         on_completed=print)
