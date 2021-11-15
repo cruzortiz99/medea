@@ -1,8 +1,8 @@
 import React, { Suspense } from "react"
-
+import Loader from "../Loader"
 export function suspenseWrapper<T>(LazyComponent: React.ExoticComponent<T>) {
   return (props: T) => (
-    <Suspense fallback={<h1>Loading please wait</h1>}>
+    <Suspense fallback={<Loader />}>
       <LazyComponent {...props} />
     </Suspense>
   )
