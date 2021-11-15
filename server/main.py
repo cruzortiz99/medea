@@ -3,18 +3,15 @@ from flask import Flask, send_file
 from werkzeug.wrappers.response import Response
 
 from config import HOST, PORT
+from modules.web_app import WEB_APP
 from utils.browser import open_web_browser
 from constants import ASSETS_FOLDER
 
 APP = Flask(
     __name__,
-    static_folder=ASSETS_FOLDER.joinpath("app"), static_url_path="/app/")
+    static_folder=ASSETS_FOLDER, static_url_path="/static")
 
-
-@APP.route("/", defaults={"subroute": ""}, methods=["GET"])
-@APP.route("/<path:subroute>", methods=["GET"])
-def home(subroute: str = "") -> Response:
-    return send_file(ASSETS_FOLDER.joinpath("app").joinpath("index.html"))
+APP.register_blueprint(WEB_APP)
 
 
 if __name__ == '__main__':
