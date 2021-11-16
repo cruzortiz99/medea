@@ -1,0 +1,10 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.content {
+  overflow-y: auto;
+  max-height: calc(100vh - 40px - 62px - 100px);
+}

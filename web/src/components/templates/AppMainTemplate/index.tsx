@@ -7,6 +7,7 @@ import { Observable } from "rxjs"
 import { PAGE_URL } from "../../../constants"
 import { RightMenuOption, homeStore } from "../../../store/home"
 import { joinClasses } from "../../../utils/css-classes"
+import { getVersion } from "../../../utils/env"
 import { useObservable } from "../../../utils/rx/hooks"
 import { useScreenDimension } from "../../../utils/screen/hooks"
 import Loader from "../../atoms/Loader"
@@ -84,7 +85,12 @@ function AppMainTemplate(props: AppMainTemplateProps) {
                   }
                   style={{ paddingTop: "0.25rem", height: "100%" }}
                 >
-                  {leftSideBarOpen && <h3>MEDEA</h3>}
+                  {leftSideBarOpen && (
+                    <h3>
+                      MEDEA
+                      <span className={styles.version}>{getVersion()}</span>
+                    </h3>
+                  )}
                 </Nav.Item>
               </Nav>
             </Sidenav.Header>
