@@ -45,7 +45,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
   return (
     <AlertAndFailurePageView
       plantName="Planta ABC"
-      monthAndYear={"Nov 2011"}
+      monthAndYear={"Noviembre 2021"}
       subtitles={rightMenuOptions.map((subtile) => ({
         label: subtile.label,
         id: subtile.href.substring(1),

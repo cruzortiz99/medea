@@ -1,6 +1,6 @@
 import { Dashboard, Menu } from "@rsuite/icons"
 import React, { ReactNode, useState } from "react"
-import { useLocation } from "react-router"
+import { useLocation, useNavigate } from "react-router"
 import { Link } from "react-router-dom"
 import { Button, Container, Content, Nav, Sidebar, Sidenav } from "rsuite"
 import { Observable } from "rxjs"
@@ -162,8 +162,8 @@ function AppMainTemplate(props: AppMainTemplateProps) {
                 {rightMenuOptions?.map((menuOption, key) => (
                   <Nav.Item
                     key={key}
-                    style={{ height: "40px", paddingTop: "12px" }}
                     href={menuOption.href}
+                    style={{ height: "40px", paddingTop: "12px" }}
                   >
                     {rightSideBarOpen && menuOption.label}
                   </Nav.Item>

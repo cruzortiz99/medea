@@ -19,10 +19,10 @@
   margin-bottom: 0px;
 }
 .sidebar.left.body {
-  height: calc(100vh - 60px - 40px);
+  height: calc(100vh - 60px - 50px);
 }
 .sidebar.right.body {
-  height: calc(100vh);
+  height: calc(100vh - 10px);
 }
 
 .sidebar.footer {
