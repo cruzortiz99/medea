@@ -1,9 +1,13 @@
-import React, { ReactNode } from "react"
+import React, { ReactNode, useRef } from "react"
 import { useLocation } from "react-router-dom"
 import { Col, Divider, Grid, Panel, Row } from "rsuite"
+import AppPlot from "../../../components/atoms/AppPlot"
+import AppPanel from "../../../components/atoms/Panel"
+import AppPanelContainer from "../../../components/atoms/PanelContainer"
 import AppSimplePageTemplate from "../../../components/templates/AppSimplePageTemplate"
 import { PAGE_URL } from "../../../constants"
-import { joinClasses } from "../../../utils/css-classes"
+import { joinClasses, randomColor } from "../../../utils/css"
+import { useScreenDimension } from "../../../utils/screen/hooks"
 import styles from "./AlertAndFailurePage.module.css"
 export type AlertAndFailurePageViewProps = {
   plantName: ReactNode
@@ -15,6 +19,9 @@ function AlertAndFailurePageView(
   props: AlertAndFailurePageViewProps
 ): JSX.Element {
   const hashName = useLocation().hash
+  const refContainerBigGraph = useRef<HTMLDivElement | null>(null)
+  const refContainerMedGraph = useRef<HTMLDivElement | null>(null)
+  const screen = useScreenDimension()
 
   const breadCrumbLinks = props.subtitles
     .filter(
@@ -30,7 +37,7 @@ function AlertAndFailurePageView(
       (acc, current) => (acc.length === 1 ? [...acc, current] : acc),
       [
         {
-          label: "Activos y Fallas",
+          label: "Avisos y Fallas",
           href: `${PAGE_URL.ALERTS_FAILURES}#${props.subtitles[0].id}`,
         },
       ]
@@ -43,64 +50,202 @@ function AlertAndFailurePageView(
     >
       <h4 id={props.subtitles[0].id}>{props.subtitles[0].label}</h4>
       <Divider />
-      <Grid className={joinClasses(styles.fullWidth, styles.panelGroup)} fluid>
+      <AppPanelContainer>
         <Col xs={24} md={16}>
           <Row>
-            <Panel className={styles.panel} shaded>
-              Graph
-            </Panel>
+            <div ref={refContainerBigGraph}>
+              <AppPanel>
+                <AppPlot
+                  layout={{
+                    title: "Avisos Emitidos vs Concluidos",
+                    width:
+                      (refContainerBigGraph.current?.clientWidth ||
+                        screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                    barmode: "group",
+                  }}
+                  data={[
+                    {
+                      x: [1, 2, 3],
+                      y: [9, 4, 9],
+                      marker: { color: randomColor() },
+                      type: "bar",
+                    },
+                    {
+                      x: [1, 2, 3],
+                      y: [8, 3, 8],
+                      marker: { color: randomColor() },
+                      type: "bar",
+                    },
+                  ]}
+                />
+              </AppPanel>
+            </div>
           </Row>
           <Row>
-            <Panel className={styles.panel} shaded>
-              Graph
-            </Panel>
+            <AppPanel>
+              <AppPlot
+                layout={{
+                  title: "Avisos sin ordenes Asignadas",
+                  width:
+                    (refContainerBigGraph.current?.clientWidth ||
+                      screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                  barmode: "group",
+                }}
+                data={[
+                  {
+                    x: [1, 2, 3],
+                    y: [9, 4, 9],
+                    marker: { color: randomColor() },
+                    type: "bar",
+                  },
+                  {
+                    x: [1, 2, 3],
+                    y: [8, 3, 8],
+                    marker: { color: randomColor() },
+                    type: "bar",
+                  },
+                ]}
+              />
+            </AppPanel>
           </Row>
         </Col>
         <Col xs={24} md={8} className={styles.padding0}>
           <Col xs={24} sm={12} md={24} className={joinClasses(styles.padding0)}>
-            <Panel className={styles.panel} shaded>
-              Table
-            </Panel>
+            <AppPanel>Table</AppPanel>
           </Col>
           <Col xs={24} sm={12} md={24} className={joinClasses(styles.padding0)}>
-            <Panel className={styles.panel} shaded>
-              Table
-            </Panel>
+            <AppPanel>Table</AppPanel>
           </Col>
         </Col>
-      </Grid>
+      </AppPanelContainer>
       <br />
       <h4 id={props.subtitles[1].id}>{props.subtitles[1].label}</h4>
       <Divider />
-      <Grid className={joinClasses(styles.fullWidth, styles.panelGroup)} fluid>
+      <AppPanelContainer>
         <Row>
           <Col xs={24} md={12}>
             <Row>
-              <Panel className={styles.panel} shaded>
-                Graph
-              </Panel>
+              <div ref={refContainerMedGraph}>
+                <AppPanel>
+                  <AppPlot
+                    layout={{
+                      title: "Cantidad de fallas de equipos",
+                      width:
+                        (refContainerMedGraph.current?.clientWidth ||
+                          screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                      barmode: "group",
+                    }}
+                    data={[
+                      {
+                        x: [1, 2, 3],
+                        y: [9, 4, 9],
+                        marker: { color: randomColor() },
+                        type: "bar",
+                      },
+                      {
+                        x: [1, 2, 3],
+                        y: [8, 3, 8],
+                        marker: { color: randomColor() },
+                        type: "bar",
+                      },
+                    ]}
+                  />
+                </AppPanel>
+              </div>
             </Row>
             <Row>
-              <Panel className={styles.panel} shaded>
-                Graph
-              </Panel>
+              <AppPanel>
+                <AppPlot
+                  layout={{
+                    title: "Down Time(horas)",
+                    width:
+                      (refContainerMedGraph.current?.clientWidth ||
+                        screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                    barmode: "group",
+                  }}
+                  data={[
+                    {
+                      x: [1, 2, 3],
+                      y: [9, 4, 9],
+                      marker: { color: randomColor() },
+                      type: "bar",
+                    },
+                    {
+                      x: [1, 2, 3],
+                      y: [8, 3, 8],
+                      marker: { color: randomColor() },
+                      type: "bar",
+                    },
+                  ]}
+                />
+              </AppPanel>
             </Row>
           </Col>
           <Col xs={24} md={12}>
             <Row>
-              <Panel className={styles.panel} shaded>
-                Graph
-              </Panel>
+              <AppPanel>
+                <AppPlot
+                  layout={{
+                    title:
+                      "Cantidad de fallas de equipos con <br>paro o limitación de producción",
+                    width:
+                      (refContainerMedGraph.current?.clientWidth ||
+                        screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                    barmode: "group",
+                  }}
+                  data={[
+                    {
+                      x: [1, 2, 3],
+                      y: [9, 4, 9],
+                      marker: { color: randomColor() },
+                      type: "bar",
+                    },
+                    {
+                      x: [1, 2, 3],
+                      y: [8, 3, 8],
+                      marker: { color: randomColor() },
+                      type: "bar",
+                    },
+                    {
+                      x: [1, 2, 3],
+                      y: [17, 7, 17],
+                      marker: { color: randomColor() },
+                    },
+                  ]}
+                />
+              </AppPanel>
             </Row>
             <Row>
-              <Panel className={styles.panel} shaded>
-                Graph
-              </Panel>
+              <AppPanel>
+                <AppPlot
+                  layout={{
+                    title: "Down time con <br> impacto a la producción",
+                    width:
+                      (refContainerMedGraph.current?.clientWidth ||
+                        screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                    barmode: "group",
+                  }}
+                  data={[
+                    {
+                      x: [1, 2, 3],
+                      y: [9, 4, 9],
+                      marker: { color: randomColor() },
+                      type: "bar",
+                    },
+                    {
+                      x: [1, 2, 3],
+                      y: [8, 3, 8],
+                      marker: { color: randomColor() },
+                      type: "bar",
+                    },
+                  ]}
+                />
+              </AppPanel>
             </Row>
           </Col>
         </Row>
         <Row>
-          <Panel className={styles.panel} shaded>
+          <AppPanel>
             <Grid className={styles.fullWidth} fluid>
               <Col xs={24} md={12}>
                 Table
@@ -109,10 +254,10 @@ function AlertAndFailurePageView(
                 Table
               </Col>
             </Grid>
-          </Panel>
+          </AppPanel>
         </Row>
         <Row>
-          <Panel className={styles.panel} shaded>
+          <AppPanel>
             <Grid className={styles.fullWidth} fluid>
               <Col xs={24} md={12}>
                 Table
@@ -121,51 +266,91 @@ function AlertAndFailurePageView(
                 Table
               </Col>
             </Grid>
-          </Panel>
+          </AppPanel>
         </Row>
         <Row>
-          <Panel className={styles.panel} shaded>
+          <AppPanel>
             <Grid className={styles.fullWidth} fluid>
               <Col xs={24} md={12}>
                 Table
               </Col>
               <Col xs={24} md={12}>
-                Graph
+                <AppPlot
+                  layout={{
+                    title: "TPEF",
+                    width:
+                      (refContainerMedGraph.current?.clientWidth ||
+                        screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                    barmode: "group",
+                  }}
+                  data={[
+                    {
+                      x: [1, 2, 3],
+                      y: [9, 4, 9],
+                      marker: { color: randomColor() },
+                      type: "bar",
+                    },
+                    {
+                      x: [1, 2, 3],
+                      y: [8, 3, 8],
+                      marker: { color: randomColor() },
+                      type: "bar",
+                    },
+                  ]}
+                />
               </Col>
             </Grid>
-          </Panel>
+          </AppPanel>
         </Row>
-      </Grid>
+      </AppPanelContainer>
       <br />
       <h4 id={props.subtitles[2].id}>{props.subtitles[2].label}</h4>
       <Divider />
-      <Grid className={joinClasses(styles.fullWidth, styles.panelGroup)} fluid>
+      <AppPanelContainer>
         <Col xs={24}>
-          <Panel className={styles.panel} shaded>
-            Table
-          </Panel>
+          <AppPanel>Table</AppPanel>
         </Col>
-      </Grid>
+      </AppPanelContainer>
       <br />
       <h4 id={props.subtitles[3].id}>{props.subtitles[3].label}</h4>
       <Divider />
-      <Grid className={joinClasses(styles.fullWidth, styles.panelGroup)} fluid>
+      <AppPanelContainer>
         <Col xs={24}>
-          <Panel className={styles.panel} shaded>
-            Table
-          </Panel>
+          <AppPanel>
+            <Grid fluid={true}>
+              <Col xs={24} md={12}>
+                <AppPlot
+                  layout={{
+                    title: "Ocurrencia de falla",
+                    width:
+                      (refContainerMedGraph.current?.clientWidth ||
+                        screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                  }}
+                  data={[
+                    {
+                      x: [1, 2, 3],
+                      y: [9, 4, 9],
+                      marker: { color: randomColor() },
+                      type: "bar",
+                    },
+                  ]}
+                />
+              </Col>
+              <Col xs={24} md={12}>
+                Table
+              </Col>
+            </Grid>
+          </AppPanel>
         </Col>
-      </Grid>
+      </AppPanelContainer>
       <br />
       <h4 id={props.subtitles[4].id}>{props.subtitles[4].label}</h4>
       <Divider />
-      <Grid className={joinClasses(styles.fullWidth, styles.panelGroup)} fluid>
+      <AppPanelContainer>
         <Col xs={24}>
-          <Panel className={styles.panel} shaded>
-            Table
-          </Panel>
+          <AppPanel>Table</AppPanel>
         </Col>
-      </Grid>
+      </AppPanelContainer>
       <br />
       <h4 id={props.subtitles[5].id}>{props.subtitles[5].label}</h4>
       <Divider />

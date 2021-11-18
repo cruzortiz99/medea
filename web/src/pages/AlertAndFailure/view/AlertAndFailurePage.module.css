@@ -1,13 +1,5 @@
-.panelGroup {
-  background-color: lightgray;
-  padding: 10px;
-}
 .fullWidth {
   width: 100%;
-}
-.panel {
-  background-color: white;
-  margin: 4px;
 }
 .section.table {
   padding: 0;

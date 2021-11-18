@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react"
 import { Breadcrumb, Container, Content, Header } from "rsuite"
-import { joinClasses } from "../../../utils/css-classes"
+import { joinClasses } from "../../../utils/css"
 import styles from "./AppSimplePageTemplate.module.css"
 
 export type AppSimplePageTemplateProps = {
