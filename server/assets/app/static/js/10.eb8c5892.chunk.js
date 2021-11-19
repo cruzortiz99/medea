@@ -1,2 +1,0 @@
-(this.webpackJsonpweb=this.webpackJsonpweb||[]).push([[10],{557:function(e,s,t){"use strict";t.r(s);t(0);var i=t(3);s.default=function(e){return Object(i.jsx)("h3",{children:"Historial de Equipos"})}}}]);
-//# sourceMappingURL=10.eb8c5892.chunk.js.map

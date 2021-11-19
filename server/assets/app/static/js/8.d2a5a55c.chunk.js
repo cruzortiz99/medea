@@ -1,2 +1,0 @@
-(this.webpackJsonpweb=this.webpackJsonpweb||[]).push([[8],{556:function(s,t,e){"use strict";e.r(t);e(0);var n=e(3);t.default=function(s){return Object(n.jsx)("h3",{children:"Costos"})}}}]);
-//# sourceMappingURL=8.d2a5a55c.chunk.js.map
