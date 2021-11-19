@@ -1,4 +1,4 @@
-import React, { ReactNode, useRef } from "react"
+import React, { ReactNode, useRef, useState } from "react"
 import { useLocation } from "react-router-dom"
 import { Col, Divider, Grid, Panel, Row } from "rsuite"
 import AppPlot from "../../../components/atoms/AppPlot"
@@ -22,6 +22,11 @@ function AlertAndFailurePageView(
   const refContainerBigGraph = useRef<HTMLDivElement | null>(null)
   const refContainerMedGraph = useRef<HTMLDivElement | null>(null)
   const screen = useScreenDimension()
+  const [colors] = useState<string[]>([
+    randomColor(),
+    randomColor(),
+    randomColor(),
+  ])
 
   const breadCrumbLinks = props.subtitles
     .filter(
@@ -61,19 +66,18 @@ function AlertAndFailurePageView(
                     width:
                       (refContainerBigGraph.current?.clientWidth ||
                         screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
-                    barmode: "group",
                   }}
                   data={[
                     {
                       x: [1, 2, 3],
                       y: [9, 4, 9],
-                      marker: { color: randomColor() },
+                      marker: { color: colors[0] },
                       type: "bar",
                     },
                     {
                       x: [1, 2, 3],
                       y: [8, 3, 8],
-                      marker: { color: randomColor() },
+                      marker: { color: colors[1] },
                       type: "bar",
                     },
                   ]}
@@ -89,19 +93,18 @@ function AlertAndFailurePageView(
                   width:
                     (refContainerBigGraph.current?.clientWidth ||
                       screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
-                  barmode: "group",
                 }}
                 data={[
                   {
                     x: [1, 2, 3],
                     y: [9, 4, 9],
-                    marker: { color: randomColor() },
+                    marker: { color: colors[0] },
                     type: "bar",
                   },
                   {
                     x: [1, 2, 3],
                     y: [8, 3, 8],
-                    marker: { color: randomColor() },
+                    marker: { color: colors[1] },
                     type: "bar",
                   },
                 ]}
@@ -133,19 +136,18 @@ function AlertAndFailurePageView(
                       width:
                         (refContainerMedGraph.current?.clientWidth ||
                           screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
-                      barmode: "group",
                     }}
                     data={[
                       {
                         x: [1, 2, 3],
                         y: [9, 4, 9],
-                        marker: { color: randomColor() },
+                        marker: { color: colors[0] },
                         type: "bar",
                       },
                       {
                         x: [1, 2, 3],
                         y: [8, 3, 8],
-                        marker: { color: randomColor() },
+                        marker: { color: colors[1] },
                         type: "bar",
                       },
                     ]}
@@ -161,19 +163,18 @@ function AlertAndFailurePageView(
                     width:
                       (refContainerMedGraph.current?.clientWidth ||
                         screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
-                    barmode: "group",
                   }}
                   data={[
                     {
                       x: [1, 2, 3],
                       y: [9, 4, 9],
-                      marker: { color: randomColor() },
+                      marker: { color: colors[0] },
                       type: "bar",
                     },
                     {
                       x: [1, 2, 3],
                       y: [8, 3, 8],
-                      marker: { color: randomColor() },
+                      marker: { color: colors[1] },
                       type: "bar",
                     },
                   ]}
@@ -191,25 +192,24 @@ function AlertAndFailurePageView(
                     width:
                       (refContainerMedGraph.current?.clientWidth ||
                         screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
-                    barmode: "group",
                   }}
                   data={[
                     {
                       x: [1, 2, 3],
                       y: [9, 4, 9],
-                      marker: { color: randomColor() },
+                      marker: { color: colors[0] },
                       type: "bar",
                     },
                     {
                       x: [1, 2, 3],
                       y: [8, 3, 8],
-                      marker: { color: randomColor() },
+                      marker: { color: colors[1] },
                       type: "bar",
                     },
                     {
                       x: [1, 2, 3],
                       y: [17, 7, 17],
-                      marker: { color: randomColor() },
+                      marker: { color: colors[2] },
                     },
                   ]}
                 />
@@ -223,19 +223,18 @@ function AlertAndFailurePageView(
                     width:
                       (refContainerMedGraph.current?.clientWidth ||
                         screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
-                    barmode: "group",
                   }}
                   data={[
                     {
                       x: [1, 2, 3],
                       y: [9, 4, 9],
-                      marker: { color: randomColor() },
+                      marker: { color: colors[0] },
                       type: "bar",
                     },
                     {
                       x: [1, 2, 3],
                       y: [8, 3, 8],
-                      marker: { color: randomColor() },
+                      marker: { color: colors[1] },
                       type: "bar",
                     },
                   ]}
@@ -281,20 +280,21 @@ function AlertAndFailurePageView(
                     width:
                       (refContainerMedGraph.current?.clientWidth ||
                         screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
-                    barmode: "group",
                   }}
                   data={[
                     {
-                      x: [1, 2, 3],
-                      y: [9, 4, 9],
-                      marker: { color: randomColor() },
+                      x: [9, 4, 9],
+                      y: [1, 2, 3],
+                      marker: { color: colors[0] },
                       type: "bar",
+                      orientation: "h",
                     },
                     {
-                      x: [1, 2, 3],
-                      y: [8, 3, 8],
-                      marker: { color: randomColor() },
+                      x: [8, 3, 8],
+                      y: [1, 2, 3],
+                      marker: { color: colors[1] },
                       type: "bar",
+                      orientation: "h",
                     },
                   ]}
                 />
@@ -330,7 +330,7 @@ function AlertAndFailurePageView(
                     {
                       x: [1, 2, 3],
                       y: [9, 4, 9],
-                      marker: { color: randomColor() },
+                      marker: { color: colors[0] },
                       type: "bar",
                     },
                   ]}
