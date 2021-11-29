@@ -1,7 +1,6 @@
-import { TableColumn } from "@rsuite/icons"
 import React, { ReactNode, useRef, useState } from "react"
 import { useLocation } from "react-router-dom"
-import { Col, Divider, Grid, Panel, Row, Table } from "rsuite"
+import { Col, Divider, Grid, Row, Table } from "rsuite"
 import AppPlot from "../../../components/atoms/AppPlot"
 import AppPanel from "../../../components/atoms/Panel"
 import AppPanelContainer from "../../../components/atoms/PanelContainer"
@@ -57,7 +56,7 @@ function AlertAndFailurePageView(
       <h4 id={props.subtitles[0].id}>{props.subtitles[0].label}</h4>
       <Divider />
       <AppPanelContainer>
-        <Col xs={24} md={16}>
+        <Col xs={24} lg={16}>
           <Row>
             <div ref={refContainerBigGraph}>
               <AppPanel>
@@ -113,101 +112,117 @@ function AlertAndFailurePageView(
             </AppPanel>
           </Row>
         </Col>
-        <Col xs={24} md={8} className={styles.padding0}>
-          <Col xs={24} sm={12} md={24} className={joinClasses(styles.padding0)}>
-            <AppPanel>Avisos M2
-              <Table data={[
-                {
-                  executor: "Operador",
-                  amount: 0,
-                  hours: 0.00,
-                  sinFF: 0,
-                },
-                {
-                  executor: "Mantenedor",
-                  amount: 0,
-                  hours: 0.00,
-                  sinFF: 0,
-                },
-                {
-                  executor: "Sin inform",
-                  amount: 0,
-                  hours: 0.00,
-                  sinFF: 0,
-                },
-                {
-                  executor: "Total",
-                  amount: 0,
-                  hours: 0.00,
-                  sinFF: 0,
-                },
-              ]}>
+        <Col xs={24} lg={8} className={styles.padding0}>
+          <AppPanel>
+            <Col
+              xs={24}
+              md={11}
+              lg={24}
+              className={joinClasses(styles.padding0, styles.margin10)}
+            >
+              <strong>Avisos M2</strong>
+              <Table
+                height={260}
+                data={[
+                  {
+                    executor: "Operador",
+                    amount: 0,
+                    hours: 0.0,
+                    sinFF: 0,
+                  },
+                  {
+                    executor: "Mantenedor",
+                    amount: 0,
+                    hours: 0.0,
+                    sinFF: 0,
+                  },
+                  {
+                    executor: "Sin inform",
+                    amount: 0,
+                    hours: 0.0,
+                    sinFF: 0,
+                  },
+                  {
+                    executor: "Total",
+                    amount: 0,
+                    hours: 0.0,
+                    sinFF: 0,
+                  },
+                ]}
+              >
                 <Table.Column>
                   <Table.HeaderCell>Ejecutor</Table.HeaderCell>
-                  <Table.Cell dataKey="executor"/>
-                </Table.Column>    
-                <Table.Column>
-                  <Table.HeaderCell>Cantidad</Table.HeaderCell>
-                  <Table.Cell dataKey="amount"/>
-                </Table.Column>    
-                <Table.Column>
-                  <Table.HeaderCell>Horas</Table.HeaderCell>
-                  <Table.Cell dataKey="hours"/>
-                </Table.Column>    
-                <Table.Column>
-                  <Table.HeaderCell>Sin FF</Table.HeaderCell>
-                  <Table.Cell dataKey="sinFF"/>
-                </Table.Column>    
-              </Table>
-            </AppPanel>
-          </Col>
-          <Col xs={24} sm={12} md={24} className={joinClasses(styles.padding0)}>
-            <AppPanel>Avisos M3
-              <Table data={[
-                {
-                  executor: "Operador",
-                  amount: 0,
-                  hours: 0.00,
-                  sinFF: 0,
-                },
-                {
-                  executor: "Mantenedor",
-                  amount: 0,
-                  hours: 0.00,
-                  sinFF: 0,
-                },
-                {
-                  executor: "Sin inform",
-                  amount: 0,
-                  hours: 0.00,
-                  sinFF: 0,
-                },
-                {
-                  executor: "Total",
-                  amount: 0,
-                  hours: 0.00,
-                  sinFF: 0,
-                },
-              ]}>
-                <Table.Column>
-                  <Table.HeaderCell>Ejecutor</Table.HeaderCell>
-                  <Table.Cell dataKey="executor"/>
+                  <Table.Cell dataKey="executor" />
                 </Table.Column>
                 <Table.Column>
                   <Table.HeaderCell>Cantidad</Table.HeaderCell>
-                  <Table.Cell dataKey="amount"/>
+                  <Table.Cell dataKey="amount" />
                 </Table.Column>
                 <Table.Column>
                   <Table.HeaderCell>Horas</Table.HeaderCell>
-                  <Table.Cell dataKey="hours"/>
+                  <Table.Cell dataKey="hours" />
                 </Table.Column>
                 <Table.Column>
                   <Table.HeaderCell>Sin FF</Table.HeaderCell>
-                  <Table.Cell dataKey="sinFF"/>
+                  <Table.Cell dataKey="sinFF" />
                 </Table.Column>
               </Table>
-            </AppPanel>
-          </Col>
+            </Col>
+            <Col
+              xs={24}
+              md={11}
+              lg={24}
+              className={joinClasses(styles.padding0, styles.margin10)}
+            >
+              <strong>Avisos M3</strong>
+              <Table
+                height={260}
+                data={[
+                  {
+                    executor: "Operador",
+                    amount: 0,
+                    hours: 0.0,
+                    sinFF: 0,
+                  },
+                  {
+                    executor: "Mantenedor",
+                    amount: 0,
+                    hours: 0.0,
+                    sinFF: 0,
+                  },
+                  {
+                    executor: "Sin inform",
+                    amount: 0,
+                    hours: 0.0,
+                    sinFF: 0,
+                  },
+                  {
+                    executor: "Total",
+                    amount: 0,
+                    hours: 0.0,
+                    sinFF: 0,
+                  },
+                ]}
+              >
+                <Table.Column>
+                  <Table.HeaderCell>Ejecutor</Table.HeaderCell>
+                  <Table.Cell dataKey="executor" />
+                </Table.Column>
+                <Table.Column>
+                  <Table.HeaderCell>Cantidad</Table.HeaderCell>
+                  <Table.Cell dataKey="amount" />
+                </Table.Column>
+                <Table.Column>
+                  <Table.HeaderCell>Horas</Table.HeaderCell>
+                  <Table.Cell dataKey="hours" />
+                </Table.Column>
+                <Table.Column>
+                  <Table.HeaderCell>Sin FF</Table.HeaderCell>
+                  <Table.Cell dataKey="sinFF" />
+                </Table.Column>
+              </Table>
+            </Col>
+          </AppPanel>
         </Col>
       </AppPanelContainer>
       <br />
@@ -215,7 +230,7 @@ function AlertAndFailurePageView(
       <Divider />
       <AppPanelContainer>
         <Row>
-          <Col xs={24} md={12}>
+          <Col xs={24} lg={12}>
             <Row>
               <div ref={refContainerMedGraph}>
                 <AppPanel>
@@ -271,7 +286,7 @@ function AlertAndFailurePageView(
               </AppPanel>
             </Row>
           </Col>
-          <Col xs={24} md={12}>
+          <Col xs={24} lg={12}>
             <Row>
               <AppPanel>
                 <AppPlot
@@ -335,22 +350,10 @@ function AlertAndFailurePageView(
         <Row>
           <AppPanel>
             <Grid className={styles.fullWidth} fluid>
-              <Col xs={24} md={12}>
+              <Col xs={24} lg={12}>
                 Table
               </Col>
-              <Col xs={24} md={12}>
-                Table
-              </Col>
-            </Grid>
-          </AppPanel>
-        </Row>
-        <Row>
-          <AppPanel>
-            <Grid className={styles.fullWidth} fluid>
-              <Col xs={24} md={12}>
-                Table
-              </Col>
-              <Col xs={24} md={12}>
+              <Col xs={24} lg={12}>
                 Table
               </Col>
             </Grid>
@@ -359,10 +362,22 @@ function AlertAndFailurePageView(
         <Row>
           <AppPanel>
             <Grid className={styles.fullWidth} fluid>
-              <Col xs={24} md={12}>
+              <Col xs={24} lg={12}>
                 Table
               </Col>
-              <Col xs={24} md={12}>
+              <Col xs={24} lg={12}>
+                Table
+              </Col>
+            </Grid>
+          </AppPanel>
+        </Row>
+        <Row>
+          <AppPanel>
+            <Grid className={styles.fullWidth} fluid>
+              <Col xs={24} lg={12}>
+                Table
+              </Col>
+              <Col xs={24} lg={12}>
                 <AppPlot
                   layout={{
                     title: "TPEF",
@@ -407,7 +422,7 @@ function AlertAndFailurePageView(
         <Col xs={24}>
           <AppPanel>
             <Grid fluid={true}>
-              <Col xs={24} md={12}>
+              <Col xs={24} lg={12}>
                 <AppPlot
                   layout={{
                     title: "Ocurrencia de falla",
@@ -425,7 +440,7 @@ function AlertAndFailurePageView(
                   ]}
                 />
               </Col>
-              <Col xs={24} md={12}>
+              <Col xs={24} lg={12}>
                 Table
               </Col>
             </Grid>
