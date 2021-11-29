@@ -1,6 +1,7 @@
+import { TableColumn } from "@rsuite/icons"
 import React, { ReactNode, useRef, useState } from "react"
 import { useLocation } from "react-router-dom"
-import { Col, Divider, Grid, Panel, Row } from "rsuite"
+import { Col, Divider, Grid, Panel, Row, Table } from "rsuite"
 import AppPlot from "../../../components/atoms/AppPlot"
 import AppPanel from "../../../components/atoms/Panel"
 import AppPanelContainer from "../../../components/atoms/PanelContainer"
@@ -114,10 +115,98 @@ function AlertAndFailurePageView(
         </Col>
         <Col xs={24} md={8} className={styles.padding0}>
           <Col xs={24} sm={12} md={24} className={joinClasses(styles.padding0)}>
-            <AppPanel>Table</AppPanel>
+            <AppPanel>Avisos M2
+              <Table data={[
+                {
+                  executor: "Operador",
+                  amount: 0,
+                  hours: 0.00,
+                  sinFF: 0,
+                },
+                {
+                  executor: "Mantenedor",
+                  amount: 0,
+                  hours: 0.00,
+                  sinFF: 0,
+                },
+                {
+                  executor: "Sin inform",
+                  amount: 0,
+                  hours: 0.00,
+                  sinFF: 0,
+                },
+                {
+                  executor: "Total",
+                  amount: 0,
+                  hours: 0.00,
+                  sinFF: 0,
+                },
+              ]}>
+                <Table.Column>
+                  <Table.HeaderCell>Ejecutor</Table.HeaderCell>
+                  <Table.Cell dataKey="executor"/>
+                </Table.Column>    
+                <Table.Column>
+                  <Table.HeaderCell>Cantidad</Table.HeaderCell>
+                  <Table.Cell dataKey="amount"/>
+                </Table.Column>    
+                <Table.Column>
+                  <Table.HeaderCell>Horas</Table.HeaderCell>
+                  <Table.Cell dataKey="hours"/>
+                </Table.Column>    
+                <Table.Column>
+                  <Table.HeaderCell>Sin FF</Table.HeaderCell>
+                  <Table.Cell dataKey="sinFF"/>
+                </Table.Column>    
+              </Table>
+            </AppPanel>
           </Col>
           <Col xs={24} sm={12} md={24} className={joinClasses(styles.padding0)}>
-            <AppPanel>Table</AppPanel>
+            <AppPanel>Avisos M3
+              <Table data={[
+                {
+                  executor: "Operador",
+                  amount: 0,
+                  hours: 0.00,
+                  sinFF: 0,
+                },
+                {
+                  executor: "Mantenedor",
+                  amount: 0,
+                  hours: 0.00,
+                  sinFF: 0,
+                },
+                {
+                  executor: "Sin inform",
+                  amount: 0,
+                  hours: 0.00,
+                  sinFF: 0,
+                },
+                {
+                  executor: "Total",
+                  amount: 0,
+                  hours: 0.00,
+                  sinFF: 0,
+                },
+              ]}>
+                <Table.Column>
+                  <Table.HeaderCell>Ejecutor</Table.HeaderCell>
+                  <Table.Cell dataKey="executor"/>
+                </Table.Column>
+                <Table.Column>
+                  <Table.HeaderCell>Cantidad</Table.HeaderCell>
+                  <Table.Cell dataKey="amount"/>
+                </Table.Column>
+                <Table.Column>
+                  <Table.HeaderCell>Horas</Table.HeaderCell>
+                  <Table.Cell dataKey="hours"/>
+                </Table.Column>
+                <Table.Column>
+                  <Table.HeaderCell>Sin FF</Table.HeaderCell>
+                  <Table.Cell dataKey="sinFF"/>
+                </Table.Column>
+              </Table>
+            </AppPanel>
           </Col>
         </Col>
       </AppPanelContainer>
