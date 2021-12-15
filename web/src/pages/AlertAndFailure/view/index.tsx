@@ -5,6 +5,7 @@ import AppPlot from "../../../components/atoms/AppPlot"
 import AppPanel from "../../../components/atoms/Panel"
 import AppPanelContainer from "../../../components/atoms/PanelContainer"
 import AppSimplePageTemplate from "../../../components/templates/AppSimplePageTemplate"
+import AppTable from "../../../components/atoms/AppTable"
 import { PAGE_URL } from "../../../constants"
 import { joinClasses, randomColor } from "../../../utils/css"
 import { useScreenDimension } from "../../../utils/screen/hooks"
@@ -121,53 +122,65 @@ function AlertAndFailurePageView(
               className={joinClasses(styles.padding0, styles.margin10)}
             >
               <strong>Avisos M2</strong>
-              <Table
-                height={260}
-                wordWrap
-                data={[
-                  {
-                    executor: "Operador",
-                    amount: 0,
-                    hours: 0.0,
-                    sinFF: 0,
-                  },
-                  {
-                    executor: "Mantenedor",
-                    amount: 0,
-                    hours: 0.0,
-                    sinFF: 0,
-                  },
-                  {
-                    executor: "Sin inform",
-                    amount: 0,
-                    hours: 0.0,
-                    sinFF: 0,
-                  },
-                  {
-                    executor: "Total",
-                    amount: 0,
-                    hours: 0.0,
-                    sinFF: 0,
-                  },
-                ]}
-              >
-                <Table.Column flexGrow={1} minWidth={120}>
-                  <Table.HeaderCell>Ejecutor</Table.HeaderCell>
-                  <Table.Cell dataKey="executor" />
-                </Table.Column>
-                <Table.Column width={80} align="center">
-                  <Table.HeaderCell>Cantidad</Table.HeaderCell>
-                  <Table.Cell dataKey="amount" />
-                </Table.Column>
-                <Table.Column width={80} align="center">
-                  <Table.HeaderCell>Horas</Table.HeaderCell>
-                  <Table.Cell dataKey="hours" />
-                </Table.Column>
-                <Table.Column width={80} align="center">
-                  <Table.HeaderCell>Sin FF</Table.HeaderCell>
-                  <Table.Cell dataKey="sinFF" />
-                </Table.Column>
-              </Table>
+              <AppTable
+              height={260}
+              dataTable={[
+                {
+                  executor: "Operador",
+                  amount: 0,
+                  hours: 0.0,
+                  sinFF: 0,
+                },
+                {
+                  executor: "Mantenedor",
+                  amount: 0,
+                  hours: 0.0,
+                  sinFF: 0,
+                },
+                {
+                  executor: "Sin inform",
+                  amount: 0,
+                  hours: 0.0,
+                  sinFF: 0,
+                },
+                {
+                  executor: "Total",
+                  amount: 0,
+                  hours: 0.0,
+                  sinFF: 0,
+                },
+              ]}
+              columns={[
+                {
+                  headerCell: "Ejecutor",
+                  dataKey: "executor",
+                  flexGrowColumn: 1,
+                  alingColumn: "left",
+                  minWidthColumn: 100
+                },
+                {
+                  headerCell: "cantidad",
+                  dataKey: "amount",
+                  flexGrowColumn: 1,
+                  alingColumn: "center",
+                  minWidthColumn: 50
+                },
+                {
+                  headerCell: "Horas",
+                  dataKey: "hours",
+                  flexGrowColumn: 1,
+                  alingColumn: "center",
+                  minWidthColumn: 50
+                },
+                {
+                  headerCell: "Sin FF",
+                  dataKey: "sinFF",
+                  flexGrowColumn: 1,
+                  alingColumn: "center",
+                  minWidthColumn: 50
+                },
+              ]}
+              />
             </Col>
             <Col
               xs={24}
@@ -176,53 +189,65 @@ function AlertAndFailurePageView(
               className={joinClasses(styles.padding0, styles.margin10)}
             >
               <strong>Avisos M3</strong>
-              <Table
-                height={260}
-                wordWrap
-                data={[
-                  {
-                    executor: "Operador",
-                    amount: 0,
-                    hours: 0.0,
-                    sinFF: 0,
-                  },
-                  {
-                    executor: "Mantenedor",
-                    amount: 0,
-                    hours: 0.0,
-                    sinFF: 0,
-                  },
-                  {
-                    executor: "Sin inform",
-                    amount: 0,
-                    hours: 0.0,
-                    sinFF: 0,
-                  },
-                  {
-                    executor: "Total",
-                    amount: 0,
-                    hours: 0.0,
-                    sinFF: 0,
-                  },
-                ]}
-              >
-                <Table.Column flexGrow={1} minWidth={120}>
-                  <Table.HeaderCell>Ejecutor</Table.HeaderCell>
-                  <Table.Cell dataKey="executor" />
-                </Table.Column>
-                <Table.Column width={80} align="center">
-                  <Table.HeaderCell>Cantidad</Table.HeaderCell>
-                  <Table.Cell dataKey="amount" />
-                </Table.Column>
-                <Table.Column width={80} align="center">
-                  <Table.HeaderCell>Horas</Table.HeaderCell>
-                  <Table.Cell dataKey="hours" />
-                </Table.Column>
-                <Table.Column width={80} align="center">
-                  <Table.HeaderCell>Sin FF</Table.HeaderCell>
-                  <Table.Cell dataKey="sinFF" />
-                </Table.Column>
-              </Table>
+              <AppTable
+              height={260}
+              dataTable={[
+                {
+                  executor: "Operador",
+                  amount: 0,
+                  hours: 0.0,
+                  sinFF: 0,
+                },
+                {
+                  executor: "Mantenedor",
+                  amount: 0,
+                  hours: 0.0,
+                  sinFF: 0,
+                },
+                {
+                  executor: "Sin inform",
+                  amount: 0,
+                  hours: 0.0,
+                  sinFF: 0,
+                },
+                {
+                  executor: "Total",
+                  amount: 0,
+                  hours: 0.0,
+                  sinFF: 0,
+                },
+              ]}
+              columns={[
+                {
+                  headerCell: "Ejecutor",
+                  dataKey: "executor",
+                  flexGrowColumn: 1,
+                  alingColumn: "left",
+                  minWidthColumn: 100
+                },
+                {
+                  headerCell: "cantidad",
+                  dataKey: "amount",
+                  flexGrowColumn: 1,
+                  alingColumn: "center",
+                  minWidthColumn: 50
+                },
+                {
+                  headerCell: "Horas",
+                  dataKey: "hours",
+                  flexGrowColumn: 1,
+                  alingColumn: "center",
+                  minWidthColumn: 50
+                },
+                {
+                  headerCell: "Sin FF",
+                  dataKey: "sinFF",
+                  flexGrowColumn: 1,
+                  alingColumn: "center",
+                  minWidthColumn: 50
+                },
+              ]}
+              />
             </Col>
           </AppPanel>
         </Col>
@@ -354,10 +379,8 @@ function AlertAndFailurePageView(
             <Grid className={styles.fullWidth} fluid>
               <Col xs={24} lg={12}>
                 <strong>Total fallas</strong>
-                <Table 
-                height={320}
-                wordWrap 
-                data={[
+                <AppTable
+                dataTable={[
                   {
                     position: 1,
                     tag: "TP-1220",
@@ -398,39 +421,57 @@ function AlertAndFailurePageView(
                     downTime: 9.54,
                     acdt: 1,
                   },
-                ]}>
-                  <Table.Column align="center" width={50}>
-                    <Table.HeaderCell>Pos</Table.HeaderCell>
-                    <Table.Cell dataKey="position"/>
-                  </Table.Column>
-                  <Table.Column align="center" width={120}>
-                    <Table.HeaderCell>TAG</Table.HeaderCell>
-                    <Table.Cell dataKey="tag"/>
-                  </Table.Column>
-                  <Table.Column flexGrow={1} minWidth={300}>
-                    <Table.HeaderCell>Descripcion</Table.HeaderCell>
-                    <Table.Cell dataKey="description"/>
-                  </Table.Column>
-                  <Table.Column align="center" width={60}>
-                    <Table.HeaderCell>Cant.</Table.HeaderCell>
-                    <Table.Cell dataKey="amount"/>
-                  </Table.Column>
-                  <Table.Column width={120} align="center">
-                    <Table.HeaderCell>Down time Hrs</Table.HeaderCell>
-                    <Table.Cell dataKey="downTime"/>
-                  </Table.Column>
-                  <Table.Column align="center" width={60}>
-                    <Table.HeaderCell>ACDT</Table.HeaderCell>
-                    <Table.Cell dataKey="acdt"/>
-                  </Table.Column>
-                </Table>
+                ]}
+                height={320}
+                columns={[
+                  {
+                    headerCell: "Pos",
+                    dataKey: "position",
+                    alingColumn: "center",
+                    minWidthColumn: 50,
+                  },
+                  {
+                    headerCell: "TAG",
+                    dataKey: "tag",
+                    flexGrowColumn: 1,
+                    alingColumn: "left",
+                    minWidthColumn: 120,
+                  },
+                  {
+                    headerCell: "Descripcion",
+                    dataKey: "description",
+                    flexGrowColumn: 2,
+                    alingColumn: "left",
+                    minWidthColumn: 300,
+                  },
+                  {
+                    headerCell: "Cant.",
+                    dataKey: "amount",
+                    flexGrowColumn: 1,
+                    alingColumn: "center",
+                    minWidthColumn: 100,
+                  },
+                  {
+                    headerCell: "Down time Hrs",
+                    dataKey: "downTime",
+                    flexGrowColumn: 1,
+                    alingColumn: "center",
+                    minWidthColumn: 120,
+                  },
+                  {
+                    headerCell: "ACDT",
+                    dataKey: "acdt",
+                    flexGrowColumn: 1,
+                    alingColumn: "center",
+                    minWidthColumn: 100,
+                  },
+                ]}
+                />
               </Col>
               <Col xs={24} lg={12}>
                 <strong>Total fallas con paro o limitacion de la produccion</strong>
-                <Table
-                 height={320}
-                 wordWrap 
-                 data={[
+                <AppTable
+                dataTable={[
                   {
                     position: 1,
                     tag: "TP-1220",
@@ -476,36 +517,59 @@ function AlertAndFailurePageView(
                     amount: 1,
                     dtHours: 2.4,
                   },
-                 ]}>
-                  <Table.Column align="center" width={50}>
-                    <Table.HeaderCell>Pos</Table.HeaderCell>
-                    <Table.Cell dataKey="position"/>
-                  </Table.Column>
-                  <Table.Column align="center" width={120}>
-                    <Table.HeaderCell>TAG</Table.HeaderCell>
-                    <Table.Cell dataKey="tag"/>
-                  </Table.Column>
-                  <Table.Column flexGrow={1} minWidth={300}>
-                    <Table.HeaderCell>Descripcion</Table.HeaderCell>
-                    <Table.Cell dataKey="description"/>
-                  </Table.Column>
-                  <Table.Column align="center" width={60}>
-                    <Table.HeaderCell>#R3</Table.HeaderCell>
-                    <Table.Cell dataKey="r3"/>
-                  </Table.Column>
-                  <Table.Column align="center" width={60}>
-                    <Table.HeaderCell>#R2</Table.HeaderCell>
-                    <Table.Cell dataKey="r2"/>
-                  </Table.Column>
-                  <Table.Column align="center" width={60}>
-                    <Table.HeaderCell>Cant.</Table.HeaderCell>
-                    <Table.Cell dataKey="amount"/>
-                  </Table.Column>
-                  <Table.Column width={60} align="center">
-                    <Table.HeaderCell>DT Hrs</Table.HeaderCell>
-                    <Table.Cell dataKey="dtHours"/>
-                  </Table.Column>
-                </Table>
+                ]}
+                height={320}
+                columns={[
+                  {
+                    headerCell: "Pos",
+                    dataKey: "position",
+                    alingColumn: "center",
+                    minWidthColumn: 50
+                  },
+                  {
+                    headerCell: "TAG",
+                    dataKey: "tag",
+                    flexGrowColumn: 1,
+                    alingColumn: "left",
+                    minWidthColumn: 120
+                  },
+                  {
+                    headerCell: "Descripcion",
+                    dataKey: "description",
+                    flexGrowColumn: 2,
+                    alingColumn: "left",
+                    minWidthColumn: 300
+                  },
+                  {
+                    headerCell: "#R3",
+                    dataKey: "r3",
+                    flexGrowColumn: 1,
+                    alingColumn: "center",
+                    minWidthColumn: 100
+                  },
+                  {
+                    headerCell: "#R2",
+                    dataKey: "r2",
+                    flexGrowColumn: 1,
+                    alingColumn: "center",
+                    minWidthColumn: 100
+                  },
+                  {
+                    headerCell: "Cant.",
+                    dataKey: "amount",
+                    flexGrowColumn: 1,
+                    alingColumn: "center",
+                    minWidthColumn: 100
+                  },
+                  {
+                    headerCell: "DT Hrs",
+                    dataKey: "dtHours",
+                    flexGrowColumn: 1,
+                    alingColumn: "center",
+                    minWidthColumn: 120
+                  },
+                ]}
+                />
               </Col>
             </Grid>
           </AppPanel>
@@ -515,10 +579,8 @@ function AlertAndFailurePageView(
             <Grid className={styles.fullWidth} fluid>
               <Col xs={24} lg={12}>
                 <strong>Equipos con mayor down time por fallas</strong>
-                <Table 
-                height={320}
-                wordWrap 
-                data={[
+                <AppTable
+                dataTable={[
                   {
                     position: 1,
                     tag: "TP-1220",
@@ -559,39 +621,57 @@ function AlertAndFailurePageView(
                     downTime: 9.54,
                     acdt: 1,
                   },
-                ]}>
-                  <Table.Column align="center" width={50}>
-                    <Table.HeaderCell>Pos</Table.HeaderCell>
-                    <Table.Cell dataKey="position"/>
-                  </Table.Column>
-                  <Table.Column align="center" width={120}>
-                    <Table.HeaderCell>TAG</Table.HeaderCell>
-                    <Table.Cell dataKey="tag"/>
-                  </Table.Column>
-                  <Table.Column flexGrow={1} minWidth={300}>
-                    <Table.HeaderCell>Descripcion</Table.HeaderCell>
-                    <Table.Cell dataKey="description"/>
-                  </Table.Column>
-                  <Table.Column align="center" width={60}>
-                    <Table.HeaderCell>Cant.</Table.HeaderCell>
-                    <Table.Cell dataKey="amount"/>
-                  </Table.Column>
-                  <Table.Column width={120} align="center">
-                    <Table.HeaderCell>Down time Hrs</Table.HeaderCell>
-                    <Table.Cell dataKey="downTime"/>
-                  </Table.Column>
-                  <Table.Column align="center" width={60}>
-                    <Table.HeaderCell>ACDT</Table.HeaderCell>
-                    <Table.Cell dataKey="acdt"/>
-                  </Table.Column>
-                </Table>
+                ]}
+                height={320}
+                columns={[
+                  {
+                    headerCell: "Pos",
+                    dataKey: "position",
+                    alingColumn: "center",
+                    minWidthColumn: 50,
+                  },
+                  {
+                    headerCell: "TAG",
+                    dataKey: "tag",
+                    flexGrowColumn: 1,
+                    alingColumn: "left",
+                    minWidthColumn: 120,
+                  },
+                  {
+                    headerCell: "Descripcion",
+                    dataKey: "description",
+                    flexGrowColumn: 2,
+                    alingColumn: "left",
+                    minWidthColumn: 300,
+                  },
+                  {
+                    headerCell: "Cant.",
+                    dataKey: "amount",
+                    flexGrowColumn: 1,
+                    alingColumn: "center",
+                    minWidthColumn: 100,
+                  },
+                  {
+                    headerCell: "Down time Hrs",
+                    dataKey: "downTime",
+                    flexGrowColumn: 1,
+                    alingColumn: "center",
+                    minWidthColumn: 120,
+                  },
+                  {
+                    headerCell: "ACDT",
+                    dataKey: "acdt",
+                    flexGrowColumn: 1,
+                    alingColumn: "center",
+                    minWidthColumn: 100,
+                  },
+                ]}
+                />
               </Col>
               <Col xs={24} lg={12}>
                 <strong>Equipos con mayor down time e impacto en la produccion</strong>
-                <Table 
-                height={320}
-                wordWrap
-                data={[
+                <AppTable
+                dataTable={[
                   {
                     position: 1,
                     tag: "TP-1220",
@@ -637,36 +717,59 @@ function AlertAndFailurePageView(
                     amount: 1,
                     dtHours: 2.4,
                   },
-                ]} >
-                  <Table.Column align="center" width={50}>
-                    <Table.HeaderCell>Pos</Table.HeaderCell>
-                    <Table.Cell dataKey="position"/>
-                  </Table.Column>
-                  <Table.Column align="center" width={120}>
-                    <Table.HeaderCell>TAG</Table.HeaderCell>
-                    <Table.Cell dataKey="tag"/>
-                  </Table.Column>
-                  <Table.Column flexGrow={1} minWidth={300}>
-                    <Table.HeaderCell>Descripcion</Table.HeaderCell>
-                    <Table.Cell dataKey="description"/>
-                  </Table.Column>
-                  <Table.Column align="center" width={60}>
-                    <Table.HeaderCell>#R3</Table.HeaderCell>
-                    <Table.Cell dataKey="r3"/>
-                  </Table.Column>
-                  <Table.Column align="center" width={60}>
-                    <Table.HeaderCell>#R2</Table.HeaderCell>
-                    <Table.Cell dataKey="r2"/>
-                  </Table.Column>
-                  <Table.Column width={60} align="center">
-                    <Table.HeaderCell>DT Hrs</Table.HeaderCell>
-                    <Table.Cell dataKey="dtHours"/>
-                  </Table.Column>
-                  <Table.Column align="center" width={60}>
-                    <Table.HeaderCell>Cant.</Table.HeaderCell>
-                    <Table.Cell dataKey="amount"/>
-                  </Table.Column>
-                </Table>
+                ]}
+                height={320}
+                columns={[
+                  {
+                    headerCell: "Pos",
+                    dataKey: "position",
+                    alingColumn: "center",
+                    minWidthColumn: 50
+                  },
+                  {
+                    headerCell: "TAG",
+                    dataKey: "tag",
+                    flexGrowColumn: 1,
+                    alingColumn: "left",
+                    minWidthColumn: 120
+                  },
+                  {
+                    headerCell: "Descripcion",
+                    dataKey: "description",
+                    flexGrowColumn: 2,
+                    alingColumn: "left",
+                    minWidthColumn: 300
+                  },
+                  {
+                    headerCell: "#R3",
+                    dataKey: "r3",
+                    flexGrowColumn: 1,
+                    alingColumn: "center",
+                    minWidthColumn: 100
+                  },
+                  {
+                    headerCell: "#R2",
+                    dataKey: "r2",
+                    flexGrowColumn: 1,
+                    alingColumn: "center",
+                    minWidthColumn: 100
+                  },
+                  {
+                    headerCell: "Cant.",
+                    dataKey: "amount",
+                    flexGrowColumn: 1,
+                    alingColumn: "center",
+                    minWidthColumn: 100
+                  },
+                  {
+                    headerCell: "DT Hrs",
+                    dataKey: "dtHours",
+                    flexGrowColumn: 1,
+                    alingColumn: "center",
+                    minWidthColumn: 120
+                  },
+                ]}
+                />
               </Col>
             </Grid>
           </AppPanel>
@@ -676,11 +779,8 @@ function AlertAndFailurePageView(
             <Grid className={styles.fullWidth} fluid>
               <Col xs={24} lg={12}>
                 <strong>TPEF</strong>
-                <Table 
-                height={320} 
-                headerHeight={80}
-                wordWrap
-                data={[
+                <AppTable
+                dataTable={[
                   {
                     position: 1,
                     tag: "NV-3300C",
@@ -731,44 +831,82 @@ function AlertAndFailurePageView(
                     fall24M: 20,
                     percent: 20,
                   },
-                ]} >
-                  <Table.Column align="center" width={50}>
-                    <Table.HeaderCell>Pos</Table.HeaderCell>
-                    <Table.Cell dataKey="position"/>
-                  </Table.Column>
-                  <Table.Column align="center" width={120}>
-                    <Table.HeaderCell>TAG</Table.HeaderCell>
-                    <Table.Cell dataKey="tag"/>
-                  </Table.Column>
-                  <Table.Column flexGrow={1} minWidth={300}>
-                    <Table.HeaderCell>Descripcion</Table.HeaderCell>
-                    <Table.Cell dataKey="description"/>
-                  </Table.Column>
-                  <Table.ColumnGroup header="12 Meses" align="center">
-                    <Table.Column width={120} align="center">
-                      <Table.HeaderCell>TPEF 12 M</Table.HeaderCell>
-                      <Table.Cell dataKey="tpef12M"/>
-                    </Table.Column>
-                    <Table.Column width={120} align="center">
-                      <Table.HeaderCell># Fallas</Table.HeaderCell>
-                      <Table.Cell dataKey="fall12M"/>
-                    </Table.Column>
-                  </Table.ColumnGroup>
-                  <Table.ColumnGroup header="24 Meses" align="center">
-                    <Table.Column align="center" width={120}>
-                      <Table.HeaderCell>TPEF 24 M</Table.HeaderCell>
-                      <Table.Cell dataKey="tpef24M"/>
-                    </Table.Column>
-                    <Table.Column align="center" width={120}>
-                      <Table.HeaderCell># Fallas</Table.HeaderCell>
-                      <Table.Cell dataKey="fall24M"/>
-                    </Table.Column>
-                  </Table.ColumnGroup>
-                  <Table.Column align="center" width={50}>
-                    <Table.HeaderCell>%</Table.HeaderCell>
-                    <Table.Cell dataKey="percent"/>
-                  </Table.Column>
-                </Table>
+                ]}
+                height={360}
+                heightHeaderCell={80}
+                columns={[
+                  {
+                    headerCell: "Pos",
+                    dataKey: "position",
+                    alingColumn: "center",
+                    minWidthColumn: 50
+                  },
+                  {
+                    headerCell: "TAG",
+                    dataKey: "tag",
+                    flexGrowColumn: 1,
+                    alingColumn: "left",
+                    minWidthColumn: 120
+                  },
+                  {
+                    headerCell: "Descripcion",
+                    dataKey: "description",
+                    flexGrowColumn: 2,
+                    alingColumn: "left",
+                    minWidthColumn: 300
+                  },
+                ]}
+                columnGroups={[
+                  {
+                    headers: "12 Meses",
+                    alingHeader: "center",
+                    columns: [
+                      {
+                        headerCell: "TPEF 12 M",
+                        dataKey: "tpef12M",
+                        flexGrowColumn: 1,
+                        minWidthColumn: 100,
+                        alingColumn: "center"
+                      },
+                      {
+                        headerCell: "# Fallas",
+                        dataKey: "fall12M",
+                        flexGrowColumn: 1,
+                        minWidthColumn: 100,
+                        alingColumn: "center"
+                      },
+                    ]
+                  },
+                  {
+                    headers: "24 Meses",
+                    alingHeader: "center",
+                    columns: [
+                      {
+                        headerCell: "TPEF 24 M",
+                        dataKey: "tpef24M",
+                        flexGrowColumn: 1,
+                        minWidthColumn: 100,
+                        alingColumn: "center"
+                      },
+                      {
+                        headerCell: "# Fallas",
+                        dataKey: "fall24M",
+                        flexGrowColumn: 1,
+                        minWidthColumn: 100,
+                        alingColumn: "center"
+                      },
+                    ]
+                  }
+                ]}
+                extraColumns={[
+                  {
+                    headerCell: "%",
+                    dataKey: "percent",
+                    alingColumn: "center",
+                    minWidthColumn: 50
+                  }
+                ]}
+                />
               </Col>
               <Col xs={24} lg={12}>
                 <AppPlot
@@ -807,11 +945,8 @@ function AlertAndFailurePageView(
         <Col xs={24}>
           <AppPanel>
             <strong>Equipos con mas tiempo fuera de servicio</strong>
-            <Table 
-            height={320} 
-            headerHeight={80}
-            wordWrap
-            data={[
+            <AppTable
+            dataTable={[
               {
                 position: 1,
                 tag: "PK-2510",
@@ -912,82 +1047,146 @@ function AlertAndFailurePageView(
                 endTime: null,
                 startFails: "10/09/2021",
               },
-            ]}>
-              <Table.Column width={50} align="center">
-                <Table.HeaderCell>Pos</Table.HeaderCell>
-                <Table.Cell dataKey="position"/>
-              </Table.Column>
-              <Table.Column width={120} align="center">
-                <Table.HeaderCell>TAG</Table.HeaderCell>
-                <Table.Cell dataKey="tag"/>
-              </Table.Column>
-              <Table.Column flexGrow={1} minWidth={300}>
-                <Table.HeaderCell>Descripcion</Table.HeaderCell>
-                <Table.Cell dataKey="description"/>
-              </Table.Column>
-              <Table.Column width={120} align="center">
-                <Table.HeaderCell>Avisos</Table.HeaderCell>
-                <Table.Cell dataKey="notices"/>
-              </Table.Column>
-              <Table.Column width={80} align="center">
-                <Table.HeaderCell>Dias DS</Table.HeaderCell>
-                <Table.Cell dataKey="daysDS"/>
-              </Table.Column>
-              <Table.Column width={80} align="center">
-                <Table.HeaderCell>Reper</Table.HeaderCell>
-                <Table.Cell dataKey="reper"/>
-              </Table.Column>
-              <Table.Column width={120} align="center">
-                <Table.HeaderCell>Orden</Table.HeaderCell>
-                <Table.Cell dataKey="order"/>
-              </Table.Column>
-              <Table.Column width={80} align="center">
-                <Table.HeaderCell>CTEC</Table.HeaderCell>
-                <Table.Cell dataKey="ctec"/>
-              </Table.Column>
-              <Table.Column width={80} align="center">
-                <Table.HeaderCell>NOTI</Table.HeaderCell>
-                <Table.Cell dataKey="noti"/>
-              </Table.Column>
-              <Table.Column width={80} align="center">
-                <Table.HeaderCell>EJEC</Table.HeaderCell>
-                <Table.Cell dataKey="ejec"/>
-              </Table.Column>
-              <Table.Column width={80} align="center">
-                <Table.HeaderCell>EMAT</Table.HeaderCell>
-                <Table.Cell dataKey="emat"/>
-              </Table.Column>
-              <Table.Column width={80} align="center">
-                <Table.HeaderCell>ESPS</Table.HeaderCell>
-                <Table.Cell dataKey="esps"/>
-              </Table.Column>
-              <Table.Column width={80} align="center">
-                <Table.HeaderCell>PROG</Table.HeaderCell>
-                <Table.Cell dataKey="prog"/>
-              </Table.Column>
-              <Table.ColumnGroup header=" Datos de la notificacion" align="center">
-                <Table.Column width={120} align="center">
-                  <Table.HeaderCell>Fecha Inic</Table.HeaderCell>
-                  <Table.Cell dataKey="startDate"/>
-                </Table.Column>
-                <Table.Column width={120} align="center">
-                  <Table.HeaderCell>H. Inic</Table.HeaderCell>
-                  <Table.Cell dataKey="startTime"/>
-                </Table.Column>
-                <Table.Column width={120} align="center">
-                  <Table.HeaderCell>Fecha Fin</Table.HeaderCell>
-                  <Table.Cell dataKey="endDate"/>
-                </Table.Column>
-                <Table.Column width={120} align="center">
-                  <Table.HeaderCell>Hora Fin</Table.HeaderCell>
-                  <Table.Cell dataKey="endTime"/>
-                </Table.Column>
-              </Table.ColumnGroup>
-              <Table.Column width={120} align="center">
-                <Table.HeaderCell>Inicio falla</Table.HeaderCell>
-                <Table.Cell dataKey="startFails"/>
-              </Table.Column>
-            </Table>
+            ]}
+            height={360}
+            heightHeaderCell={80}
+            columns={[
+              {
+                headerCell: "Pos",
+                dataKey: "position",
+                minWidthColumn: 50,
+                alingColumn: "center"
+              },
+              {
+                headerCell: "TAG",
+                dataKey: "tag",
+                flexGrowColumn: 1,
+                minWidthColumn: 120,
+                alingColumn: "left"
+              },
+              {
+                headerCell: "Descripcion",
+                dataKey: "description",
+                flexGrowColumn: 2,
+                minWidthColumn: 300,
+                alingColumn: "left"
+              },
+              {
+                headerCell: "Avisos",
+                dataKey: "notices",
+                flexGrowColumn: 1,
+                minWidthColumn: 120,
+                alingColumn: "center"
+              },
+              {
+                headerCell: "Dias DS",
+                dataKey: "daysDS",
+                flexGrowColumn: 1,
+                minWidthColumn: 100,
+                alingColumn: "center"
+              },
+              {
+                headerCell: "Reper",
+                dataKey: "reper",
+                flexGrowColumn: 1,
+                minWidthColumn: 50,
+                alingColumn: "center"
+              },
+              {
+                headerCell: "Orden",
+                dataKey: "order",
+                flexGrowColumn: 1,
+                minWidthColumn: 120,
+                alingColumn: "center"
+              },
+              {
+                headerCell: "CTEC",
+                dataKey: "ctec",
+                flexGrowColumn: 1,
+                minWidthColumn: 50,
+                alingColumn: "center"
+              },
+              {
+                headerCell: "NOTI",
+                dataKey: "noti",
+                flexGrowColumn: 1,
+                minWidthColumn: 50,
+                alingColumn: "center"
+              },
+              {
+                headerCell: "EJEC",
+                dataKey: "ejec",
+                flexGrowColumn: 1,
+                minWidthColumn: 50,
+                alingColumn: "center"
+              },
+              {
+                headerCell: "EMAT",
+                dataKey: "emat",
+                flexGrowColumn: 1,
+                minWidthColumn: 50,
+                alingColumn: "center"
+              },
+              {
+                headerCell: "ESPS",
+                dataKey: "esps",
+                flexGrowColumn: 1,
+                minWidthColumn: 50,
+                alingColumn: "center"
+              },
+              {
+                headerCell: "PROG",
+                dataKey: "prog",
+                flexGrowColumn: 1,
+                minWidthColumn: 50,
+                alingColumn: "center"
+              },
+            ]}
+            columnGroups={[
+              {
+                headers: "Datos de la notificacion",
+                alingHeader: "center",
+                columns: [
+                  {
+                    headerCell: "Fecha Inic",
+                    dataKey: "startDate",
+                    flexGrowColumn: 1,
+                    minWidthColumn: 120,
+                    alingColumn: "center"
+                  },
+                  {
+                    headerCell: "H. Inic",
+                    dataKey: "startTime",
+                    flexGrowColumn: 1,
+                    minWidthColumn: 100,
+                    alingColumn: "center"
+                  },
+                  {
+                    headerCell: "Fecha Fin",
+                    dataKey: "endDate",
+                    flexGrowColumn: 1,
+                    minWidthColumn: 120,
+                    alingColumn: "center"
+                  },
+                  {
+                    headerCell: "Hora Fin",
+                    dataKey: "endTime",
+                    flexGrowColumn: 1,
+                    minWidthColumn: 100,
+                    alingColumn: "center"
+                  },
+                ]
+              }
+            ]}
+            extraColumns={[
+              {
+                headerCell: "Inicio falla",
+                dataKey: "startFails",
+                alingColumn: "center",
+                minWidthColumn: 120,
+              }
+            ]}
+            />
           </AppPanel>
         </Col>
       </AppPanelContainer>
@@ -1018,10 +1217,8 @@ function AlertAndFailurePageView(
               </Col>
               <Col xs={24} lg={12}>
                 <strong>Equipos en el segmento PF</strong>
-                <Table 
-                height={320}
-                wordWrap
-                data={[
+                <AppTable
+                dataTable={[
                   {
                     position: 1,
                     notice: 10012812,
@@ -1072,40 +1269,66 @@ function AlertAndFailurePageView(
                     order: 10029509,
                     statusODM: "EMAT",
                   },
-                ]}>
-                  <Table.Column width={50} align="center">
-                    <Table.HeaderCell>Pos</Table.HeaderCell>
-                    <Table.Cell dataKey="position"/>
-                  </Table.Column>
-                  <Table.Column width={140} align="center">
-                    <Table.HeaderCell>Aviso</Table.HeaderCell>
-                    <Table.Cell dataKey="notice"/>
-                  </Table.Column>
-                  <Table.Column width={120} align="center">
-                    <Table.HeaderCell>TAG</Table.HeaderCell>
-                    <Table.Cell dataKey="tag"/>
-                  </Table.Column>
-                  <Table.Column flexGrow={1} minWidth={300}>
-                    <Table.HeaderCell>Descripcion TAG</Table.HeaderCell>
-                    <Table.Cell dataKey="description"/>
-                  </Table.Column>
-                  <Table.Column width={120} align="center">
-                    <Table.HeaderCell>Fecha Inicio</Table.HeaderCell>
-                    <Table.Cell dataKey="startDate"/>
-                  </Table.Column>
-                  <Table.Column width={80} align="center">
-                    <Table.HeaderCell>Dias</Table.HeaderCell>
-                    <Table.Cell dataKey="days"/>
-                  </Table.Column>
-                  <Table.Column width={140} align="center">
-                    <Table.HeaderCell>Orden</Table.HeaderCell>
-                    <Table.Cell dataKey="order"/>
-                  </Table.Column>
-                  <Table.Column width={120} align="center">
-                    <Table.HeaderCell>Status ODM</Table.HeaderCell>
-                    <Table.Cell dataKey="statusODM"/>
-                  </Table.Column>
-                </Table>
+                ]}
+                height={320}
+                columns={[
+                  {
+                    headerCell: "Pos",
+                    dataKey: "position",
+                    minWidthColumn: 50,
+                    alingColumn: "center",
+                  },
+                  {
+                    headerCell: "Aviso",
+                    dataKey: "notice",
+                    flexGrowColumn: 1,
+                    minWidthColumn: 120,
+                    alingColumn: "center",
+                  },
+                  {
+                    headerCell: "TAG",
+                    dataKey: "tag",
+                    flexGrowColumn: 1,
+                    minWidthColumn: 120,
+                    alingColumn: "left",
+                  },
+                  {
+                    headerCell: "Descripcion TAG",
+                    dataKey: "description",
+                    flexGrowColumn: 2,
+                    minWidthColumn: 300,
+                    alingColumn: "left",
+                  },
+                  {
+                    headerCell: "Fecha Inicio",
+                    dataKey: "startDate",
+                    flexGrowColumn: 1,
+                    minWidthColumn: 120,
+                    alingColumn: "center",
+                  },
+                  {
+                    headerCell: "Dias",
+                    dataKey: "days",
+                    flexGrowColumn: 1,
+                    minWidthColumn: 100,
+                    alingColumn: "center",
+                  },
+                  {
+                    headerCell: "Orden",
+                    dataKey: "order",
+                    flexGrowColumn: 1,
+                    minWidthColumn: 120,
+                    alingColumn: "center",
+                  },
+                  {
+                    headerCell: "Status ODM",
+                    dataKey: "statusODM",
+                    flexGrowColumn: 1,
+                    minWidthColumn: 100,
+                    alingColumn: "center",
+                  },
+                ]}
+                />
               </Col>
             </Grid>
           </AppPanel>
@@ -1118,10 +1341,8 @@ function AlertAndFailurePageView(
         <Col xs={24}>
           <AppPanel>
             <strong>Reparaciones temporales (RTEM)</strong>
-            <Table 
-            height={320}
-            wordWrap
-            data={[
+            <AppTable
+            dataTable={[
               {
                 position: 1,
                 notice: 10014450,
@@ -1177,44 +1398,73 @@ function AlertAndFailurePageView(
                 status: "EMAT",
                 tagODM: "CYM1201",
               },
-            ]}>
-              <Table.Column width={50} align="center">
-                <Table.HeaderCell>Pos</Table.HeaderCell>
-                <Table.Cell dataKey="position"/>
-              </Table.Column>
-              <Table.Column width={140} align="center">
-                <Table.HeaderCell>Avisos</Table.HeaderCell>
-                <Table.Cell dataKey="notice"/>
-              </Table.Column>
-              <Table.Column width={140} align="center">
-                <Table.HeaderCell>Orden</Table.HeaderCell>
-                <Table.Cell dataKey="order"/>
-              </Table.Column>
-              <Table.Column width={180} align="center">
-                <Table.HeaderCell>TAG Aviso</Table.HeaderCell>
-                <Table.Cell dataKey="tagNotice"/>
-              </Table.Column>
-              <Table.Column flexGrow={1} minWidth={300}>
-                <Table.HeaderCell>Descripcion TAG</Table.HeaderCell>
-                <Table.Cell dataKey="description"/>
-              </Table.Column>
-              <Table.Column flexGrow={1} minWidth={300}>
-                <Table.HeaderCell>Texto orden</Table.HeaderCell>
-                <Table.Cell dataKey="textOrder"/>
-              </Table.Column>
-              <Table.Column width={120} align="center">
-                <Table.HeaderCell>F. Inicio</Table.HeaderCell>
-                <Table.Cell dataKey="startDate"/>
-              </Table.Column>
-              <Table.Column width={120} align="center">
-                <Table.HeaderCell>Status</Table.HeaderCell>
-                <Table.Cell dataKey="status"/>
-              </Table.Column>
-              <Table.Column width={120} align="center">
-                <Table.HeaderCell>TAG ODM</Table.HeaderCell>
-                <Table.Cell dataKey="tagODM"/>
-              </Table.Column>
-            </Table>
+            ]}
+            height={320}
+            columns={[
+              {
+                headerCell: "Pos",
+                dataKey: "position",
+                minWidthColumn: 50,
+                alingColumn: "center",
+              },
+              {
+                headerCell: "Avisos",
+                dataKey: "notice",
+                flexGrowColumn: 1,
+                minWidthColumn: 120,
+                alingColumn: "center",
+              },
+              {
+                headerCell: "Orden",
+                dataKey: "order",
+                flexGrowColumn: 1,
+                minWidthColumn: 120,
+                alingColumn: "center",
+              },
+              {
+                headerCell: "TAG Aviso",
+                dataKey: "tagNotice",
+                flexGrowColumn: 1,
+                minWidthColumn: 120,
+                alingColumn: "left",
+              },
+              {
+                headerCell: "Descripcion TAG",
+                dataKey: "description",
+                flexGrowColumn: 2,
+                minWidthColumn: 300,
+                alingColumn: "left",
+              },
+              {
+                headerCell: "Texto orden",
+                dataKey: "textOrder",
+                flexGrowColumn: 2,
+                minWidthColumn: 300,
+                alingColumn: "left",
+              },
+              {
+                headerCell: "F. Inicio",
+                dataKey: "startDate",
+                flexGrowColumn: 1,
+                minWidthColumn: 120,
+                alingColumn: "center",
+              },
+              {
+                headerCell: "Status",
+                dataKey: "status",
+                flexGrowColumn: 1,
+                minWidthColumn: 100,
+                alingColumn: "center",
+              },
+              {
+                headerCell: "TAG ODM",
+                dataKey: "tagODM",
+                flexGrowColumn: 1,
+                minWidthColumn: 120,
+                alingColumn: "center",
+              },
+            ]}
+            />
           </AppPanel>
         </Col>
       </AppPanelContainer>
