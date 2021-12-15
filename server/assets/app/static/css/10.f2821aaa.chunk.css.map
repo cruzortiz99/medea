@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/components/atoms/AppTable/AppTable.module.css"],"names":[],"mappings":"AAAA,6BACE,iBACF,CAEA,iCACE,wBAAkC,CAClC,UACF","file":"10.f2821aaa.chunk.css","sourcesContent":[".borderTable {\r\n  border-radius: 6px;\r\n}\r\n\r\n.headerColor div {\r\n  background-color: rgb(82, 66, 255);\r\n  color: #fff;\r\n}\r\n"]}

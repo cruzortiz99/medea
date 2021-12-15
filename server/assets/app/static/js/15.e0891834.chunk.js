@@ -1,2 +1,0 @@
-(this.webpackJsonpweb=this.webpackJsonpweb||[]).push([[15],{581:function(e,n,s){"use strict";s.r(n);s(0);var t=s(3);n.default=function(e){return Object(t.jsx)("h3",{children:"Ordenes"})}}}]);
-//# sourceMappingURL=15.e0891834.chunk.js.map
