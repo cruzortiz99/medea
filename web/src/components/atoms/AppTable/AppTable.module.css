@@ -1,9 +1,8 @@
-.borderTable{
-  border: 1px solid black;
+.borderTable {
   border-radius: 6px;
 }
 
-.headerColor{
-  background-color: aquamarine;
+.headerColor div {
+  background-color: rgb(82, 66, 255);
+  color: #fff;
 }
-
