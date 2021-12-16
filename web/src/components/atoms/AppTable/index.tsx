@@ -33,6 +33,7 @@ function AppTable(props: AppTableProps): JSX.Element {
         cellBordered
         showHeader
         wordWrap
+        autoHeight
         data={props.dataTable}
         height={props.height}
         headerHeight={props.heightHeaderCell}
