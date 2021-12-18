@@ -14,8 +14,8 @@ function AppSimplePageTemplate(props: AppSimplePageTemplateProps): JSX.Element {
   return (
     <Container>
       <Header className={joinClasses(styles.header)}>
-        <h3>{props.mainTitle}</h3>
-        <p>{props.mainDescription}</p>
+        <div>{props.mainTitle}</div>
+        <div>{props.mainDescription}</div>
         <br />
         {props.breadcrumbLinks && (
           <Breadcrumb>
