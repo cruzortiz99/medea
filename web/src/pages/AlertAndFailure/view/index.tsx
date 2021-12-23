@@ -53,6 +53,33 @@ function AlertAndFailurePageView(
       mainTitle={props.plantName}
       mainDescription={props.monthAndYear}
       breadcrumbLinks={breadCrumbLinks}
+      dateFilter={[
+        {label: "Enero 2021"},
+        {label: "Febrero 2021"},
+        {label: "Marzo 2021"},
+        {label: "Abril 2021"},
+        {label: "Mayo 2021"},
+        {label: "Junio 2021"},
+        {label: "Julio 2021"},
+        {label: "Agosto 2021"},
+        {label: "Septiembre 2021"},
+        {label: "Octubre 2021"},
+        {label: "Noviembre 2021", active: true},
+        {label: "Diciembre 2021"}
+      ]}
+      equipementFilter={[
+        {label: "Equipo A", active: true},
+        {label: "Equipo B"},
+        {label: "Equipo C"},
+        {label: "Equipo D"},
+      ]}
+      processFilter={[
+        {label: "Proceso 1", active: true},
+        {label: "Proceso 2"},
+        {label: "Proceso 3"},
+        {label: "Proceso 4"},
+        {label: "Proceso 5"},
+      ]}
     >
       <h4 id={props.subtitles[0].id}>{props.subtitles[0].label}</h4>
       <Divider />
