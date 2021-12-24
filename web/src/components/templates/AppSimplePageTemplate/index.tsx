@@ -44,7 +44,6 @@ function AppSimplePageTemplate(props: AppSimplePageTemplateProps): JSX.Element {
     <Container>
       <Header className={joinClasses(styles.header)}>
         <h3>{props.mainTitle}</h3>
-
         <p>
           {props.dateFilter && (
             <Dropdown
@@ -63,7 +62,6 @@ function AppSimplePageTemplate(props: AppSimplePageTemplateProps): JSX.Element {
             </Dropdown>
           )}
         </p>
-
         <p>
         {props.equipementFilter && (
             <Dropdown
@@ -81,8 +79,7 @@ function AppSimplePageTemplate(props: AppSimplePageTemplateProps): JSX.Element {
               ))}
             </Dropdown>
           )}
-        </p>
-        
+        </p>       
         <p>
         {props.processFilter && (
             <Dropdown
@@ -101,7 +98,6 @@ function AppSimplePageTemplate(props: AppSimplePageTemplateProps): JSX.Element {
             </Dropdown>
           )}
         </p>
-
         <br />
         {props.breadcrumbLinks && (
           <Breadcrumb>
