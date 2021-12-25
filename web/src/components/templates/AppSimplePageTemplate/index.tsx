@@ -5,24 +5,17 @@ import styles from "./AppSimplePageTemplate.module.css"
 
 export type AppSimplePageTemplateProps = {
   mainTitle: ReactNode
-  mainYear: ReactNode
-  mainEqupament: ReactNode
-  mainProcess: ReactNode
+  subtitle?: ReactNode
   breadcrumbLinks?: { label: ReactNode; href: string; active?: boolean }[]
   children?: ReactNode
 }
 
-
 function AppSimplePageTemplate(props: AppSimplePageTemplateProps): JSX.Element {
-  
-
   return (
     <Container>
       <Header className={joinClasses(styles.header)}>
-        <h3>{props.mainTitle}</h3>
-        <p>{props.mainYear}</p>
-        <p>{props.mainEqupament}</p>
-        <p>{props.mainProcess}</p>
+        {props.mainTitle}
+        {props.subtitle}
         <br />
         {props.breadcrumbLinks && (
           <Breadcrumb>
