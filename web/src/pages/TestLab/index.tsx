@@ -1,37 +1,69 @@
-import React, { ChangeEvent } from "react"
+import React, { ChangeEvent, useState } from "react"
 import AppPlot from "../../components/atoms/AppPlot"
-import { Dropdown, DatePicker, InputPicker } from "rsuite"
+import AppHeaderMenu from "../../components/molecules/AppHeaderMenu"
 import { randomColor } from "../../utils/css"
 
-const renderText = (
-  props: React.HTMLAttributes<HTMLParagraphElement>, 
-  ref: React.LegacyRef<HTMLParagraphElement> | undefined
-  ) => {
-  return(
-    <p {...props} ref={ref}>fecha</p>
-  )
-}
 
 function TestPage() {
-
+  const [selectedOption, setSelectedOption] = useState("Opcion 1")
+  const headerMenu = [
+    {
+      label: "Opcion 1",
+      id: "#option1",
+      active: selectedOption === "Opcion 1",
+      onClick: () => setSelectedOption("Opcion 1")
+    },
+    {
+      label: "Opcion 2",
+      id: "#option2",
+      active: selectedOption === "Opcion 2",
+      onClick: () => setSelectedOption("Opcion 2")
+    },
+    {
+      label: "Opcion 3",
+      id: "#option3",
+      active: selectedOption === "Opcion 3",
+      onClick: () => setSelectedOption("Opcion 3")
+    },
+    {
+      label: "Opcion 4",
+      id: "#option4",
+      active: selectedOption === "Opcion 4",
+      onClick: () => setSelectedOption("Opcion 4")
+    },
+    {
+      label: "Opcion 5",
+      id: "#option5",
+      active: selectedOption === "Opcion 5",
+      onClick: () => setSelectedOption("Opcion 5")
+    },
+    {
+      label: "Opcion 6",
+      id: "#option6",
+      active: selectedOption === "Opcion 6",
+      onClick: () => setSelectedOption("Opcion 6")
+    },
+  ]
   return (
     <>
       <h2>TestLab</h2>
-
-      <Dropdown renderToggle={renderText} noCaret>
-        <Dropdown.Item active>Enero 2021</Dropdown.Item>
-        <Dropdown.Item>Febrero 2021</Dropdown.Item>
-        <Dropdown.Item>Marzo 2021</Dropdown.Item>
-        <Dropdown.Item>Abril 2021</Dropdown.Item>
-        <Dropdown.Item>Mayo 2021</Dropdown.Item>
-        <Dropdown.Item>Junio 2021</Dropdown.Item>
-        <Dropdown.Item>Julio 2021</Dropdown.Item>
-        <Dropdown.Item>Agosto 2021</Dropdown.Item>
-        <Dropdown.Item>Septiembre 2021</Dropdown.Item>
-        <Dropdown.Item>Octubre 2021</Dropdown.Item>
-        <Dropdown.Item>Noviembre 2021</Dropdown.Item>
-        <Dropdown.Item>Diciembre 2021</Dropdown.Item>
-      </Dropdown>
+      <AppHeaderMenu
+        renderToggle={(props, ref) => (
+          <button
+            {...props}
+            ref={ref}
+            style={{backgroundColor: "#fff", padding: 0}}
+          >
+            <h3>{selectedOption}</h3>
+          </button>
+        )}
+        item={headerMenu.map((subtile) => ({
+          label: subtile.label,
+          id: subtile.id,
+          active: subtile.active,
+          onClick: subtile.onClick
+        }))}
+      />
     </>
   )
 }
