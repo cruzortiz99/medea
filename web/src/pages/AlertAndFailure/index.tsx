@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-import { Dropdown } from "rsuite"
 import AppHeaderMenu from "../../components/molecules/AppHeaderMenu"
 import { AppRoutedPage } from "../../routes/routes"
 import homeStore from "../../store/home"
@@ -12,6 +11,152 @@ function AlertAndFailurePage(props: AppRoutedPage) {
   const [selectedYear, setSelectedYear] = useState("Noviembre 2021")
   const [selectedEquipament, setSelectedEquipament] = useState("Equipo A")
   const [selectedProcess, setSelectedProcess] = useState("Proceso 1")
+  const plantMenu = [
+    {
+      label: "Planta ABC",
+      id: "#plantaABC",
+      active: selectedPlant === "Planta ABC",
+      onClick: () => setSelectedPlant("Planta ABC")
+    },
+    {
+      label: "Planta 1",
+      id: "#planta1",
+      active: selectedPlant === "Planta 1",
+      onClick: () => setSelectedPlant("Planta 1")
+    },
+    {
+      label: "Planta 2",
+      id: "#planta2",
+      active: selectedPlant === "Planta 2",
+      onClick: () => setSelectedPlant("Planta 2")
+    },
+    {
+      label: "Planta 3",
+      id: "#planta3",
+      active: selectedPlant === "Planta 3",
+      onClick: () => setSelectedPlant("Planta 3")
+    },
+  ]
+  const yearMenu = [
+    {
+      label: "Enero 2021",
+      id: "#enero2021",
+      active: selectedYear === "Enero 2021",
+      onClick: () => setSelectedYear("Enero 2021")
+    },
+    {
+      label: "Febrero 2021",
+      id: "#febrero2021",
+      active: selectedYear === "Febrero 2021",
+      onClick: () => setSelectedYear("Febrero 2021")
+    },
+    {
+      label: "Marzo 2021",
+      id: "#marzo2021",
+      active: selectedYear === "Marzo 2021",
+      onClick: () => setSelectedYear("Marzo 2021")
+    },
+    {
+      label: "Abril 2021",
+      id: "#abril2021",
+      active: selectedYear === "Abril 2021",
+      onClick: () => setSelectedYear("Abril 2021")
+    },
+    {
+      label: "Mayo 2021",
+      id: "#mayo2021",
+      active: selectedYear === "Mayo 2021",
+      onClick: () => setSelectedYear("Mayo 2021")
+    },
+    {
+      label: "Junio 2021",
+      id: "#junio2021",
+      active: selectedYear === "Junio 2021",
+      onClick: () => setSelectedYear("Junio 2021")
+    },
+    {
+      label: "Julio 2021",
+      id: "#julio2021",
+      active: selectedYear === "Julio 2021",
+      onClick: () => setSelectedYear("Julio 2021")
+    },
+    {
+      label: "Agosto 2021",
+      id: "#agosto2021",
+      active: selectedYear === "Agosto 2021",
+      onClick: () => setSelectedYear("Agosto 2021")
+    },
+    {
+      label: "Septiembre 2021",
+      id: "#septiembre2021",
+      active: selectedYear === "Septiembre 2021",
+      onClick: () => setSelectedYear("Septiembre 2021")
+    },
+    {
+      label: "Octubre 2021",
+      id: "#octubre2021",
+      active: selectedYear === "Octubre 2021",
+      onClick: () => setSelectedYear("Octubre 2021")
+    },
+    {
+      label: "Noviembre 2021",
+      id: "#noviembre2021",
+      active: selectedYear === "Noviembre 2021",
+      onClick: () => setSelectedYear("Noviembre 2021")
+    },
+    {
+      label: "Diciembre 2021",
+      id: "#diciembre2021",
+      active: selectedYear === "Diciembre 2021",
+      onClick: () => setSelectedYear("Diciembre 2021")
+    },
+  ]
+  const equipamentMenu = [
+    {
+      label: "Equipo A",
+      id: "#equipoB",
+      active: selectedEquipament === "Equipo A",
+      onClick: () => setSelectedEquipament("Equipo A")
+    },
+    {
+      label: "Equipo B",
+      id: "#equipoB",
+      active: selectedEquipament === "Equipo B",
+      onClick: () => setSelectedEquipament("Equipo B")
+    },
+    {
+      label: "Equipo C",
+      id: "#equipoC",
+      active: selectedEquipament === "Equipo C",
+      onClick: () => setSelectedEquipament("Equipo C")
+    },
+    {
+      label: "Equipo D",
+      id: "#equipoC",
+      active: selectedEquipament === "Equipo D",
+      onClick: () => setSelectedEquipament("Equipo D")
+    },
+  ]
+  const processMenu = [
+    {
+      label: "Proceso 1",
+      id: "#proceso1",
+      active: selectedProcess === "Proceso 1",
+      onClick: () => setSelectedProcess("Proceso 1")
+    },
+    {
+      label: "Proceso 2",
+      id: "#proceso2",
+      active: selectedProcess === "Proceso 2",
+      onClick: () => setSelectedProcess("Proceso 2")
+    },
+    {
+      label: "Proceso 3",
+      id: "#proceso3",
+      active: selectedProcess === "Proceso 3",
+      onClick: () => setSelectedProcess("Proceso 3")
+    },
+  ]
   const rightMenuOptions = [
     {
       label: "Avisos",
@@ -51,202 +196,64 @@ function AlertAndFailurePage(props: AppRoutedPage) {
   return (
     <AlertAndFailurePageView
       plantName={
-        <Dropdown
-          noCaret
-          renderToggle={(props, ref) => (
-            <button
-              {...props}
-              ref={ref}
-              style={{ backgroundColor: "#fff", padding: 0 }}
-            >
+        <AppHeaderMenu
+          renderToggle={(props, ref) => {
+            return <button {...props} ref={ref} style={{ backgroundColor: "#fff0", padding: 0 }}>
               <h3>{selectedPlant}</h3>
             </button>
-          )}
-        >
-          <Dropdown.Item
-            active={selectedPlant === "Planta ABC"}
-            onClick={() => setSelectedPlant("Planta ABC")}
-          >
-            Planta ABC
-          </Dropdown.Item>
-          <Dropdown.Item
-            active={selectedPlant === "Planta 1"}
-            onClick={() => setSelectedPlant("Planta 1")}
-          >
-            Planta 1
-          </Dropdown.Item>
-          <Dropdown.Item
-            active={selectedPlant === "Planta 2"}
-            onClick={() => setSelectedPlant("Planta 2")}
-          >
-            Planta 2
-          </Dropdown.Item>
-          <Dropdown.Item
-            active={selectedPlant === "Planta 3"}
-            onClick={() => setSelectedPlant("Planta 3")}
-          >
-            Planta 3
-          </Dropdown.Item>
-        </Dropdown>
+          }}
+          item={plantMenu.map((subtile) => ({
+            label: subtile.label,
+            id: subtile.id,
+            active: subtile.active,
+            onClick: subtile.onClick
+          }))}
+        />
       }
       monthAndYear={
-        <Dropdown
-        noCaret
-        renderToggle={(props, ref) => (
-          <button
-          {...props}
-          ref={ref}
-          style={{padding: 0}}
-          >
+        <AppHeaderMenu
+        renderToggle={(props, ref) => {
+          return <button {...props} ref={ref} style={{ backgroundColor: "#fff0", padding: 0 }}>
             <p>{selectedYear}</p>
           </button>
-        )}
-        >
-          <Dropdown.Item
-          active={selectedYear === "Enero 2021"}
-          onClick={() => setSelectedYear("Enero 2021")}
-          >
-            Enero 2021
-          </Dropdown.Item>
-          <Dropdown.Item
-          active={selectedYear === "Febrero 2021"}
-          onClick={() => setSelectedYear("Febrero 2021")}
-          >
-            Febrero 2021
-          </Dropdown.Item>
-          <Dropdown.Item
-          active={selectedYear === "Marzo 2021"}
-          onClick={() => setSelectedYear("Marzo 2021")}
-          >
-            Marzo 2021
-          </Dropdown.Item>
-          <Dropdown.Item
-          active={selectedYear === "Abril 2021"}
-          onClick={() => setSelectedYear("Abril 2021")}
-          >
-            Abril 2021
-          </Dropdown.Item>
-          <Dropdown.Item
-          active={selectedYear === "Mayo 2021"}
-          onClick={() => setSelectedYear("Mayo 2021")}
-          >
-            Mayo 2021
-          </Dropdown.Item>
-          <Dropdown.Item
-          active={selectedYear === "Junio 2021"}
-          onClick={() => setSelectedYear("Junio 2021")}
-          >
-            Junio 2021
-          </Dropdown.Item>
-          <Dropdown.Item
-          active={selectedYear === "Julio 2021"}
-          onClick={() => setSelectedYear("Julio 2021")}
-          >
-            Julio 2021
-          </Dropdown.Item>
-          <Dropdown.Item
-          active={selectedYear === "Agosto 2021"}
-          onClick={() => setSelectedYear("Agosto 2021")}
-          >
-            Agosto 2021
-          </Dropdown.Item>
-          <Dropdown.Item
-          active={selectedYear === "Septiembre 2021"}
-          onClick={() => setSelectedYear("Septiembre 2021")}
-          >
-            Septiembre 2021
-          </Dropdown.Item>
-          <Dropdown.Item
-          active={selectedYear === "Octubre 2021"}
-          onClick={() => setSelectedYear("Octubre 2021")}
-          >
-            Octubre 2021
-          </Dropdown.Item>
-          <Dropdown.Item
-          active={selectedYear === "Noviembre 2021"}
-          onClick={() => setSelectedYear("Noviembre 2021")}
-          >
-            Noviembre 2021
-          </Dropdown.Item>
-          <Dropdown.Item
-          active={selectedYear === "Diciembre 2021"}
-          onClick={() => setSelectedYear("Diciembre 2021")}
-          >
-            Diciembre 2021
-          </Dropdown.Item>
-        </Dropdown>
+        }}
+        item={yearMenu.map((subtile) => ({
+          label: subtile.label,
+          id: subtile.id,
+          active: subtile.active,
+          onClick: subtile.onClick
+        }))}
+      />
       }
-      equipament={
-        <Dropdown
-        noCaret
-        renderToggle={(props, ref) => (
-          <button
-          {...props}
-          ref={ref}
-          style={{padding: 0}}
-          >
+      equipment={
+        <AppHeaderMenu
+        renderToggle={(props, ref) => {
+          return <button {...props} ref={ref} style={{ backgroundColor: "#fff0", padding: 0 }}>
             <p>{selectedEquipament}</p>
           </button>
-        )}
-        >
-          <Dropdown.Item
-          active={selectedEquipament === "Equipo A"}
-          onClick={() => setSelectedEquipament("Equipo A")}
-          >
-            Equipo A
-          </Dropdown.Item>
-          <Dropdown.Item
-          active={selectedEquipament === "Equipo B"}
-          onClick={() => setSelectedEquipament("Equipo B")}
-          >
-            Equipo B
-          </Dropdown.Item>
-          <Dropdown.Item
-          active={selectedEquipament === "Equipo C"}
-          onClick={() => setSelectedEquipament("Equipo C")}
-          >
-            Equipo C
-          </Dropdown.Item>
-          <Dropdown.Item
-          active={selectedEquipament === "Equipo D"}
-          onClick={() => setSelectedEquipament("Equipo D")}
-          >
-            Equipo D
-          </Dropdown.Item>
-        </Dropdown>
+        }}
+        item={equipamentMenu.map((subtile) => ({
+          label: subtile.label,
+          id: subtile.id,
+          active: subtile.active,
+          onClick: subtile.onClick
+        }))}
+      />
       }
       process={
-        <Dropdown
-        noCaret
-        renderToggle={(props, ref) => (
-          <button
-          {...props}
-          ref={ref}
-          style={{padding: 0}}
-          >
+        <AppHeaderMenu
+        renderToggle={(props, ref) => {
+          return <button {...props} ref={ref} style={{ backgroundColor: "#fff0", padding: 0 }}>
             <p>{selectedProcess}</p>
           </button>
-        )}
-        >
-          <Dropdown.Item
-          active={selectedProcess === "Proceso 1"}
-          onClick={() => setSelectedProcess("Proceso 1")}
-          >
-            Proceso 1
-          </Dropdown.Item>
-          <Dropdown.Item
-          active={selectedProcess === "Proceso 2"}
-          onClick={() => setSelectedProcess("Proceso 2")}
-          >
-            Proceso 2
-          </Dropdown.Item>
-          <Dropdown.Item
-          active={selectedProcess === "Proceso 3"}
-          onClick={() => setSelectedProcess("Proceso 3")}
-          >
-            Proceso 3
-          </Dropdown.Item>
-        </Dropdown>
+        }}
+        item={processMenu.map((subtile) => ({
+          label: subtile.label,
+          id: subtile.id,
+          active: subtile.active,
+          onClick: subtile.onClick
+        }))}
+      />
       }
       subtitles={rightMenuOptions.map((subtile) => ({
         label: subtile.label,

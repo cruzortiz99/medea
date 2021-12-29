@@ -10,3 +10,12 @@
 .margin10 {
   margin: 10px;
 }
+.subtitle {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+.subtitle p {
+  margin-top: 0;
+}

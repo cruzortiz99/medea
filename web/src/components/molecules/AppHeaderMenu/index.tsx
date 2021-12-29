@@ -2,7 +2,7 @@ import React, { useState, ReactNode } from "react"
 import { Dropdown } from "rsuite"
 
 export type AppHeaderMenuProps = {
-  renderToggle?: (props: any, ref: any) => any
+  renderToggle: (props: any, ref: any) => ReactNode
   item: { 
     label?: ReactNode, 
     id?: string, 
@@ -12,22 +12,23 @@ export type AppHeaderMenuProps = {
 }
 
 function AppHeaderMenu(props: AppHeaderMenuProps){
+  
   return(
     <>
-     <Dropdown
-      noCaret
-      renderToggle={props.renderToggle}
-     >
-       {props.item.map((item) => (
-         <Dropdown.Item
-          key={item.id}
-          active={item.active}
-          onClick={item.onClick}
-         >
-           {item.label}
-         </Dropdown.Item>
-       ))}
-     </Dropdown>
+      <Dropdown
+        noCaret
+        renderToggle={(rprops, ref) => props.renderToggle(rprops, ref)}
+      >
+        {props.item.map((item) => (
+          <Dropdown.Item
+            key={item.id}
+            active={item.active}
+            onClick={item.onClick}
+          >
+            {item.label}
+          </Dropdown.Item>
+        ))}
+      </Dropdown>
     </>
   )
 }
