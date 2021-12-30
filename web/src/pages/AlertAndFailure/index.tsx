@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import AppHeaderMenu from "../../components/molecules/AppHeaderMenu"
+import AppHeaderMenuButton from "../../components/atoms/AppHeaderMenuButton"
 import { AppRoutedPage } from "../../routes/routes"
 import homeStore from "../../store/home"
 import { useObservable } from "../../utils/rx/hooks"
@@ -198,9 +199,8 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       plantName={
         <AppHeaderMenu
           renderToggle={(props, ref) => {
-            return <button {...props} ref={ref} style={{ backgroundColor: "#fff0", padding: 0 }}>
-              <h3>{selectedPlant}</h3>
-            </button>
+            return <AppHeaderMenuButton rprops={props} ref={ref}
+            title={<h3>{selectedPlant}</h3>}/>
           }}
           item={plantMenu.map((subtile) => ({
             label: subtile.label,
@@ -213,9 +213,8 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       monthAndYear={
         <AppHeaderMenu
         renderToggle={(props, ref) => {
-          return <button {...props} ref={ref} style={{ backgroundColor: "#fff0", padding: 0 }}>
-            <p>{selectedYear}</p>
-          </button>
+          return <AppHeaderMenuButton rprops={props} ref={ref}
+          title={<p>{selectedYear}</p>}/>
         }}
         item={yearMenu.map((subtile) => ({
           label: subtile.label,
@@ -228,9 +227,8 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       equipment={
         <AppHeaderMenu
         renderToggle={(props, ref) => {
-          return <button {...props} ref={ref} style={{ backgroundColor: "#fff0", padding: 0 }}>
-            <p>{selectedEquipament}</p>
-          </button>
+          return <AppHeaderMenuButton rprops={props} ref={ref}
+          title={<p>{selectedEquipament}</p>}/>
         }}
         item={equipamentMenu.map((subtile) => ({
           label: subtile.label,
@@ -243,9 +241,8 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       process={
         <AppHeaderMenu
         renderToggle={(props, ref) => {
-          return <button {...props} ref={ref} style={{ backgroundColor: "#fff0", padding: 0 }}>
-            <p>{selectedProcess}</p>
-          </button>
+          return <AppHeaderMenuButton rprops={props} ref={ref}
+          title={<p>{selectedProcess}</p>}/>
         }}
         item={processMenu.map((subtile) => ({
           label: subtile.label,

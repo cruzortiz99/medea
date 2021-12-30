@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useState } from "react"
 import AppPlot from "../../components/atoms/AppPlot"
 import AppHeaderMenu from "../../components/molecules/AppHeaderMenu"
+import AppHeaderMenuButton from "../../components/atoms/AppHeaderMenuButton"
 import { randomColor } from "../../utils/css"
 
 
@@ -49,9 +50,7 @@ function TestPage() {
       <h2>TestLab</h2>
       <AppHeaderMenu
         renderToggle={(props, ref)=> {
-          return <button {...props} ref={ref}>
-            <h3>{selectedOption}</h3>
-            </button>
+          return <AppHeaderMenuButton rprops={props} ref={ref} title={<h3>{selectedOption}</h3>}/>
         }}
         item={headerMenu.map((subtile) => ({
           label: subtile.label,
