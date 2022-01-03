@@ -115,7 +115,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
   const equipamentMenu = [
     {
       label: "Equipo A",
-      id: "#equipoB",
+      id: "#equipoA",
       active: selectedEquipament === "Equipo A",
       onClick: () => setSelectedEquipament("Equipo A")
     },
@@ -133,7 +133,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
     },
     {
       label: "Equipo D",
-      id: "#equipoC",
+      id: "#equipoD",
       active: selectedEquipament === "Equipo D",
       onClick: () => setSelectedEquipament("Equipo D")
     },
@@ -199,8 +199,9 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       plantName={
         <AppHeaderMenu
           renderToggle={(props, ref) => {
-            return <AppHeaderMenuButton rprops={props} ref={ref}
-            title={<h3>{selectedPlant}</h3>}/>
+            return <AppHeaderMenuButton {...props} ref={ref}>
+              <h3>{selectedPlant}</h3>
+            </AppHeaderMenuButton>
           }}
           item={plantMenu.map((subtile) => ({
             label: subtile.label,
@@ -213,8 +214,9 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       monthAndYear={
         <AppHeaderMenu
         renderToggle={(props, ref) => {
-          return <AppHeaderMenuButton rprops={props} ref={ref}
-          title={<p>{selectedYear}</p>}/>
+          return <AppHeaderMenuButton {...props} ref={ref}>
+            <p>{selectedYear}</p>
+          </AppHeaderMenuButton>
         }}
         item={yearMenu.map((subtile) => ({
           label: subtile.label,
@@ -227,8 +229,9 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       equipment={
         <AppHeaderMenu
         renderToggle={(props, ref) => {
-          return <AppHeaderMenuButton rprops={props} ref={ref}
-          title={<p>{selectedEquipament}</p>}/>
+          return <AppHeaderMenuButton {...props} ref={ref}>
+            <p>{selectedEquipament}</p>
+          </AppHeaderMenuButton>
         }}
         item={equipamentMenu.map((subtile) => ({
           label: subtile.label,
@@ -241,8 +244,9 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       process={
         <AppHeaderMenu
         renderToggle={(props, ref) => {
-          return <AppHeaderMenuButton rprops={props} ref={ref}
-          title={<p>{selectedProcess}</p>}/>
+          return <AppHeaderMenuButton {...props} ref={ref}>
+            <p>{selectedProcess}</p>
+          </AppHeaderMenuButton>
         }}
         item={processMenu.map((subtile) => ({
           label: subtile.label,

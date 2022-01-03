@@ -1,19 +1,11 @@
 import React, { ReactNode } from "react"
 
-export type AppHeaderMenuButtonProps = {
-  rprops: any
-  ref: any
-  title: ReactNode
-}
-
-function AppHeaderMenuButton(props: AppHeaderMenuButtonProps){
+function AppHeaderMenuButton(props: React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>){
   return(
     <button
-      {...props.rprops}
-      ref={props.ref}
-      style={{ backgroundColor: "#fff0", padding: 0 }}
+     {...props}
+      style={{ backgroundColor: "#fff0", padding: 0, ...props }}
     >
-      {props.title}
     </button>
   )
 }

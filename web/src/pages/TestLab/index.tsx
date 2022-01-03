@@ -50,7 +50,9 @@ function TestPage() {
       <h2>TestLab</h2>
       <AppHeaderMenu
         renderToggle={(props, ref)=> {
-          return <AppHeaderMenuButton rprops={props} ref={ref} title={<h3>{selectedOption}</h3>}/>
+          return <AppHeaderMenuButton {...props} ref={ref}>
+            <h3>{selectedOption}</h3>
+          </AppHeaderMenuButton>
         }}
         item={headerMenu.map((subtile) => ({
           label: subtile.label,
