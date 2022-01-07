@@ -4,6 +4,7 @@ from werkzeug.wrappers.response import Response
 
 from config import HOST, PORT
 from modules.web_app import WEB_APP
+from modules.alerts_and_failure import ALERT_AND_FAILURE_APP
 from utils.browser import open_web_browser
 from constants import ASSETS_FOLDER
 
@@ -12,7 +13,7 @@ APP = Flask(
     static_folder=ASSETS_FOLDER, static_url_path="/static")
 
 APP.register_blueprint(WEB_APP)
-
+APP.register_blueprint(ALERT_AND_FAILURE_APP)
 
 if __name__ == '__main__':
     rx.create(
