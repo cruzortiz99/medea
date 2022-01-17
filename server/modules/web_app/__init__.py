@@ -7,9 +7,9 @@ from constants import ASSETS_FOLDER
 WEB_APP = Blueprint(
     "app",
     __name__,
-    url_prefix="",
+    url_prefix="/app",
     static_folder=ASSETS_FOLDER.joinpath("app"),
-    static_url_path="/app")
+    static_url_path="/")
 
 
 @WEB_APP.route("/", defaults={"subroute": ""}, methods=["GET"])

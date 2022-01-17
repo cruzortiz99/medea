@@ -9,7 +9,7 @@ def open_web_browser(
     [Observer[bool], Optional[Scheduler]],
         Disposable]:
     def wrapped(observer: Observer, _: Optional[Scheduler] = None):
-        webbrowser.open(f"http://{host}:{port}")
+        webbrowser.open(f"http://{host}:{port}/app")
         observer.on_next(True)
         observer.on_completed()
     return wrapped
