@@ -20,7 +20,7 @@ export type AlertAndFailurePageViewProps = {
   dataTableNoteM2: APINoteM2[]
   dataTableNoteM3: RowDataType[]
   dataTableTotalFall: RowDataType[]
-  dataTableTotalFaiules: RowDataType[]
+  dataTableTotalFailures: RowDataType[]
   dataTableEquipmentDownTimeFall: RowDataType[]
   dataTableTeamsImpactProduction: RowDataType[]
   dataTableTpef: RowDataType[]
@@ -327,7 +327,7 @@ function AlertAndFailurePageView(
                   Total fallas con paro o limitacion de la produccion
                 </strong>
                 <AppTable
-                  dataTable={props.dataTableTotalFaiules}
+                  dataTable={props.dataTableTotalFailures}
                   height={320}
                   columns={[
                     {

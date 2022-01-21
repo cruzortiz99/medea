@@ -290,7 +290,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       acdt: 1,
     },
   ]
-  const dataTableTotalFaiules = [
+  const dataTableTotalFailures = [
     {
       position: 1,
       tag: "TP-1220",
@@ -897,7 +897,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
         downTime: dataKey.downTime,
         acdt: dataKey.acdt,
       }))}
-      dataTableTotalFaiules={dataTableTotalFaiules.map((dataKey) => ({
+      dataTableTotalFailures={dataTableTotalFailures.map((dataKey) => ({
         position: dataKey.position,
         tag: dataKey.tag,
         description: dataKey.description,
