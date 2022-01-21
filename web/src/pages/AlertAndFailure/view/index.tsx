@@ -11,22 +11,33 @@ import { joinClasses, randomColor } from "../../../utils/css"
 import { useScreenDimension } from "../../../utils/screen/hooks"
 import styles from "./AlertAndFailurePage.module.css"
 import { PlotData } from "plotly.js"
-import { APINoteM2, RowDataType } from "../../../models"
+import {
+   APINoteM2,
+   APINoteM3,
+   APITotalFall,
+   APITotalFaiules,
+   APIEquipmentDownTimeFall,
+   APITeamsImpactProduction,
+   APITpef,
+   APIEquipmentTimeOut,
+   APIEquipmentPF,
+   APITemporaryRepairs
+  } from "../../../models"
 export type AlertAndFailurePageViewProps = {
   plantName: ReactNode
   monthAndYear: ReactNode
   equipment: ReactNode
   process: ReactNode
   dataTableNoteM2: APINoteM2[]
-  dataTableNoteM3: RowDataType[]
-  dataTableTotalFall: RowDataType[]
-  dataTableTotalFaiules: RowDataType[]
-  dataTableEquipmentDownTimeFall: RowDataType[]
-  dataTableTeamsImpactProduction: RowDataType[]
-  dataTableTpef: RowDataType[]
-  dataTableEquipmentTimeOut: RowDataType[]
-  dataTableEquipmentPF: RowDataType[]
-  dataTableTemporaryRepairs: RowDataType[]
+  dataTableNoteM3: APINoteM3[]
+  dataTableTotalFall: APITotalFall[]
+  dataTableTotalFaiules: APITotalFaiules[]
+  dataTableEquipmentDownTimeFall: APIEquipmentDownTimeFall[]
+  dataTableTeamsImpactProduction: APITeamsImpactProduction[]
+  dataTableTpef: APITpef[]
+  dataTableEquipmentTimeOut: APIEquipmentTimeOut[]
+  dataTableEquipmentPF: APIEquipmentPF[]
+  dataTableTemporaryRepairs: APITemporaryRepairs[]
   dataGraphNoteAlert: Partial<PlotData>[]
   dataGraphNoticeOrders: Partial<PlotData>[]
   dataGraphEquipmentFailures: Partial<PlotData>[]
@@ -193,7 +204,7 @@ function AlertAndFailurePageView(
                   },
                   {
                     headerCell: "Sin FF",
-                    dataKey: "sinFF",
+                    dataKey: "withOutFF",
                     flexGrowColumn: 1,
                     alingColumn: "center",
                     minWidthColumn: 50,

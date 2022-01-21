@@ -7,7 +7,18 @@ import { useObservable } from "../../utils/rx/hooks"
 import { randomColor } from "../../utils/css"
 import AlertAndFailurePageView from "./view"
 import { PlotData } from "plotly.js"
-import { APINoteM2 } from "../../models"
+import {
+   APINoteM2,
+   APINoteM3,
+   APITotalFall,
+   APITotalFaiules,
+   APIEquipmentDownTimeFall,
+   APITeamsImpactProduction,
+   APITpef,
+   APIEquipmentTimeOut,
+   APIEquipmentPF,
+   APITemporaryRepairs 
+  } from "../../models"
 
 function AlertAndFailurePage(props: AppRoutedPage) {
   const [_, rightMenuSubject] = useObservable(homeStore.rightMenuOptions)
@@ -222,33 +233,33 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       withOutFF: 0,
     },
   ]
-  const dataTableNoteM3 = [
+  const dataTableNoteM3: APINoteM3[] = [
     {
       executor: "Operador",
       amount: 0,
       hours: 0.0,
-      sinFF: 0,
+      withOutFF: 0,
     },
     {
       executor: "Mantenedor",
       amount: 0,
       hours: 0.0,
-      sinFF: 0,
+      withOutFF: 0,
     },
     {
       executor: "Sin inform",
       amount: 0,
       hours: 0.0,
-      sinFF: 0,
+      withOutFF: 0,
     },
     {
       executor: "Total",
       amount: 0,
       hours: 0.0,
-      sinFF: 0,
+      withOutFF: 0,
     },
   ]
-  const dataTableTotalFall = [
+  const dataTableTotalFall: APITotalFall[] = [
     {
       position: 1,
       tag: "TP-1220",
@@ -290,7 +301,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       acdt: 1,
     },
   ]
-  const dataTableTotalFaiules = [
+  const dataTableTotalFaiules: APITotalFaiules[] = [
     {
       position: 1,
       tag: "TP-1220",
@@ -337,7 +348,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       dtHours: 2.4,
     },
   ]
-  const dataTableEquipmentDownTimeFall = [
+  const dataTableEquipmentDownTimeFall: APIEquipmentDownTimeFall[] = [
     {
       position: 1,
       tag: "TP-1220",
@@ -379,7 +390,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       acdt: 1,
     },
   ]
-  const dataTableTeamsImpactProduction = [
+  const dataTableTeamsImpactProduction: APITeamsImpactProduction[] = [
     {
       position: 1,
       tag: "TP-1220",
@@ -426,7 +437,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       dtHours: 2.4,
     },
   ]
-  const dataTableTpef = [
+  const dataTableTpef: APITpef[] = [
     {
       position: 1,
       tag: "NV-3300C",
@@ -478,7 +489,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       percent: 20,
     },
   ]
-  const dataTableEquipmentTimeOut = [
+  const dataTableEquipmentTimeOut: APIEquipmentTimeOut[] = [
     {
       position: 1,
       tag: "PK-2510",
@@ -487,16 +498,16 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       daysDS: 7,
       reper: 3,
       order: 10033815,
-      ctec: null,
-      noti: null,
-      ejec: null,
-      emat: null,
-      esps: null,
-      prog: null,
-      startDate: null,
-      startTime: null,
-      endDate: null,
-      endTime: null,
+      ctec: "",
+      noti: "",
+      ejec: "",
+      emat: "",
+      esps: "",
+      prog: "",
+      startDate: "",
+      startTime: "",
+      endDate: "",
+      endTime: "",
       startFails: "20/10/2021",
     },
     {
@@ -526,17 +537,17 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       notices: 10014870,
       daysDS: 29,
       reper: 2,
-      order: null,
-      ctec: null,
-      noti: null,
-      ejec: null,
-      emat: null,
-      esps: null,
-      prog: null,
-      startDate: null,
-      startTime: null,
-      endDate: null,
-      endTime: null,
+      order: 10034144,
+      ctec: "",
+      noti: "",
+      ejec: "",
+      emat: "",
+      esps: "",
+      prog: "",
+      startDate: "",
+      startTime: "",
+      endDate: "",
+      endTime: "",
       startFails: "28/09/2021",
     },
     {
@@ -547,16 +558,16 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       daysDS: 46,
       reper: 3,
       order: 10033643,
-      ctec: null,
-      noti: null,
-      ejec: null,
-      emat: null,
-      esps: null,
-      prog: null,
-      startDate: null,
-      startTime: null,
-      endDate: null,
-      endTime: null,
+      ctec: "",
+      noti: "",
+      ejec: "",
+      emat: "",
+      esps: "",
+      prog: "",
+      startDate: "",
+      startTime: "",
+      endDate: "",
+      endTime: "",
       startFails: "11/09/2021",
     },
     {
@@ -565,22 +576,22 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       description: "Enfriador de crema",
       notices: 10014754,
       daysDS: 47,
-      reper: null,
+      reper: 2,
       order: 10033550,
-      ctec: null,
-      noti: null,
-      ejec: null,
-      emat: null,
-      esps: null,
-      prog: null,
-      startDate: null,
-      startTime: null,
-      endDate: null,
-      endTime: null,
+      ctec: "",
+      noti: "",
+      ejec: "",
+      emat: "",
+      esps: "",
+      prog: "",
+      startDate: "",
+      startTime: "",
+      endDate: "",
+      endTime: "",
       startFails: "10/09/2021",
     },
   ]
-  const dataTableEquipmentPF = [
+  const dataTableEquipmentPF: APIEquipmentPF[] = [
     {
       position: 1,
       notice: 10012812,
@@ -632,7 +643,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       statusODM: "EMAT",
     },
   ]
-  const dataTableTemporaryRepairs = [
+  const dataTableTemporaryRepairs: APITemporaryRepairs[] = [
     {
       position: 1,
       notice: 10014450,
@@ -681,7 +692,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       position: 5,
       notice: 10030636,
       order: 100313376,
-      tagNotice: null,
+      tagNotice: "",
       description: "**Aviso con mas de 2 años / error texto ODM",
       textOrder: "Reemplazar bloque auxiliar y c",
       startDate: "29/01/2021",
@@ -883,154 +894,23 @@ function AlertAndFailurePage(props: AppRoutedPage) {
         id: subtile.href.substring(1),
       }))}
       dataTableNoteM2={dataTableNoteM2}
-      dataTableNoteM3={dataTableNoteM3.map((dataKey) => ({
-        executor: dataKey.executor,
-        amount: dataKey.amount,
-        hours: dataKey.hours,
-        sinFF: dataKey.sinFF,
-      }))}
-      dataTableTotalFall={dataTableTotalFall.map((dataKey) => ({
-        position: dataKey.position,
-        tag: dataKey.tag,
-        description: dataKey.description,
-        amount: dataKey.amount,
-        downTime: dataKey.downTime,
-        acdt: dataKey.acdt,
-      }))}
-      dataTableTotalFaiules={dataTableTotalFaiules.map((dataKey) => ({
-        position: dataKey.position,
-        tag: dataKey.tag,
-        description: dataKey.description,
-        r3: dataKey.r3,
-        r2: dataKey.r2,
-        amount: dataKey.amount,
-        dtHours: dataKey.dtHours,
-      }))}
-      dataTableEquipmentDownTimeFall={dataTableEquipmentDownTimeFall.map(
-        (dataKey) => ({
-          position: dataKey.position,
-          tag: dataKey.tag,
-          description: dataKey.description,
-          amount: dataKey.amount,
-          downTime: dataKey.downTime,
-          acdt: dataKey.acdt,
-        })
-      )}
-      dataTableTeamsImpactProduction={dataTableTeamsImpactProduction.map(
-        (dataKey) => ({
-          position: dataKey.position,
-          tag: dataKey.tag,
-          description: dataKey.description,
-          r3: dataKey.r3,
-          r2: dataKey.r2,
-          amount: dataKey.amount,
-          dtHours: dataKey.dtHours,
-        })
-      )}
-      dataTableTpef={dataTableTpef.map((dataKey) => ({
-        position: dataKey.position,
-        tag: dataKey.tag,
-        description: dataKey.description,
-        tpef12M: dataKey.tpef12M,
-        fall12M: dataKey.fall12M,
-        tpef24M: dataKey.tpef24M,
-        fall24M: dataKey.fall24M,
-        percent: dataKey.percent,
-      }))}
-      dataTableEquipmentTimeOut={dataTableEquipmentTimeOut.map((dataKey) => ({
-        position: dataKey.position,
-        tag: dataKey.tag,
-        description: dataKey.description,
-        notices: dataKey.notices,
-        daysDS: dataKey.daysDS,
-        reper: dataKey.reper,
-        order: dataKey.order,
-        ctec: dataKey.ctec,
-        noti: dataKey.noti,
-        ejec: dataKey.ejec,
-        emat: dataKey.emat,
-        esps: dataKey.esps,
-        prog: dataKey.prog,
-        startDate: dataKey.startDate,
-        startTime: dataKey.startTime,
-        endDate: dataKey.endDate,
-        endTime: dataKey.endTime,
-        startFails: dataKey.startFails,
-      }))}
-      dataTableEquipmentPF={dataTableEquipmentPF.map((dataKey) => ({
-        position: dataKey.position,
-        notice: dataKey.notice,
-        tag: dataKey.tag,
-        description: dataKey.description,
-        startDate: dataKey.startDate,
-        days: dataKey.days,
-        order: dataKey.order,
-        statusODM: dataKey.statusODM,
-      }))}
-      dataTableTemporaryRepairs={dataTableTemporaryRepairs.map((dataKey) => ({
-        position: dataKey.position,
-        notice: dataKey.notice,
-        order: dataKey.order,
-        tagNotice: dataKey.tagNotice,
-        description: dataKey.description,
-        textOrder: dataKey.textOrder,
-        startDate: dataKey.startDate,
-        status: dataKey.status,
-        tagODM: dataKey.tagODM,
-      }))}
-      dataGraphNoteAlert={dataGraphNoteAlert.map((dataKey) => ({
-        x: dataKey.x,
-        y: dataKey.y,
-        marker: dataKey.marker,
-        type: dataKey.type,
-      }))}
-      dataGraphNoticeOrders={dataGraphNoticeOrders.map((dataKey) => ({
-        x: dataKey.x,
-        y: dataKey.y,
-        marker: dataKey.marker,
-        type: dataKey.type,
-      }))}
-      dataGraphEquipmentFailures={dataGraphEquipmentFailures.map((dataKey) => ({
-        x: dataKey.x,
-        y: dataKey.y,
-        marker: dataKey.marker,
-        type: dataKey.type,
-      }))}
-      dataGraphDownTimeHours={dataGraphDownTimeHours.map((dataKey) => ({
-        x: dataKey.x,
-        y: dataKey.y,
-        marker: dataKey.marker,
-        type: dataKey.type,
-      }))}
-      dataGraphProductionLimitation={dataGraphProductionLimitation.map(
-        (dataKey) => ({
-          x: dataKey.x,
-          y: dataKey.y,
-          marker: dataKey.marker,
-          type: dataKey.type,
-        })
-      )}
-      dataGraphDownTimeImpactProduction={dataGraphDownTimeImpactProduction.map(
-        (dataKey) => ({
-          x: dataKey.x,
-          y: dataKey.y,
-          marker: dataKey.marker,
-          type: dataKey.type,
-        })
-      )}
-      dataGraphTpef={dataGraphTpef.map((dataKey) => ({
-        x: dataKey.x,
-        y: dataKey.y,
-        marker: dataKey.marker,
-        type: dataKey.type,
-        orientation: dataKey.orientation,
-      }))}
-      dataGraphFaultOccurrence={dataGraphFaultOccurrence.map((dataKey) => ({
-        x: dataKey.x,
-        y: dataKey.y,
-        marker: dataKey.marker,
-        type: dataKey.type,
-      }))}
+      dataTableNoteM3={dataTableNoteM3}
+      dataTableTotalFall={dataTableTotalFall}
+      dataTableTotalFaiules={dataTableTotalFaiules}
+      dataTableEquipmentDownTimeFall={dataTableEquipmentDownTimeFall}
+      dataTableTeamsImpactProduction={dataTableTeamsImpactProduction}
+      dataTableTpef={dataTableTpef}
+      dataTableEquipmentTimeOut={dataTableEquipmentTimeOut}
+      dataTableEquipmentPF={dataTableEquipmentPF}
+      dataTableTemporaryRepairs={dataTableTemporaryRepairs}
+      dataGraphNoteAlert={dataGraphNoteAlert}
+      dataGraphNoticeOrders={dataGraphNoticeOrders}
+      dataGraphEquipmentFailures={dataGraphEquipmentFailures}
+      dataGraphDownTimeHours={dataGraphDownTimeHours}
+      dataGraphProductionLimitation={dataGraphProductionLimitation}
+      dataGraphDownTimeImpactProduction={dataGraphDownTimeImpactProduction}
+      dataGraphTpef={dataGraphTpef}
+      dataGraphFaultOccurrence={dataGraphFaultOccurrence}
     />
   )
 }

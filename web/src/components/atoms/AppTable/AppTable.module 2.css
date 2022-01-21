@@ -1,0 +1,8 @@
+.borderTable {
+  border-radius: 6px;
+}
+
+.headerColor div {
+  background-color: rgb(82, 66, 255);
+  color: #fff;
+}
