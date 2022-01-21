@@ -11,21 +11,22 @@ import { joinClasses, randomColor } from "../../../utils/css"
 import { useScreenDimension } from "../../../utils/screen/hooks"
 import styles from "./AlertAndFailurePage.module.css"
 import { PlotData } from "plotly.js"
+import { RowDataType } from "../../../models"
 export type AlertAndFailurePageViewProps = {
   plantName: ReactNode
   monthAndYear: ReactNode
   equipment: ReactNode
   process: ReactNode
-  dataTableNoteM2: ReactNode[]
-  dataTableNoteM3: ReactNode[]
-  dataTableTotalFall: ReactNode[]
-  dataTableTotalFaiules: ReactNode[]
-  dataTableEquipmentDownTimeFall: ReactNode[]
-  dataTableTeamsImpactProduction: ReactNode[]
-  dataTableTpef: ReactNode[]
-  dataTableEquipmentTimeOut: ReactNode[]
-  dataTableEquipmentPF: ReactNode[]
-  dataTableTemporaryRepairs: ReactNode[]
+  dataTableNoteM2: RowDataType[]
+  dataTableNoteM3: RowDataType[]
+  dataTableTotalFall: RowDataType[]
+  dataTableTotalFaiules: RowDataType[]
+  dataTableEquipmentDownTimeFall: RowDataType[]
+  dataTableTeamsImpactProduction: RowDataType[]
+  dataTableTpef: RowDataType[]
+  dataTableEquipmentTimeOut: RowDataType[]
+  dataTableEquipmentPF: RowDataType[]
+  dataTableTemporaryRepairs: RowDataType[]
   dataGraphNoteAlert: Partial<PlotData>[]
   dataGraphNoticeOrders: Partial<PlotData>[]
   dataGraphEquipmentFailures: Partial<PlotData>[]

@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react"
 import { Container, Table } from "rsuite"
+import { RowDataType } from "../../../models/index"
 import styles from "./AppTable.module.css"
 
 export type AppTableColumnGroup = {
@@ -17,7 +18,7 @@ export type AppTableColumn = {
 }
 
 export type AppTableProps = {
-  dataTable: any[]
+  dataTable: RowDataType[]
   height?: number
   heightHeaderCell?: number
   columns: AppTableColumn[]

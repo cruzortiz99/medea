@@ -195,7 +195,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       href: "#work-history",
     },
   ]
-  const dataNoteM2 = [
+  const dataTableNoteM2 = [
     {
       executor: "Operador",
       amount: 0,
@@ -221,7 +221,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       sinFF: 0,
     },
   ]
-  const dataNoteM3 = [
+  const dataTableNoteM3 = [
     {
       executor: "Operador",
       amount: 0,
@@ -247,7 +247,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       sinFF: 0,
     },
   ]
-  const dataTotalFall = [
+  const dataTableTotalFall = [
     {
       position: 1,
       tag: "TP-1220",
@@ -289,7 +289,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       acdt: 1,
     },
   ]
-  const dataTotalFaiules = [
+  const dataTableTotalFaiules = [
     {
       position: 1,
       tag: "TP-1220",
@@ -336,7 +336,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       dtHours: 2.4,
     },
   ]
-  const dataEquipmentDownTimeFall = [
+  const dataTableEquipmentDownTimeFall = [
     {
       position: 1,
       tag: "TP-1220",
@@ -378,7 +378,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       acdt: 1,
     },
   ]
-  const dataTeamsImpactProduction = [
+  const dataTableTeamsImpactProduction = [
     {
       position: 1,
       tag: "TP-1220",
@@ -425,7 +425,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       dtHours: 2.4,
     },
   ]
-  const dataTpef = [
+  const dataTableTpef = [
     {
       position: 1,
       tag: "NV-3300C",
@@ -477,7 +477,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       percent: 20,
     },
   ]
-  const dataEquipmentTimeOut = [
+  const dataTableEquipmentTimeOut = [
     {
       position: 1,
       tag: "PK-2510",
@@ -579,7 +579,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       startFails: "10/09/2021",
     },
   ]
-  const dataEquipmentPF = [
+  const dataTableEquipmentPF = [
     {
       position: 1,
       notice: 10012812,
@@ -631,7 +631,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       statusODM: "EMAT",
     },
   ]
-  const dataTemporaryRepairs = [
+  const dataTableTemporaryRepairs = [
     {
       position: 1,
       notice: 10014450,
@@ -688,7 +688,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       tagODM: "CYM1201",
     },
   ]
-  const dataNoteAlert: Partial<PlotData>[] = [
+  const dataGraphNoteAlert: Partial<PlotData>[] = [
     {
       x: [1, 2, 3],
       y: [9, 4, 9],
@@ -702,7 +702,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       type: "bar",
     },
   ]
-  const dataNoticeOrders: Partial<PlotData>[] = [
+  const dataGraphNoticeOrders: Partial<PlotData>[] = [
     {
       x: [1, 2, 3],
       y: [9, 4, 9],
@@ -716,7 +716,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       type: "bar",
     },
   ]
-  const dataEquipFall: Partial<PlotData>[] = [
+  const dataGraphEquipmentFailures: Partial<PlotData>[] = [
     {
       x: [1, 2, 3],
       y: [9, 4, 9],
@@ -730,7 +730,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       type: "bar",
     },
   ]
-  const dataDownTime: Partial<PlotData>[] = [
+  const dataGraphDownTimeHours: Partial<PlotData>[] = [
     {
       x: [1, 2, 3],
       y: [9, 4, 9],
@@ -744,7 +744,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       type: "bar",
     },
   ]
-  const dataProductionLimitation: Partial<PlotData>[] = [
+  const dataGraphProductionLimitation: Partial<PlotData>[] = [
     {
       x: [1, 2, 3],
       y: [9, 4, 9],
@@ -763,7 +763,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       marker: { color: colors[2] },
     },
   ]
-  const dataImpactProduction: Partial<PlotData>[] = [
+  const dataGraphDownTimeImpactProduction: Partial<PlotData>[] = [
     {
       x: [1, 2, 3],
       y: [9, 4, 9],
@@ -793,7 +793,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       orientation: "h",
     },
   ]
-  const dataFaultOccurrence: Partial<PlotData>[] = [
+  const dataGraphFaultOccurrence: Partial<PlotData>[] = [
     {
       x: [1, 2, 3],
       y: [9, 4, 9],
@@ -873,19 +873,19 @@ function AlertAndFailurePage(props: AppRoutedPage) {
         label: subtile.label,
         id: subtile.href.substring(1),
       }))}
-      dataTableNoteM2={dataNoteM2.map((dataKey) => ({
+      dataTableNoteM2={dataTableNoteM2.map((dataKey) => ({
         executor: dataKey.executor,
         amount: dataKey.amount,
         hours: dataKey.hours,
         sinFF: dataKey.sinFF
       }))}
-      dataTableNoteM3={dataNoteM3.map((dataKey) => ({
+      dataTableNoteM3={dataTableNoteM3.map((dataKey) => ({
         executor: dataKey.executor,
         amount: dataKey.amount,
         hours: dataKey.hours,
         sinFF: dataKey.sinFF
       }))}
-      dataTableTotalFall={dataTotalFall.map((dataKey) => ({
+      dataTableTotalFall={dataTableTotalFall.map((dataKey) => ({
         position: dataKey.position,
         tag: dataKey.tag,
         description: dataKey.description,
@@ -893,7 +893,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
         downTime: dataKey.downTime,
         acdt: dataKey.acdt
       }))}
-      dataTableTotalFaiules={dataTotalFaiules.map((dataKey) => ({
+      dataTableTotalFaiules={dataTableTotalFaiules.map((dataKey) => ({
         position: dataKey.position,
         tag: dataKey.tag,
         description: dataKey.description,
@@ -902,7 +902,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
         amount: dataKey.amount,
         dtHours: dataKey.dtHours
       }))}
-      dataTableEquipmentDownTimeFall={dataEquipmentDownTimeFall.map((dataKey) => ({
+      dataTableEquipmentDownTimeFall={dataTableEquipmentDownTimeFall.map((dataKey) => ({
         position: dataKey.position,
         tag: dataKey.tag,
         description: dataKey.description,
@@ -910,7 +910,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
         downTime: dataKey.downTime,
         acdt: dataKey.acdt
       }))}
-      dataTableTeamsImpactProduction={dataTeamsImpactProduction.map((dataKey) => ({
+      dataTableTeamsImpactProduction={dataTableTeamsImpactProduction.map((dataKey) => ({
         position: dataKey.position,
         tag: dataKey.tag,
         description: dataKey.description,
@@ -919,7 +919,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
         amount: dataKey.amount,
         dtHours: dataKey.dtHours
       }))}
-      dataTableTpef={dataTpef.map((dataKey) => ({
+      dataTableTpef={dataTableTpef.map((dataKey) => ({
         position: dataKey.position,
         tag: dataKey.tag,
         description: dataKey.description,
@@ -929,7 +929,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
         fall24M: dataKey.fall24M,
         percent: dataKey.percent
       }))}
-      dataTableEquipmentTimeOut={dataEquipmentTimeOut.map((dataKey) => ({
+      dataTableEquipmentTimeOut={dataTableEquipmentTimeOut.map((dataKey) => ({
         position: dataKey.position,
         tag: dataKey.tag,
         description: dataKey.description,
@@ -949,7 +949,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
         endTime: dataKey.endTime,
         startFails: dataKey.startFails
       }))}
-      dataTableEquipmentPF={dataEquipmentPF.map((dataKey) => ({
+      dataTableEquipmentPF={dataTableEquipmentPF.map((dataKey) => ({
         position: dataKey.position,
         notice: dataKey.notice,
         tag: dataKey.tag,
@@ -959,7 +959,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
         order: dataKey.order,
         statusODM: dataKey.statusODM,
       }))}
-      dataTableTemporaryRepairs={dataTemporaryRepairs.map((dataKey) => ({
+      dataTableTemporaryRepairs={dataTableTemporaryRepairs.map((dataKey) => ({
         position: dataKey.position,
         notice: dataKey.notice,
         order: dataKey.order,
@@ -970,37 +970,37 @@ function AlertAndFailurePage(props: AppRoutedPage) {
         status: dataKey.status,
         tagODM: dataKey.tagODM
       }))}
-      dataGraphNoteAlert={dataNoteAlert.map((dataKey) => ({
+      dataGraphNoteAlert={dataGraphNoteAlert.map((dataKey) => ({
         x: dataKey.x,
         y: dataKey.y,
         marker: dataKey.marker,
         type: dataKey.type
       }))}
-      dataGraphNoticeOrders={dataNoticeOrders.map((dataKey) => ({
+      dataGraphNoticeOrders={dataGraphNoticeOrders.map((dataKey) => ({
         x: dataKey.x,
         y: dataKey.y,
         marker: dataKey.marker,
         type: dataKey.type
       }))}
-      dataGraphEquipmentFailures={dataEquipFall.map((dataKey => ({
+      dataGraphEquipmentFailures={dataGraphEquipmentFailures.map((dataKey => ({
         x: dataKey.x,
         y: dataKey.y,
         marker: dataKey.marker,
         type: dataKey.type
       })))}
-      dataGraphDownTimeHours={dataDownTime.map((dataKey) => ({
+      dataGraphDownTimeHours={dataGraphDownTimeHours.map((dataKey) => ({
         x: dataKey.x,
         y: dataKey.y,
         marker: dataKey.marker,
         type: dataKey.type
       }))}
-      dataGraphProductionLimitation={dataProductionLimitation.map((dataKey) => ({
+      dataGraphProductionLimitation={dataGraphProductionLimitation.map((dataKey) => ({
         x: dataKey.x,
         y: dataKey.y,
         marker: dataKey.marker,
         type: dataKey.type
       }))}
-      dataGraphDownTimeImpactProduction={dataImpactProduction.map((dataKey) => ({
+      dataGraphDownTimeImpactProduction={dataGraphDownTimeImpactProduction.map((dataKey) => ({
         x: dataKey.x,
         y: dataKey.y,
         marker: dataKey.marker,
@@ -1013,7 +1013,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
         type: dataKey.type,
         orientation: dataKey.orientation
       }))}
-      dataGraphFaultOccurrence={dataFaultOccurrence.map((dataKey) => ({
+      dataGraphFaultOccurrence={dataGraphFaultOccurrence.map((dataKey) => ({
         x: dataKey.x,
         y: dataKey.y,
         marker: dataKey.marker,
