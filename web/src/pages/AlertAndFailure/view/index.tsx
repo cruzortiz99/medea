@@ -11,13 +11,13 @@ import { joinClasses, randomColor } from "../../../utils/css"
 import { useScreenDimension } from "../../../utils/screen/hooks"
 import styles from "./AlertAndFailurePage.module.css"
 import { PlotData } from "plotly.js"
-import { RowDataType } from "../../../models"
+import { APINoteM2, RowDataType } from "../../../models"
 export type AlertAndFailurePageViewProps = {
   plantName: ReactNode
   monthAndYear: ReactNode
   equipment: ReactNode
   process: ReactNode
-  dataTableNoteM2: RowDataType[]
+  dataTableNoteM2: APINoteM2[]
   dataTableNoteM3: RowDataType[]
   dataTableTotalFall: RowDataType[]
   dataTableTotalFaiules: RowDataType[]
@@ -151,7 +151,7 @@ function AlertAndFailurePageView(
                   },
                   {
                     headerCell: "Sin FF",
-                    dataKey: "sinFF",
+                    dataKey: "withOutFF",
                     flexGrowColumn: 1,
                     alingColumn: "center",
                     minWidthColumn: 50,

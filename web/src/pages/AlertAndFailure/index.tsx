@@ -7,6 +7,7 @@ import { useObservable } from "../../utils/rx/hooks"
 import { randomColor } from "../../utils/css"
 import AlertAndFailurePageView from "./view"
 import { PlotData } from "plotly.js"
+import { APINoteM2 } from "../../models"
 
 function AlertAndFailurePage(props: AppRoutedPage) {
   const [_, rightMenuSubject] = useObservable(homeStore.rightMenuOptions)
@@ -24,25 +25,25 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       label: "Planta ABC",
       id: "#plantaABC",
       active: selectedPlant === "Planta ABC",
-      onClick: () => setSelectedPlant("Planta ABC")
+      onClick: () => setSelectedPlant("Planta ABC"),
     },
     {
       label: "Planta 1",
       id: "#planta1",
       active: selectedPlant === "Planta 1",
-      onClick: () => setSelectedPlant("Planta 1")
+      onClick: () => setSelectedPlant("Planta 1"),
     },
     {
       label: "Planta 2",
       id: "#planta2",
       active: selectedPlant === "Planta 2",
-      onClick: () => setSelectedPlant("Planta 2")
+      onClick: () => setSelectedPlant("Planta 2"),
     },
     {
       label: "Planta 3",
       id: "#planta3",
       active: selectedPlant === "Planta 3",
-      onClick: () => setSelectedPlant("Planta 3")
+      onClick: () => setSelectedPlant("Planta 3"),
     },
   ]
   const yearMenu = [
@@ -50,73 +51,73 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       label: "Enero 2021",
       id: "#enero2021",
       active: selectedYear === "Enero 2021",
-      onClick: () => setSelectedYear("Enero 2021")
+      onClick: () => setSelectedYear("Enero 2021"),
     },
     {
       label: "Febrero 2021",
       id: "#febrero2021",
       active: selectedYear === "Febrero 2021",
-      onClick: () => setSelectedYear("Febrero 2021")
+      onClick: () => setSelectedYear("Febrero 2021"),
     },
     {
       label: "Marzo 2021",
       id: "#marzo2021",
       active: selectedYear === "Marzo 2021",
-      onClick: () => setSelectedYear("Marzo 2021")
+      onClick: () => setSelectedYear("Marzo 2021"),
     },
     {
       label: "Abril 2021",
       id: "#abril2021",
       active: selectedYear === "Abril 2021",
-      onClick: () => setSelectedYear("Abril 2021")
+      onClick: () => setSelectedYear("Abril 2021"),
     },
     {
       label: "Mayo 2021",
       id: "#mayo2021",
       active: selectedYear === "Mayo 2021",
-      onClick: () => setSelectedYear("Mayo 2021")
+      onClick: () => setSelectedYear("Mayo 2021"),
     },
     {
       label: "Junio 2021",
       id: "#junio2021",
       active: selectedYear === "Junio 2021",
-      onClick: () => setSelectedYear("Junio 2021")
+      onClick: () => setSelectedYear("Junio 2021"),
     },
     {
       label: "Julio 2021",
       id: "#julio2021",
       active: selectedYear === "Julio 2021",
-      onClick: () => setSelectedYear("Julio 2021")
+      onClick: () => setSelectedYear("Julio 2021"),
     },
     {
       label: "Agosto 2021",
       id: "#agosto2021",
       active: selectedYear === "Agosto 2021",
-      onClick: () => setSelectedYear("Agosto 2021")
+      onClick: () => setSelectedYear("Agosto 2021"),
     },
     {
       label: "Septiembre 2021",
       id: "#septiembre2021",
       active: selectedYear === "Septiembre 2021",
-      onClick: () => setSelectedYear("Septiembre 2021")
+      onClick: () => setSelectedYear("Septiembre 2021"),
     },
     {
       label: "Octubre 2021",
       id: "#octubre2021",
       active: selectedYear === "Octubre 2021",
-      onClick: () => setSelectedYear("Octubre 2021")
+      onClick: () => setSelectedYear("Octubre 2021"),
     },
     {
       label: "Noviembre 2021",
       id: "#noviembre2021",
       active: selectedYear === "Noviembre 2021",
-      onClick: () => setSelectedYear("Noviembre 2021")
+      onClick: () => setSelectedYear("Noviembre 2021"),
     },
     {
       label: "Diciembre 2021",
       id: "#diciembre2021",
       active: selectedYear === "Diciembre 2021",
-      onClick: () => setSelectedYear("Diciembre 2021")
+      onClick: () => setSelectedYear("Diciembre 2021"),
     },
   ]
   const equipamentMenu = [
@@ -124,25 +125,25 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       label: "Equipo A",
       id: "#equipoA",
       active: selectedEquipament === "Equipo A",
-      onClick: () => setSelectedEquipament("Equipo A")
+      onClick: () => setSelectedEquipament("Equipo A"),
     },
     {
       label: "Equipo B",
       id: "#equipoB",
       active: selectedEquipament === "Equipo B",
-      onClick: () => setSelectedEquipament("Equipo B")
+      onClick: () => setSelectedEquipament("Equipo B"),
     },
     {
       label: "Equipo C",
       id: "#equipoC",
       active: selectedEquipament === "Equipo C",
-      onClick: () => setSelectedEquipament("Equipo C")
+      onClick: () => setSelectedEquipament("Equipo C"),
     },
     {
       label: "Equipo D",
       id: "#equipoD",
       active: selectedEquipament === "Equipo D",
-      onClick: () => setSelectedEquipament("Equipo D")
+      onClick: () => setSelectedEquipament("Equipo D"),
     },
   ]
   const processMenu = [
@@ -150,19 +151,19 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       label: "Proceso 1",
       id: "#proceso1",
       active: selectedProcess === "Proceso 1",
-      onClick: () => setSelectedProcess("Proceso 1")
+      onClick: () => setSelectedProcess("Proceso 1"),
     },
     {
       label: "Proceso 2",
       id: "#proceso2",
       active: selectedProcess === "Proceso 2",
-      onClick: () => setSelectedProcess("Proceso 2")
+      onClick: () => setSelectedProcess("Proceso 2"),
     },
     {
       label: "Proceso 3",
       id: "#proceso3",
       active: selectedProcess === "Proceso 3",
-      onClick: () => setSelectedProcess("Proceso 3")
+      onClick: () => setSelectedProcess("Proceso 3"),
     },
   ]
   const rightMenuOptions = [
@@ -195,30 +196,30 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       href: "#work-history",
     },
   ]
-  const dataTableNoteM2 = [
+  const dataTableNoteM2: APINoteM2[] = [
     {
       executor: "Operador",
       amount: 0,
       hours: 0.0,
-      sinFF: 0,
+      withOutFF: 0,
     },
     {
       executor: "Mantenedor",
       amount: 0,
       hours: 0.0,
-      sinFF: 0,
+      withOutFF: 0,
     },
     {
       executor: "Sin inform",
       amount: 0,
       hours: 0.0,
-      sinFF: 0,
+      withOutFF: 0,
     },
     {
       executor: "Total",
       amount: 0,
       hours: 0.0,
-      sinFF: 0,
+      withOutFF: 0,
     },
   ]
   const dataTableNoteM3 = [
@@ -812,78 +813,81 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       plantName={
         <AppHeaderMenu
           renderToggle={(props, ref) => {
-            return <AppHeaderMenuButton {...props} ref={ref}>
-              <h3>{selectedPlant}</h3>
-            </AppHeaderMenuButton>
+            return (
+              <AppHeaderMenuButton {...props} ref={ref}>
+                <h3>{selectedPlant}</h3>
+              </AppHeaderMenuButton>
+            )
           }}
           item={plantMenu.map((subtile) => ({
             label: subtile.label,
             id: subtile.id,
             active: subtile.active,
-            onClick: subtile.onClick
+            onClick: subtile.onClick,
           }))}
         />
       }
       monthAndYear={
         <AppHeaderMenu
-        renderToggle={(props, ref) => {
-          return <AppHeaderMenuButton {...props} ref={ref}>
-            <p>{selectedYear}</p>
-          </AppHeaderMenuButton>
-        }}
-        item={yearMenu.map((subtile) => ({
-          label: subtile.label,
-          id: subtile.id,
-          active: subtile.active,
-          onClick: subtile.onClick
-        }))}
-      />
+          renderToggle={(props, ref) => {
+            return (
+              <AppHeaderMenuButton {...props} ref={ref}>
+                <p>{selectedYear}</p>
+              </AppHeaderMenuButton>
+            )
+          }}
+          item={yearMenu.map((subtile) => ({
+            label: subtile.label,
+            id: subtile.id,
+            active: subtile.active,
+            onClick: subtile.onClick,
+          }))}
+        />
       }
       equipment={
         <AppHeaderMenu
-        renderToggle={(props, ref) => {
-          return <AppHeaderMenuButton {...props} ref={ref}>
-            <p>{selectedEquipament}</p>
-          </AppHeaderMenuButton>
-        }}
-        item={equipamentMenu.map((subtile) => ({
-          label: subtile.label,
-          id: subtile.id,
-          active: subtile.active,
-          onClick: subtile.onClick
-        }))}
-      />
+          renderToggle={(props, ref) => {
+            return (
+              <AppHeaderMenuButton {...props} ref={ref}>
+                <p>{selectedEquipament}</p>
+              </AppHeaderMenuButton>
+            )
+          }}
+          item={equipamentMenu.map((subtile) => ({
+            label: subtile.label,
+            id: subtile.id,
+            active: subtile.active,
+            onClick: subtile.onClick,
+          }))}
+        />
       }
       process={
         <AppHeaderMenu
-        renderToggle={(props, ref) => {
-          return <AppHeaderMenuButton {...props} ref={ref}>
-            <p>{selectedProcess}</p>
-          </AppHeaderMenuButton>
-        }}
-        item={processMenu.map((subtile) => ({
-          label: subtile.label,
-          id: subtile.id,
-          active: subtile.active,
-          onClick: subtile.onClick
-        }))}
-      />
+          renderToggle={(props, ref) => {
+            return (
+              <AppHeaderMenuButton {...props} ref={ref}>
+                <p>{selectedProcess}</p>
+              </AppHeaderMenuButton>
+            )
+          }}
+          item={processMenu.map((subtile) => ({
+            label: subtile.label,
+            id: subtile.id,
+            active: subtile.active,
+            onClick: subtile.onClick,
+          }))}
+        />
       }
       subtitles={rightMenuOptions.map((subtile) => ({
         label: subtile.label,
         id: subtile.href.substring(1),
       }))}
-      dataTableNoteM2={dataTableNoteM2.map((dataKey) => ({
-        executor: dataKey.executor,
-        amount: dataKey.amount,
-        hours: dataKey.hours,
-        sinFF: dataKey.sinFF
-      }))}
+      dataTableNoteM2={dataTableNoteM2}
       dataTableNoteM3={dataTableNoteM3.map((dataKey) => ({
         executor: dataKey.executor,
         amount: dataKey.amount,
         hours: dataKey.hours,
-        sinFF: dataKey.sinFF
+        sinFF: dataKey.sinFF,
       }))}
       dataTableTotalFall={dataTableTotalFall.map((dataKey) => ({
         position: dataKey.position,
@@ -891,7 +895,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
         description: dataKey.description,
         amount: dataKey.amount,
         downTime: dataKey.downTime,
-        acdt: dataKey.acdt
+        acdt: dataKey.acdt,
       }))}
       dataTableTotalFaiules={dataTableTotalFaiules.map((dataKey) => ({
         position: dataKey.position,
@@ -900,25 +904,29 @@ function AlertAndFailurePage(props: AppRoutedPage) {
         r3: dataKey.r3,
         r2: dataKey.r2,
         amount: dataKey.amount,
-        dtHours: dataKey.dtHours
+        dtHours: dataKey.dtHours,
       }))}
-      dataTableEquipmentDownTimeFall={dataTableEquipmentDownTimeFall.map((dataKey) => ({
-        position: dataKey.position,
-        tag: dataKey.tag,
-        description: dataKey.description,
-        amount: dataKey.amount,
-        downTime: dataKey.downTime,
-        acdt: dataKey.acdt
-      }))}
-      dataTableTeamsImpactProduction={dataTableTeamsImpactProduction.map((dataKey) => ({
-        position: dataKey.position,
-        tag: dataKey.tag,
-        description: dataKey.description,
-        r3: dataKey.r3,
-        r2: dataKey.r2,
-        amount: dataKey.amount,
-        dtHours: dataKey.dtHours
-      }))}
+      dataTableEquipmentDownTimeFall={dataTableEquipmentDownTimeFall.map(
+        (dataKey) => ({
+          position: dataKey.position,
+          tag: dataKey.tag,
+          description: dataKey.description,
+          amount: dataKey.amount,
+          downTime: dataKey.downTime,
+          acdt: dataKey.acdt,
+        })
+      )}
+      dataTableTeamsImpactProduction={dataTableTeamsImpactProduction.map(
+        (dataKey) => ({
+          position: dataKey.position,
+          tag: dataKey.tag,
+          description: dataKey.description,
+          r3: dataKey.r3,
+          r2: dataKey.r2,
+          amount: dataKey.amount,
+          dtHours: dataKey.dtHours,
+        })
+      )}
       dataTableTpef={dataTableTpef.map((dataKey) => ({
         position: dataKey.position,
         tag: dataKey.tag,
@@ -927,7 +935,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
         fall12M: dataKey.fall12M,
         tpef24M: dataKey.tpef24M,
         fall24M: dataKey.fall24M,
-        percent: dataKey.percent
+        percent: dataKey.percent,
       }))}
       dataTableEquipmentTimeOut={dataTableEquipmentTimeOut.map((dataKey) => ({
         position: dataKey.position,
@@ -947,7 +955,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
         startTime: dataKey.startTime,
         endDate: dataKey.endDate,
         endTime: dataKey.endTime,
-        startFails: dataKey.startFails
+        startFails: dataKey.startFails,
       }))}
       dataTableEquipmentPF={dataTableEquipmentPF.map((dataKey) => ({
         position: dataKey.position,
@@ -968,56 +976,60 @@ function AlertAndFailurePage(props: AppRoutedPage) {
         textOrder: dataKey.textOrder,
         startDate: dataKey.startDate,
         status: dataKey.status,
-        tagODM: dataKey.tagODM
+        tagODM: dataKey.tagODM,
       }))}
       dataGraphNoteAlert={dataGraphNoteAlert.map((dataKey) => ({
         x: dataKey.x,
         y: dataKey.y,
         marker: dataKey.marker,
-        type: dataKey.type
+        type: dataKey.type,
       }))}
       dataGraphNoticeOrders={dataGraphNoticeOrders.map((dataKey) => ({
         x: dataKey.x,
         y: dataKey.y,
         marker: dataKey.marker,
-        type: dataKey.type
+        type: dataKey.type,
       }))}
-      dataGraphEquipmentFailures={dataGraphEquipmentFailures.map((dataKey => ({
+      dataGraphEquipmentFailures={dataGraphEquipmentFailures.map((dataKey) => ({
         x: dataKey.x,
         y: dataKey.y,
         marker: dataKey.marker,
-        type: dataKey.type
-      })))}
+        type: dataKey.type,
+      }))}
       dataGraphDownTimeHours={dataGraphDownTimeHours.map((dataKey) => ({
         x: dataKey.x,
         y: dataKey.y,
         marker: dataKey.marker,
-        type: dataKey.type
+        type: dataKey.type,
       }))}
-      dataGraphProductionLimitation={dataGraphProductionLimitation.map((dataKey) => ({
-        x: dataKey.x,
-        y: dataKey.y,
-        marker: dataKey.marker,
-        type: dataKey.type
-      }))}
-      dataGraphDownTimeImpactProduction={dataGraphDownTimeImpactProduction.map((dataKey) => ({
-        x: dataKey.x,
-        y: dataKey.y,
-        marker: dataKey.marker,
-        type: dataKey.type
-      }))}
+      dataGraphProductionLimitation={dataGraphProductionLimitation.map(
+        (dataKey) => ({
+          x: dataKey.x,
+          y: dataKey.y,
+          marker: dataKey.marker,
+          type: dataKey.type,
+        })
+      )}
+      dataGraphDownTimeImpactProduction={dataGraphDownTimeImpactProduction.map(
+        (dataKey) => ({
+          x: dataKey.x,
+          y: dataKey.y,
+          marker: dataKey.marker,
+          type: dataKey.type,
+        })
+      )}
       dataGraphTpef={dataGraphTpef.map((dataKey) => ({
         x: dataKey.x,
         y: dataKey.y,
         marker: dataKey.marker,
         type: dataKey.type,
-        orientation: dataKey.orientation
+        orientation: dataKey.orientation,
       }))}
       dataGraphFaultOccurrence={dataGraphFaultOccurrence.map((dataKey) => ({
         x: dataKey.x,
         y: dataKey.y,
         marker: dataKey.marker,
-        type: dataKey.type
+        type: dataKey.type,
       }))}
     />
   )
