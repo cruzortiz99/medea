@@ -23,7 +23,7 @@ export type APITotalFall = {
   downTime: number
   acdt: number
 }
-export type APITotalFaiules = {
+export type APITotalFailures = {
   position: number
   tag: string
   description: string

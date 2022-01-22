@@ -8,17 +8,17 @@ import { randomColor } from "../../utils/css"
 import AlertAndFailurePageView from "./view"
 import { PlotData } from "plotly.js"
 import {
-   APINoteM2,
-   APINoteM3,
-   APITotalFall,
-   APITotalFaiules,
-   APIEquipmentDownTimeFall,
-   APITeamsImpactProduction,
-   APITpef,
-   APIEquipmentTimeOut,
-   APIEquipmentPF,
-   APITemporaryRepairs 
-  } from "../../models"
+  APINoteM2,
+  APINoteM3,
+  APITotalFall,
+  APITotalFailures,
+  APIEquipmentDownTimeFall,
+  APITeamsImpactProduction,
+  APITpef,
+  APIEquipmentTimeOut,
+  APIEquipmentPF,
+  APITemporaryRepairs,
+} from "../../models"
 
 function AlertAndFailurePage(props: AppRoutedPage) {
   const [_, rightMenuSubject] = useObservable(homeStore.rightMenuOptions)
@@ -301,7 +301,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       acdt: 1,
     },
   ]
-  const dataTableTotalFaiules: APITotalFaiules[] = [
+  const dataTableTotalFailures: APITotalFailures[] = [
     {
       position: 1,
       tag: "TP-1220",
@@ -314,7 +314,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
     {
       position: 2,
       tag: "PK-2510",
-      description: "Empacadora de vacio",
+      description: "Empacadora de vacío",
       r3: 1,
       r2: 1,
       amount: 2,
@@ -896,7 +896,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       dataTableNoteM2={dataTableNoteM2}
       dataTableNoteM3={dataTableNoteM3}
       dataTableTotalFall={dataTableTotalFall}
-      dataTableTotalFaiules={dataTableTotalFaiules}
+      dataTableTotalFailures={dataTableTotalFailures}
       dataTableEquipmentDownTimeFall={dataTableEquipmentDownTimeFall}
       dataTableTeamsImpactProduction={dataTableTeamsImpactProduction}
       dataTableTpef={dataTableTpef}

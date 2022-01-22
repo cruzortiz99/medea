@@ -12,17 +12,17 @@ import { useScreenDimension } from "../../../utils/screen/hooks"
 import styles from "./AlertAndFailurePage.module.css"
 import { PlotData } from "plotly.js"
 import {
-   APINoteM2,
-   APINoteM3,
-   APITotalFall,
-   APITotalFaiules,
-   APIEquipmentDownTimeFall,
-   APITeamsImpactProduction,
-   APITpef,
-   APIEquipmentTimeOut,
-   APIEquipmentPF,
-   APITemporaryRepairs
-  } from "../../../models"
+  APINoteM2,
+  APINoteM3,
+  APITotalFall,
+  APITotalFailures,
+  APIEquipmentDownTimeFall,
+  APITeamsImpactProduction,
+  APITpef,
+  APIEquipmentTimeOut,
+  APIEquipmentPF,
+  APITemporaryRepairs,
+} from "../../../models"
 export type AlertAndFailurePageViewProps = {
   plantName: ReactNode
   monthAndYear: ReactNode
@@ -31,7 +31,7 @@ export type AlertAndFailurePageViewProps = {
   dataTableNoteM2: APINoteM2[]
   dataTableNoteM3: APINoteM3[]
   dataTableTotalFall: APITotalFall[]
-  dataTableTotalFaiules: APITotalFaiules[]
+  dataTableTotalFailures: APITotalFailures[]
   dataTableEquipmentDownTimeFall: APIEquipmentDownTimeFall[]
   dataTableTeamsImpactProduction: APITeamsImpactProduction[]
   dataTableTpef: APITpef[]
@@ -338,7 +338,7 @@ function AlertAndFailurePageView(
                   Total fallas con paro o limitacion de la produccion
                 </strong>
                 <AppTable
-                  dataTable={props.dataTableTotalFaiules}
+                  dataTable={props.dataTableTotalFailures}
                   height={320}
                   columns={[
                     {
