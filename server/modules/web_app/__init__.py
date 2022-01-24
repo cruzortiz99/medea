@@ -9,7 +9,7 @@ WEB_APP = Blueprint(
     __name__,
     url_prefix="/app",
     static_folder=ASSETS_FOLDER.joinpath("app"),
-    static_url_path="/")
+    static_url_path="/app")
 
 
 @WEB_APP.route("/", defaults={"subroute": ""}, methods=["GET"])
