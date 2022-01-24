@@ -1,0 +1,10 @@
+Test endpoint
+---
+tags:
+  - test
+responses:
+  200:
+    description: Test output
+    schema:
+      type: string
+      example: Hola Mundo
