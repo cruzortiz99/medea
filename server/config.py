@@ -1,7 +1,10 @@
+from typing import Literal
+
+
 HOST: str = "localhost"
 PORT: int = 5000
 VERSION: str = "0.1.0"
-MODE = "DEV"
+MODE: Literal["DEV", "PROD"] = "DEV"
 
 SWAGGER_CONFIG = {
     "headers": [

@@ -5,6 +5,8 @@ tags:
 responses:
   200:
     description: Test output
-    schema:
-      type: string
-      example: Hola Mundo
+    content:
+      application/json:
+        schema:
+          type: string
+        example: Hola mundo
