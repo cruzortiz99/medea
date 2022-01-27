@@ -13,7 +13,7 @@ WEB_APP = Blueprint(
 
 
 @WEB_APP.route("/", defaults={"subroute": ""}, methods=["GET"])
-@WEB_APP.route("/subroute>", methods=["GET"])
+@WEB_APP.route("/<subroute>", methods=["GET"])
 def home(subroute: str = "") -> Response:
     print(f"App[subroute:{subroute}]")
     return send_file(ASSETS_FOLDER.joinpath("app").joinpath("index.html"))
