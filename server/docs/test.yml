@@ -8,5 +8,4 @@ responses:
     content:
       application/json:
         schema:
-          type: string
-        example: Hola mundo
+          $ref: '#/definitions/SimpleMessage'
