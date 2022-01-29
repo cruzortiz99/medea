@@ -3,7 +3,8 @@ from rx import operators as op
 from flasgger import Swagger
 from flask import Flask
 
-from config import HOST, PORT, SWAGGER_TEMPLATE, SWAGGER_CONFIG, MODE
+from config import HOST, PORT, SWAGGER_CONFIG, MODE
+from docs import SWAGGER_TEMPLATE
 from constants import ASSETS_FOLDER
 from modules.alert_anf_failures import ALERT_AND_FAILURES
 from modules.web_app import WEB_APP

@@ -1,5 +1,4 @@
 from typing import Literal
-import models
 
 HOST: str = "localhost"
 PORT: int = 5000
@@ -23,15 +22,4 @@ SWAGGER_CONFIG = {
     "specs_route": "/apidocs/",
     "openapi": "3.0.2",
     "uiversion": 3
-}
-SWAGGER_TEMPLATE = {
-    "info": {
-        "title": "MEDEA API",
-        "description": "API for MEDEA Dashboard",
-        "version": "0.0.1",
-        "basePath": "/api"
-    },
-    "definitions": {
-        "SimpleMessage": models.SimpleMessage.get_swagger_schema()
-    }
 }
