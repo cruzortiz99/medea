@@ -1,10 +1,11 @@
 import models
+from config import VERSION
 
 SWAGGER_TEMPLATE = {
     "info": {
         "title": "MEDEA API",
         "description": "API for MEDEA Dashboard",
-        "version": "0.0.1",
+        "version": VERSION,
         "basePath": "/api"
     },
     "definitions": {
