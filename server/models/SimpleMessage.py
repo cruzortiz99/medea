@@ -1,6 +1,6 @@
 class SimpleMessage():
     @staticmethod
-    def get_swagger_schema() -> dict:
+    def swagger_schema() -> dict:
         return {
             "type": "object",
             "properties": {
