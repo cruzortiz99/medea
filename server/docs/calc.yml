@@ -1,0 +1,22 @@
+Cal endpoint
+---
+tags:
+  - test
+parameters:
+  - name: num1
+    in: path
+    required: true
+    schema:
+      type: number
+  - name: num2
+    in: path
+    required: true
+    schema:
+      type: number
+responses:
+  200:
+    description: Test calc
+    content:
+      application/json:
+        schema:
+          $ref: '#/definitions/SimpleMessage'

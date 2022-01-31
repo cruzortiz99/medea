@@ -1,12 +1,12 @@
 import rx
-from rx import operators as op
 from flasgger import Swagger
 from flask import Flask
+from rx import operators as op
 
-from config import HOST, PORT, SWAGGER_CONFIG, MODE
-from docs import SWAGGER_TEMPLATE
+from config import HOST, MODE, PORT, SWAGGER_CONFIG
 from constants import ASSETS_FOLDER
-from modules.alert_anf_failures import ALERT_AND_FAILURES
+from docs import SWAGGER_TEMPLATE
+from modules.alerts_and_failures import ALERT_AND_FAILURES
 from modules.web_app import WEB_APP
 from utils.browser import open_web_browser
 
