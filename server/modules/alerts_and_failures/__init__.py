@@ -1,7 +1,10 @@
-from flask import Blueprint, Response, jsonify
+from functools import reduce
+from typing import List
+from flask import Blueprint, Response, jsonify, request
 from flasgger import swag_from
 from constants import DOC_FOLDER
-from models import SimpleMessage
+from models import SimpleMessage, APIResponseModel
+from services.note_m import get_notes_m3
 ALERT_AND_FAILURES = Blueprint(
     "alert-and-failure",
     __name__,
@@ -14,11 +17,13 @@ def sayHello() -> Response:
     return jsonify(SimpleMessage("Hola mundo").__dict__)
 
 
-@ALERT_AND_FAILURES.route("/calc/<int:num1>/<int:num2>", methods=["GET"])
-@swag_from(DOC_FOLDER.joinpath("calc.yml"))
-def calc(num1: int, num2: int) -> Response:
-    return jsonify(SimpleMessage(f"{add(num1,num2)}").__dict__)
-
-
-def add(num1: int, num2: int) -> int:
-    return num1 + num2
+@ALERT_AND_FAILURES.route("/note-m3", methods=["GET", "OPTIONS"])
+@swag_from(DOC_FOLDER.joinpath("note_m3.yml"))
+def notes_m3() -> Response:
+    if request.method == "OPTIONS":
+        return jsonify(APIResponseModel("Ok"))
+    else:
+        return jsonify(
+            APIResponseModel(
+                list(map(lambda note_m: note_m.__dict__, get_notes_m3()))
+            ).__dict__)

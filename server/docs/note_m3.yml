@@ -1,0 +1,16 @@
+Get NoteM3 data
+---
+tags:
+  - NoteM
+responses:
+  200:
+    description: Ok
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/definitions/NoteM'

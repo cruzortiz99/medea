@@ -9,6 +9,7 @@ SWAGGER_TEMPLATE = {
         "basePath": "/api"
     },
     "definitions": {
-        "SimpleMessage": models.SimpleMessage.swagger_schema()
+        "SimpleMessage": models.SimpleMessage.swagger_schema(),
+        "NoteM": models.NoteM.swagger_schema()
     }
 }

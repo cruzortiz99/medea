@@ -1,11 +1,16 @@
+from typing import Callable, List
 import unittest
 
-from modules.alerts_and_failures import add
+import rx
+from rx import operators as op
+
+from modules.alerts_and_failures import get_notes_m3
+from models.NoteM import NoteM
 
 
-class TestAlertAndFailures(unittest.TestCase):
-    def test_add(self):
-        self.assertEqual(add(15, 20), 35)
+class TestAlertAndFailures():
+
+    pass
 
 
 if __name__ == "__main__":
