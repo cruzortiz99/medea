@@ -1,10 +1,9 @@
-from functools import reduce
-from typing import List
-from flask import Blueprint, Response, jsonify, request
-from flasgger import swag_from
 from constants import DOC_FOLDER
-from models import SimpleMessage, APIResponseModel
+from flasgger import swag_from
+from flask import Blueprint, Response, jsonify, request
+from models import APIResponseModel, SimpleMessage
 from services.note_m import get_notes_m3
+
 ALERT_AND_FAILURES = Blueprint(
     "alert-and-failure",
     __name__,
