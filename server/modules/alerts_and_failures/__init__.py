@@ -1,6 +1,6 @@
 from constants import DOC_FOLDER
 from flasgger import swag_from
-from flask import Blueprint, Response, jsonify, request
+from flask import Blueprint, Response, jsonify, make_response, request
 from models import APIResponseModel, SimpleMessage
 from services.note_m import get_notes_m3
 

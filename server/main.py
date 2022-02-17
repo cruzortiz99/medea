@@ -1,6 +1,6 @@
 import rx
 from flasgger import Swagger
-from flask import Flask
+from flask import Flask, Response
 from rx import operators as op
 
 from config import HOST, MODE, PORT, SWAGGER_CONFIG
@@ -17,6 +17,16 @@ swagger = Swagger(APP, config=SWAGGER_CONFIG, template=SWAGGER_TEMPLATE)
 
 APP.register_blueprint(ALERT_AND_FAILURES)
 APP.register_blueprint(WEB_APP)
+
+
+@APP.after_request
+def add_cors(response) -> Response:
+    response.headers["Access-Controll-Allow-Origin"] = "*"
+    response.headers[
+        "Access-Controll-Allow-Methods"
+    ] = "POST, GET, PUT, PATCH, DELETE, OPTIONS"
+    response.headers["Access-Control-Allow-Headers"] = "*"
+    return response
 
 
 if __name__ == '__main__':
