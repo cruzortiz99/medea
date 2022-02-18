@@ -18,7 +18,10 @@ import {
   APIEquipmentTimeOut,
   APIEquipmentPF,
   APITemporaryRepairs,
+  APIResponse
 } from "../../models"
+import { fromFetch } from "rxjs/fetch"
+import { tap } from "rxjs"
 
 function AlertAndFailurePage(props: AppRoutedPage) {
   const [_, rightMenuSubject] = useObservable(homeStore.rightMenuOptions)
@@ -26,7 +29,8 @@ function AlertAndFailurePage(props: AppRoutedPage) {
   const [selectedYear, setSelectedYear] = useState("Noviembre 2021")
   const [selectedEquipament, setSelectedEquipament] = useState("Equipo A")
   const [selectedProcess, setSelectedProcess] = useState("Proceso 1")
-  const [dataTableM3, setDataTableM3] = useState<APINoteM3[]>([])
+  const [tableNoteM2, setTableNoteM2] = useState<APINoteM2[]>([])
+  const [tableNoteM3, setTableNoteM3] = useState<APINoteM3[]>([])
   const [colors] = useState<string[]>([
     randomColor(),
     randomColor(),
@@ -208,33 +212,8 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       href: "#work-history",
     },
   ]
-  const dataTableNoteM2: APINoteM2[] = [
-    {
-      executor: "Operador",
-      amount: 0,
-      hours: 0.0,
-      withOutFF: 0,
-    },
-    {
-      executor: "Mantenedor",
-      amount: 0,
-      hours: 0.0,
-      withOutFF: 0,
-    },
-    {
-      executor: "Sin inform",
-      amount: 0,
-      hours: 0.0,
-      withOutFF: 0,
-    },
-    {
-      executor: "Total",
-      amount: 0,
-      hours: 0.0,
-      withOutFF: 0,
-    },
-  ]
-  const dataTableNoteM3: APINoteM3[] = []
+  const dataTableNoteM2: APINoteM2[] = tableNoteM2
+  const dataTableNoteM3: APINoteM3[] = tableNoteM3
   const dataTableTotalFall: APITotalFall[] = [
     {
       position: 1,
@@ -796,9 +775,36 @@ function AlertAndFailurePage(props: AppRoutedPage) {
     }
   }, [])
   useEffect(() => {
-    fetch("http://localhost:5000/api/alerts-and-failures/note-m3", {mode: "cors", method: "GET"}).then(async (response) => {
-      setDataTableM3( await response.json())
-    })
+    const getDataTableNoteM3 = fromFetch<APIResponse<APINoteM3[]>>(
+      "http://localhost:5000/api/alerts-and-failures/note-m3",
+      {
+        mode: "cors",
+        method: "GET",
+        selector: (responseAPINoteM3) => responseAPINoteM3.json(),
+      }
+    )
+      .pipe(tap((responseAPINoteM3Json) => console.log(responseAPINoteM3Json)))
+      .subscribe({
+        next: (responseAPINoteM3Json) => setTableNoteM3(responseAPINoteM3Json.data),
+        error: () => setTableNoteM3([]),
+      })
+    const getDataTableNoteM2 = fromFetch<APIResponse<APINoteM2[]>>(
+      "http://localhost:5000/api/alerts-and-failures/note-m2",
+      {
+        mode: "cors",
+        method: "GET",
+        selector: (responseAPINoteM2) => responseAPINoteM2.json(),
+      }
+    )
+      .pipe(tap((responseAPINoteM2Json) => console.log(responseAPINoteM2Json)))
+      .subscribe({
+        next: (responseAPINoteM2Json) => setTableNoteM2(responseAPINoteM2Json.data),
+        error: () => setTableNoteM2([]),
+      })
+    return () => {
+      getDataTableNoteM3.unsubscribe()
+      getDataTableNoteM2.unsubscribe()
+    }
   }, [])
   return (
     <AlertAndFailurePageView

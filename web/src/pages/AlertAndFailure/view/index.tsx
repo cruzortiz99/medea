@@ -183,7 +183,7 @@ function AlertAndFailurePageView(
                 columns={[
                   {
                     headerCell: "Ejecutor",
-                    dataKey: "executor",
+                    dataKey: "excecutor",
                     flexGrowColumn: 1,
                     alingColumn: "left",
                     minWidthColumn: 100,
@@ -204,7 +204,7 @@ function AlertAndFailurePageView(
                   },
                   {
                     headerCell: "Sin FF",
-                    dataKey: "withOutFF",
+                    dataKey: "with_out_ff",
                     flexGrowColumn: 1,
                     alingColumn: "center",
                     minWidthColumn: 50,

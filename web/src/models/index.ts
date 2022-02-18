@@ -4,13 +4,13 @@ export interface RowDataType {
   [key: string]: any;
 }
 export type APINoteM2 = {
-  executor: string
+  excecutor: string
   amount: number
   hours: number
-  withOutFF: number
+  with_out_ff: number
 }
 export type APINoteM3 = {
-  executor: string
+  excecutor: string
   amount: number
   hours: number
   with_out_ff: number
