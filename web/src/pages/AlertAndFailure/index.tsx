@@ -26,6 +26,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
   const [selectedYear, setSelectedYear] = useState("Noviembre 2021")
   const [selectedEquipament, setSelectedEquipament] = useState("Equipo A")
   const [selectedProcess, setSelectedProcess] = useState("Proceso 1")
+  const [dataTableM3, setDataTableM3] = useState<APINoteM3[]>([])
   const [colors] = useState<string[]>([
     randomColor(),
     randomColor(),
@@ -233,32 +234,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       withOutFF: 0,
     },
   ]
-  const dataTableNoteM3: APINoteM3[] = [
-    {
-      executor: "Operador",
-      amount: 0,
-      hours: 0.0,
-      withOutFF: 0,
-    },
-    {
-      executor: "Mantenedor",
-      amount: 0,
-      hours: 0.0,
-      withOutFF: 0,
-    },
-    {
-      executor: "Sin inform",
-      amount: 0,
-      hours: 0.0,
-      withOutFF: 0,
-    },
-    {
-      executor: "Total",
-      amount: 0,
-      hours: 0.0,
-      withOutFF: 0,
-    },
-  ]
+  const dataTableNoteM3: APINoteM3[] = []
   const dataTableTotalFall: APITotalFall[] = [
     {
       position: 1,
@@ -818,6 +794,11 @@ function AlertAndFailurePage(props: AppRoutedPage) {
     return () => {
       rightMenuSubject.next([])
     }
+  }, [])
+  useEffect(() => {
+    fetch("http://localhost:5000/api/alerts-and-failures/note-m3", {mode: "cors", method: "GET"}).then(async (response) => {
+      setDataTableM3( await response.json())
+    })
   }, [])
   return (
     <AlertAndFailurePageView
