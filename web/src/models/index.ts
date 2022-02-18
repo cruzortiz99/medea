@@ -13,7 +13,7 @@ export type APINoteM3 = {
   executor: string
   amount: number
   hours: number
-  withOutFF: number
+  with_out_ff: number
 }
 export type APITotalFall = {
   position: number
@@ -99,4 +99,7 @@ export type APITemporaryRepairs = {
   startDate: string
   status: string
   tagODM: string
+}
+export type APIResponse<T> = {
+  data: T
 }
