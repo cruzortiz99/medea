@@ -4,6 +4,7 @@ import AppHeaderMenuButton from "../../components/atoms/AppHeaderMenuButton"
 import { AppRoutedPage } from "../../routes/routes"
 import homeStore from "../../store/home"
 import { useObservable } from "../../utils/rx/hooks"
+import { getNoteM2Data, getNoteM3Data } from "../../services/alerts_and_failures"
 import { randomColor } from "../../utils/css"
 import AlertAndFailurePageView from "./view"
 import { PlotData } from "plotly.js"
@@ -21,7 +22,7 @@ import {
   APIResponse
 } from "../../models"
 import { fromFetch } from "rxjs/fetch"
-import { tap } from "rxjs"
+import { catchError, Observable, of, tap } from "rxjs"
 
 function AlertAndFailurePage(props: AppRoutedPage) {
   const [_, rightMenuSubject] = useObservable(homeStore.rightMenuOptions)
@@ -29,8 +30,12 @@ function AlertAndFailurePage(props: AppRoutedPage) {
   const [selectedYear, setSelectedYear] = useState("Noviembre 2021")
   const [selectedEquipament, setSelectedEquipament] = useState("Equipo A")
   const [selectedProcess, setSelectedProcess] = useState("Proceso 1")
-  const [tableNoteM2, setTableNoteM2] = useState<APINoteM2[]>([])
-  const [tableNoteM3, setTableNoteM3] = useState<APINoteM3[]>([])
+  const [tableNoteM2] = useObservable<APINoteM2[], Observable<APINoteM2[]>>(
+    getNoteM2Data().pipe(catchError(() => of([])))
+  )
+  const [tableNoteM3] = useObservable<APINoteM3[], Observable<APINoteM3[]>>(
+    getNoteM3Data().pipe(catchError(() => of([])))
+  )
   const [colors] = useState<string[]>([
     randomColor(),
     randomColor(),
@@ -212,8 +217,18 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       href: "#work-history",
     },
   ]
-  const dataTableNoteM2: APINoteM2[] = tableNoteM2
-  const dataTableNoteM3: APINoteM3[] = tableNoteM3
+  const dataTableNoteM2: APINoteM2[] = tableNoteM2?.map((noteM2) => ({
+    excecutor: noteM2.excecutor,
+    amount: noteM2.amount,
+    hours: noteM2.hours,
+    with_out_ff: noteM2.with_out_ff
+  })) || []
+  const dataTableNoteM3: APINoteM3[] = tableNoteM3?.map((noteM3) => ({
+    excecutor: noteM3.excecutor,
+    amount: noteM3.amount,
+    hours: noteM3.hours,
+    with_out_ff: noteM3.with_out_ff
+  })) || []
   const dataTableTotalFall: APITotalFall[] = [
     {
       position: 1,
@@ -772,38 +787,6 @@ function AlertAndFailurePage(props: AppRoutedPage) {
     rightMenuSubject.next(rightMenuOptions)
     return () => {
       rightMenuSubject.next([])
-    }
-  }, [])
-  useEffect(() => {
-    const getDataTableNoteM3 = fromFetch<APIResponse<APINoteM3[]>>(
-      "http://localhost:5000/api/alerts-and-failures/note-m3",
-      {
-        mode: "cors",
-        method: "GET",
-        selector: (responseAPINoteM3) => responseAPINoteM3.json(),
-      }
-    )
-      .pipe(tap((responseAPINoteM3Json) => console.log(responseAPINoteM3Json)))
-      .subscribe({
-        next: (responseAPINoteM3Json) => setTableNoteM3(responseAPINoteM3Json.data),
-        error: () => setTableNoteM3([]),
-      })
-    const getDataTableNoteM2 = fromFetch<APIResponse<APINoteM2[]>>(
-      "http://localhost:5000/api/alerts-and-failures/note-m2",
-      {
-        mode: "cors",
-        method: "GET",
-        selector: (responseAPINoteM2) => responseAPINoteM2.json(),
-      }
-    )
-      .pipe(tap((responseAPINoteM2Json) => console.log(responseAPINoteM2Json)))
-      .subscribe({
-        next: (responseAPINoteM2Json) => setTableNoteM2(responseAPINoteM2Json.data),
-        error: () => setTableNoteM2([]),
-      })
-    return () => {
-      getDataTableNoteM3.unsubscribe()
-      getDataTableNoteM2.unsubscribe()
     }
   }, [])
   return (

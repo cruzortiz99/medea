@@ -23,7 +23,7 @@ APP.register_blueprint(WEB_APP)
 def add_cors(response) -> Response:
     response.headers["Access-Control-Allow-Origin"] = "*"
     response.headers[
-        "Access-Controll-Allow-Methods"
+        "Access-Control-Allow-Methods"
     ] = "POST, GET, PUT, PATCH, DELETE, OPTIONS"
     response.headers["Access-Control-Allow-Headers"] = "*"
     return response
