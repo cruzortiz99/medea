@@ -45,7 +45,6 @@ function TestPage() {
           <Table.Cell dataKey="with_out_ff" />
         </Table.Column>
       </Table>
-      <>{console.log(test)}</>
     </>
   )
 }
