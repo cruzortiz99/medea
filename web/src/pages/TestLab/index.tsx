@@ -1,33 +1,27 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { Table } from "rsuite"
-import { map, tap } from "rxjs"
-import { fromFetch } from "rxjs/fetch"
-import { APINoteM3, APIResponse } from "../../models"
+import { catchError, Observable, of } from "rxjs"
+import { APINoteM3 } from "../../models"
+import { getNoteM3Data } from "../../services/alerts_and_failures"
+import { useObservable } from "../../utils/rx/hooks"
 
 function TestPage() {
-  const [test, setTest] = useState<APINoteM3[]>([])
-  useEffect(() => {
-    const getDataPipe = fromFetch<APIResponse<APINoteM3[]>>(
-      "http://localhost:5000/api/alerts-and-failures/note-m3",
-      {
-        mode: "cors",
-        method: "GET",
-        selector: (response) => response.json(),
-      }
-    )
-      .pipe(tap((responseJson) => console.log(responseJson)))
-      .subscribe({
-        next: (responseJson) => setTest(responseJson.data),
-        error: () => setTest([]),
-      })
-    return () => {
-      getDataPipe.unsubscribe()
-    }
-  }, [])
+  const [test] = useObservable<APINoteM3[], Observable<APINoteM3[]>>(
+    getNoteM3Data().pipe(catchError(() => of([])))
+  )
   return (
     <>
       <h2>TestLab</h2>
-      <Table data={test}>
+      <Table
+        data={
+          test?.map((noteM3) => ({
+            executor: noteM3.executor,
+            amount: noteM3.amount,
+            hours: noteM3.hours,
+            withOutFF: noteM3.with_out_ff,
+          })) || []
+        }
+      >
         <Table.Column>
           <Table.HeaderCell>Amount</Table.HeaderCell>
           <Table.Cell dataKey="amount" />
@@ -42,7 +36,7 @@ function TestPage() {
         </Table.Column>
         <Table.Column>
           <Table.HeaderCell>Wiht out FF</Table.HeaderCell>
-          <Table.Cell dataKey="with_out_ff" />
+          <Table.Cell dataKey="withOutFF" />
         </Table.Column>
       </Table>
     </>
