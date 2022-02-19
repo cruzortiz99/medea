@@ -29,12 +29,12 @@ function AlertAndFailurePage(props: AppRoutedPage) {
   const [_, rightMenuSubject] = useObservable(homeStore.rightMenuOptions)
   const [selectedPlant, setSelectedPlant] = useState("Planta ABC")
   const [selectedYear, setSelectedYear] = useState("Noviembre 2021")
-  const [selectedEquipament, setSelectedEquipament] = useState("Equipo A")
+  const [selectedEquipment, setSelectedEquipment] = useState("Equipo A")
   const [selectedProcess, setSelectedProcess] = useState("Proceso 1")
-  const [tableNoteM2] = useObservable<APINoteM2[], Observable<APINoteM2[]>>(
+  const [dataTableNoteM2] = useObservable<APINoteM2[], Observable<APINoteM2[]>>(
     getNoteM2Data().pipe(catchError(() => of([])))
   )
-  const [tableNoteM3] = useObservable<APINoteM3[], Observable<APINoteM3[]>>(
+  const [dataTableNoteM3] = useObservable<APINoteM3[], Observable<APINoteM3[]>>(
     getNoteM3Data().pipe(catchError(() => of([])))
   )
   const [colors] = useState<string[]>([
@@ -146,26 +146,26 @@ function AlertAndFailurePage(props: AppRoutedPage) {
     {
       label: "Equipo A",
       id: "#equipoA",
-      active: selectedEquipament === "Equipo A",
-      onClick: () => setSelectedEquipament("Equipo A"),
+      active: selectedEquipment === "Equipo A",
+      onClick: () => setSelectedEquipment("Equipo A"),
     },
     {
       label: "Equipo B",
       id: "#equipoB",
-      active: selectedEquipament === "Equipo B",
-      onClick: () => setSelectedEquipament("Equipo B"),
+      active: selectedEquipment === "Equipo B",
+      onClick: () => setSelectedEquipment("Equipo B"),
     },
     {
       label: "Equipo C",
       id: "#equipoC",
-      active: selectedEquipament === "Equipo C",
-      onClick: () => setSelectedEquipament("Equipo C"),
+      active: selectedEquipment === "Equipo C",
+      onClick: () => setSelectedEquipment("Equipo C"),
     },
     {
       label: "Equipo D",
       id: "#equipoD",
-      active: selectedEquipament === "Equipo D",
-      onClick: () => setSelectedEquipament("Equipo D"),
+      active: selectedEquipment === "Equipo D",
+      onClick: () => setSelectedEquipment("Equipo D"),
     },
   ]
   const processMenu = [
@@ -218,20 +218,6 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       href: "#work-history",
     },
   ]
-  const dataTableNoteM2: APINoteM2[] =
-    tableNoteM2?.map((noteM2) => ({
-      excecutor: noteM2.excecutor,
-      amount: noteM2.amount,
-      hours: noteM2.hours,
-      with_out_ff: noteM2.with_out_ff,
-    })) || []
-  const dataTableNoteM3: APINoteM3[] =
-    tableNoteM3?.map((noteM3) => ({
-      excecutor: noteM3.excecutor,
-      amount: noteM3.amount,
-      hours: noteM3.hours,
-      with_out_ff: noteM3.with_out_ff,
-    })) || []
   const dataTableTotalFall: APITotalFall[] = [
     {
       position: 1,
@@ -833,7 +819,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
           renderToggle={(props, ref) => {
             return (
               <AppHeaderMenuButton {...props} ref={ref}>
-                <p>{selectedEquipament}</p>
+                <p>{selectedEquipment}</p>
               </AppHeaderMenuButton>
             )
           }}
@@ -866,8 +852,8 @@ function AlertAndFailurePage(props: AppRoutedPage) {
         label: subtile.label,
         id: subtile.href.substring(1),
       }))}
-      dataTableNoteM2={dataTableNoteM2}
-      dataTableNoteM3={dataTableNoteM3}
+      dataTableNoteM2={dataTableNoteM2 || []}
+      dataTableNoteM3={dataTableNoteM3 || []}
       dataTableTotalFall={dataTableTotalFall}
       dataTableTotalFailures={dataTableTotalFailures}
       dataTableEquipmentDownTimeFall={dataTableEquipmentDownTimeFall}
