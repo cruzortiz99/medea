@@ -162,7 +162,7 @@ function AlertAndFailurePageView(
                   },
                   {
                     headerCell: "Sin FF",
-                    dataKey: "withOutFF",
+                    dataKey: "with_out_ff",
                     flexGrowColumn: 1,
                     alingColumn: "center",
                     minWidthColumn: 50,
