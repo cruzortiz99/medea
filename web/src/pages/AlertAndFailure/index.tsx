@@ -1,28 +1,29 @@
-import React, { useEffect, useState } from "react"
-import AppHeaderMenu from "../../components/molecules/AppHeaderMenu"
-import AppHeaderMenuButton from "../../components/atoms/AppHeaderMenuButton"
-import { AppRoutedPage } from "../../routes/routes"
-import homeStore from "../../store/home"
-import { useObservable } from "../../utils/rx/hooks"
-import { getNoteM2Data, getNoteM3Data } from "../../services/alerts_and_failures"
-import { randomColor } from "../../utils/css"
-import AlertAndFailurePageView from "./view"
 import { PlotData } from "plotly.js"
+import React, { useEffect, useState } from "react"
+import { catchError, Observable, of } from "rxjs"
+import AppHeaderMenuButton from "../../components/atoms/AppHeaderMenuButton"
+import AppHeaderMenu from "../../components/molecules/AppHeaderMenu"
 import {
+  APIEquipmentDownTimeFall,
+  APIEquipmentPF,
+  APIEquipmentTimeOut,
   APINoteM2,
   APINoteM3,
-  APITotalFall,
-  APITotalFailures,
-  APIEquipmentDownTimeFall,
   APITeamsImpactProduction,
-  APITpef,
-  APIEquipmentTimeOut,
-  APIEquipmentPF,
   APITemporaryRepairs,
-  APIResponse
+  APITotalFailures,
+  APITotalFall,
+  APITpef,
 } from "../../models"
-import { fromFetch } from "rxjs/fetch"
-import { catchError, Observable, of, tap } from "rxjs"
+import { AppRoutedPage } from "../../routes/routes"
+import {
+  getNoteM2Data,
+  getNoteM3Data,
+} from "../../services/alerts_and_failures"
+import homeStore from "../../store/home"
+import { randomColor } from "../../utils/css"
+import { useObservable } from "../../utils/rx/hooks"
+import AlertAndFailurePageView from "./view"
 
 function AlertAndFailurePage(props: AppRoutedPage) {
   const [_, rightMenuSubject] = useObservable(homeStore.rightMenuOptions)
@@ -217,18 +218,20 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       href: "#work-history",
     },
   ]
-  const dataTableNoteM2: APINoteM2[] = tableNoteM2?.map((noteM2) => ({
-    excecutor: noteM2.excecutor,
-    amount: noteM2.amount,
-    hours: noteM2.hours,
-    with_out_ff: noteM2.with_out_ff
-  })) || []
-  const dataTableNoteM3: APINoteM3[] = tableNoteM3?.map((noteM3) => ({
-    excecutor: noteM3.excecutor,
-    amount: noteM3.amount,
-    hours: noteM3.hours,
-    with_out_ff: noteM3.with_out_ff
-  })) || []
+  const dataTableNoteM2: APINoteM2[] =
+    tableNoteM2?.map((noteM2) => ({
+      excecutor: noteM2.excecutor,
+      amount: noteM2.amount,
+      hours: noteM2.hours,
+      with_out_ff: noteM2.with_out_ff,
+    })) || []
+  const dataTableNoteM3: APINoteM3[] =
+    tableNoteM3?.map((noteM3) => ({
+      excecutor: noteM3.excecutor,
+      amount: noteM3.amount,
+      hours: noteM3.hours,
+      with_out_ff: noteM3.with_out_ff,
+    })) || []
   const dataTableTotalFall: APITotalFall[] = [
     {
       position: 1,
