@@ -29,6 +29,8 @@ export type AlertAndFailurePageViewProps = {
   equipment: ReactNode
   process: ReactNode
   dataTableNoteM2: APINoteM2[]
+  isLoadingDataTableNoteM2: boolean
+  isLoadingDataTableNoteM3: boolean
   dataTableNoteM3: APINoteM3[]
   dataTableTotalFall: APITotalFall[]
   dataTableTotalFailures: APITotalFailures[]
@@ -46,7 +48,6 @@ export type AlertAndFailurePageViewProps = {
   dataGraphDownTimeImpactProduction: Partial<PlotData>[]
   dataGraphTpef: Partial<PlotData>[]
   dataGraphFaultOccurrence: Partial<PlotData>[]
-  isLoader?: boolean
   subtitles: { label: ReactNode; id: string }[]
 }
 
@@ -134,6 +135,7 @@ function AlertAndFailurePageView(
               <AppTable
                 height={260}
                 dataTable={props.dataTableNoteM2}
+                loading={props.isLoadingDataTableNoteM2}
                 columns={[
                   {
                     headerCell: "Ejecutor",
@@ -176,6 +178,7 @@ function AlertAndFailurePageView(
               <AppTable
                 height={260}
                 dataTable={props.dataTableNoteM3}
+                loading={props.isLoadingDataTableNoteM3}
                 columns={[
                   {
                     headerCell: "Ejecutor",
