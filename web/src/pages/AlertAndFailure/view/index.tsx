@@ -7,7 +7,7 @@ import AppPanelContainer from "../../../components/atoms/PanelContainer"
 import AppSimplePageTemplate from "../../../components/templates/AppSimplePageTemplate"
 import AppTable from "../../../components/atoms/AppTable"
 import { PAGE_URL } from "../../../constants"
-import { joinClasses, randomColor } from "../../../utils/css"
+import { joinClasses } from "../../../utils/css"
 import { useScreenDimension } from "../../../utils/screen/hooks"
 import styles from "./AlertAndFailurePage.module.css"
 import { PlotData } from "plotly.js"
@@ -46,6 +46,7 @@ export type AlertAndFailurePageViewProps = {
   dataGraphDownTimeImpactProduction: Partial<PlotData>[]
   dataGraphTpef: Partial<PlotData>[]
   dataGraphFaultOccurrence: Partial<PlotData>[]
+  isLoader?: boolean
   subtitles: { label: ReactNode; id: string }[]
 }
 
@@ -56,11 +57,6 @@ function AlertAndFailurePageView(
   const refContainerBigGraph = useRef<HTMLDivElement | null>(null)
   const refContainerMedGraph = useRef<HTMLDivElement | null>(null)
   const screen = useScreenDimension()
-  const [colors] = useState<string[]>([
-    randomColor(),
-    randomColor(),
-    randomColor(),
-  ])
 
   const breadCrumbLinks = props.subtitles
     .filter(

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Table } from "rsuite"
 import { catchError, Observable, of } from "rxjs"
 import { APINoteM3 } from "../../models"
@@ -6,6 +6,7 @@ import { getNoteM3Data } from "../../services/alerts_and_failures"
 import { useObservable } from "../../utils/rx/hooks"
 
 function TestPage() {
+  const [testLoading, setTestLoading] = useState(true)
   const [test] = useObservable<APINoteM3[], Observable<APINoteM3[]>>(
     getNoteM3Data().pipe(catchError(() => of([])))
   )
@@ -21,6 +22,7 @@ function TestPage() {
             withOutFF: noteM3.with_out_ff,
           })) || []
         }
+        loading={testLoading}
       >
         <Table.Column>
           <Table.HeaderCell>Amount</Table.HeaderCell>
