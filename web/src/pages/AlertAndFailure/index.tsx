@@ -1,6 +1,6 @@
 import { PlotData } from "plotly.js"
 import React, { useEffect, useState } from "react"
-import { catchError, Observable, of } from "rxjs"
+import { catchError, Observable, of, switchMap, tap } from "rxjs"
 import AppHeaderMenuButton from "../../components/atoms/AppHeaderMenuButton"
 import AppHeaderMenu from "../../components/molecules/AppHeaderMenu"
 import {
@@ -31,8 +31,13 @@ function AlertAndFailurePage(props: AppRoutedPage) {
   const [selectedYear, setSelectedYear] = useState("Noviembre 2021")
   const [selectedEquipment, setSelectedEquipment] = useState("Equipo A")
   const [selectedProcess, setSelectedProcess] = useState("Proceso 1")
+  const [isLoadingDataTableM2, setIsLoadingDataTableM2] = useState(true)
   const [dataTableNoteM2] = useObservable<APINoteM2[], Observable<APINoteM2[]>>(
-    getNoteM2Data().pipe(catchError(() => of([])))
+    of(true).pipe(
+      tap(() => setIsLoadingDataTableM2(true)),
+      switchMap(() => getNoteM2Data()),
+      catchError(() => of([]).pipe(tap(() => setIsLoadingDataTableM2(false))))
+    )
   )
   const [dataTableNoteM3] = useObservable<APINoteM3[], Observable<APINoteM3[]>>(
     getNoteM3Data().pipe(catchError(() => of([])))
@@ -853,6 +858,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
         id: subtile.href.substring(1),
       }))}
       dataTableNoteM2={dataTableNoteM2 || []}
+      isLoadingDataTableNoteM2={isLoadingDataTableM2}
       dataTableNoteM3={dataTableNoteM3 || []}
       dataTableTotalFall={dataTableTotalFall}
       dataTableTotalFailures={dataTableTotalFailures}

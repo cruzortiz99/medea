@@ -29,6 +29,7 @@ export type AlertAndFailurePageViewProps = {
   equipment: ReactNode
   process: ReactNode
   dataTableNoteM2: APINoteM2[]
+  isLoadingDataTableNoteM2: boolean
   dataTableNoteM3: APINoteM3[]
   dataTableTotalFall: APITotalFall[]
   dataTableTotalFailures: APITotalFailures[]
@@ -137,6 +138,7 @@ function AlertAndFailurePageView(
               <strong>Avisos M2</strong>
               <AppTable
                 height={260}
+                isLoading={props.isLoadingDataTableNoteM2}
                 dataTable={props.dataTableNoteM2}
                 columns={[
                   {

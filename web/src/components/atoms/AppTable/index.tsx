@@ -24,6 +24,7 @@ export type AppTableProps = {
   columns: AppTableColumn[]
   columnGroups?: AppTableColumnGroup[]
   extraColumns?: AppTableColumn[]
+  isLoading?: boolean
 }
 
 function AppTable(props: AppTableProps): JSX.Element {
@@ -39,6 +40,7 @@ function AppTable(props: AppTableProps): JSX.Element {
         height={props.height}
         headerHeight={props.heightHeaderCell}
         className={styles.borderTable}
+        loading={props.isLoading}
       >
         {props.columns && props.columns.length > 0
           ? props.columns.map((keyName, key) => (
