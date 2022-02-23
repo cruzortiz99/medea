@@ -98,13 +98,16 @@ function AlertAndFailurePageView(
             <div ref={refContainerBigGraph}>
               <AppPanel>
                 <AppPlot
-                  layout={{
-                    title: "Avisos Emitidos vs Concluidos",
-                    width:
-                      (refContainerBigGraph.current?.clientWidth ||
-                        screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                  plotParams={{
+                    layout: {
+                      title: "Avisos Emitidos vs Concluidos",
+                      width:
+                        (refContainerBigGraph.current?.clientWidth ||
+                          screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                      },
+                      data: props.dataGraphNoteAlert
                   }}
-                  data={props.dataGraphNoteAlert}
+                  loading={false}
                 />
               </AppPanel>
             </div>
@@ -112,13 +115,17 @@ function AlertAndFailurePageView(
           <Row>
             <AppPanel>
               <AppPlot
-                layout={{
-                  title: "Avisos sin ordenes Asignadas",
-                  width:
-                    (refContainerBigGraph.current?.clientWidth ||
-                      screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                plotParams={{
+                  layout: {
+                    title: "Avisos sin ordenes Asignadas",
+                    width:
+                      (refContainerBigGraph.current?.clientWidth ||
+                        screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                  
+                  },
+                  data: props.dataGraphNoticeOrders
                 }}
-                data={props.dataGraphNoticeOrders}
+                loading={false}
               />
             </AppPanel>
           </Row>
@@ -224,13 +231,16 @@ function AlertAndFailurePageView(
               <div ref={refContainerMedGraph}>
                 <AppPanel>
                   <AppPlot
-                    layout={{
-                      title: "Cantidad de fallas de equipos",
-                      width:
-                        (refContainerMedGraph.current?.clientWidth ||
-                          screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                    plotParams={{
+                      layout: {
+                        title: "Cantidad de fallas de equipos",
+                        width:
+                          (refContainerMedGraph.current?.clientWidth ||
+                            screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                      },
+                      data: props.dataGraphEquipmentFailures
                     }}
-                    data={props.dataGraphEquipmentFailures}
+                    loading={false}
                   />
                 </AppPanel>
               </div>
@@ -238,13 +248,16 @@ function AlertAndFailurePageView(
             <Row>
               <AppPanel>
                 <AppPlot
-                  layout={{
-                    title: "Down Time(horas)",
-                    width:
-                      (refContainerMedGraph.current?.clientWidth ||
-                        screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                  plotParams={{
+                    layout: {
+                      title: "Down Time(horas)",
+                      width:
+                        (refContainerMedGraph.current?.clientWidth ||
+                          screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                    },
+                    data: props.dataGraphDownTimeHours
                   }}
-                  data={props.dataGraphDownTimeHours}
+                  loading={false}
                 />
               </AppPanel>
             </Row>
@@ -253,27 +266,33 @@ function AlertAndFailurePageView(
             <Row>
               <AppPanel>
                 <AppPlot
-                  layout={{
-                    title:
-                      "Cantidad de fallas de equipos con <br>paro o limitación de producción",
-                    width:
-                      (refContainerMedGraph.current?.clientWidth ||
-                        screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                  plotParams={{
+                    layout: {
+                      title:
+                        "Cantidad de fallas de equipos con <br>paro o limitación de producción",
+                      width:
+                        (refContainerMedGraph.current?.clientWidth ||
+                          screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                    },
+                    data: props.dataGraphProductionLimitation
                   }}
-                  data={props.dataGraphProductionLimitation}
+                  loading={false}
                 />
               </AppPanel>
             </Row>
             <Row>
               <AppPanel>
                 <AppPlot
-                  layout={{
-                    title: "Down time con <br> impacto a la producción",
-                    width:
-                      (refContainerMedGraph.current?.clientWidth ||
-                        screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                  plotParams={{
+                    layout: {
+                      title: "Down time con <br> impacto a la producción",
+                      width:
+                        (refContainerMedGraph.current?.clientWidth ||
+                          screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                    },
+                    data: props.dataGraphDownTimeImpactProduction
                   }}
-                  data={props.dataGraphDownTimeImpactProduction}
+                  loading={false}
                 />
               </AppPanel>
             </Row>
@@ -594,13 +613,16 @@ function AlertAndFailurePageView(
               </Col>
               <Col xs={24} lg={12}>
                 <AppPlot
-                  layout={{
-                    title: "TPEF",
-                    width:
-                      (refContainerMedGraph.current?.clientWidth ||
-                        screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                  plotParams={{
+                    layout: {
+                      title: "TPEF",
+                      width:
+                        (refContainerMedGraph.current?.clientWidth ||
+                          screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                    },
+                    data: props.dataGraphTpef
                   }}
-                  data={props.dataGraphTpef}
+                  loading={true}
                 />
               </Col>
             </Grid>
@@ -767,13 +789,16 @@ function AlertAndFailurePageView(
             <Grid fluid={true}>
               <Col xs={24} lg={12}>
                 <AppPlot
-                  layout={{
+                 plotParams={{
+                  layout: {
                     title: "Ocurrencia de falla",
                     width:
                       (refContainerMedGraph.current?.clientWidth ||
                         screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
-                  }}
-                  data={props.dataGraphFaultOccurrence}
+                  },
+                  data: props.dataGraphFaultOccurrence
+                 }}
+                 loading={false}
                 />
               </Col>
               <Col xs={24} lg={12}>
