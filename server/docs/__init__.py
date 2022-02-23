@@ -10,6 +10,8 @@ SWAGGER_TEMPLATE = {
     },
     "definitions": {
         "SimpleMessage": models.SimpleMessage.swagger_schema(),
-        "NoteM": models.NoteM.swagger_schema()
+        "NoteM": models.NoteM.swagger_schema(),
+        "GraphPoint": models.GraphPoint.swagger_schema(),
+        "GraphMarker": models.GraphMarker.swagger_schema()
     }
 }
