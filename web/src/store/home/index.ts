@@ -1,14 +1,14 @@
 import { BehaviorSubject } from "rxjs"
 
-export type RightMenuOption = {label: string, href: string}
+export type RightMenuOption = { label: string; href: string }
 
- const rightMenuOptionStore = new BehaviorSubject<RightMenuOption[]>([])
+const rightMenuOptionStore = new BehaviorSubject<RightMenuOption[]>([])
 
- const isLoadingStore = new BehaviorSubject<boolean>(false)
+const isLoadingStore = new BehaviorSubject<boolean>(false)
 
 export const homeStore = {
   rightMenuOptions: rightMenuOptionStore,
-  isLoading: isLoadingStore
+  isLoading: isLoadingStore,
 }
 
 export default homeStore

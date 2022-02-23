@@ -1,7 +1,7 @@
 export type APIEmptyModel = {}
 export interface RowDataType {
-  dataKey?: string;
-  [key: string]: any;
+  dataKey?: string
+  [key: string]: any
 }
 export type APINoteM2 = {
   excecutor: string

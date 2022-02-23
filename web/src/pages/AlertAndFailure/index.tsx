@@ -24,7 +24,7 @@ import {
   getEquipmentFailuresData,
   getProductionLimitationData,
   getDownTimeHoursData,
-  getDownTimeImpactProductionData
+  getDownTimeImpactProductionData,
 } from "../../services/alerts_and_failures"
 import homeStore from "../../store/home"
 import { randomColor } from "../../utils/css"
@@ -39,66 +39,138 @@ function AlertAndFailurePage(props: AppRoutedPage) {
   const [selectedProcess, setSelectedProcess] = useState("Proceso 1")
   const [isLoadingDataTableM2, setIsLoadingDataTableM2] = useState(true)
   const [isLoadingDataTableM3, setIsLoadingDataTableM3] = useState(true)
-  const [isLoadingDataGraphNoteAlert, setIsLoadingDataGraphNoteAlert] = useState(true)
-  const [isLoadingDataGraphNoticeOrders, setIsLoadingDataGraphNoticeOrders] = useState(true)
-  const [isLoadingDataGraphEquipmentFailures, setIsLoadingDataGraphEquipmentFailures] = useState(true)
-  const [isLoadingDataGraphProductionLimitation, setIsLoadingDataGraphProductionLimitation] = useState(true)
-  const [isLoadingDataGraphDownTimeHours, setIsLoadingDataGraphDownTimeHours] = useState(true)
-  const [isLoadingDataGraphDownTimeImpactProduction, setIsLoadingDataGraphDownTimeImpactProduction] = useState(true)
+  const [isLoadingDataGraphNoteAlert, setIsLoadingDataGraphNoteAlert] =
+    useState(true)
+  const [isLoadingDataGraphNoticeOrders, setIsLoadingDataGraphNoticeOrders] =
+    useState(true)
+  const [
+    isLoadingDataGraphEquipmentFailures,
+    setIsLoadingDataGraphEquipmentFailures,
+  ] = useState(true)
+  const [
+    isLoadingDataGraphProductionLimitation,
+    setIsLoadingDataGraphProductionLimitation,
+  ] = useState(true)
+  const [isLoadingDataGraphDownTimeHours, setIsLoadingDataGraphDownTimeHours] =
+    useState(true)
+  const [
+    isLoadingDataGraphDownTimeImpactProduction,
+    setIsLoadingDataGraphDownTimeImpactProduction,
+  ] = useState(true)
   const [dataTableNoteM2] = useObservable<APINoteM2[], Observable<APINoteM2[]>>(
     of(true).pipe(
       tap(() => setIsLoadingDataTableM2(true)),
-      switchMap(() => getNoteM2Data().pipe(tap(() => setIsLoadingDataTableM2(false)))),
+      switchMap(() =>
+        getNoteM2Data().pipe(tap(() => setIsLoadingDataTableM2(false)))
+      ),
       catchError(() => of([]).pipe(tap(() => setIsLoadingDataTableM2(false))))
     )
   )
   const [dataTableNoteM3] = useObservable<APINoteM3[], Observable<APINoteM3[]>>(
     of(true).pipe(
       tap(() => setIsLoadingDataTableM3(true)),
-      switchMap(() => getNoteM3Data().pipe(tap(() => setIsLoadingDataTableM3(false)))),
+      switchMap(() =>
+        getNoteM3Data().pipe(tap(() => setIsLoadingDataTableM3(false)))
+      ),
       catchError(() => of([]).pipe(tap(() => setIsLoadingDataTableM3(false))))
     )
   )
-  const [dataGraphNoteAlert] = useObservable<Partial<PlotData>[], Observable<Partial<PlotData>[]>>(
+  const [dataGraphNoteAlert] = useObservable<
+    Partial<PlotData>[],
+    Observable<Partial<PlotData>[]>
+  >(
     of(true).pipe(
       tap(() => setIsLoadingDataGraphNoteAlert(true)),
-      switchMap(() => getNoteAlertData().pipe(tap(() => setIsLoadingDataGraphNoteAlert(false)))),
-      catchError(() => of([]).pipe(tap(() => setIsLoadingDataGraphNoteAlert(false))))
+      switchMap(() =>
+        getNoteAlertData().pipe(
+          tap(() => setIsLoadingDataGraphNoteAlert(false))
+        )
+      ),
+      catchError(() =>
+        of([]).pipe(tap(() => setIsLoadingDataGraphNoteAlert(false)))
+      )
     )
   )
-  const [dataGraphNoticeOrders] = useObservable<Partial<PlotData>[], Observable<Partial<PlotData>[]>>(
+  const [dataGraphNoticeOrders] = useObservable<
+    Partial<PlotData>[],
+    Observable<Partial<PlotData>[]>
+  >(
     of(true).pipe(
       tap(() => setIsLoadingDataGraphNoticeOrders(true)),
-      switchMap(() => getNoticeOrdersData().pipe(tap(() => setIsLoadingDataGraphNoticeOrders(false)))),
-      catchError(() => of([]).pipe(tap(() => setIsLoadingDataGraphNoticeOrders(false))))
+      switchMap(() =>
+        getNoticeOrdersData().pipe(
+          tap(() => setIsLoadingDataGraphNoticeOrders(false))
+        )
+      ),
+      catchError(() =>
+        of([]).pipe(tap(() => setIsLoadingDataGraphNoticeOrders(false)))
+      )
     )
   )
-  const [dataGraphEquipmentFailures] = useObservable<Partial<PlotData>[], Observable<Partial<PlotData>[]>>(
+  const [dataGraphEquipmentFailures] = useObservable<
+    Partial<PlotData>[],
+    Observable<Partial<PlotData>[]>
+  >(
     of(true).pipe(
       tap(() => setIsLoadingDataGraphEquipmentFailures(true)),
-      switchMap(() => getEquipmentFailuresData().pipe(tap(() => setIsLoadingDataGraphEquipmentFailures(false)))),
-      catchError(() => of([]).pipe(tap(() => setIsLoadingDataGraphEquipmentFailures(false))))
+      switchMap(() =>
+        getEquipmentFailuresData().pipe(
+          tap(() => setIsLoadingDataGraphEquipmentFailures(false))
+        )
+      ),
+      catchError(() =>
+        of([]).pipe(tap(() => setIsLoadingDataGraphEquipmentFailures(false)))
+      )
     )
   )
-  const [dataGraphProductionLimitation] = useObservable<Partial<PlotData>[], Observable<Partial<PlotData>[]>>(
+  const [dataGraphProductionLimitation] = useObservable<
+    Partial<PlotData>[],
+    Observable<Partial<PlotData>[]>
+  >(
     of(true).pipe(
       tap(() => setIsLoadingDataGraphProductionLimitation(true)),
-      switchMap(() => getProductionLimitationData().pipe(tap(() => setIsLoadingDataGraphProductionLimitation(false)))),
-      catchError(() => of([]).pipe(tap(() => setIsLoadingDataGraphProductionLimitation(false))))
+      switchMap(() =>
+        getProductionLimitationData().pipe(
+          tap(() => setIsLoadingDataGraphProductionLimitation(false))
+        )
+      ),
+      catchError(() =>
+        of([]).pipe(tap(() => setIsLoadingDataGraphProductionLimitation(false)))
+      )
     )
   )
-  const [dataGraphDownTimeHours] = useObservable<Partial<PlotData>[], Observable<Partial<PlotData>[]>>(
+  const [dataGraphDownTimeHours] = useObservable<
+    Partial<PlotData>[],
+    Observable<Partial<PlotData>[]>
+  >(
     of(true).pipe(
       tap(() => setIsLoadingDataGraphDownTimeHours(true)),
-      switchMap(() => getDownTimeHoursData().pipe(tap(() => setIsLoadingDataGraphDownTimeHours(false)))),
-      catchError(() => of([]).pipe(tap(() => setIsLoadingDataGraphDownTimeHours(false))))
+      switchMap(() =>
+        getDownTimeHoursData().pipe(
+          tap(() => setIsLoadingDataGraphDownTimeHours(false))
+        )
+      ),
+      catchError(() =>
+        of([]).pipe(tap(() => setIsLoadingDataGraphDownTimeHours(false)))
+      )
     )
   )
-  const [dataGraphDownTimeImpactProduction] = useObservable<Partial<PlotData>[], Observable<Partial<PlotData>[]>>(
+  const [dataGraphDownTimeImpactProduction] = useObservable<
+    Partial<PlotData>[],
+    Observable<Partial<PlotData>[]>
+  >(
     of(true).pipe(
       tap(() => setIsLoadingDataGraphDownTimeImpactProduction(true)),
-      switchMap(() => getDownTimeImpactProductionData().pipe(tap(() => setIsLoadingDataGraphDownTimeImpactProduction(false)))),
-      catchError(() => of([]).pipe(tap(() => setIsLoadingDataGraphDownTimeImpactProduction(false))))
+      switchMap(() =>
+        getDownTimeImpactProductionData().pipe(
+          tap(() => setIsLoadingDataGraphDownTimeImpactProduction(false))
+        )
+      ),
+      catchError(() =>
+        of([]).pipe(
+          tap(() => setIsLoadingDataGraphDownTimeImpactProduction(false))
+        )
+      )
     )
   )
   const [colors] = useState<string[]>([
@@ -834,8 +906,12 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       isLoadingDataGraphEquipmentFailures={isLoadingDataGraphEquipmentFailures}
       isLoadingDataGraphNoticeOrders={isLoadingDataGraphNoticeOrders}
       isLoadingDataGraphDownTimeHours={isLoadingDataGraphDownTimeHours}
-      isLoadingDataGraphProductionLimitation={isLoadingDataGraphProductionLimitation}
-      isLoadingDataGraphDownTimeImpactProduction={isLoadingDataGraphDownTimeImpactProduction}
+      isLoadingDataGraphProductionLimitation={
+        isLoadingDataGraphProductionLimitation
+      }
+      isLoadingDataGraphDownTimeImpactProduction={
+        isLoadingDataGraphDownTimeImpactProduction
+      }
       isLaodingDataGraphTpef={false}
       isLoadingDataGraphFaultOccurrence={false}
       dataTableNoteM3={dataTableNoteM3 || []}
@@ -852,7 +928,9 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       dataGraphEquipmentFailures={dataGraphEquipmentFailures || []}
       dataGraphDownTimeHours={dataGraphDownTimeHours || []}
       dataGraphProductionLimitation={dataGraphProductionLimitation || []}
-      dataGraphDownTimeImpactProduction={dataGraphDownTimeImpactProduction || []}
+      dataGraphDownTimeImpactProduction={
+        dataGraphDownTimeImpactProduction || []
+      }
       dataGraphTpef={dataGraphTpef}
       dataGraphFaultOccurrence={dataGraphFaultOccurrence}
     />
