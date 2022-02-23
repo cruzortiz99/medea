@@ -831,7 +831,13 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       isLoadingDataTableNoteM2={isLoadingDataTableM2}
       isLoadingDataTableNoteM3={isLoadingDataTableM3}
       isLoadingDataGraphNoteAlert={isLoadingDataGraphNoteAlert}
-      isLoadingdataGraphEquipmentFailures={isLoadingDataGraphEquipmentFailures}
+      isLoadingDataGraphEquipmentFailures={isLoadingDataGraphEquipmentFailures}
+      isLoadingDataGraphNoticeOrders={isLoadingDataGraphNoticeOrders}
+      isLoadingDataGraphDownTimeHours={isLoadingDataGraphDownTimeHours}
+      isLoadingDataGraphProductionLimitation={isLoadingDataGraphProductionLimitation}
+      isLoadingDataGraphDownTimeImpactProduction={isLoadingDataGraphDownTimeImpactProduction}
+      isLaodingDataGraphTpef={false}
+      isLoadingDataGraphFaultOccurrence={false}
       dataTableNoteM3={dataTableNoteM3 || []}
       dataTableTotalFall={dataTableTotalFall}
       dataTableTotalFailures={dataTableTotalFailures}

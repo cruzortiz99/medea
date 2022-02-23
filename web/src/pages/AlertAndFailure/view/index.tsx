@@ -32,7 +32,13 @@ export type AlertAndFailurePageViewProps = {
   isLoadingDataTableNoteM2: boolean
   isLoadingDataTableNoteM3: boolean
   isLoadingDataGraphNoteAlert: boolean
-  isLoadingdataGraphEquipmentFailures: boolean
+  isLoadingDataGraphEquipmentFailures: boolean
+  isLoadingDataGraphNoticeOrders: boolean
+  isLoadingDataGraphDownTimeHours: boolean
+  isLoadingDataGraphProductionLimitation: boolean
+  isLoadingDataGraphDownTimeImpactProduction: boolean
+  isLaodingDataGraphTpef: boolean
+  isLoadingDataGraphFaultOccurrence: boolean
   dataTableNoteM3: APINoteM3[]
   dataTableTotalFall: APITotalFall[]
   dataTableTotalFailures: APITotalFailures[]
@@ -127,7 +133,7 @@ function AlertAndFailurePageView(
                   },
                   data: props.dataGraphNoticeOrders
                 }}
-                loading={false}
+                loading={props.isLoadingDataGraphNoticeOrders}
               />
             </AppPanel>
           </Row>
@@ -242,7 +248,7 @@ function AlertAndFailurePageView(
                       },
                       data: props.dataGraphEquipmentFailures
                     }}
-                    loading={props.isLoadingdataGraphEquipmentFailures}
+                    loading={props.isLoadingDataGraphEquipmentFailures}
                   />
                 </AppPanel>
               </div>
@@ -259,7 +265,7 @@ function AlertAndFailurePageView(
                     },
                     data: props.dataGraphDownTimeHours
                   }}
-                  loading={false}
+                  loading={props.isLoadingDataGraphDownTimeHours}
                 />
               </AppPanel>
             </Row>
@@ -278,7 +284,7 @@ function AlertAndFailurePageView(
                     },
                     data: props.dataGraphProductionLimitation
                   }}
-                  loading={false}
+                  loading={props.isLoadingDataGraphProductionLimitation}
                 />
               </AppPanel>
             </Row>
@@ -294,7 +300,7 @@ function AlertAndFailurePageView(
                     },
                     data: props.dataGraphDownTimeImpactProduction
                   }}
-                  loading={false}
+                  loading={props.isLoadingDataGraphDownTimeImpactProduction}
                 />
               </AppPanel>
             </Row>
@@ -624,7 +630,7 @@ function AlertAndFailurePageView(
                     },
                     data: props.dataGraphTpef
                   }}
-                  loading={true}
+                  loading={props.isLaodingDataGraphTpef}
                 />
               </Col>
             </Grid>
@@ -800,7 +806,7 @@ function AlertAndFailurePageView(
                   },
                   data: props.dataGraphFaultOccurrence
                  }}
-                 loading={false}
+                 loading={props.isLoadingDataGraphFaultOccurrence}
                 />
               </Col>
               <Col xs={24} lg={12}>
