@@ -31,6 +31,8 @@ export type AlertAndFailurePageViewProps = {
   dataTableNoteM2: APINoteM2[]
   isLoadingDataTableNoteM2: boolean
   isLoadingDataTableNoteM3: boolean
+  isLoadingDataGraphNoteAlert: boolean
+  isLoadingdataGraphEquipmentFailures: boolean
   dataTableNoteM3: APINoteM3[]
   dataTableTotalFall: APITotalFall[]
   dataTableTotalFailures: APITotalFailures[]
@@ -107,7 +109,7 @@ function AlertAndFailurePageView(
                       },
                       data: props.dataGraphNoteAlert
                   }}
-                  loading={false}
+                  loading={props.isLoadingDataGraphNoteAlert}
                 />
               </AppPanel>
             </div>
@@ -240,7 +242,7 @@ function AlertAndFailurePageView(
                       },
                       data: props.dataGraphEquipmentFailures
                     }}
-                    loading={false}
+                    loading={props.isLoadingdataGraphEquipmentFailures}
                   />
                 </AppPanel>
               </div>

@@ -1,0 +1,14 @@
+Graph Alerted vs Closed
+---
+tags:
+  - Graph
+  - Alerts And Failures
+responses:
+  200:
+    description: Ok
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/GraphPoint'

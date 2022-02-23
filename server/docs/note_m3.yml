@@ -1,7 +1,8 @@
 Get NoteM3 data
 ---
 tags:
-  - NoteM
+  - Table
+  - Alerts And Failures
 responses:
   200:
     description: Ok

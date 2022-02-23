@@ -55,7 +55,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
   const [dataTableNoteM3] = useObservable<APINoteM3[], Observable<APINoteM3[]>>(
     of(true).pipe(
       tap(() => setIsLoadingDataTableM3(true)),
-      switchMap(() => getNoteM3Data()),
+      switchMap(() => getNoteM3Data().pipe(tap(() => setIsLoadingDataTableM3(false)))),
       catchError(() => of([]).pipe(tap(() => setIsLoadingDataTableM3(false))))
     )
   )
@@ -830,6 +830,8 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       dataTableNoteM2={dataTableNoteM2 || []}
       isLoadingDataTableNoteM2={isLoadingDataTableM2}
       isLoadingDataTableNoteM3={isLoadingDataTableM3}
+      isLoadingDataGraphNoteAlert={isLoadingDataGraphNoteAlert}
+      isLoadingdataGraphEquipmentFailures={isLoadingDataGraphEquipmentFailures}
       dataTableNoteM3={dataTableNoteM3 || []}
       dataTableTotalFall={dataTableTotalFall}
       dataTableTotalFailures={dataTableTotalFailures}
