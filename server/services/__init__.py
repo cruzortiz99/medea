@@ -1,1 +1,5 @@
 import services.note_m
+import services.failures_equipments
+import services.alert_vs_closed
+import services.down_time
+import services.down_time_production_impact

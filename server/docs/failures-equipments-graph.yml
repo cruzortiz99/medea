@@ -9,6 +9,9 @@ responses:
     content:
       application/json:
         schema:
-          type: array
-          items:
-            $ref: '#/definitions/GraphPoint'
+          type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/definitions/GraphPoint'
