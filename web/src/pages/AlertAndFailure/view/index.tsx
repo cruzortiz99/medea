@@ -112,8 +112,8 @@ function AlertAndFailurePageView(
                       width:
                         (refContainerBigGraph.current?.clientWidth ||
                           screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
-                      },
-                      data: props.dataGraphNoteAlert
+                    },
+                    data: props.dataGraphNoteAlert,
                   }}
                   loading={props.isLoadingDataGraphNoteAlert}
                 />
@@ -129,9 +129,8 @@ function AlertAndFailurePageView(
                     width:
                       (refContainerBigGraph.current?.clientWidth ||
                         screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
-                  
                   },
-                  data: props.dataGraphNoticeOrders
+                  data: props.dataGraphNoticeOrders,
                 }}
                 loading={props.isLoadingDataGraphNoticeOrders}
               />
@@ -246,7 +245,7 @@ function AlertAndFailurePageView(
                           (refContainerMedGraph.current?.clientWidth ||
                             screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
                       },
-                      data: props.dataGraphEquipmentFailures
+                      data: props.dataGraphEquipmentFailures,
                     }}
                     loading={props.isLoadingDataGraphEquipmentFailures}
                   />
@@ -263,7 +262,7 @@ function AlertAndFailurePageView(
                         (refContainerMedGraph.current?.clientWidth ||
                           screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
                     },
-                    data: props.dataGraphDownTimeHours
+                    data: props.dataGraphDownTimeHours,
                   }}
                   loading={props.isLoadingDataGraphDownTimeHours}
                 />
@@ -282,7 +281,7 @@ function AlertAndFailurePageView(
                         (refContainerMedGraph.current?.clientWidth ||
                           screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
                     },
-                    data: props.dataGraphProductionLimitation
+                    data: props.dataGraphProductionLimitation,
                   }}
                   loading={props.isLoadingDataGraphProductionLimitation}
                 />
@@ -298,7 +297,7 @@ function AlertAndFailurePageView(
                         (refContainerMedGraph.current?.clientWidth ||
                           screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
                     },
-                    data: props.dataGraphDownTimeImpactProduction
+                    data: props.dataGraphDownTimeImpactProduction,
                   }}
                   loading={props.isLoadingDataGraphDownTimeImpactProduction}
                 />
@@ -628,7 +627,7 @@ function AlertAndFailurePageView(
                         (refContainerMedGraph.current?.clientWidth ||
                           screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
                     },
-                    data: props.dataGraphTpef
+                    data: props.dataGraphTpef,
                   }}
                   loading={props.isLaodingDataGraphTpef}
                 />
@@ -797,16 +796,16 @@ function AlertAndFailurePageView(
             <Grid fluid={true}>
               <Col xs={24} lg={12}>
                 <AppPlot
-                 plotParams={{
-                  layout: {
-                    title: "Ocurrencia de falla",
-                    width:
-                      (refContainerMedGraph.current?.clientWidth ||
-                        screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
-                  },
-                  data: props.dataGraphFaultOccurrence
-                 }}
-                 loading={props.isLoadingDataGraphFaultOccurrence}
+                  plotParams={{
+                    layout: {
+                      title: "Ocurrencia de falla",
+                      width:
+                        (refContainerMedGraph.current?.clientWidth ||
+                          screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                    },
+                    data: props.dataGraphFaultOccurrence,
+                  }}
+                  loading={props.isLoadingDataGraphFaultOccurrence}
                 />
               </Col>
               <Col xs={24} lg={12}>
