@@ -3,7 +3,10 @@ from flasgger import swag_from
 from flask import Blueprint, Response, jsonify, request
 from models import APIResponseModel, SimpleMessage
 from services import alert_vs_closed, down_time
+from services import total_failures as total_failures_service
+from services import total_failures_production_effect as tf_production_effect
 from services import down_time_production_impact, failures_equipments, note_m
+from services import equipment_downtime_per_failure as eq_dt_per_failure
 ALERT_AND_FAILURES = Blueprint(
     "alert-and-failure",
     __name__,
@@ -25,6 +28,41 @@ def notes_m3() -> Response:
         APIResponseModel(
             list(map(lambda note_m: note_m.__dict__, note_m.get_notes_m3()))
         ).__dict__)
+
+
+@ALERT_AND_FAILURES.route("/table/total-failures", methods=["OPTIONS", "GET"])
+@swag_from(DOC_FOLDER.joinpath("total-failures.yml"))
+def total_failures() -> Response:
+    if request.method == "OPTIONS":
+        return jsonify(APIResponseModel("Ok"))
+    return jsonify(APIResponseModel(
+        list(map(lambda failure: failure.__dict__,
+                 total_failures_service.get_total_failures()))
+    ).__dict__)
+
+
+@ALERT_AND_FAILURES.route("/table/total-failures-production-effect",
+                          methods=["OPTIONS", "GET"])
+@swag_from(DOC_FOLDER.joinpath("total-failures-production-effect.yml"))
+def total_failures_production_effect() -> Response:
+    if request.method == "OPTIONS":
+        return jsonify(APIResponseModel("Ok"))
+    return jsonify(APIResponseModel(
+        list(map(lambda failure: failure.__dict__,
+                 tf_production_effect.get_total_failures_production_effect()))
+    ).__dict__)
+
+
+@ALERT_AND_FAILURES.route("/table/equipment-downtime-per-failure",
+                          methods=["OPTIONS", "GET"])
+@swag_from(DOC_FOLDER.joinpath("equipment-downtime-per-failure.yml"))
+def equipment_downtime_per_failure() -> Response:
+    if request.method == "OPTIONS":
+        return jsonify(APIResponseModel("Ok"))
+    return jsonify(APIResponseModel(
+        list(map(lambda failure: failure.__dict__,
+                 eq_dt_per_failure.get_equipment_downtime_per_failure()))
+    ).__dict__)
 
 
 @ALERT_AND_FAILURES.route("/graph/alerted-vs-closed",
