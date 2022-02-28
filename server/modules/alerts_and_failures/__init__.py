@@ -15,6 +15,16 @@ ALERT_AND_FAILURES = Blueprint(
 def sayHello() -> Response:
     return jsonify(SimpleMessage("Hola mundo").__dict__)
 
+@ALERT_AND_FAILURES.route("/table/note-m2", methods=["GET","OPTIONS"])
+@swag_from(DOC_FOLDER.joinpath("note_m2.yml"))
+def notes_m2() -> Response:
+    if request.method == "OPTIONS":
+        return jsonify(APIResponseModel("Ok"))
+    return jsonify(
+        APIResponseModel(
+            list(map(lambda note_m2: note_m2.__dict__, note_m.get_notes_m2()))
+        ).__dict__)
+
 
 @ALERT_AND_FAILURES.route("/table/note-m3", methods=["GET", "OPTIONS"])
 @swag_from(DOC_FOLDER.joinpath("note_m3.yml"))
