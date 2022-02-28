@@ -10,6 +10,9 @@ import { joinClasses } from "../../../utils/css"
 import { getVersion } from "../../../utils/env"
 import { useObservable } from "../../../utils/rx/hooks"
 import { useScreenDimension } from "../../../utils/screen/hooks"
+import { faClipboard, faRectangleList, faFileLines, faCreditCard } from "@fortawesome/free-regular-svg-icons"
+import { faInfo, faRotate, faBell, faGear, faFile } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Loader from "../../atoms/Loader"
 import styles from "./AppMainTemplate.module.css"
 
@@ -27,31 +30,40 @@ function AppMainTemplate(props: AppMainTemplateProps) {
     {
       label: "Avisos y Fallas",
       href: PAGE_URL.ALERTS_FAILURES,
-      icon: <Dashboard />,
+      icon: <FontAwesomeIcon icon={faBell}/>,
     },
-    { label: "Ordenes", href: PAGE_URL.ORDERS, icon: <Dashboard /> },
-    { label: "Costos", href: PAGE_URL.BUDGET, icon: <Dashboard /> },
+    { label: "Ordenes", 
+      href: PAGE_URL.ORDERS, 
+      icon: <FontAwesomeIcon icon={faFileLines}/> 
+    },
+    { label: "Costos", 
+      href: PAGE_URL.BUDGET, 
+      icon: <FontAwesomeIcon icon={faCreditCard}/> 
+    },
     {
       label: "Historial de Equipos",
       href: PAGE_URL.EQUIPMENT_HISTORY,
-      icon: <Dashboard />,
+      icon: <FontAwesomeIcon icon={faRectangleList}/>,
     },
     {
       label: "Mantenimiento Preventivo",
       href: PAGE_URL.PREVENTIVE_MAINTENANCE,
-      icon: <Dashboard />,
+      icon: <FontAwesomeIcon icon={faGear}/>,
     },
     {
       label: "Actualizar datos",
       href: PAGE_URL.UPDATE_DATA,
-      icon: <Dashboard />,
+      icon: <FontAwesomeIcon icon={faRotate}/>,
     },
     {
       label: "Documentación",
       href: PAGE_URL.DOCUMENTATION,
-      icon: <Dashboard />,
+      icon: <FontAwesomeIcon icon={faFile}/>,
     },
-    { label: "Acerca de", href: PAGE_URL.ABOUT, icon: <Dashboard /> },
+    { label: "Acerca de",
+      href: PAGE_URL.ABOUT, 
+      icon: <FontAwesomeIcon icon={faInfo}/> 
+    },
   ]
   const [rightMenuOptions] = useObservable<
     RightMenuOption[],

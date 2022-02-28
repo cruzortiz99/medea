@@ -31,6 +31,10 @@ export type AlertAndFailurePageViewProps = {
   dataTableNoteM2: APINoteM2[]
   isLoadingDataTableNoteM2: boolean
   isLoadingDataTableNoteM3: boolean
+  isLoadingDataTableTotalFall: boolean
+  isLoadingDataTableTotalFailures: boolean
+  isLoadingDataTableEquipmentDownTimeFall: boolean
+  isLoadingDataTableTeamsImpactProduction: boolean
   isLoadingDataGraphNoteAlert: boolean
   isLoadingDataGraphEquipmentFailures: boolean
   isLoadingDataGraphNoticeOrders: boolean
@@ -312,6 +316,7 @@ function AlertAndFailurePageView(
                 <strong>Total fallas</strong>
                 <AppTable
                   dataTable={props.dataTableTotalFall}
+                  loading={props.isLoadingDataTableTotalFall}
                   height={320}
                   columns={[
                     {
@@ -364,6 +369,7 @@ function AlertAndFailurePageView(
                 </strong>
                 <AppTable
                   dataTable={props.dataTableTotalFailures}
+                  loading={props.isLoadingDataTableTotalFailures}
                   height={320}
                   columns={[
                     {
@@ -427,6 +433,7 @@ function AlertAndFailurePageView(
                 <strong>Equipos con mayor down time por fallas</strong>
                 <AppTable
                   dataTable={props.dataTableEquipmentDownTimeFall}
+                  loading={props.isLoadingDataTableEquipmentDownTimeFall}
                   height={320}
                   columns={[
                     {
@@ -479,6 +486,7 @@ function AlertAndFailurePageView(
                 </strong>
                 <AppTable
                   dataTable={props.dataTableTeamsImpactProduction}
+                  loading={props.isLoadingDataTableTeamsImpactProduction}
                   height={320}
                   columns={[
                     {

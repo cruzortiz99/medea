@@ -1,24 +1,15 @@
 import React from "react"
-import AppPlot from "../../components/atoms/AppPlot"
+import { createIconFont, Icon } from "@rsuite/icons"
+import { faFolderOpen } from "@fortawesome/free-regular-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 function TestPage() {
   return (
     <>
       <h2>TestLab</h2>
       <div>
-        <AppPlot
-          loading
-          plotParams={{
-            data: [
-              {
-                x: [1, 2, 3],
-                y: [1, 22, 3],
-              },
-            ],
-            layout: {
-              width: 400,
-            },
-          }}
-        />
+        <div>
+          <FontAwesomeIcon icon={faFolderOpen} style={{ width: "50px", height: "50px", color: "#0EDA21" }}/>
+        </div>
       </div>
     </>
   )

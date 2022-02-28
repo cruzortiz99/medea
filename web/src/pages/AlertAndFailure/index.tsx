@@ -26,7 +26,11 @@ import {
   getDownTimeHoursData,
   getDownTimeImpactProductionData,
   getTpefData,
-  getFaultOccurrence,
+  getFaultOccurrenceData,
+  getTotalFallData,
+  getTotalFailuresData,
+  getEquipmentDownTimeFallData,
+  getTeamsImpactProductionData,
 } from "../../services/alerts_and_failures"
 import homeStore from "../../store/home"
 import { randomColor } from "../../utils/css"
@@ -41,6 +45,22 @@ function AlertAndFailurePage(props: AppRoutedPage) {
   const [selectedProcess, setSelectedProcess] = useState("Proceso 1")
   const [isLoadingDataTableM2, setIsLoadingDataTableM2] = useState(true)
   const [isLoadingDataTableM3, setIsLoadingDataTableM3] = useState(true)
+  const [
+    isLoadingDataTableTotalFall, 
+    setIsLoadingDataTableTotalFall
+  ] = useState(true)
+  const [
+    isLoadingDataTableTotalFailures,
+    setIsLoadingDataTableTotalFailures
+  ] = useState(true)
+  const [
+    isLoadingDataTableEquipmentDownTimeFall,
+    setIsLoadingDataTableEquipmentDownTimeFall
+  ] = useState(true)
+  const [
+    isLoadingDataTableTeamsImpactProduction,
+    setIsLoadingDataTableTeamsImpactProduction
+  ] = useState(true)
   const [isLoadingDataGraphNoteAlert, setIsLoadingDataGraphNoteAlert] =
     useState(true)
   const [isLoadingDataGraphNoticeOrders, setIsLoadingDataGraphNoticeOrders] =
@@ -82,6 +102,85 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       catchError(() => of([]).pipe(tap(() => setIsLoadingDataTableM3(false))))
     )
   )
+  const [dataTableTotalFall] = useObservable<
+    APITotalFall[], 
+    Observable<APITotalFall[]>
+  >(
+    of(true).pipe(
+      tap(() => setIsLoadingDataTableTotalFall(true)),
+      switchMap(() =>
+        getTotalFallData().pipe(
+          tap(() => setIsLoadingDataTableTotalFall(false))
+        )
+      ),
+      catchError(() =>
+          of([]).pipe(tap(() => setIsLoadingDataTableTotalFall(false)))
+      )
+    )
+  )
+  const [dataTableTotalFailures] = useObservable<
+    APITotalFailures[],
+    Observable<APITotalFailures[]>
+  >(
+    of(true).pipe(
+      tap(() => setIsLoadingDataTableTotalFailures(true)),
+      switchMap(() =>
+        getTotalFailuresData().pipe(
+          tap(() => setIsLoadingDataTableTotalFailures(false))
+        )
+      ),
+      catchError(() =>
+        of([]).pipe(
+          tap(() => setIsLoadingDataTableTotalFailures(false))
+        )
+      )
+    )
+  )
+  const [dataTableEquipmentDownTimeFall] = useObservable<
+    APIEquipmentDownTimeFall[],
+    Observable<APIEquipmentDownTimeFall[]>
+  >(
+    of(true).pipe(
+      tap(() => setIsLoadingDataTableEquipmentDownTimeFall(true)),
+      switchMap(() => 
+        getEquipmentDownTimeFallData().pipe(
+          tap(
+            () => setIsLoadingDataTableEquipmentDownTimeFall(false)
+          )
+        )
+      ),
+      catchError(() => 
+        of([]).pipe(
+          tap(
+            () => setIsLoadingDataTableEquipmentDownTimeFall(false)
+          )
+        )
+      )
+    )
+  )
+  const [dataTableTeamsImpactProduction] = useObservable<
+    APITeamsImpactProduction[],
+    Observable<APITeamsImpactProduction[]>
+  >(
+    of(true).pipe(
+      tap(() => setIsLoadingDataTableTeamsImpactProduction(true)),
+      switchMap(() => 
+        getTeamsImpactProductionData().pipe(
+          tap(
+            () => setIsLoadingDataTableTeamsImpactProduction(false)
+          )
+        )
+      ),
+      catchError(() =>
+        of([]).pipe(
+          tap(
+            () => setIsLoadingDataTableTeamsImpactProduction(false)
+          )
+        )
+      )
+    )
+  )
+
   const [dataGraphNoteAlert] = useObservable<
     Partial<PlotData>[],
     Observable<Partial<PlotData>[]>
@@ -205,7 +304,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
     of(true).pipe(
       tap(() => setIsLoadingDataGraphFaultOccurrence(true)),
       switchMap(() => 
-        getFaultOccurrence().pipe(
+        getFaultOccurrenceData().pipe(
           tap(() => setIsLoadingDataGraphFaultOccurrence(false))
         )
       ),
@@ -394,184 +493,6 @@ function AlertAndFailurePage(props: AppRoutedPage) {
     {
       label: "Historial de trabajos",
       href: "#work-history",
-    },
-  ]
-  const dataTableTotalFall: APITotalFall[] = [
-    {
-      position: 1,
-      tag: "TP-1220",
-      description: "Tapadora de vasos",
-      amount: 2,
-      downTime: 3.0,
-      acdt: 1,
-    },
-    {
-      position: 2,
-      tag: "PK-2510",
-      description: "Empacadora de vacio",
-      amount: 2,
-      downTime: 913.84,
-      acdt: 1,
-    },
-    {
-      position: 3,
-      tag: "Z-1110",
-      description: "Volteador de tambores",
-      amount: 1,
-      downTime: 0.0,
-      acdt: 0,
-    },
-    {
-      position: 4,
-      tag: "HG-1160A",
-      description: "Monogenetizador para queso fundido",
-      amount: 1,
-      downTime: 9.0,
-      acdt: 1,
-    },
-    {
-      position: 5,
-      tag: "BD-1130B",
-      description: "Mezclador b materia prima (Blender)",
-      amount: 1,
-      downTime: 9.54,
-      acdt: 1,
-    },
-  ]
-  const dataTableTotalFailures: APITotalFailures[] = [
-    {
-      position: 1,
-      tag: "TP-1220",
-      description: "Tapadora de vasos",
-      r3: 1,
-      r2: 1,
-      amount: 2,
-      dtHours: 3.0,
-    },
-    {
-      position: 2,
-      tag: "PK-2510",
-      description: "Empacadora de vacío",
-      r3: 1,
-      r2: 1,
-      amount: 2,
-      dtHours: 228.5,
-    },
-    {
-      position: 3,
-      tag: "Z-1110",
-      description: "Volteador de tambores",
-      r3: 0,
-      r2: 1,
-      amount: 1,
-      dtHours: 2.3,
-    },
-    {
-      position: 4,
-      tag: "HG-1160A",
-      description: "Monogenetizador para queso fundido",
-      r3: 0,
-      r2: 1,
-      amount: 1,
-      dtHours: 2.3,
-    },
-    {
-      position: 5,
-      tag: "BD-1130B",
-      description: "Mezclador b materia prima (Blender)",
-      r3: 1,
-      r2: 0,
-      amount: 1,
-      dtHours: 2.4,
-    },
-  ]
-  const dataTableEquipmentDownTimeFall: APIEquipmentDownTimeFall[] = [
-    {
-      position: 1,
-      tag: "TP-1220",
-      description: "Tapadora de vasos",
-      amount: 2,
-      downTime: 3.0,
-      acdt: 1,
-    },
-    {
-      position: 2,
-      tag: "PK-2510",
-      description: "Empacadora de vacio",
-      amount: 2,
-      downTime: 913.84,
-      acdt: 1,
-    },
-    {
-      position: 3,
-      tag: "Z-1110",
-      description: "Volteador de tambores",
-      amount: 1,
-      downTime: 0.0,
-      acdt: 0,
-    },
-    {
-      position: 4,
-      tag: "HG-1160A",
-      description: "Monogenetizador para queso fundido",
-      amount: 1,
-      downTime: 9.0,
-      acdt: 1,
-    },
-    {
-      position: 5,
-      tag: "BD-1130B",
-      description: "Mezclador b materia prima (Blender)",
-      amount: 1,
-      downTime: 9.54,
-      acdt: 1,
-    },
-  ]
-  const dataTableTeamsImpactProduction: APITeamsImpactProduction[] = [
-    {
-      position: 1,
-      tag: "TP-1220",
-      description: "Tapadora de vasos",
-      r3: 1,
-      r2: 1,
-      amount: 2,
-      dtHours: 3.0,
-    },
-    {
-      position: 2,
-      tag: "PK-2510",
-      description: "Empacadora de vacio",
-      r3: 1,
-      r2: 1,
-      amount: 2,
-      dtHours: 228.5,
-    },
-    {
-      position: 3,
-      tag: "Z-1110",
-      description: "Volteador de tambores",
-      r3: 0,
-      r2: 1,
-      amount: 1,
-      dtHours: 2.3,
-    },
-    {
-      position: 4,
-      tag: "HG-1160A",
-      description: "Monogenetizador para queso fundido",
-      r3: 0,
-      r2: 1,
-      amount: 1,
-      dtHours: 2.3,
-    },
-    {
-      position: 5,
-      tag: "BD-1130B",
-      description: "Mezclador b materia prima (Blender)",
-      r3: 1,
-      r2: 0,
-      amount: 1,
-      dtHours: 2.4,
     },
   ]
   const dataTableTpef: APITpef[] = [
@@ -920,6 +841,10 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       dataTableNoteM2={dataTableNoteM2 || []}
       isLoadingDataTableNoteM2={isLoadingDataTableM2}
       isLoadingDataTableNoteM3={isLoadingDataTableM3}
+      isLoadingDataTableTotalFall={isLoadingDataTableTotalFall}
+      isLoadingDataTableTotalFailures={isLoadingDataTableTotalFailures}
+      isLoadingDataTableEquipmentDownTimeFall={isLoadingDataTableEquipmentDownTimeFall}
+      isLoadingDataTableTeamsImpactProduction={isLoadingDataTableTeamsImpactProduction}
       isLoadingDataGraphNoteAlert={isLoadingDataGraphNoteAlert}
       isLoadingDataGraphEquipmentFailures={isLoadingDataGraphEquipmentFailures}
       isLoadingDataGraphNoticeOrders={isLoadingDataGraphNoticeOrders}
@@ -933,10 +858,14 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       isLaodingDataGraphTpef={isLoadingDataGraphTpef}
       isLoadingDataGraphFaultOccurrence={isLoadingDataGraphFaultOccurrence}
       dataTableNoteM3={dataTableNoteM3 || []}
-      dataTableTotalFall={dataTableTotalFall}
-      dataTableTotalFailures={dataTableTotalFailures}
-      dataTableEquipmentDownTimeFall={dataTableEquipmentDownTimeFall}
-      dataTableTeamsImpactProduction={dataTableTeamsImpactProduction}
+      dataTableTotalFall={dataTableTotalFall || []}
+      dataTableTotalFailures={dataTableTotalFailures || []}
+      dataTableEquipmentDownTimeFall={
+        dataTableEquipmentDownTimeFall || []
+      }
+      dataTableTeamsImpactProduction={
+        dataTableTeamsImpactProduction || []
+      }
       dataTableTpef={dataTableTpef}
       dataTableEquipmentTimeOut={dataTableEquipmentTimeOut}
       dataTableEquipmentPF={dataTableEquipmentPF}
@@ -945,7 +874,9 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       dataGraphNoticeOrders={dataGraphNoticeOrders || []}
       dataGraphEquipmentFailures={dataGraphEquipmentFailures || []}
       dataGraphDownTimeHours={dataGraphDownTimeHours || []}
-      dataGraphProductionLimitation={dataGraphProductionLimitation || []}
+      dataGraphProductionLimitation={
+        dataGraphProductionLimitation || []
+      }
       dataGraphDownTimeImpactProduction={
         dataGraphDownTimeImpactProduction || []
       }
