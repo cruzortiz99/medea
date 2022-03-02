@@ -25,12 +25,16 @@ import {
   getProductionLimitationData,
   getDownTimeHoursData,
   getDownTimeImpactProductionData,
-  getTpefData,
+  getGraphTpefData,
   getFaultOccurrenceData,
   getTotalFallData,
   getTotalFailuresData,
   getEquipmentDownTimeFallData,
   getTeamsImpactProductionData,
+  getTableTpefData,
+  getEquipmentTimeOutData,
+  getEquipmentPFData,
+  getTemporaryRepairsData,
 } from "../../services/alerts_and_failures"
 import homeStore from "../../store/home"
 import { randomColor } from "../../utils/css"
@@ -61,8 +65,26 @@ function AlertAndFailurePage(props: AppRoutedPage) {
     isLoadingDataTableTeamsImpactProduction,
     setIsLoadingDataTableTeamsImpactProduction
   ] = useState(true)
-  const [isLoadingDataGraphNoteAlert, setIsLoadingDataGraphNoteAlert] =
-    useState(true)
+  const [
+    isLoadingdDataTableTpef,
+    setIsLoadingDataTableTpef
+  ] = useState(true)
+  const [
+    isLoadingDataTableEquipmentTimeOut,
+    setIsLoadingDataTableEquipmentTimeOut
+  ] = useState(true)
+   const [
+     isLoadingDataTableEquipmentPF,
+     setIsLoadingDataTableEquipmentPF
+   ] = useState(true)
+  const [
+    isLoadingDataTableTemporaryRepairs,
+    setIsLoadingDataTableTemporaryRepairs
+  ] = useState(true)
+  const [
+    isLoadingDataGraphNoteAlert, 
+    setIsLoadingDataGraphNoteAlert
+  ] = useState(true)
   const [isLoadingDataGraphNoticeOrders, setIsLoadingDataGraphNoticeOrders] =
     useState(true)
   const [
@@ -180,7 +202,76 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       )
     )
   )
-
+  const [dataTableTpef] = useObservable<
+    APITpef[],
+    Observable<APITpef[]>
+  >(
+    of(true).pipe(
+      tap(() => setIsLoadingDataTableTpef(true)),
+      switchMap(() =>
+        getTableTpefData().pipe(
+          tap(() => setIsLoadingDataTableTpef(false))
+        )
+      ),
+      catchError(() => 
+        of([]).pipe(tap(() => setIsLoadingDataTableTpef(false)))
+      )
+    )
+  )
+  const [dataTableEquipmentTimeOut] = useObservable<
+    APIEquipmentTimeOut[],
+    Observable<APIEquipmentTimeOut[]>
+  >(
+    of(true).pipe(
+      tap(() => setIsLoadingDataTableEquipmentTimeOut(true)),
+      switchMap(() => 
+        getEquipmentTimeOutData().pipe(
+          tap(() => setIsLoadingDataTableEquipmentTimeOut(false))
+        )
+      ),
+      catchError(() => 
+        of([]).pipe(
+          tap(() => setIsLoadingDataTableEquipmentTimeOut(false))
+        )
+      )
+    )
+  )
+  const [dataTableEquipmentPF] = useObservable<
+    APIEquipmentPF[],
+    Observable<APIEquipmentPF[]>
+  >(
+    of(true).pipe(
+      tap(() => setIsLoadingDataTableEquipmentPF(true)),
+      switchMap(() => 
+        getEquipmentPFData().pipe(
+          tap(() => setIsLoadingDataTableEquipmentPF(false))
+        )
+      ),
+      catchError(() => 
+        of([]).pipe(
+          tap(() => setIsLoadingDataTableEquipmentPF(false))
+        )
+      )
+    )
+  )
+  const [dataTableTemporaryRepairs] = useObservable<
+    APITemporaryRepairs[],
+    Observable<APITemporaryRepairs[]>
+  >(
+    of(true).pipe(
+      tap(() => setIsLoadingDataTableTemporaryRepairs(true)),
+      switchMap(() => 
+        getTemporaryRepairsData().pipe(
+          tap(() => setIsLoadingDataTableTemporaryRepairs(false))
+        )
+      ),
+      catchError(() => 
+        of([]).pipe(
+          tap(() => setIsLoadingDataTableTemporaryRepairs(false))
+        )
+      )
+    )
+  )
   const [dataGraphNoteAlert] = useObservable<
     Partial<PlotData>[],
     Observable<Partial<PlotData>[]>
@@ -286,7 +377,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
     of(true).pipe(
       tap(() => setIsLoadingDataGraphTpef(true)),
       switchMap(() => 
-        getTpefData().pipe(
+        getGraphTpefData().pipe(
           tap(() => setIsLoadingDataGraphTpef(false))
         )
       ),
@@ -495,269 +586,6 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       href: "#work-history",
     },
   ]
-  const dataTableTpef: APITpef[] = [
-    {
-      position: 1,
-      tag: "NV-3300C",
-      description: "Valvulade descarga de paila D3300C",
-      tpef12M: 71.67,
-      fall12M: 2,
-      tpef24M: 2967.28,
-      fall24M: 3,
-      percent: 98,
-    },
-    {
-      position: 2,
-      tag: "FL-1210A",
-      description: "Llenadora de vaso",
-      tpef12M: 99.3,
-      fall12M: 64,
-      tpef24M: 162.32,
-      fall24M: 91,
-      percent: 39,
-    },
-    {
-      position: 3,
-      tag: "ET-1340",
-      description: "Colocador de mangas",
-      tpef12M: 152.64,
-      fall12M: 43,
-      tpef24M: 254.69,
-      fall24M: 59,
-      percent: 40,
-    },
-    {
-      position: 4,
-      tag: "TP-1220",
-      description: "Tapadora de vasos",
-      tpef12M: 424.85,
-      fall12M: 20,
-      tpef24M: 532.69,
-      fall24M: 32,
-      percent: 20,
-    },
-    {
-      position: 5,
-      tag: "Z-1360",
-      description: "Envolvedor de cajas (Guillotina)",
-      tpef12M: 510.61,
-      fall12M: 17,
-      tpef24M: 862.41,
-      fall24M: 20,
-      percent: 20,
-    },
-  ]
-  const dataTableEquipmentTimeOut: APIEquipmentTimeOut[] = [
-    {
-      position: 1,
-      tag: "PK-2510",
-      description: "Empaquetadora de vacio",
-      notices: 10014964,
-      daysDS: 7,
-      reper: 3,
-      order: 10033815,
-      ctec: "",
-      noti: "",
-      ejec: "",
-      emat: "",
-      esps: "",
-      prog: "",
-      startDate: "",
-      startTime: "",
-      endDate: "",
-      endTime: "",
-      startFails: "20/10/2021",
-    },
-    {
-      position: 2,
-      tag: "TP-1220",
-      description: "Tapadora de vasos",
-      notices: 10014881,
-      daysDS: 27,
-      reper: 2,
-      order: 10033657,
-      ctec: "X",
-      noti: "X",
-      ejec: "X",
-      emat: "X",
-      esps: "X",
-      prog: "X",
-      startDate: "30/09/2021",
-      startTime: "16:59",
-      endDate: "30/09/2021",
-      endTime: "17:29",
-      startFails: "30/09/2021",
-    },
-    {
-      position: 3,
-      tag: "M-2320",
-      description: "Maquina ceotrifuga descremadora",
-      notices: 10014870,
-      daysDS: 29,
-      reper: 2,
-      order: 10034144,
-      ctec: "",
-      noti: "",
-      ejec: "",
-      emat: "",
-      esps: "",
-      prog: "",
-      startDate: "",
-      startTime: "",
-      endDate: "",
-      endTime: "",
-      startFails: "28/09/2021",
-    },
-    {
-      position: 4,
-      tag: "P-2250",
-      description: "Bomba transf. de UDF-4 a homog.(ESF4-S)",
-      notices: 10014756,
-      daysDS: 46,
-      reper: 3,
-      order: 10033643,
-      ctec: "",
-      noti: "",
-      ejec: "",
-      emat: "",
-      esps: "",
-      prog: "",
-      startDate: "",
-      startTime: "",
-      endDate: "",
-      endTime: "",
-      startFails: "11/09/2021",
-    },
-    {
-      position: 5,
-      tag: "E-3100",
-      description: "Enfriador de crema",
-      notices: 10014754,
-      daysDS: 47,
-      reper: 2,
-      order: 10033550,
-      ctec: "",
-      noti: "",
-      ejec: "",
-      emat: "",
-      esps: "",
-      prog: "",
-      startDate: "",
-      startTime: "",
-      endDate: "",
-      endTime: "",
-      startFails: "10/09/2021",
-    },
-  ]
-  const dataTableEquipmentPF: APIEquipmentPF[] = [
-    {
-      position: 1,
-      notice: 10012812,
-      tag: "GM-9601",
-      description: "Motor de generador G9601",
-      startDate: "26/11/2020",
-      days: 335,
-      order: 10030648,
-      statusODM: "PROG",
-    },
-    {
-      position: 2,
-      notice: 10012807,
-      tag: "NV-3250",
-      description: "Valvula de inyeccion de vapor hiladora",
-      startDate: "25/11/2020",
-      days: 336,
-      order: 10030552,
-      statusODM: "ESPR",
-    },
-    {
-      position: 3,
-      notice: 10012482,
-      tag: "NV-97045",
-      description: "Valvula de suministro L1 a ESF-205",
-      startDate: "23/10/2020",
-      days: 369,
-      order: 10030542,
-      statusODM: "PROG",
-    },
-    {
-      position: 4,
-      notice: 10012482,
-      tag: "GM-9600",
-      description: "Motor de generador G9600",
-      startDate: "28/11/2020",
-      days: 394,
-      order: 10029872,
-      statusODM: "PROG",
-    },
-    {
-      position: 5,
-      notice: 10012069,
-      tag: "FD-11508",
-      description: "Fundidora de queso 500lb (Cosina)",
-      startDate: "09/09/2020",
-      days: 413,
-      order: 10029509,
-      statusODM: "EMAT",
-    },
-  ]
-  const dataTableTemporaryRepairs: APITemporaryRepairs[] = [
-    {
-      position: 1,
-      notice: 10014450,
-      order: 10033120,
-      tagNotice: "HG4100A",
-      description: "Homogeneizador A de productos",
-      textOrder: "Reemplazar estoperas en Homog UHT",
-      startDate: "22/07/2021",
-      status: "EMAT",
-      tagODM: "HG4100A",
-    },
-    {
-      position: 2,
-      notice: 10014401,
-      order: 10033061,
-      tagNotice: "ZM2442A",
-      description: "Motor A de recolector y elevador Z2442",
-      textOrder: "Reemplazar Contactor recolector",
-      startDate: "14/07/2021",
-      status: "PROG",
-      tagODM: "Z2442",
-    },
-    {
-      position: 3,
-      notice: 10014150,
-      order: 10032812,
-      tagNotice: "DALPAST",
-      description: "Pasteurizacion",
-      textOrder: "Remplazar seleccionador y porta",
-      startDate: "15/06/2021",
-      status: "PROG",
-      tagODM: "DALPAST",
-    },
-    {
-      position: 4,
-      notice: 10013712,
-      order: 10032162,
-      tagNotice: "PM1131",
-      description: "Motor boma transf. tolva a pulmon P1131",
-      textOrder: "Peemplazar LIQUID TIGHT",
-      startDate: "06/04/2021",
-      status: "ESPR",
-      tagODM: "PM1131",
-    },
-    {
-      position: 5,
-      notice: 10030636,
-      order: 100313376,
-      tagNotice: "",
-      description: "**Aviso con mas de 2 años / error texto ODM",
-      textOrder: "Reemplazar bloque auxiliar y c",
-      startDate: "29/01/2021",
-      status: "EMAT",
-      tagODM: "CYM1201",
-    },
-  ]
   useEffect(() => {
     rightMenuSubject.next(rightMenuOptions)
     return () => {
@@ -845,6 +673,10 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       isLoadingDataTableTotalFailures={isLoadingDataTableTotalFailures}
       isLoadingDataTableEquipmentDownTimeFall={isLoadingDataTableEquipmentDownTimeFall}
       isLoadingDataTableTeamsImpactProduction={isLoadingDataTableTeamsImpactProduction}
+      isLoadingDataTableTpef={isLoadingdDataTableTpef}
+      isLoadingDataTableEquipmentTimeOut={isLoadingDataTableEquipmentTimeOut}
+      isLoadingDataTableEquipmentPF={isLoadingDataTableEquipmentPF}
+      isLoadingDataTableTemporaryRepairs={isLoadingDataTableTemporaryRepairs}
       isLoadingDataGraphNoteAlert={isLoadingDataGraphNoteAlert}
       isLoadingDataGraphEquipmentFailures={isLoadingDataGraphEquipmentFailures}
       isLoadingDataGraphNoticeOrders={isLoadingDataGraphNoticeOrders}
@@ -866,10 +698,10 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       dataTableTeamsImpactProduction={
         dataTableTeamsImpactProduction || []
       }
-      dataTableTpef={dataTableTpef}
-      dataTableEquipmentTimeOut={dataTableEquipmentTimeOut}
-      dataTableEquipmentPF={dataTableEquipmentPF}
-      dataTableTemporaryRepairs={dataTableTemporaryRepairs}
+      dataTableTpef={dataTableTpef || []}
+      dataTableEquipmentTimeOut={dataTableEquipmentTimeOut || []}
+      dataTableEquipmentPF={dataTableEquipmentPF || []}
+      dataTableTemporaryRepairs={dataTableTemporaryRepairs || []}
       dataGraphNoteAlert={dataGraphNoteAlert || []}
       dataGraphNoticeOrders={dataGraphNoticeOrders || []}
       dataGraphEquipmentFailures={dataGraphEquipmentFailures || []}

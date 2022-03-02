@@ -35,6 +35,10 @@ export type AlertAndFailurePageViewProps = {
   isLoadingDataTableTotalFailures: boolean
   isLoadingDataTableEquipmentDownTimeFall: boolean
   isLoadingDataTableTeamsImpactProduction: boolean
+  isLoadingDataTableTpef: boolean
+  isLoadingDataTableEquipmentTimeOut: boolean
+  isLoadingDataTableEquipmentPF: boolean
+  isLoadingDataTableTemporaryRepairs: boolean
   isLoadingDataGraphNoteAlert: boolean
   isLoadingDataGraphEquipmentFailures: boolean
   isLoadingDataGraphNoticeOrders: boolean
@@ -348,7 +352,7 @@ function AlertAndFailurePageView(
                     },
                     {
                       headerCell: "Down time Hrs",
-                      dataKey: "downTime",
+                      dataKey: "down_time",
                       flexGrowColumn: 1,
                       alingColumn: "center",
                       minWidthColumn: 120,
@@ -415,7 +419,7 @@ function AlertAndFailurePageView(
                     },
                     {
                       headerCell: "DT Hrs",
-                      dataKey: "dtHours",
+                      dataKey: "dt_hours",
                       flexGrowColumn: 1,
                       alingColumn: "center",
                       minWidthColumn: 120,
@@ -465,7 +469,7 @@ function AlertAndFailurePageView(
                     },
                     {
                       headerCell: "Down time Hrs",
-                      dataKey: "downTime",
+                      dataKey: "down_time",
                       flexGrowColumn: 1,
                       alingColumn: "center",
                       minWidthColumn: 120,
@@ -532,7 +536,7 @@ function AlertAndFailurePageView(
                     },
                     {
                       headerCell: "DT Hrs",
-                      dataKey: "dtHours",
+                      dataKey: "dt_hours",
                       flexGrowColumn: 1,
                       alingColumn: "center",
                       minWidthColumn: 120,
@@ -550,6 +554,7 @@ function AlertAndFailurePageView(
                 <strong>TPEF</strong>
                 <AppTable
                   dataTable={props.dataTableTpef}
+                  loading={props.isLoadingDataTableTpef}
                   height={360}
                   heightHeaderCell={80}
                   columns={[
@@ -653,6 +658,7 @@ function AlertAndFailurePageView(
             <strong>Equipos con mas tiempo fuera de servicio</strong>
             <AppTable
               dataTable={props.dataTableEquipmentTimeOut}
+              loading={props.isLoadingDataTableEquipmentTimeOut}
               height={360}
               heightHeaderCell={80}
               columns={[
@@ -820,6 +826,7 @@ function AlertAndFailurePageView(
                 <strong>Equipos en el segmento PF</strong>
                 <AppTable
                   dataTable={props.dataTableEquipmentPF}
+                  loading={props.isLoadingDataTableEquipmentPF}
                   height={320}
                   columns={[
                     {
@@ -893,6 +900,7 @@ function AlertAndFailurePageView(
             <strong>Reparaciones temporales (RTEM)</strong>
             <AppTable
               dataTable={props.dataTableTemporaryRepairs}
+              loading={props.isLoadingDataTableTemporaryRepairs}
               height={320}
               columns={[
                 {

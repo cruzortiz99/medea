@@ -3,3 +3,5 @@ import services.failures_equipments
 import services.alert_vs_closed
 import services.down_time
 import services.down_time_production_impact
+import services.total_failures
+import services.equipment_downtime_per_failure
