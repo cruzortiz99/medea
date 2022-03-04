@@ -19,6 +19,7 @@ SWAGGER_TEMPLATE = {
         TotalFailuresProductionEffect.swagger_schema(),
         "EquipmentDowntimePerFailure": models.models.
         EquipmentDowntimePerFailure.
-        EquipmentDowntimePerFailure.swagger_schema()
+        EquipmentDowntimePerFailure.swagger_schema(),
+        "TemporallyRepair": models.TemporallyRepair.swagger_schema()
     }
 }
