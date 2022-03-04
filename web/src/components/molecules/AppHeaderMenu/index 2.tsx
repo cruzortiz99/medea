@@ -3,17 +3,16 @@ import { Dropdown } from "rsuite"
 
 export type AppHeaderMenuProps = {
   renderToggle: (props: any, ref: any) => ReactNode
-  item: { 
-    label?: ReactNode, 
-    id?: string, 
-    active?: boolean, 
-    onClick?: () => any 
+  item: {
+    label?: ReactNode
+    id?: string
+    active?: boolean
+    onClick?: () => any
   }[]
 }
 
-function AppHeaderMenu(props: AppHeaderMenuProps){
-  
-  return(
+function AppHeaderMenu(props: AppHeaderMenuProps) {
+  return (
     <>
       <Dropdown
         noCaret

@@ -1,32 +1,410 @@
-import React, { useEffect, useState } from "react"
-import AppHeaderMenu from "../../components/molecules/AppHeaderMenu"
-import AppHeaderMenuButton from "../../components/atoms/AppHeaderMenuButton"
-import { AppRoutedPage } from "../../routes/routes"
-import homeStore from "../../store/home"
-import { useObservable } from "../../utils/rx/hooks"
-import { randomColor } from "../../utils/css"
-import AlertAndFailurePageView from "./view"
 import { PlotData } from "plotly.js"
+import React, { useEffect, useState } from "react"
+import { catchError, Observable, of, switchMap, tap } from "rxjs"
+import AppHeaderMenuButton from "../../components/atoms/AppHeaderMenuButton"
+import AppHeaderMenu from "../../components/molecules/AppHeaderMenu"
 import {
+  APIEquipmentDownTimeFall,
+  APIEquipmentPF,
+  APIEquipmentTimeOut,
   APINoteM2,
   APINoteM3,
-  APITotalFall,
-  APITotalFailures,
-  APIEquipmentDownTimeFall,
   APITeamsImpactProduction,
-  APITpef,
-  APIEquipmentTimeOut,
-  APIEquipmentPF,
   APITemporaryRepairs,
+  APITotalFailures,
+  APITotalFall,
+  APITpef,
 } from "../../models"
+import { AppRoutedPage } from "../../routes/routes"
+import {
+  getNoteM2Data,
+  getNoteM3Data,
+  getNoteAlertData,
+  getNoticeOrdersData,
+  getEquipmentFailuresData,
+  getProductionLimitationData,
+  getDownTimeHoursData,
+  getDownTimeImpactProductionData,
+  getGraphTpefData,
+  getFaultOccurrenceData,
+  getTotalFallData,
+  getTotalFailuresData,
+  getEquipmentDownTimeFallData,
+  getTeamsImpactProductionData,
+  getTableTpefData,
+  getEquipmentTimeOutData,
+  getEquipmentPFData,
+  getTemporaryRepairsData,
+} from "../../services/alerts_and_failures"
+import homeStore from "../../store/home"
+import { randomColor } from "../../utils/css"
+import { useObservable } from "../../utils/rx/hooks"
+import AlertAndFailurePageView from "./view"
 
 function AlertAndFailurePage(props: AppRoutedPage) {
   const [_, rightMenuSubject] = useObservable(homeStore.rightMenuOptions)
   const [selectedPlant, setSelectedPlant] = useState("Planta ABC")
   const [selectedYear, setSelectedYear] = useState("Noviembre 2021")
-  const [selectedEquipament, setSelectedEquipament] = useState("Equipo A")
+  const [selectedEquipment, setSelectedEquipment] = useState("Equipo A")
   const [selectedProcess, setSelectedProcess] = useState("Proceso 1")
-  const [dataTableM3, setDataTableM3] = useState<APINoteM3[]>([])
+  const [isLoadingDataTableM2, setIsLoadingDataTableM2] = useState(true)
+  const [isLoadingDataTableM3, setIsLoadingDataTableM3] = useState(true)
+  const [
+    isLoadingDataTableTotalFall, 
+    setIsLoadingDataTableTotalFall
+  ] = useState(true)
+  const [
+    isLoadingDataTableTotalFailures,
+    setIsLoadingDataTableTotalFailures
+  ] = useState(true)
+  const [
+    isLoadingDataTableEquipmentDownTimeFall,
+    setIsLoadingDataTableEquipmentDownTimeFall
+  ] = useState(true)
+  const [
+    isLoadingDataTableTeamsImpactProduction,
+    setIsLoadingDataTableTeamsImpactProduction
+  ] = useState(true)
+  const [
+    isLoadingdDataTableTpef,
+    setIsLoadingDataTableTpef
+  ] = useState(true)
+  const [
+    isLoadingDataTableEquipmentTimeOut,
+    setIsLoadingDataTableEquipmentTimeOut
+  ] = useState(true)
+   const [
+     isLoadingDataTableEquipmentPF,
+     setIsLoadingDataTableEquipmentPF
+   ] = useState(true)
+  const [
+    isLoadingDataTableTemporaryRepairs,
+    setIsLoadingDataTableTemporaryRepairs
+  ] = useState(true)
+  const [
+    isLoadingDataGraphNoteAlert, 
+    setIsLoadingDataGraphNoteAlert
+  ] = useState(true)
+  const [isLoadingDataGraphNoticeOrders, setIsLoadingDataGraphNoticeOrders] =
+    useState(true)
+  const [
+    isLoadingDataGraphEquipmentFailures,
+    setIsLoadingDataGraphEquipmentFailures,
+  ] = useState(true)
+  const [
+    isLoadingDataGraphProductionLimitation,
+    setIsLoadingDataGraphProductionLimitation,
+  ] = useState(true)
+  const [isLoadingDataGraphDownTimeHours, setIsLoadingDataGraphDownTimeHours] =
+    useState(true)
+  const [
+    isLoadingDataGraphDownTimeImpactProduction,
+    setIsLoadingDataGraphDownTimeImpactProduction,
+  ] = useState(true)
+  const [isLoadingDataGraphTpef, setIsLoadingDataGraphTpef] = useState(true)
+  const [
+    isLoadingDataGraphFaultOccurrence, 
+    setIsLoadingDataGraphFaultOccurrence
+  ] = useState(true)
+  const [dataTableNoteM2] = useObservable<APINoteM2[], Observable<APINoteM2[]>>(
+    of(true).pipe(
+      tap(() => setIsLoadingDataTableM2(true)),
+      switchMap(() =>
+        getNoteM2Data().pipe(tap(() => setIsLoadingDataTableM2(false)))
+      ),
+      catchError(() => of([]).pipe(tap(() => setIsLoadingDataTableM2(false))))
+    )
+  )
+  const [dataTableNoteM3] = useObservable<APINoteM3[], Observable<APINoteM3[]>>(
+    of(true).pipe(
+      tap(() => setIsLoadingDataTableM3(true)),
+      switchMap(() =>
+        getNoteM3Data().pipe(tap(() => setIsLoadingDataTableM3(false)))
+      ),
+      catchError(() => of([]).pipe(tap(() => setIsLoadingDataTableM3(false))))
+    )
+  )
+  const [dataTableTotalFall] = useObservable<
+    APITotalFall[], 
+    Observable<APITotalFall[]>
+  >(
+    of(true).pipe(
+      tap(() => setIsLoadingDataTableTotalFall(true)),
+      switchMap(() =>
+        getTotalFallData().pipe(
+          tap(() => setIsLoadingDataTableTotalFall(false))
+        )
+      ),
+      catchError(() =>
+          of([]).pipe(tap(() => setIsLoadingDataTableTotalFall(false)))
+      )
+    )
+  )
+  const [dataTableTotalFailures] = useObservable<
+    APITotalFailures[],
+    Observable<APITotalFailures[]>
+  >(
+    of(true).pipe(
+      tap(() => setIsLoadingDataTableTotalFailures(true)),
+      switchMap(() =>
+        getTotalFailuresData().pipe(
+          tap(() => setIsLoadingDataTableTotalFailures(false))
+        )
+      ),
+      catchError(() =>
+        of([]).pipe(
+          tap(() => setIsLoadingDataTableTotalFailures(false))
+        )
+      )
+    )
+  )
+  const [dataTableEquipmentDownTimeFall] = useObservable<
+    APIEquipmentDownTimeFall[],
+    Observable<APIEquipmentDownTimeFall[]>
+  >(
+    of(true).pipe(
+      tap(() => setIsLoadingDataTableEquipmentDownTimeFall(true)),
+      switchMap(() => 
+        getEquipmentDownTimeFallData().pipe(
+          tap(
+            () => setIsLoadingDataTableEquipmentDownTimeFall(false)
+          )
+        )
+      ),
+      catchError(() => 
+        of([]).pipe(
+          tap(
+            () => setIsLoadingDataTableEquipmentDownTimeFall(false)
+          )
+        )
+      )
+    )
+  )
+  const [dataTableTeamsImpactProduction] = useObservable<
+    APITeamsImpactProduction[],
+    Observable<APITeamsImpactProduction[]>
+  >(
+    of(true).pipe(
+      tap(() => setIsLoadingDataTableTeamsImpactProduction(true)),
+      switchMap(() => 
+        getTeamsImpactProductionData().pipe(
+          tap(
+            () => setIsLoadingDataTableTeamsImpactProduction(false)
+          )
+        )
+      ),
+      catchError(() =>
+        of([]).pipe(
+          tap(
+            () => setIsLoadingDataTableTeamsImpactProduction(false)
+          )
+        )
+      )
+    )
+  )
+  const [dataTableTpef] = useObservable<
+    APITpef[],
+    Observable<APITpef[]>
+  >(
+    of(true).pipe(
+      tap(() => setIsLoadingDataTableTpef(true)),
+      switchMap(() =>
+        getTableTpefData().pipe(
+          tap(() => setIsLoadingDataTableTpef(false))
+        )
+      ),
+      catchError(() => 
+        of([]).pipe(tap(() => setIsLoadingDataTableTpef(false)))
+      )
+    )
+  )
+  const [dataTableEquipmentTimeOut] = useObservable<
+    APIEquipmentTimeOut[],
+    Observable<APIEquipmentTimeOut[]>
+  >(
+    of(true).pipe(
+      tap(() => setIsLoadingDataTableEquipmentTimeOut(true)),
+      switchMap(() => 
+        getEquipmentTimeOutData().pipe(
+          tap(() => setIsLoadingDataTableEquipmentTimeOut(false))
+        )
+      ),
+      catchError(() => 
+        of([]).pipe(
+          tap(() => setIsLoadingDataTableEquipmentTimeOut(false))
+        )
+      )
+    )
+  )
+  const [dataTableEquipmentPF] = useObservable<
+    APIEquipmentPF[],
+    Observable<APIEquipmentPF[]>
+  >(
+    of(true).pipe(
+      tap(() => setIsLoadingDataTableEquipmentPF(true)),
+      switchMap(() => 
+        getEquipmentPFData().pipe(
+          tap(() => setIsLoadingDataTableEquipmentPF(false))
+        )
+      ),
+      catchError(() => 
+        of([]).pipe(
+          tap(() => setIsLoadingDataTableEquipmentPF(false))
+        )
+      )
+    )
+  )
+  const [dataTableTemporaryRepairs] = useObservable<
+    APITemporaryRepairs[],
+    Observable<APITemporaryRepairs[]>
+  >(
+    of(true).pipe(
+      tap(() => setIsLoadingDataTableTemporaryRepairs(true)),
+      switchMap(() => 
+        getTemporaryRepairsData().pipe(
+          tap(() => setIsLoadingDataTableTemporaryRepairs(false))
+        )
+      ),
+      catchError(() => 
+        of([]).pipe(
+          tap(() => setIsLoadingDataTableTemporaryRepairs(false))
+        )
+      )
+    )
+  )
+  const [dataGraphNoteAlert] = useObservable<
+    Partial<PlotData>[],
+    Observable<Partial<PlotData>[]>
+  >(
+    of(true).pipe(
+      tap(() => setIsLoadingDataGraphNoteAlert(true)),
+      switchMap(() =>
+        getNoteAlertData().pipe(
+          tap(() => setIsLoadingDataGraphNoteAlert(false))
+        )
+      ),
+      catchError(() =>
+        of([]).pipe(tap(() => setIsLoadingDataGraphNoteAlert(false)))
+      )
+    )
+  )
+  const [dataGraphNoticeOrders] = useObservable<
+    Partial<PlotData>[],
+    Observable<Partial<PlotData>[]>
+  >(
+    of(true).pipe(
+      tap(() => setIsLoadingDataGraphNoticeOrders(true)),
+      switchMap(() =>
+        getNoticeOrdersData().pipe(
+          tap(() => setIsLoadingDataGraphNoticeOrders(false))
+        )
+      ),
+      catchError(() =>
+        of([]).pipe(tap(() => setIsLoadingDataGraphNoticeOrders(false)))
+      )
+    )
+  )
+  const [dataGraphEquipmentFailures] = useObservable<
+    Partial<PlotData>[],
+    Observable<Partial<PlotData>[]>
+  >(
+    of(true).pipe(
+      tap(() => setIsLoadingDataGraphEquipmentFailures(true)),
+      switchMap(() =>
+        getEquipmentFailuresData().pipe(
+          tap(() => setIsLoadingDataGraphEquipmentFailures(false))
+        )
+      ),
+      catchError(() =>
+        of([]).pipe(tap(() => setIsLoadingDataGraphEquipmentFailures(false)))
+      )
+    )
+  )
+  const [dataGraphProductionLimitation] = useObservable<
+    Partial<PlotData>[],
+    Observable<Partial<PlotData>[]>
+  >(
+    of(true).pipe(
+      tap(() => setIsLoadingDataGraphProductionLimitation(true)),
+      switchMap(() =>
+        getProductionLimitationData().pipe(
+          tap(() => setIsLoadingDataGraphProductionLimitation(false))
+        )
+      ),
+      catchError(() =>
+        of([]).pipe(tap(() => setIsLoadingDataGraphProductionLimitation(false)))
+      )
+    )
+  )
+  const [dataGraphDownTimeHours] = useObservable<
+    Partial<PlotData>[],
+    Observable<Partial<PlotData>[]>
+  >(
+    of(true).pipe(
+      tap(() => setIsLoadingDataGraphDownTimeHours(true)),
+      switchMap(() =>
+        getDownTimeHoursData().pipe(
+          tap(() => setIsLoadingDataGraphDownTimeHours(false))
+        )
+      ),
+      catchError(() =>
+        of([]).pipe(tap(() => setIsLoadingDataGraphDownTimeHours(false)))
+      )
+    )
+  )
+  const [dataGraphDownTimeImpactProduction] = useObservable<
+    Partial<PlotData>[],
+    Observable<Partial<PlotData>[]>
+  >(
+    of(true).pipe(
+      tap(() => setIsLoadingDataGraphDownTimeImpactProduction(true)),
+      switchMap(() =>
+        getDownTimeImpactProductionData().pipe(
+          tap(() => setIsLoadingDataGraphDownTimeImpactProduction(false))
+        )
+      ),
+      catchError(() =>
+        of([]).pipe(
+          tap(() => setIsLoadingDataGraphDownTimeImpactProduction(false))
+        )
+      )
+    )
+  )
+  const [dataGraphTpef] = useObservable<
+    Partial<PlotData>[], 
+    Observable<Partial<PlotData>[]>
+  >(
+    of(true).pipe(
+      tap(() => setIsLoadingDataGraphTpef(true)),
+      switchMap(() => 
+        getGraphTpefData().pipe(
+          tap(() => setIsLoadingDataGraphTpef(false))
+        )
+      ),
+      catchError(() => 
+        of([]).pipe(
+            tap(() => setIsLoadingDataGraphTpef(false))
+        )
+      )
+    )
+  )
+  const [dataGraphFaultOccurrence] = useObservable<
+    Partial<PlotData>[],
+    Observable<Partial<PlotData>[]>
+  >(
+    of(true).pipe(
+      tap(() => setIsLoadingDataGraphFaultOccurrence(true)),
+      switchMap(() => 
+        getFaultOccurrenceData().pipe(
+          tap(() => setIsLoadingDataGraphFaultOccurrence(false))
+        )
+      ),
+      catchError(() => 
+        of([]).pipe(
+            tap(() => setIsLoadingDataGraphFaultOccurrence(false))
+        ))
+    )
+  )
   const [colors] = useState<string[]>([
     randomColor(),
     randomColor(),
@@ -136,26 +514,26 @@ function AlertAndFailurePage(props: AppRoutedPage) {
     {
       label: "Equipo A",
       id: "#equipoA",
-      active: selectedEquipament === "Equipo A",
-      onClick: () => setSelectedEquipament("Equipo A"),
+      active: selectedEquipment === "Equipo A",
+      onClick: () => setSelectedEquipment("Equipo A"),
     },
     {
       label: "Equipo B",
       id: "#equipoB",
-      active: selectedEquipament === "Equipo B",
-      onClick: () => setSelectedEquipament("Equipo B"),
+      active: selectedEquipment === "Equipo B",
+      onClick: () => setSelectedEquipment("Equipo B"),
     },
     {
       label: "Equipo C",
       id: "#equipoC",
-      active: selectedEquipament === "Equipo C",
-      onClick: () => setSelectedEquipament("Equipo C"),
+      active: selectedEquipment === "Equipo C",
+      onClick: () => setSelectedEquipment("Equipo C"),
     },
     {
       label: "Equipo D",
       id: "#equipoD",
-      active: selectedEquipament === "Equipo D",
-      onClick: () => setSelectedEquipament("Equipo D"),
+      active: selectedEquipment === "Equipo D",
+      onClick: () => setSelectedEquipment("Equipo D"),
     },
   ]
   const processMenu = [
@@ -208,597 +586,11 @@ function AlertAndFailurePage(props: AppRoutedPage) {
       href: "#work-history",
     },
   ]
-  const dataTableNoteM2: APINoteM2[] = [
-    {
-      executor: "Operador",
-      amount: 0,
-      hours: 0.0,
-      withOutFF: 0,
-    },
-    {
-      executor: "Mantenedor",
-      amount: 0,
-      hours: 0.0,
-      withOutFF: 0,
-    },
-    {
-      executor: "Sin inform",
-      amount: 0,
-      hours: 0.0,
-      withOutFF: 0,
-    },
-    {
-      executor: "Total",
-      amount: 0,
-      hours: 0.0,
-      withOutFF: 0,
-    },
-  ]
-  const dataTableNoteM3: APINoteM3[] = []
-  const dataTableTotalFall: APITotalFall[] = [
-    {
-      position: 1,
-      tag: "TP-1220",
-      description: "Tapadora de vasos",
-      amount: 2,
-      downTime: 3.0,
-      acdt: 1,
-    },
-    {
-      position: 2,
-      tag: "PK-2510",
-      description: "Empacadora de vacio",
-      amount: 2,
-      downTime: 913.84,
-      acdt: 1,
-    },
-    {
-      position: 3,
-      tag: "Z-1110",
-      description: "Volteador de tambores",
-      amount: 1,
-      downTime: 0.0,
-      acdt: 0,
-    },
-    {
-      position: 4,
-      tag: "HG-1160A",
-      description: "Monogenetizador para queso fundido",
-      amount: 1,
-      downTime: 9.0,
-      acdt: 1,
-    },
-    {
-      position: 5,
-      tag: "BD-1130B",
-      description: "Mezclador b materia prima (Blender)",
-      amount: 1,
-      downTime: 9.54,
-      acdt: 1,
-    },
-  ]
-  const dataTableTotalFailures: APITotalFailures[] = [
-    {
-      position: 1,
-      tag: "TP-1220",
-      description: "Tapadora de vasos",
-      r3: 1,
-      r2: 1,
-      amount: 2,
-      dtHours: 3.0,
-    },
-    {
-      position: 2,
-      tag: "PK-2510",
-      description: "Empacadora de vacío",
-      r3: 1,
-      r2: 1,
-      amount: 2,
-      dtHours: 228.5,
-    },
-    {
-      position: 3,
-      tag: "Z-1110",
-      description: "Volteador de tambores",
-      r3: 0,
-      r2: 1,
-      amount: 1,
-      dtHours: 2.3,
-    },
-    {
-      position: 4,
-      tag: "HG-1160A",
-      description: "Monogenetizador para queso fundido",
-      r3: 0,
-      r2: 1,
-      amount: 1,
-      dtHours: 2.3,
-    },
-    {
-      position: 5,
-      tag: "BD-1130B",
-      description: "Mezclador b materia prima (Blender)",
-      r3: 1,
-      r2: 0,
-      amount: 1,
-      dtHours: 2.4,
-    },
-  ]
-  const dataTableEquipmentDownTimeFall: APIEquipmentDownTimeFall[] = [
-    {
-      position: 1,
-      tag: "TP-1220",
-      description: "Tapadora de vasos",
-      amount: 2,
-      downTime: 3.0,
-      acdt: 1,
-    },
-    {
-      position: 2,
-      tag: "PK-2510",
-      description: "Empacadora de vacio",
-      amount: 2,
-      downTime: 913.84,
-      acdt: 1,
-    },
-    {
-      position: 3,
-      tag: "Z-1110",
-      description: "Volteador de tambores",
-      amount: 1,
-      downTime: 0.0,
-      acdt: 0,
-    },
-    {
-      position: 4,
-      tag: "HG-1160A",
-      description: "Monogenetizador para queso fundido",
-      amount: 1,
-      downTime: 9.0,
-      acdt: 1,
-    },
-    {
-      position: 5,
-      tag: "BD-1130B",
-      description: "Mezclador b materia prima (Blender)",
-      amount: 1,
-      downTime: 9.54,
-      acdt: 1,
-    },
-  ]
-  const dataTableTeamsImpactProduction: APITeamsImpactProduction[] = [
-    {
-      position: 1,
-      tag: "TP-1220",
-      description: "Tapadora de vasos",
-      r3: 1,
-      r2: 1,
-      amount: 2,
-      dtHours: 3.0,
-    },
-    {
-      position: 2,
-      tag: "PK-2510",
-      description: "Empacadora de vacio",
-      r3: 1,
-      r2: 1,
-      amount: 2,
-      dtHours: 228.5,
-    },
-    {
-      position: 3,
-      tag: "Z-1110",
-      description: "Volteador de tambores",
-      r3: 0,
-      r2: 1,
-      amount: 1,
-      dtHours: 2.3,
-    },
-    {
-      position: 4,
-      tag: "HG-1160A",
-      description: "Monogenetizador para queso fundido",
-      r3: 0,
-      r2: 1,
-      amount: 1,
-      dtHours: 2.3,
-    },
-    {
-      position: 5,
-      tag: "BD-1130B",
-      description: "Mezclador b materia prima (Blender)",
-      r3: 1,
-      r2: 0,
-      amount: 1,
-      dtHours: 2.4,
-    },
-  ]
-  const dataTableTpef: APITpef[] = [
-    {
-      position: 1,
-      tag: "NV-3300C",
-      description: "Valvulade descarga de paila D3300C",
-      tpef12M: 71.67,
-      fall12M: 2,
-      tpef24M: 2967.28,
-      fall24M: 3,
-      percent: 98,
-    },
-    {
-      position: 2,
-      tag: "FL-1210A",
-      description: "Llenadora de vaso",
-      tpef12M: 99.3,
-      fall12M: 64,
-      tpef24M: 162.32,
-      fall24M: 91,
-      percent: 39,
-    },
-    {
-      position: 3,
-      tag: "ET-1340",
-      description: "Colocador de mangas",
-      tpef12M: 152.64,
-      fall12M: 43,
-      tpef24M: 254.69,
-      fall24M: 59,
-      percent: 40,
-    },
-    {
-      position: 4,
-      tag: "TP-1220",
-      description: "Tapadora de vasos",
-      tpef12M: 424.85,
-      fall12M: 20,
-      tpef24M: 532.69,
-      fall24M: 32,
-      percent: 20,
-    },
-    {
-      position: 5,
-      tag: "Z-1360",
-      description: "Envolvedor de cajas (Guillotina)",
-      tpef12M: 510.61,
-      fall12M: 17,
-      tpef24M: 862.41,
-      fall24M: 20,
-      percent: 20,
-    },
-  ]
-  const dataTableEquipmentTimeOut: APIEquipmentTimeOut[] = [
-    {
-      position: 1,
-      tag: "PK-2510",
-      description: "Empaquetadora de vacio",
-      notices: 10014964,
-      daysDS: 7,
-      reper: 3,
-      order: 10033815,
-      ctec: "",
-      noti: "",
-      ejec: "",
-      emat: "",
-      esps: "",
-      prog: "",
-      startDate: "",
-      startTime: "",
-      endDate: "",
-      endTime: "",
-      startFails: "20/10/2021",
-    },
-    {
-      position: 2,
-      tag: "TP-1220",
-      description: "Tapadora de vasos",
-      notices: 10014881,
-      daysDS: 27,
-      reper: 2,
-      order: 10033657,
-      ctec: "X",
-      noti: "X",
-      ejec: "X",
-      emat: "X",
-      esps: "X",
-      prog: "X",
-      startDate: "30/09/2021",
-      startTime: "16:59",
-      endDate: "30/09/2021",
-      endTime: "17:29",
-      startFails: "30/09/2021",
-    },
-    {
-      position: 3,
-      tag: "M-2320",
-      description: "Maquina ceotrifuga descremadora",
-      notices: 10014870,
-      daysDS: 29,
-      reper: 2,
-      order: 10034144,
-      ctec: "",
-      noti: "",
-      ejec: "",
-      emat: "",
-      esps: "",
-      prog: "",
-      startDate: "",
-      startTime: "",
-      endDate: "",
-      endTime: "",
-      startFails: "28/09/2021",
-    },
-    {
-      position: 4,
-      tag: "P-2250",
-      description: "Bomba transf. de UDF-4 a homog.(ESF4-S)",
-      notices: 10014756,
-      daysDS: 46,
-      reper: 3,
-      order: 10033643,
-      ctec: "",
-      noti: "",
-      ejec: "",
-      emat: "",
-      esps: "",
-      prog: "",
-      startDate: "",
-      startTime: "",
-      endDate: "",
-      endTime: "",
-      startFails: "11/09/2021",
-    },
-    {
-      position: 5,
-      tag: "E-3100",
-      description: "Enfriador de crema",
-      notices: 10014754,
-      daysDS: 47,
-      reper: 2,
-      order: 10033550,
-      ctec: "",
-      noti: "",
-      ejec: "",
-      emat: "",
-      esps: "",
-      prog: "",
-      startDate: "",
-      startTime: "",
-      endDate: "",
-      endTime: "",
-      startFails: "10/09/2021",
-    },
-  ]
-  const dataTableEquipmentPF: APIEquipmentPF[] = [
-    {
-      position: 1,
-      notice: 10012812,
-      tag: "GM-9601",
-      description: "Motor de generador G9601",
-      startDate: "26/11/2020",
-      days: 335,
-      order: 10030648,
-      statusODM: "PROG",
-    },
-    {
-      position: 2,
-      notice: 10012807,
-      tag: "NV-3250",
-      description: "Valvula de inyeccion de vapor hiladora",
-      startDate: "25/11/2020",
-      days: 336,
-      order: 10030552,
-      statusODM: "ESPR",
-    },
-    {
-      position: 3,
-      notice: 10012482,
-      tag: "NV-97045",
-      description: "Valvula de suministro L1 a ESF-205",
-      startDate: "23/10/2020",
-      days: 369,
-      order: 10030542,
-      statusODM: "PROG",
-    },
-    {
-      position: 4,
-      notice: 10012482,
-      tag: "GM-9600",
-      description: "Motor de generador G9600",
-      startDate: "28/11/2020",
-      days: 394,
-      order: 10029872,
-      statusODM: "PROG",
-    },
-    {
-      position: 5,
-      notice: 10012069,
-      tag: "FD-11508",
-      description: "Fundidora de queso 500lb (Cosina)",
-      startDate: "09/09/2020",
-      days: 413,
-      order: 10029509,
-      statusODM: "EMAT",
-    },
-  ]
-  const dataTableTemporaryRepairs: APITemporaryRepairs[] = [
-    {
-      position: 1,
-      notice: 10014450,
-      order: 10033120,
-      tagNotice: "HG4100A",
-      description: "Homogeneizador A de productos",
-      textOrder: "Reemplazar estoperas en Homog UHT",
-      startDate: "22/07/2021",
-      status: "EMAT",
-      tagODM: "HG4100A",
-    },
-    {
-      position: 2,
-      notice: 10014401,
-      order: 10033061,
-      tagNotice: "ZM2442A",
-      description: "Motor A de recolector y elevador Z2442",
-      textOrder: "Reemplazar Contactor recolector",
-      startDate: "14/07/2021",
-      status: "PROG",
-      tagODM: "Z2442",
-    },
-    {
-      position: 3,
-      notice: 10014150,
-      order: 10032812,
-      tagNotice: "DALPAST",
-      description: "Pasteurizacion",
-      textOrder: "Remplazar seleccionador y porta",
-      startDate: "15/06/2021",
-      status: "PROG",
-      tagODM: "DALPAST",
-    },
-    {
-      position: 4,
-      notice: 10013712,
-      order: 10032162,
-      tagNotice: "PM1131",
-      description: "Motor boma transf. tolva a pulmon P1131",
-      textOrder: "Peemplazar LIQUID TIGHT",
-      startDate: "06/04/2021",
-      status: "ESPR",
-      tagODM: "PM1131",
-    },
-    {
-      position: 5,
-      notice: 10030636,
-      order: 100313376,
-      tagNotice: "",
-      description: "**Aviso con mas de 2 años / error texto ODM",
-      textOrder: "Reemplazar bloque auxiliar y c",
-      startDate: "29/01/2021",
-      status: "EMAT",
-      tagODM: "CYM1201",
-    },
-  ]
-  const dataGraphNoteAlert: Partial<PlotData>[] = [
-    {
-      x: [1, 2, 3],
-      y: [9, 4, 9],
-      marker: { color: colors[0] },
-      type: "bar",
-    },
-    {
-      x: [1, 2, 3],
-      y: [8, 3, 8],
-      marker: { color: colors[1] },
-      type: "bar",
-    },
-  ]
-  const dataGraphNoticeOrders: Partial<PlotData>[] = [
-    {
-      x: [1, 2, 3],
-      y: [9, 4, 9],
-      marker: { color: colors[0] },
-      type: "bar",
-    },
-    {
-      x: [1, 2, 3],
-      y: [8, 3, 8],
-      marker: { color: colors[1] },
-      type: "bar",
-    },
-  ]
-  const dataGraphEquipmentFailures: Partial<PlotData>[] = [
-    {
-      x: [1, 2, 3],
-      y: [9, 4, 9],
-      marker: { color: colors[0] },
-      type: "bar",
-    },
-    {
-      x: [1, 2, 3],
-      y: [8, 3, 8],
-      marker: { color: colors[1] },
-      type: "bar",
-    },
-  ]
-  const dataGraphDownTimeHours: Partial<PlotData>[] = [
-    {
-      x: [1, 2, 3],
-      y: [9, 4, 9],
-      marker: { color: colors[0] },
-      type: "bar",
-    },
-    {
-      x: [1, 2, 3],
-      y: [8, 3, 8],
-      marker: { color: colors[1] },
-      type: "bar",
-    },
-  ]
-  const dataGraphProductionLimitation: Partial<PlotData>[] = [
-    {
-      x: [1, 2, 3],
-      y: [9, 4, 9],
-      marker: { color: colors[0] },
-      type: "bar",
-    },
-    {
-      x: [1, 2, 3],
-      y: [8, 3, 8],
-      marker: { color: colors[1] },
-      type: "bar",
-    },
-    {
-      x: [1, 2, 3],
-      y: [17, 7, 17],
-      marker: { color: colors[2] },
-    },
-  ]
-  const dataGraphDownTimeImpactProduction: Partial<PlotData>[] = [
-    {
-      x: [1, 2, 3],
-      y: [9, 4, 9],
-      marker: { color: colors[0] },
-      type: "bar",
-    },
-    {
-      x: [1, 2, 3],
-      y: [8, 3, 8],
-      marker: { color: colors[1] },
-      type: "bar",
-    },
-  ]
-  const dataGraphTpef: Partial<PlotData>[] = [
-    {
-      x: [9, 4, 9],
-      y: [1, 2, 3],
-      marker: { color: colors[0] },
-      type: "bar",
-      orientation: "h",
-    },
-    {
-      x: [8, 3, 8],
-      y: [1, 2, 3],
-      marker: { color: colors[1] },
-      type: "bar",
-      orientation: "h",
-    },
-  ]
-  const dataGraphFaultOccurrence: Partial<PlotData>[] = [
-    {
-      x: [1, 2, 3],
-      y: [9, 4, 9],
-      marker: { color: colors[0] },
-      type: "bar",
-    },
-  ]
   useEffect(() => {
     rightMenuSubject.next(rightMenuOptions)
     return () => {
       rightMenuSubject.next([])
     }
-  }, [])
-  useEffect(() => {
-    fetch("http://localhost:5000/api/alerts-and-failures/note-m3", {mode: "cors", method: "GET"}).then(async (response) => {
-      setDataTableM3( await response.json())
-    })
   }, [])
   return (
     <AlertAndFailurePageView
@@ -841,7 +633,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
           renderToggle={(props, ref) => {
             return (
               <AppHeaderMenuButton {...props} ref={ref}>
-                <p>{selectedEquipament}</p>
+                <p>{selectedEquipment}</p>
               </AppHeaderMenuButton>
             )
           }}
@@ -874,24 +666,54 @@ function AlertAndFailurePage(props: AppRoutedPage) {
         label: subtile.label,
         id: subtile.href.substring(1),
       }))}
-      dataTableNoteM2={dataTableNoteM2}
-      dataTableNoteM3={dataTableNoteM3}
-      dataTableTotalFall={dataTableTotalFall}
-      dataTableTotalFailures={dataTableTotalFailures}
-      dataTableEquipmentDownTimeFall={dataTableEquipmentDownTimeFall}
-      dataTableTeamsImpactProduction={dataTableTeamsImpactProduction}
-      dataTableTpef={dataTableTpef}
-      dataTableEquipmentTimeOut={dataTableEquipmentTimeOut}
-      dataTableEquipmentPF={dataTableEquipmentPF}
-      dataTableTemporaryRepairs={dataTableTemporaryRepairs}
-      dataGraphNoteAlert={dataGraphNoteAlert}
-      dataGraphNoticeOrders={dataGraphNoticeOrders}
-      dataGraphEquipmentFailures={dataGraphEquipmentFailures}
-      dataGraphDownTimeHours={dataGraphDownTimeHours}
-      dataGraphProductionLimitation={dataGraphProductionLimitation}
-      dataGraphDownTimeImpactProduction={dataGraphDownTimeImpactProduction}
-      dataGraphTpef={dataGraphTpef}
-      dataGraphFaultOccurrence={dataGraphFaultOccurrence}
+      dataTableNoteM2={dataTableNoteM2 || []}
+      isLoadingDataTableNoteM2={isLoadingDataTableM2}
+      isLoadingDataTableNoteM3={isLoadingDataTableM3}
+      isLoadingDataTableTotalFall={isLoadingDataTableTotalFall}
+      isLoadingDataTableTotalFailures={isLoadingDataTableTotalFailures}
+      isLoadingDataTableEquipmentDownTimeFall={isLoadingDataTableEquipmentDownTimeFall}
+      isLoadingDataTableTeamsImpactProduction={isLoadingDataTableTeamsImpactProduction}
+      isLoadingDataTableTpef={isLoadingdDataTableTpef}
+      isLoadingDataTableEquipmentTimeOut={isLoadingDataTableEquipmentTimeOut}
+      isLoadingDataTableEquipmentPF={isLoadingDataTableEquipmentPF}
+      isLoadingDataTableTemporaryRepairs={isLoadingDataTableTemporaryRepairs}
+      isLoadingDataGraphNoteAlert={isLoadingDataGraphNoteAlert}
+      isLoadingDataGraphEquipmentFailures={isLoadingDataGraphEquipmentFailures}
+      isLoadingDataGraphNoticeOrders={isLoadingDataGraphNoticeOrders}
+      isLoadingDataGraphDownTimeHours={isLoadingDataGraphDownTimeHours}
+      isLoadingDataGraphProductionLimitation={
+        isLoadingDataGraphProductionLimitation
+      }
+      isLoadingDataGraphDownTimeImpactProduction={
+        isLoadingDataGraphDownTimeImpactProduction
+      }
+      isLaodingDataGraphTpef={isLoadingDataGraphTpef}
+      isLoadingDataGraphFaultOccurrence={isLoadingDataGraphFaultOccurrence}
+      dataTableNoteM3={dataTableNoteM3 || []}
+      dataTableTotalFall={dataTableTotalFall || []}
+      dataTableTotalFailures={dataTableTotalFailures || []}
+      dataTableEquipmentDownTimeFall={
+        dataTableEquipmentDownTimeFall || []
+      }
+      dataTableTeamsImpactProduction={
+        dataTableTeamsImpactProduction || []
+      }
+      dataTableTpef={dataTableTpef || []}
+      dataTableEquipmentTimeOut={dataTableEquipmentTimeOut || []}
+      dataTableEquipmentPF={dataTableEquipmentPF || []}
+      dataTableTemporaryRepairs={dataTableTemporaryRepairs || []}
+      dataGraphNoteAlert={dataGraphNoteAlert || []}
+      dataGraphNoticeOrders={dataGraphNoticeOrders || []}
+      dataGraphEquipmentFailures={dataGraphEquipmentFailures || []}
+      dataGraphDownTimeHours={dataGraphDownTimeHours || []}
+      dataGraphProductionLimitation={
+        dataGraphProductionLimitation || []
+      }
+      dataGraphDownTimeImpactProduction={
+        dataGraphDownTimeImpactProduction || []
+      }
+      dataGraphTpef={dataGraphTpef || []}
+      dataGraphFaultOccurrence={dataGraphFaultOccurrence || []}
     />
   )
 }

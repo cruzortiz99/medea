@@ -2,11 +2,13 @@ from constants import DOC_FOLDER
 from flasgger import swag_from
 from flask import Blueprint, Response, jsonify, request
 from models import APIResponseModel, SimpleMessage
-from services import alert_vs_closed, down_time
+from services import alert_vs_closed, down_time, down_time_production_impact
+from services import equipment_downtime_per_failure as eq_dt_per_failure
+from services import failures_equipments, note_m
+from services import temporally_repair as temporally_repair_service
 from services import total_failures as total_failures_service
 from services import total_failures_production_effect as tf_production_effect
-from services import down_time_production_impact, failures_equipments, note_m
-from services import equipment_downtime_per_failure as eq_dt_per_failure
+
 ALERT_AND_FAILURES = Blueprint(
     "alert-and-failure",
     __name__,
@@ -63,6 +65,17 @@ def equipment_downtime_per_failure() -> Response:
         list(map(lambda failure: failure.__dict__,
                  eq_dt_per_failure.get_equipment_downtime_per_failure()))
     ).__dict__)
+
+
+@ALERT_AND_FAILURES.route("/table/temporally-repairs",
+                          methods=["GET", "OPTIONS"])
+def temporally_repair() -> Response:
+    if request.method == "OPTIONS":
+        return jsonify(APIResponseModel("Ok"))
+    return jsonify(APIResponseModel(
+        list(map(lambda temporally_rapair: temporally_rapair.__dict__,
+                 temporally_repair_service.get_temporally_repairs()))
+    ))
 
 
 @ALERT_AND_FAILURES.route("/graph/alerted-vs-closed",

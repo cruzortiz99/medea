@@ -1,44 +1,16 @@
 import React from "react"
-import { Table } from "rsuite"
-import { catchError, Observable, of } from "rxjs"
-import { APINoteM3 } from "../../models"
-import { getNoteM3Data } from "../../services/alerts_and_failures"
-import { useObservable } from "../../utils/rx/hooks"
-
+import { createIconFont, Icon } from "@rsuite/icons"
+import { faFolderOpen } from "@fortawesome/free-regular-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 function TestPage() {
-  const [test] = useObservable<APINoteM3[], Observable<APINoteM3[]>>(
-    getNoteM3Data().pipe(catchError(() => of([])))
-  )
   return (
     <>
       <h2>TestLab</h2>
-      <Table
-        data={
-          test?.map((noteM3) => ({
-            executor: noteM3.executor,
-            amount: noteM3.amount,
-            hours: noteM3.hours,
-            withOutFF: noteM3.with_out_ff,
-          })) || []
-        }
-      >
-        <Table.Column>
-          <Table.HeaderCell>Amount</Table.HeaderCell>
-          <Table.Cell dataKey="amount" />
-        </Table.Column>
-        <Table.Column>
-          <Table.HeaderCell>Executor</Table.HeaderCell>
-          <Table.Cell dataKey="excecutor" />
-        </Table.Column>
-        <Table.Column>
-          <Table.HeaderCell>Hours</Table.HeaderCell>
-          <Table.Cell dataKey="hours" />
-        </Table.Column>
-        <Table.Column>
-          <Table.HeaderCell>Wiht out FF</Table.HeaderCell>
-          <Table.Cell dataKey="withOutFF" />
-        </Table.Column>
-      </Table>
+      <div>
+        <div>
+          <FontAwesomeIcon icon={faFolderOpen} style={{ width: "50px", height: "50px", color: "#0EDA21" }}/>
+        </div>
+      </div>
     </>
   )
 }
