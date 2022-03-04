@@ -69,13 +69,14 @@ def equipment_downtime_per_failure() -> Response:
 
 @ALERT_AND_FAILURES.route("/table/temporally-repairs",
                           methods=["GET", "OPTIONS"])
+@swag_from(DOC_FOLDER.joinpath("temporally-repair.yml"))
 def temporally_repair() -> Response:
     if request.method == "OPTIONS":
         return jsonify(APIResponseModel("Ok"))
     return jsonify(APIResponseModel(
         list(map(lambda temporally_rapair: temporally_rapair.__dict__,
                  temporally_repair_service.get_temporally_repairs()))
-    ))
+    ).__dict__)
 
 
 @ALERT_AND_FAILURES.route("/graph/alerted-vs-closed",
