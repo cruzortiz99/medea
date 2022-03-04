@@ -1,7 +1,7 @@
 Graph of Equipments Segment PF
 ---
 tags:
-  - Table
+  - Graph
   - Alerts And Failures
 responses:
   200:
@@ -14,4 +14,4 @@ responses:
             data:
               type: array
               items:
-                $ref: '#/definitions/EquipmentInPfSegment'
+                $ref: '#/definitions/GraphPoint'

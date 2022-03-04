@@ -7,3 +7,4 @@ from models.TotalFailures import TotalFailures
 import models.TotalFailuresProductionEffect
 import models.EquipmentDowntimePerFailure
 from models.TemporallyRepair import TemporallyRepair
+from models.EquipmentInPfSegment import EquipmentInPfSegment

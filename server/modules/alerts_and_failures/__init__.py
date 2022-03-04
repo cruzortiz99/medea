@@ -80,6 +80,18 @@ def temporally_repair() -> Response:
     ).__dict__)
 
 
+@ALERT_AND_FAILURES.route("/table/equipments-pf-segment",
+                          methods=["GET", "OPTIONS"])
+@swag_from(DOC_FOLDER.joinpath("equipments-segment-pf.yml"))
+def equipment_segment_pf() -> Response:
+    if request.method == "OPTIONS":
+        return jsonify(APIResponseModel("Ok"))
+    return jsonify(APIResponseModel(
+        list(map(lambda temporally_rapair: temporally_rapair.__dict__,
+                 equipment_pf_segment_service.get_equipments_segment_pf()))
+    ).__dict__)
+
+
 @ALERT_AND_FAILURES.route("/graph/alerted-vs-closed",
                           methods=["GET", "OPTIONS"])
 @swag_from(DOC_FOLDER.joinpath("alerted-vs-closed-graph.yml"))
@@ -135,9 +147,9 @@ def down_time_production_impact_graph() -> Response:
     ).__dict__)
 
 
-@ALERT_AND_FAILURES.route("/graph/equipment-segment-pf",
+@ALERT_AND_FAILURES.route("/graph/equipments-segment-pf",
                           methods=["GET", "OPTIONS"])
-@swag_from(DOC_FOLDER.joinpath("equipments-segment-pf.yml"))
+@swag_from(DOC_FOLDER.joinpath("equipments-segment-pf-graph.yml"))
 def equipments_segment_pf() -> Response:
     if request.method == "OPTIONS":
         return jsonify(APIResponseModel("Ok"))
