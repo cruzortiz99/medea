@@ -1,0 +1,17 @@
+Graph of Equipments Segment PF
+---
+tags:
+  - Graph
+  - Alerts And Failures
+responses:
+  200:
+    description: Ok
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/definitions/GraphPoint'

@@ -6,3 +6,4 @@ import services.down_time_production_impact
 import services.total_failures
 import services.equipment_downtime_per_failure
 import services.temporally_repair
+import services.equipment_pf_segment

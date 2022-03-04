@@ -8,6 +8,7 @@ from services import failures_equipments, note_m
 from services import temporally_repair as temporally_repair_service
 from services import total_failures as total_failures_service
 from services import total_failures_production_effect as tf_production_effect
+from services import equipment_pf_segment as equipment_pf_segment_service
 
 ALERT_AND_FAILURES = Blueprint(
     "alert-and-failure",
@@ -132,3 +133,19 @@ def down_time_production_impact_graph() -> Response:
             "marker": graph.marker.__dict__
         }, down_time_production_impact.get_down_time_production_impact()))
     ).__dict__)
+
+
+@ALERT_AND_FAILURES.route("/graph/equipment-segment-pf",
+                          methods=["GET", "OPTIONS"])
+@swag_from(DOC_FOLDER.joinpath("equipments-segment-pf.yml"))
+def equipments_segment_pf() -> Response:
+    if request.method == "OPTIONS":
+        return jsonify(APIResponseModel("Ok"))
+    return jsonify(
+        APIResponseModel(
+            list(map(lambda graph: {
+                **graph.__dict__,
+                "marker": graph.marker.__dict__
+            }, equipment_pf_segment_service.
+                get_equipments_segment_pf_graph()))
+        ).__dict__)
