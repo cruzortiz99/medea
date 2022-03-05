@@ -925,7 +925,7 @@ function AlertAndFailurePageView(
                 },
                 {
                   headerCell: "TAG Aviso",
-                  dataKey: "tagNotice",
+                  dataKey: "tag_notice",
                   flexGrowColumn: 1,
                   minWidthColumn: 120,
                   alingColumn: "left",
@@ -939,14 +939,14 @@ function AlertAndFailurePageView(
                 },
                 {
                   headerCell: "Texto orden",
-                  dataKey: "textOrder",
+                  dataKey: "text_order",
                   flexGrowColumn: 2,
                   minWidthColumn: 300,
                   alingColumn: "left",
                 },
                 {
                   headerCell: "F. Inicio",
-                  dataKey: "startDate",
+                  dataKey: "start_date",
                   flexGrowColumn: 1,
                   minWidthColumn: 120,
                   alingColumn: "center",
@@ -960,7 +960,7 @@ function AlertAndFailurePageView(
                 },
                 {
                   headerCell: "TAG ODM",
-                  dataKey: "tagODM",
+                  dataKey: "tag_odm",
                   flexGrowColumn: 1,
                   minWidthColumn: 120,
                   alingColumn: "center",

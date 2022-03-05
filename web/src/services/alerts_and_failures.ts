@@ -85,7 +85,7 @@ export function getEquipmentPFData(): Observable<APIEquipmentPF[]> {
   )
 }
 export function getTemporaryRepairsData(): Observable<APITemporaryRepairs[]> {
-  return request.get("/api/alert-and-failures").pipe(
+  return request.get("/api/alerts-and-failures/table/temporally-repairs").pipe(
     switchMap<Response, Observable<APIResponse<APITemporaryRepairs[]>>>(
       (response) => from(response.json())
     ),
