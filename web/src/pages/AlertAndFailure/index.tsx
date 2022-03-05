@@ -85,8 +85,10 @@ function AlertAndFailurePage(props: AppRoutedPage) {
     isLoadingDataGraphNoteAlert, 
     setIsLoadingDataGraphNoteAlert
   ] = useState(true)
-  const [isLoadingDataGraphNoticeOrders, setIsLoadingDataGraphNoticeOrders] =
-    useState(true)
+  const [
+    isLoadingDataGraphNoticeOrders, 
+    setIsLoadingDataGraphNoticeOrders
+  ] = useState(true)
   const [
     isLoadingDataGraphEquipmentFailures,
     setIsLoadingDataGraphEquipmentFailures,
@@ -95,8 +97,10 @@ function AlertAndFailurePage(props: AppRoutedPage) {
     isLoadingDataGraphProductionLimitation,
     setIsLoadingDataGraphProductionLimitation,
   ] = useState(true)
-  const [isLoadingDataGraphDownTimeHours, setIsLoadingDataGraphDownTimeHours] =
-    useState(true)
+  const [
+    isLoadingDataGraphDownTimeHours, 
+    setIsLoadingDataGraphDownTimeHours
+  ] = useState(true)
   const [
     isLoadingDataGraphDownTimeImpactProduction,
     setIsLoadingDataGraphDownTimeImpactProduction,
@@ -106,6 +110,7 @@ function AlertAndFailurePage(props: AppRoutedPage) {
     isLoadingDataGraphFaultOccurrence, 
     setIsLoadingDataGraphFaultOccurrence
   ] = useState(true)
+  
   const [dataTableNoteM2] = useObservable<APINoteM2[], Observable<APINoteM2[]>>(
     of(true).pipe(
       tap(() => setIsLoadingDataTableM2(true)),

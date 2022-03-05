@@ -30,7 +30,7 @@ function AppMainTemplate(props: AppMainTemplateProps) {
     {
       label: "Avisos y Fallas",
       href: PAGE_URL.ALERTS_FAILURES,
-      icon: <FontAwesomeIcon icon={faBell}/>,
+      icon: <FontAwesomeIcon icon={faBell} style={{ paddingRight: "0.5em", paddingLeft: "5px" }}/>,
     },
     { label: "Ordenes", 
       href: PAGE_URL.ORDERS, 

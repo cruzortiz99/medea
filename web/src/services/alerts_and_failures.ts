@@ -1,6 +1,18 @@
 import { PlotData } from "plotly.js"
 import { from, map, Observable, switchMap } from "rxjs"
-import { APIEquipmentDownTimeFall, APIEquipmentPF, APIEquipmentTimeOut, APINoteM2, APINoteM3, APIResponse, APITeamsImpactProduction, APITemporaryRepairs, APITotalFailures, APITotalFall, APITpef } from "../models"
+import { 
+  APIEquipmentDownTimeFall, 
+  APIEquipmentPF, 
+  APIEquipmentTimeOut, 
+  APINoteM2, 
+  APINoteM3, 
+  APIResponse, 
+  APITeamsImpactProduction, 
+  APITemporaryRepairs, 
+  APITotalFailures, 
+  APITotalFall, 
+  APITpef 
+} from "../models"
 import request from "../services"
 
 export function getNoteM3Data(): Observable<APINoteM3[]> {
