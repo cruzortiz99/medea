@@ -7,3 +7,4 @@ import services.total_failures
 import services.equipment_downtime_per_failure
 import services.temporally_repair
 import services.equipment_pf_segment
+import services.equipment_out_off_service

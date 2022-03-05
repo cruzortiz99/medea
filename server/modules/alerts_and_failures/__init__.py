@@ -8,6 +8,7 @@ from services import failures_equipments, note_m
 from services import temporally_repair as temporally_repair_service
 from services import total_failures as total_failures_service
 from services import total_failures_production_effect as tf_production_effect
+from services import equipment_out_off_service
 from services import equipment_pf_segment as equipment_pf_segment_service
 
 ALERT_AND_FAILURES = Blueprint(
@@ -89,6 +90,18 @@ def equipment_segment_pf() -> Response:
     return jsonify(APIResponseModel(
         list(map(lambda temporally_rapair: temporally_rapair.__dict__,
                  equipment_pf_segment_service.get_equipments_segment_pf()))
+    ).__dict__)
+
+
+@ALERT_AND_FAILURES.route("/table/equipments-out-off-service",
+                          methods=["GET", "OPTIONS"])
+@swag_from(DOC_FOLDER.joinpath("equipments-out-off-service.yml"))
+def equipments_out_off_service() -> Response:
+    if request.method == "OPTIONS":
+        return jsonify(APIResponseModel("Ok"))
+    return jsonify(APIResponseModel(
+        list(map(lambda equipment_oos: equipment_oos.__dict__,
+                 equipment_out_off_service.get_equipments_out_off_service()))
     ).__dict__)
 
 
