@@ -9,3 +9,4 @@ import models.EquipmentDowntimePerFailure
 from models.TemporallyRepair import TemporallyRepair
 from models.EquipmentInPfSegment import EquipmentInPfSegment
 from models.EquipmentOutOffService import EquipmentOutOffService
+from models.TPEF import TPEF

@@ -23,6 +23,7 @@ SWAGGER_TEMPLATE = {
         "TemporallyRepair": models.TemporallyRepair.swagger_schema(),
         "EquipmentInPfSegment": models.EquipmentInPfSegment.swagger_schema(),
         "EquipmentOutOffService": models.EquipmentOutOffService.
-        swagger_schema()
+        swagger_schema(),
+        "TPEF": models.TPEF.swagger_schema()
     }
 }
