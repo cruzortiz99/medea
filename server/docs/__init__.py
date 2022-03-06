@@ -21,6 +21,10 @@ SWAGGER_TEMPLATE = {
         "EquipmentDowntimePerFailure": models.models.
         EquipmentDowntimePerFailure.
         EquipmentDowntimePerFailure.swagger_schema(),
-        "TemporallyRepair": models.TemporallyRepair.swagger_schema()
+        "TemporallyRepair": models.TemporallyRepair.swagger_schema(),
+        "EquipmentInPfSegment": models.EquipmentInPfSegment.swagger_schema(),
+        "EquipmentOutOffService": models.EquipmentOutOffService.
+        swagger_schema(),
+        "TPEF": models.TPEF.swagger_schema()
     }
 }
