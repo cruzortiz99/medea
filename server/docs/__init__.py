@@ -11,6 +11,7 @@ SWAGGER_TEMPLATE = {
     "definitions": {
         "SimpleMessage": models.SimpleMessage.swagger_schema(),
         "NoteM3": models.NoteM3.swagger_schema(),
+        "NoteM2": models.NoteM2.swagger_schema(),
         "GraphPoint": models.GraphPoint.swagger_schema(),
         "GraphMarker": models.GraphMarker.swagger_schema(),
         "TotalFailure": models.TotalFailures.swagger_schema(),

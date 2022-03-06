@@ -161,7 +161,7 @@ function AlertAndFailurePageView(
                 columns={[
                   {
                     headerCell: "Ejecutor",
-                    dataKey: "executor",
+                    dataKey: "excecutor",
                     flexGrowColumn: 1,
                     alingColumn: "left",
                     minWidthColumn: 100,
