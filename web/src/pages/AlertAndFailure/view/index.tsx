@@ -691,7 +691,7 @@ function AlertAndFailurePageView(
                 },
                 {
                   headerCell: "Dias DS",
-                  dataKey: "daysDS",
+                  dataKey: "days_ds",
                   flexGrowColumn: 1,
                   minWidthColumn: 100,
                   alingColumn: "center",
@@ -760,28 +760,28 @@ function AlertAndFailurePageView(
                   columns: [
                     {
                       headerCell: "Fecha Inic",
-                      dataKey: "startDate",
+                      dataKey: "start_date",
                       flexGrowColumn: 1,
                       minWidthColumn: 120,
                       alingColumn: "center",
                     },
                     {
                       headerCell: "H. Inic",
-                      dataKey: "startTime",
+                      dataKey: "start_time",
                       flexGrowColumn: 1,
                       minWidthColumn: 100,
                       alingColumn: "center",
                     },
                     {
                       headerCell: "Fecha Fin",
-                      dataKey: "endDate",
+                      dataKey: "end_date",
                       flexGrowColumn: 1,
                       minWidthColumn: 120,
                       alingColumn: "center",
                     },
                     {
                       headerCell: "Hora Fin",
-                      dataKey: "endTime",
+                      dataKey: "end_time",
                       flexGrowColumn: 1,
                       minWidthColumn: 100,
                       alingColumn: "center",
@@ -792,7 +792,7 @@ function AlertAndFailurePageView(
               extraColumns={[
                 {
                   headerCell: "Inicio falla",
-                  dataKey: "startFails",
+                  dataKey: "start_fails",
                   alingColumn: "center",
                   minWidthColumn: 120,
                 },
@@ -858,7 +858,7 @@ function AlertAndFailurePageView(
                     },
                     {
                       headerCell: "Fecha Inicio",
-                      dataKey: "startDate",
+                      dataKey: "start_date",
                       flexGrowColumn: 1,
                       minWidthColumn: 120,
                       alingColumn: "center",
@@ -879,7 +879,7 @@ function AlertAndFailurePageView(
                     },
                     {
                       headerCell: "Status ODM",
-                      dataKey: "statusODM",
+                      dataKey: "status_odm",
                       flexGrowColumn: 1,
                       minWidthColumn: 100,
                       alingColumn: "center",

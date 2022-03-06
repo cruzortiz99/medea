@@ -1,4 +1,4 @@
-Table of Equipments Segment PF
+Get TPEF data
 ---
 tags:
   - Table
@@ -14,4 +14,4 @@ responses:
             data:
               type: array
               items:
-                $ref: '#/definitions/EquipmentInPfSegment'
+                $ref: '#/definitions/TPEF'

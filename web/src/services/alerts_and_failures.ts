@@ -73,7 +73,7 @@ export function getTeamsImpactProductionData(): Observable<APITeamsImpactProduct
   )
 }
 export function getTableTpefData(): Observable<APITpef[]> {
-  return request.get("/api/alert-and-failures").pipe(
+  return request.get("/api/alerts-and-failures/table/tpef").pipe(
     switchMap<Response, Observable<APIResponse<APITpef[]>>>(
       (response) => from(response.json())
     ),
@@ -81,7 +81,7 @@ export function getTableTpefData(): Observable<APITpef[]> {
   )
 }
 export function getEquipmentTimeOutData(): Observable<APIEquipmentTimeOut[]> {
-  return request.get("/api/alert-and-failures").pipe(
+  return request.get("/api/alerts-and-failures/table/equipments-out-off-service").pipe(
     switchMap<Response, Observable<APIResponse<APIEquipmentTimeOut[]>>>(
       (response) => from(response.json())
     ),
@@ -89,7 +89,7 @@ export function getEquipmentTimeOutData(): Observable<APIEquipmentTimeOut[]> {
   )
 }
 export function getEquipmentPFData(): Observable<APIEquipmentPF[]> {
-  return request.get("/api/alert-and-failures").pipe(
+  return request.get("/api/alerts-and-failures/table/equipments-pf-segment").pipe(
     switchMap<Response, Observable<APIResponse<APIEquipmentPF[]>>>(
       (response) => from(response.json())
     ),
@@ -157,7 +157,7 @@ export function getDownTimeImpactProductionData(): Observable<
   )
 }
 export function getGraphTpefData(): Observable<Partial<PlotData>[]> {
-  return request.get("api/alerts-and-failures/").pipe(
+  return request.get("/api/alerts-and-failures/graph/tpef").pipe(
     switchMap<Response, Observable<APIResponse<Partial<PlotData>[]>>>(
       (response) => from(response.json())
     ),
@@ -165,7 +165,7 @@ export function getGraphTpefData(): Observable<Partial<PlotData>[]> {
   )
 }
 export function getFaultOccurrenceData(): Observable<Partial<PlotData>[]> {
-  return request.get("api/alerts-and-failures/").pipe(
+  return request.get("/api/alerts-and-failures/graph/equipments-segment-pf").pipe(
     switchMap<Response, Observable<APIResponse<Partial<PlotData>[]>>>(
       (response) => from(response.json())
     ),
