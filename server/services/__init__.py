@@ -9,3 +9,4 @@ import services.temporally_repair
 import services.equipment_pf_segment
 import services.equipment_out_off_service
 import services.tpef
+import services.license

@@ -23,11 +23,12 @@ ALERT_AND_FAILURES = Blueprint(
 def sayHello() -> Response:
     return jsonify(SimpleMessage("Hola mundo").__dict__)
 
-@ALERT_AND_FAILURES.route("/table/note-m2", methods=["GET","OPTIONS"])
+
+@ALERT_AND_FAILURES.route("/table/note-m2", methods=["GET", "OPTIONS"])
 @swag_from(DOC_FOLDER.joinpath("note_m2.yml"))
 def notes_m2() -> Response:
     if request.method == "OPTIONS":
-        return jsonify(APIResponseModel("Ok"))
+        return jsonify(APIResponseModel("Ok").__dict__)
     return jsonify(
         APIResponseModel(
             list(map(lambda note_m2: note_m2.__dict__, note_m.get_notes_m2()))
@@ -38,7 +39,7 @@ def notes_m2() -> Response:
 @swag_from(DOC_FOLDER.joinpath("note_m3.yml"))
 def notes_m3() -> Response:
     if request.method == "OPTIONS":
-        return jsonify(APIResponseModel("Ok"))
+        return jsonify(APIResponseModel("Ok").__dict__)
     return jsonify(
         APIResponseModel(
             list(map(lambda note_m: note_m.__dict__, note_m.get_notes_m3()))
@@ -49,7 +50,7 @@ def notes_m3() -> Response:
 @swag_from(DOC_FOLDER.joinpath("total-failures.yml"))
 def total_failures() -> Response:
     if request.method == "OPTIONS":
-        return jsonify(APIResponseModel("Ok"))
+        return jsonify(APIResponseModel("Ok").__dict__)
     return jsonify(APIResponseModel(
         list(map(lambda failure: failure.__dict__,
                  total_failures_service.get_total_failures()))
@@ -61,7 +62,7 @@ def total_failures() -> Response:
 @swag_from(DOC_FOLDER.joinpath("total-failures-production-effect.yml"))
 def total_failures_production_effect() -> Response:
     if request.method == "OPTIONS":
-        return jsonify(APIResponseModel("Ok"))
+        return jsonify(APIResponseModel("Ok").__dict__)
     return jsonify(APIResponseModel(
         list(map(lambda failure: failure.__dict__,
                  tf_production_effect.get_total_failures_production_effect()))
@@ -73,7 +74,7 @@ def total_failures_production_effect() -> Response:
 @swag_from(DOC_FOLDER.joinpath("equipment-downtime-per-failure.yml"))
 def equipment_downtime_per_failure() -> Response:
     if request.method == "OPTIONS":
-        return jsonify(APIResponseModel("Ok"))
+        return jsonify(APIResponseModel("Ok").__dict__)
     return jsonify(APIResponseModel(
         list(map(lambda failure: failure.__dict__,
                  eq_dt_per_failure.get_equipment_downtime_per_failure()))
@@ -85,7 +86,7 @@ def equipment_downtime_per_failure() -> Response:
 @swag_from(DOC_FOLDER.joinpath("temporally-repair.yml"))
 def temporally_repair() -> Response:
     if request.method == "OPTIONS":
-        return jsonify(APIResponseModel("Ok"))
+        return jsonify(APIResponseModel("Ok").__dict__)
     return jsonify(APIResponseModel(
         list(map(lambda temporally_rapair: temporally_rapair.__dict__,
                  temporally_repair_service.get_temporally_repairs()))
@@ -97,7 +98,7 @@ def temporally_repair() -> Response:
 @swag_from(DOC_FOLDER.joinpath("equipments-segment-pf.yml"))
 def equipment_segment_pf() -> Response:
     if request.method == "OPTIONS":
-        return jsonify(APIResponseModel("Ok"))
+        return jsonify(APIResponseModel("Ok").__dict__)
     return jsonify(APIResponseModel(
         list(map(lambda temporally_rapair: temporally_rapair.__dict__,
                  equipment_pf_segment_service.get_equipments_segment_pf()))
@@ -109,7 +110,7 @@ def equipment_segment_pf() -> Response:
 @swag_from(DOC_FOLDER.joinpath("equipments-out-off-service.yml"))
 def equipments_out_off_service() -> Response:
     if request.method == "OPTIONS":
-        return jsonify(APIResponseModel("Ok"))
+        return jsonify(APIResponseModel("Ok").__dict__)
     return jsonify(APIResponseModel(
         list(map(lambda equipment_oos: equipment_oos.__dict__,
                  equipment_out_off_service.get_equipments_out_off_service()))
@@ -120,7 +121,7 @@ def equipments_out_off_service() -> Response:
 @swag_from(DOC_FOLDER.joinpath("tpef-table.yml"))
 def equipments_tpef() -> Response:
     if request.method == "OPTIONS":
-        return jsonify(APIResponseModel("Ok"))
+        return jsonify(APIResponseModel("Ok").__dict__)
     return jsonify(APIResponseModel(
         list(map(lambda tpef: tpef.__dict__, tpef_service.get_tpef()))
     ).__dict__)
@@ -131,7 +132,7 @@ def equipments_tpef() -> Response:
 @swag_from(DOC_FOLDER.joinpath("alerted-vs-closed-graph.yml"))
 def alerted_vs_closed_graph() -> Response:
     if request.method == "OPTIONS":
-        return jsonify(APIResponseModel("ok"))
+        return jsonify(APIResponseModel("ok").__dict__)
     return jsonify(APIResponseModel(
         list(map(lambda graph: {
             **graph.__dict__,
@@ -145,7 +146,7 @@ def alerted_vs_closed_graph() -> Response:
 @swag_from(DOC_FOLDER.joinpath("failures-equipments-graph.yml"))
 def failures_equipments_graph() -> Response:
     if request.method == "OPTIONS":
-        return jsonify(APIResponseModel("ok"))
+        return jsonify(APIResponseModel("ok").__dict__)
     return jsonify(APIResponseModel(
         list(map(lambda graph: {
             **graph.__dict__,
@@ -158,7 +159,7 @@ def failures_equipments_graph() -> Response:
 @swag_from(DOC_FOLDER.joinpath("down-time-graph.yml"))
 def down_time_graph() -> Response:
     if request.method == "OPTIONS":
-        return jsonify(APIResponseModel("ok"))
+        return jsonify(APIResponseModel("ok").__dict__)
     return jsonify(APIResponseModel(
         list(map(lambda graph: {
             **graph.__dict__,
@@ -172,7 +173,7 @@ def down_time_graph() -> Response:
 @swag_from(DOC_FOLDER.joinpath("down-time-graph.yml"))
 def down_time_production_impact_graph() -> Response:
     if request.method == "OPTIONS":
-        return jsonify(APIResponseModel("ok"))
+        return jsonify(APIResponseModel("ok").__dict__)
     return jsonify(APIResponseModel(
         list(map(lambda graph: {
             **graph.__dict__,
@@ -186,7 +187,7 @@ def down_time_production_impact_graph() -> Response:
 @swag_from(DOC_FOLDER.joinpath("equipments-segment-pf-graph.yml"))
 def equipments_segment_pf() -> Response:
     if request.method == "OPTIONS":
-        return jsonify(APIResponseModel("Ok"))
+        return jsonify(APIResponseModel("Ok").__dict__)
     return jsonify(
         APIResponseModel(
             list(map(lambda graph: {
@@ -202,7 +203,7 @@ def equipments_segment_pf() -> Response:
 @swag_from(DOC_FOLDER.joinpath("tpef-graph.yml"))
 def tpef_graph() -> Response:
     if request.method == "OPTIONS":
-        return jsonify(APIResponseModel("Ok"))
+        return jsonify(APIResponseModel("Ok").__dict__)
     return jsonify(
         APIResponseModel(
             list(map(lambda graph: {

@@ -25,6 +25,8 @@ SWAGGER_TEMPLATE = {
         "EquipmentInPfSegment": models.EquipmentInPfSegment.swagger_schema(),
         "EquipmentOutOffService": models.EquipmentOutOffService.
         swagger_schema(),
-        "TPEF": models.TPEF.swagger_schema()
+        "TPEF": models.TPEF.swagger_schema(),
+        "License": models.License.swagger_schema(),
+        "APIError": models.APIError.swagger_schema()
     }
 }
