@@ -27,11 +27,21 @@ def check_license():
     return jsonify(response[0]), response[1]
 
 
-@ API_ROOT.route("/create-license", methods=["POST", "OPTIONS"])
+@API_ROOT.route("/create-license", methods=["POST", "OPTIONS"])
+@swag_from(DOC_FOLDER.joinpath("create-license.yml"))
 def create_license():
     if request.method == "OPTIONS":
         return jsonify(APIResponseModel("Ok").__dict__)
-    return jsonify(APIResponseModel(license_service.create_license().__dict__))
+    response = license_service.create_license().pipe(
+        rx_op.catch(handle_error),
+        rx_op.map(
+            lambda response: (
+                APIResponseModel(
+                    response.__dict__).__dict__,
+                200 if not isinstance(
+                    response, Exception) else response.status_code))
+    ).run()
+    return jsonify(response[0]), response[1]
 
 
 @ API_ROOT.route("/delete-license", methods=["DELETE", "OPTIONS"])
