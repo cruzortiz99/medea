@@ -29,22 +29,25 @@ def check_license() -> Observable:
 
 
 def create_license() -> Observable:
-    license_data = License(
+    return of(License(
         True, False, False, False, False, False, False, True
+    )).pipe(
+        rx_op.flat_map(lambda license_data: of(
+            Path(ASSETS_FOLDER).joinpath("license.json")
+        ).pipe(
+            rx_op.map(
+                lambda json_path: open(
+                    json_path,
+                    "w",
+                    encoding="utf8")),
+            rx_op.do_action(lambda json_file: json.dump(
+                license_data.__dict__,
+                json_file
+            )),
+            rx_op.do_action(lambda json_file: json_file.close()),
+            rx_op.map(lambda _: license_data)
+        ))
     )
-    return of(
-        Path(
-            ASSETS_FOLDER.joinpath("license.json"))).pipe(
-        rx_op.map(
-            lambda json_path: open(
-                json_path, "w", encoding="utf8")),
-        rx_op.do_action(
-            lambda json_file: json.dump(
-                license_data.__dict__, json_file)),
-        rx_op.do_action(
-            lambda json_file: json_file.close()),
-        rx_op.map(
-            lambda _: license_data))
 
 
 def delete_license() -> str:
