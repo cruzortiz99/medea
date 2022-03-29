@@ -44,8 +44,16 @@ def create_license():
     return jsonify(response[0]), response[1]
 
 
-@ API_ROOT.route("/delete-license", methods=["DELETE", "OPTIONS"])
+@API_ROOT.route("/delete-license", methods=["DELETE", "OPTIONS"])
 def delete_license():
     if request.method == "OPTIONS":
         return jsonify(APIResponseModel("Ok").__dict__)
-    return jsonify(APIResponseModel(license_service.delete_license()))
+    response = license_service.delete_license().pipe(
+        rx_op.catch(handle_error),
+        rx_op.map(
+            lambda response: (
+                APIResponseModel(response).__dict__,
+                200 if not isinstance(
+                    response, Exception) else response.status_code))
+    ).run()
+    return jsonify(response[0], response[1])

@@ -50,5 +50,9 @@ def create_license() -> Observable:
     )
 
 
-def delete_license() -> str:
-    pass
+def delete_license() -> Observable:
+    return of(Path(ASSETS_FOLDER).joinpath("license.json")).pipe(
+        rx_op.do_action(lambda json_path: json_path.unlink()),
+        rx_op.map(lambda _: "ok"),
+        rx_op.catch(lambda _, __: throw(NotFoundError("File not found")))
+    )
