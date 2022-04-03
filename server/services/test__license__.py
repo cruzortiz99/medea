@@ -10,37 +10,42 @@ import re
 
 class TestLicenseService(unittest.TestCase):
     def test_create_license(self):
-        create_license().pipe(
+        create_license(
+            "test",
+            License(True, True, True, True, True, True, True, True)
+        ).pipe(
             rx_op.do_action(lambda license_data: self.assertTrue(
                 isinstance(license_data, License)
             )),
             rx_op.do_action(lambda _: self.assertTrue(
                 Path(
                     ASSETS_FOLDER
-                ).joinpath("license.json").exists())),
+                ).joinpath("license-test.json").exists())),
             rx_op.do_action(
                 lambda _: Path(
                     ASSETS_FOLDER
-                ).joinpath("license.json").unlink())
+                ).joinpath("license-test.json").unlink())
         ).run()
 
     def test_delete_license(self):
         of(
             open(
-                Path(ASSETS_FOLDER).joinpath("license.json"),
+                Path(ASSETS_FOLDER).joinpath("license-test.json"),
                 "w", encoding="utf8")
         ).pipe(
             rx_op.do_action(
                 lambda file: file.close()),
             rx_op.flat_map(
-                lambda _: delete_license()),
+                lambda _: delete_license("test")),
             rx_op.do_action(
                 lambda response: self.assertRegex(
                     response, re.compile(
                         r"ok", re.IGNORECASE))),
             rx_op.do_action(
                 lambda _: self.assertFalse(
-                    Path(ASSETS_FOLDER).joinpath("license.json").exists()))
+                    Path(
+                        ASSETS_FOLDER
+                    ).joinpath("license-test.json").exists()))
         ).run()
 
 

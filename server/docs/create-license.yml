@@ -2,6 +2,17 @@ Create License
 ---
 tags:
   - Root
+parameters:
+  - name: name
+    in: path
+    required: true
+    schema:
+      type: string
+requestBody:
+  content:
+    application/json:
+      schema:
+        $ref: '#/definitions/License'
 responses:
   200:
     description: Ok

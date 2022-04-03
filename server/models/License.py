@@ -1,9 +1,15 @@
+import datetime
+
+
 class License():
     @staticmethod
     def swagger_schema() -> dict:
         return {
             "type": "object",
             "properties": {
+                "date": {
+                    "type": "string"
+                },
                 "alert_and_failure": {
                     "type": "boolean"
                 },
@@ -49,3 +55,4 @@ class License():
         self.update_data = update_data
         self.documentation = documentation
         self.about = about
+        self.date = datetime.datetime.now().isoformat()

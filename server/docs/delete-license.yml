@@ -1,13 +1,15 @@
-Check License
+Create License
 ---
 tags:
   - Root
-parameters:
-  - name: name
-    in: path
-    required: true
-    schema:
-      type: string
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          name:
+            type: string
 responses:
   200:
     description: Ok

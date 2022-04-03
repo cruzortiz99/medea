@@ -10,8 +10,8 @@ from rx.core.observable.observable import Observable
 from utils.errors.models import NotFoundError
 
 
-def check_license() -> Observable:
-    return of(Path(ASSETS_FOLDER).joinpath("license.json")).pipe(
+def check_license(name: str) -> Observable:
+    return of(Path(ASSETS_FOLDER).joinpath(f"license-{name}.json")).pipe(
         rx_op.map(lambda json_path: open(json_path, "r", encoding="utf8")),
         rx_op.map(json.load),
         rx_op.map(lambda licence_dic: License(
@@ -28,12 +28,10 @@ def check_license() -> Observable:
     )
 
 
-def create_license() -> Observable:
-    return of(License(
-        True, False, False, False, False, False, False, True
-    )).pipe(
+def create_license(name: str, license_data: License) -> Observable:
+    return of(license_data).pipe(
         rx_op.flat_map(lambda license_data: of(
-            Path(ASSETS_FOLDER).joinpath("license.json")
+            Path(ASSETS_FOLDER).joinpath(f"license-{name}.json")
         ).pipe(
             rx_op.map(
                 lambda json_path: open(
@@ -50,8 +48,8 @@ def create_license() -> Observable:
     )
 
 
-def delete_license() -> Observable:
-    return of(Path(ASSETS_FOLDER).joinpath("license.json")).pipe(
+def delete_license(name: str) -> Observable:
+    return of(Path(ASSETS_FOLDER).joinpath(f"license-{name}.json")).pipe(
         rx_op.do_action(lambda json_path: json_path.unlink()),
         rx_op.map(lambda _: "ok"),
         rx_op.catch(lambda _, __: throw(NotFoundError("File not found")))
