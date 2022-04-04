@@ -1,15 +1,12 @@
-import json
 from pathlib import Path
-from typing import Any
+
 import jwt
-from rsa import PublicKey
 import rx.operators as rx_op
+from config import PUBLIC_KEY
 from constants import ASSETS_FOLDER
 from models import License
 from rx import of, throw
 from rx.core.observable.observable import Observable
-from config import PUBLIC_KEY
-
 from utils.errors.models import NotFoundError
 
 

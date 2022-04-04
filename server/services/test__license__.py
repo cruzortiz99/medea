@@ -1,4 +1,3 @@
-import json
 import re
 import unittest
 from pathlib import Path
@@ -9,8 +8,8 @@ from config import PUBLIC_KEY
 from constants import ASSETS_FOLDER
 from models import License
 from rx import from_callable, of
-from services.license import check_license
-from services.license import create_license, delete_license
+
+from services.license import check_license, create_license, delete_license
 
 
 class TestLicenseService(unittest.TestCase):
