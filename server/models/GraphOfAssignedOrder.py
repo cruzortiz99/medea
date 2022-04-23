@@ -4,17 +4,29 @@ class GraphOfAssignedOrder():
         return {
             "type": "object",
             "properties": {
-                "x": {
-                    "type": "array"
-                },
-                "y": {
-                    "type": "array"
+                "type": {
+                    "type": "string"
                 },
                 "marker": {
-                    "type": "object"
+                    "$ref": "#/definitions/GraphMarker"
                 },
-                "type": {
-                    "type": "strung"
+                "x": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                },
+                "y": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                },
+                "z": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
                 }
             }
         }
