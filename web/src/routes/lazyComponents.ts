@@ -15,5 +15,6 @@ export const PreventiveMaintenance = React.lazy(
 export const UpdateData = React.lazy(() => import("../pages/UpdateData"))
 export const Documentation = React.lazy(() => import("../pages/Documentation"))
 export const About = React.lazy(() => import("../pages/About"))
+export const UploadFiles = React.lazy(() => import("../pages/UploadFiles"))
 export const NotFound = React.lazy(() => import("../pages/NotFound"))
 export const TestPage = React.lazy(() => import("../pages/TestLab"))

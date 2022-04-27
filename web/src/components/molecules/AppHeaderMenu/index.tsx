@@ -16,7 +16,7 @@ function AppHeaderMenu(props: AppHeaderMenuProps) {
     <>
       <Dropdown
         noCaret
-        renderToggle={(rprops, ref) => props.renderToggle(rprops, ref)}
+        renderToggle={(rprops: any, ref: any) => props.renderToggle(rprops, ref)}
       >
         {props.item.map((item) => (
           <Dropdown.Item

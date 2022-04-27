@@ -8,6 +8,7 @@ export enum PAGE_URL {
   UPDATE_DATA = "/app/update-data",
   DOCUMENTATION = "/app/docs",
   ABOUT = "/app/about",
+  UPLOAD_FILES = "/app/upload-files",
   NOT_FOUND = "/app/not-found",
   TEST_PAGE = "/app/test-lab",
 }

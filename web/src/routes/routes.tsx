@@ -10,6 +10,7 @@ import {
   NotFound,
   Order,
   PreventiveMaintenance,
+  UploadFiles,
   TestPage,
   UpdateData,
 } from "./lazyComponents"
@@ -70,6 +71,11 @@ const ROUTES: AppRoute[] = [
         component: suspenseWrapper(About),
       },
     ],
+  },
+  {
+    path: PAGE_URL.UPLOAD_FILES,
+    pageName: "Upload Files",
+    component: suspenseWrapper(UploadFiles),
   },
   {
     path: PAGE_URL.TEST_PAGE,
