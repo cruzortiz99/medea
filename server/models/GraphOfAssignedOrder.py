@@ -1,3 +1,7 @@
+from typing import List
+from models.GraphMarker import GraphMarker
+
+
 class GraphOfAssignedOrder():
     @staticmethod
     def swagger_schema() -> dict:
@@ -21,23 +25,17 @@ class GraphOfAssignedOrder():
                     "items": {
                         "type": "number"
                     }
-                },
-                "z": {
-                    "type": "array",
-                    "items": {
-                        "type": "number"
-                    }
                 }
             }
         }
 
     def __init__(
             self,
-            x: List,
-            amount: int,
-            hours: float,
-            with_out_ff: int):
+            type: str,
+            color: str,
+            x: List[int] = [],
+            y: List[int] = []) -> None:
+        self.type = type
+        self.marker = GraphMarker(color)
         self.x = x
-        self.amount = amount
-        self.hours = hours
-        self.with_out_ff = with_out_ff
+        self.y = y
