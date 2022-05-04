@@ -1,0 +1,17 @@
+Graph Failed Equipment That Affected Production
+---
+tags:
+  - Graph
+  -  Failed Equipment That Affected Production
+responses:
+  200:
+    description: Ok
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/definitions/GraphFailedEquipmentThatAffectedProduction'

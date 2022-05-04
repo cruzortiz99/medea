@@ -3,7 +3,7 @@ from flasgger import swag_from
 from flask import Blueprint, Response, jsonify, request
 from models import APIResponseModel, SimpleMessage
 from services import alert_vs_closed, down_time
-from services import down_time_production_impact, failures_equipments, note_m, graph_of_assigned_order
+from services import down_time_production_impact, failures_equipments, note_m, graph_of_assigned_order, graph_failed_equipment_that_affected_production
 ALERT_AND_FAILURES = Blueprint(
     "alert-and-failure",
     __name__,
@@ -102,4 +102,16 @@ def graph_of_assigned_order_graph() -> Response:
             **graph.__dict__,
             "marker": graph.marker.__dict__
         }, graph_of_assigned_order.get_graph_of_assigned_order()))
+    ).__dict__)
+
+@ALERT_AND_FAILURES.route("/graph/failed-equipment-that-affected-production", methods=["GET", "OPTIONS"])
+@swag_from(DOC_FOLDER.joinpath("graph-failed-equipment-that-affected-production.yml"))
+def graph_failed_equipment_that_affected_production_graph() -> Response:
+    if request.method == "OPTIONS":
+        return jsonify(APIResponseModel("ok"))
+    return jsonify(APIResponseModel(
+        list(map(lambda graph: {
+            **graph.__dict__,
+            "marker": graph.marker.__dict__
+        }, graph_failed_equipment_that_affected_production.graph_failed_equipment_that_affected_production()))
     ).__dict__)
