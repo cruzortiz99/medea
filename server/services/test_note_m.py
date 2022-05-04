@@ -5,7 +5,7 @@ import rx
 from rx import operators as op
 
 from services.note_m import get_notes_m3
-from models.NoteM import NoteM
+from models.NoteM3 import NoteM3
 
 
 class TestAlertAndFailures(unittest.TestCase):
@@ -14,7 +14,7 @@ class TestAlertAndFailures(unittest.TestCase):
         notes_m3 = get_notes_m3()
 
         def filter_note_m3_by_excecutor(
-                excecutor: str, note_list: List[NoteM]) -> int:
+                excecutor: str, note_list: List[NoteM3]) -> int:
             return rx.from_iterable(note_list).pipe(
                 op.count(lambda note_m: note_m.excecutor == excecutor)
             ).run()

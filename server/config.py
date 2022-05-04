@@ -5,6 +5,8 @@ PORT: int = 5000
 VERSION: str = "0.1.0"
 MODE: Literal["DEV", "PROD"] = "DEV"
 
+PUBLIC_KEY = "medea"
+
 SWAGGER_CONFIG = {
     "headers": [
     ],

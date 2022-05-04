@@ -7,7 +7,7 @@ import AppPanelContainer from "../../../components/atoms/PanelContainer"
 import AppSimplePageTemplate from "../../../components/templates/AppSimplePageTemplate"
 import AppTable from "../../../components/atoms/AppTable"
 import { PAGE_URL } from "../../../constants"
-import { joinClasses, randomColor } from "../../../utils/css"
+import { joinClasses } from "../../../utils/css"
 import { useScreenDimension } from "../../../utils/screen/hooks"
 import styles from "./AlertAndFailurePage.module.css"
 import { PlotData } from "plotly.js"
@@ -29,6 +29,24 @@ export type AlertAndFailurePageViewProps = {
   equipment: ReactNode
   process: ReactNode
   dataTableNoteM2: APINoteM2[]
+  isLoadingDataTableNoteM2: boolean
+  isLoadingDataTableNoteM3: boolean
+  isLoadingDataTableTotalFall: boolean
+  isLoadingDataTableTotalFailures: boolean
+  isLoadingDataTableEquipmentDownTimeFall: boolean
+  isLoadingDataTableTeamsImpactProduction: boolean
+  isLoadingDataTableTpef: boolean
+  isLoadingDataTableEquipmentTimeOut: boolean
+  isLoadingDataTableEquipmentPF: boolean
+  isLoadingDataTableTemporaryRepairs: boolean
+  isLoadingDataGraphNoteAlert: boolean
+  isLoadingDataGraphEquipmentFailures: boolean
+  isLoadingDataGraphNoticeOrders: boolean
+  isLoadingDataGraphDownTimeHours: boolean
+  isLoadingDataGraphProductionLimitation: boolean
+  isLoadingDataGraphDownTimeImpactProduction: boolean
+  isLaodingDataGraphTpef: boolean
+  isLoadingDataGraphFaultOccurrence: boolean
   dataTableNoteM3: APINoteM3[]
   dataTableTotalFall: APITotalFall[]
   dataTableTotalFailures: APITotalFailures[]
@@ -56,11 +74,6 @@ function AlertAndFailurePageView(
   const refContainerBigGraph = useRef<HTMLDivElement | null>(null)
   const refContainerMedGraph = useRef<HTMLDivElement | null>(null)
   const screen = useScreenDimension()
-  const [colors] = useState<string[]>([
-    randomColor(),
-    randomColor(),
-    randomColor(),
-  ])
 
   const breadCrumbLinks = props.subtitles
     .filter(
@@ -101,13 +114,16 @@ function AlertAndFailurePageView(
             <div ref={refContainerBigGraph}>
               <AppPanel>
                 <AppPlot
-                  layout={{
-                    title: "Avisos Emitidos vs Concluidos",
-                    width:
-                      (refContainerBigGraph.current?.clientWidth ||
-                        screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                  plotParams={{
+                    layout: {
+                      title: "Avisos Emitidos vs Concluidos",
+                      width:
+                        (refContainerBigGraph.current?.clientWidth ||
+                          screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                    },
+                    data: props.dataGraphNoteAlert,
                   }}
-                  data={props.dataGraphNoteAlert}
+                  loading={props.isLoadingDataGraphNoteAlert}
                 />
               </AppPanel>
             </div>
@@ -115,13 +131,16 @@ function AlertAndFailurePageView(
           <Row>
             <AppPanel>
               <AppPlot
-                layout={{
-                  title: "Avisos sin ordenes Asignadas",
-                  width:
-                    (refContainerBigGraph.current?.clientWidth ||
-                      screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                plotParams={{
+                  layout: {
+                    title: "Avisos sin ordenes Asignadas",
+                    width:
+                      (refContainerBigGraph.current?.clientWidth ||
+                        screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                  },
+                  data: props.dataGraphNoticeOrders,
                 }}
-                data={props.dataGraphNoticeOrders}
+                loading={props.isLoadingDataGraphNoticeOrders}
               />
             </AppPanel>
           </Row>
@@ -138,10 +157,11 @@ function AlertAndFailurePageView(
               <AppTable
                 height={260}
                 dataTable={props.dataTableNoteM2}
+                loading={props.isLoadingDataTableNoteM2}
                 columns={[
                   {
                     headerCell: "Ejecutor",
-                    dataKey: "executor",
+                    dataKey: "excecutor",
                     flexGrowColumn: 1,
                     alingColumn: "left",
                     minWidthColumn: 100,
@@ -162,7 +182,7 @@ function AlertAndFailurePageView(
                   },
                   {
                     headerCell: "Sin FF",
-                    dataKey: "withOutFF",
+                    dataKey: "with_out_ff",
                     flexGrowColumn: 1,
                     alingColumn: "center",
                     minWidthColumn: 50,
@@ -180,10 +200,11 @@ function AlertAndFailurePageView(
               <AppTable
                 height={260}
                 dataTable={props.dataTableNoteM3}
+                loading={props.isLoadingDataTableNoteM3}
                 columns={[
                   {
                     headerCell: "Ejecutor",
-                    dataKey: "executor",
+                    dataKey: "excecutor",
                     flexGrowColumn: 1,
                     alingColumn: "left",
                     minWidthColumn: 100,
@@ -204,7 +225,7 @@ function AlertAndFailurePageView(
                   },
                   {
                     headerCell: "Sin FF",
-                    dataKey: "withOutFF",
+                    dataKey: "with_out_ff",
                     flexGrowColumn: 1,
                     alingColumn: "center",
                     minWidthColumn: 50,
@@ -225,13 +246,16 @@ function AlertAndFailurePageView(
               <div ref={refContainerMedGraph}>
                 <AppPanel>
                   <AppPlot
-                    layout={{
-                      title: "Cantidad de fallas de equipos",
-                      width:
-                        (refContainerMedGraph.current?.clientWidth ||
-                          screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                    plotParams={{
+                      layout: {
+                        title: "Cantidad de fallas de equipos",
+                        width:
+                          (refContainerMedGraph.current?.clientWidth ||
+                            screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                      },
+                      data: props.dataGraphEquipmentFailures,
                     }}
-                    data={props.dataGraphEquipmentFailures}
+                    loading={props.isLoadingDataGraphEquipmentFailures}
                   />
                 </AppPanel>
               </div>
@@ -239,13 +263,16 @@ function AlertAndFailurePageView(
             <Row>
               <AppPanel>
                 <AppPlot
-                  layout={{
-                    title: "Down Time(horas)",
-                    width:
-                      (refContainerMedGraph.current?.clientWidth ||
-                        screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                  plotParams={{
+                    layout: {
+                      title: "Down Time(horas)",
+                      width:
+                        (refContainerMedGraph.current?.clientWidth ||
+                          screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                    },
+                    data: props.dataGraphDownTimeHours,
                   }}
-                  data={props.dataGraphDownTimeHours}
+                  loading={props.isLoadingDataGraphDownTimeHours}
                 />
               </AppPanel>
             </Row>
@@ -254,27 +281,33 @@ function AlertAndFailurePageView(
             <Row>
               <AppPanel>
                 <AppPlot
-                  layout={{
-                    title:
-                      "Cantidad de fallas de equipos con <br>paro o limitación de producción",
-                    width:
-                      (refContainerMedGraph.current?.clientWidth ||
-                        screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                  plotParams={{
+                    layout: {
+                      title:
+                        "Cantidad de fallas de equipos con <br>paro o limitación de producción",
+                      width:
+                        (refContainerMedGraph.current?.clientWidth ||
+                          screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                    },
+                    data: props.dataGraphProductionLimitation,
                   }}
-                  data={props.dataGraphProductionLimitation}
+                  loading={props.isLoadingDataGraphProductionLimitation}
                 />
               </AppPanel>
             </Row>
             <Row>
               <AppPanel>
                 <AppPlot
-                  layout={{
-                    title: "Down time con <br> impacto a la producción",
-                    width:
-                      (refContainerMedGraph.current?.clientWidth ||
-                        screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                  plotParams={{
+                    layout: {
+                      title: "Down time con <br> impacto a la producción",
+                      width:
+                        (refContainerMedGraph.current?.clientWidth ||
+                          screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                    },
+                    data: props.dataGraphDownTimeImpactProduction,
                   }}
-                  data={props.dataGraphDownTimeImpactProduction}
+                  loading={props.isLoadingDataGraphDownTimeImpactProduction}
                 />
               </AppPanel>
             </Row>
@@ -287,6 +320,7 @@ function AlertAndFailurePageView(
                 <strong>Total fallas</strong>
                 <AppTable
                   dataTable={props.dataTableTotalFall}
+                  loading={props.isLoadingDataTableTotalFall}
                   height={320}
                   columns={[
                     {
@@ -318,7 +352,7 @@ function AlertAndFailurePageView(
                     },
                     {
                       headerCell: "Down time Hrs",
-                      dataKey: "downTime",
+                      dataKey: "down_time",
                       flexGrowColumn: 1,
                       alingColumn: "center",
                       minWidthColumn: 120,
@@ -339,6 +373,7 @@ function AlertAndFailurePageView(
                 </strong>
                 <AppTable
                   dataTable={props.dataTableTotalFailures}
+                  loading={props.isLoadingDataTableTotalFailures}
                   height={320}
                   columns={[
                     {
@@ -384,7 +419,7 @@ function AlertAndFailurePageView(
                     },
                     {
                       headerCell: "DT Hrs",
-                      dataKey: "dtHours",
+                      dataKey: "dt_hours",
                       flexGrowColumn: 1,
                       alingColumn: "center",
                       minWidthColumn: 120,
@@ -402,6 +437,7 @@ function AlertAndFailurePageView(
                 <strong>Equipos con mayor down time por fallas</strong>
                 <AppTable
                   dataTable={props.dataTableEquipmentDownTimeFall}
+                  loading={props.isLoadingDataTableEquipmentDownTimeFall}
                   height={320}
                   columns={[
                     {
@@ -433,7 +469,7 @@ function AlertAndFailurePageView(
                     },
                     {
                       headerCell: "Down time Hrs",
-                      dataKey: "downTime",
+                      dataKey: "down_time",
                       flexGrowColumn: 1,
                       alingColumn: "center",
                       minWidthColumn: 120,
@@ -454,6 +490,7 @@ function AlertAndFailurePageView(
                 </strong>
                 <AppTable
                   dataTable={props.dataTableTeamsImpactProduction}
+                  loading={props.isLoadingDataTableTeamsImpactProduction}
                   height={320}
                   columns={[
                     {
@@ -499,7 +536,7 @@ function AlertAndFailurePageView(
                     },
                     {
                       headerCell: "DT Hrs",
-                      dataKey: "dtHours",
+                      dataKey: "dt_hours",
                       flexGrowColumn: 1,
                       alingColumn: "center",
                       minWidthColumn: 120,
@@ -517,6 +554,7 @@ function AlertAndFailurePageView(
                 <strong>TPEF</strong>
                 <AppTable
                   dataTable={props.dataTableTpef}
+                  loading={props.isLoadingDataTableTpef}
                   height={360}
                   heightHeaderCell={80}
                   columns={[
@@ -595,13 +633,16 @@ function AlertAndFailurePageView(
               </Col>
               <Col xs={24} lg={12}>
                 <AppPlot
-                  layout={{
-                    title: "TPEF",
-                    width:
-                      (refContainerMedGraph.current?.clientWidth ||
-                        screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                  plotParams={{
+                    layout: {
+                      title: "TPEF",
+                      width:
+                        (refContainerMedGraph.current?.clientWidth ||
+                          screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                    },
+                    data: props.dataGraphTpef,
                   }}
-                  data={props.dataGraphTpef}
+                  loading={props.isLaodingDataGraphTpef}
                 />
               </Col>
             </Grid>
@@ -617,6 +658,7 @@ function AlertAndFailurePageView(
             <strong>Equipos con mas tiempo fuera de servicio</strong>
             <AppTable
               dataTable={props.dataTableEquipmentTimeOut}
+              loading={props.isLoadingDataTableEquipmentTimeOut}
               height={360}
               heightHeaderCell={80}
               columns={[
@@ -649,7 +691,7 @@ function AlertAndFailurePageView(
                 },
                 {
                   headerCell: "Dias DS",
-                  dataKey: "daysDS",
+                  dataKey: "days_ds",
                   flexGrowColumn: 1,
                   minWidthColumn: 100,
                   alingColumn: "center",
@@ -718,28 +760,28 @@ function AlertAndFailurePageView(
                   columns: [
                     {
                       headerCell: "Fecha Inic",
-                      dataKey: "startDate",
+                      dataKey: "start_date",
                       flexGrowColumn: 1,
                       minWidthColumn: 120,
                       alingColumn: "center",
                     },
                     {
                       headerCell: "H. Inic",
-                      dataKey: "startTime",
+                      dataKey: "start_time",
                       flexGrowColumn: 1,
                       minWidthColumn: 100,
                       alingColumn: "center",
                     },
                     {
                       headerCell: "Fecha Fin",
-                      dataKey: "endDate",
+                      dataKey: "end_date",
                       flexGrowColumn: 1,
                       minWidthColumn: 120,
                       alingColumn: "center",
                     },
                     {
                       headerCell: "Hora Fin",
-                      dataKey: "endTime",
+                      dataKey: "end_time",
                       flexGrowColumn: 1,
                       minWidthColumn: 100,
                       alingColumn: "center",
@@ -750,7 +792,7 @@ function AlertAndFailurePageView(
               extraColumns={[
                 {
                   headerCell: "Inicio falla",
-                  dataKey: "startFails",
+                  dataKey: "start_fails",
                   alingColumn: "center",
                   minWidthColumn: 120,
                 },
@@ -768,19 +810,23 @@ function AlertAndFailurePageView(
             <Grid fluid={true}>
               <Col xs={24} lg={12}>
                 <AppPlot
-                  layout={{
-                    title: "Ocurrencia de falla",
-                    width:
-                      (refContainerMedGraph.current?.clientWidth ||
-                        screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                  plotParams={{
+                    layout: {
+                      title: "Ocurrencia de falla",
+                      width:
+                        (refContainerMedGraph.current?.clientWidth ||
+                          screen.width * 0.5) * (screen.xs ? 0.6 : 0.8),
+                    },
+                    data: props.dataGraphFaultOccurrence,
                   }}
-                  data={props.dataGraphFaultOccurrence}
+                  loading={props.isLoadingDataGraphFaultOccurrence}
                 />
               </Col>
               <Col xs={24} lg={12}>
                 <strong>Equipos en el segmento PF</strong>
                 <AppTable
                   dataTable={props.dataTableEquipmentPF}
+                  loading={props.isLoadingDataTableEquipmentPF}
                   height={320}
                   columns={[
                     {
@@ -812,7 +858,7 @@ function AlertAndFailurePageView(
                     },
                     {
                       headerCell: "Fecha Inicio",
-                      dataKey: "startDate",
+                      dataKey: "start_date",
                       flexGrowColumn: 1,
                       minWidthColumn: 120,
                       alingColumn: "center",
@@ -833,7 +879,7 @@ function AlertAndFailurePageView(
                     },
                     {
                       headerCell: "Status ODM",
-                      dataKey: "statusODM",
+                      dataKey: "status_odm",
                       flexGrowColumn: 1,
                       minWidthColumn: 100,
                       alingColumn: "center",
@@ -854,6 +900,7 @@ function AlertAndFailurePageView(
             <strong>Reparaciones temporales (RTEM)</strong>
             <AppTable
               dataTable={props.dataTableTemporaryRepairs}
+              loading={props.isLoadingDataTableTemporaryRepairs}
               height={320}
               columns={[
                 {
@@ -878,7 +925,7 @@ function AlertAndFailurePageView(
                 },
                 {
                   headerCell: "TAG Aviso",
-                  dataKey: "tagNotice",
+                  dataKey: "tag_notice",
                   flexGrowColumn: 1,
                   minWidthColumn: 120,
                   alingColumn: "left",
@@ -892,14 +939,14 @@ function AlertAndFailurePageView(
                 },
                 {
                   headerCell: "Texto orden",
-                  dataKey: "textOrder",
+                  dataKey: "text_order",
                   flexGrowColumn: 2,
                   minWidthColumn: 300,
                   alingColumn: "left",
                 },
                 {
                   headerCell: "F. Inicio",
-                  dataKey: "startDate",
+                  dataKey: "start_date",
                   flexGrowColumn: 1,
                   minWidthColumn: 120,
                   alingColumn: "center",
@@ -913,7 +960,7 @@ function AlertAndFailurePageView(
                 },
                 {
                   headerCell: "TAG ODM",
-                  dataKey: "tagODM",
+                  dataKey: "tag_odm",
                   flexGrowColumn: 1,
                   minWidthColumn: 120,
                   alingColumn: "center",
