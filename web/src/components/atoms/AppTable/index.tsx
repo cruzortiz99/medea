@@ -21,6 +21,7 @@ export type AppTableProps = {
   dataTable: RowDataType[]
   height?: number
   heightHeaderCell?: number
+  loading?: boolean
   columns: AppTableColumn[]
   columnGroups?: AppTableColumnGroup[]
   extraColumns?: AppTableColumn[]
@@ -35,6 +36,7 @@ function AppTable(props: AppTableProps): JSX.Element {
         showHeader
         wordWrap
         autoHeight
+        loading={props.loading}
         data={props.dataTable}
         height={props.height}
         headerHeight={props.heightHeaderCell}

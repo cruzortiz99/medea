@@ -1,12 +1,16 @@
 import React, { ReactNode } from "react"
 
-function AppHeaderMenuButton(props: React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>){
-  return(
+function AppHeaderMenuButton(
+  props: React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  >
+) {
+  return (
     <button
-     {...props}
+      {...props}
       style={{ backgroundColor: "#fff0", padding: 0, ...props }}
-    >
-    </button>
+    ></button>
   )
 }
 

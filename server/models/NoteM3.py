@@ -1,4 +1,4 @@
-class NoteM():
+class NoteM3():
     @staticmethod
     def swagger_schema() -> dict:
         return {

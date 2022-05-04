@@ -1,0 +1,17 @@
+List of temporally repairs
+---
+tags:
+  - Table
+  - Alerts And Failures
+responses:
+  200:
+    description: Ok
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/definitions/TemporallyRepair'

@@ -1,18 +1,18 @@
 from functools import reduce
 from typing import List
-from models import NoteM
+from models import NoteM3
 from models import NoteM2
 
 
-def get_notes_m3() -> List[NoteM]:
+def get_notes_m3() -> List[NoteM3]:
     notes = [
-        NoteM("Operador", 1, 2.0, 1),
-        NoteM("Mantenedor", 2, 4.0, 2),
-        NoteM("Sin inform", 0, 0.0, 0),
+        NoteM3("Operador", 1, 2.0, 1),
+        NoteM3("Mantenedor", 2, 4.0, 2),
+        NoteM3("Sin inform", 0, 0.0, 0),
     ]
 
-    def calculate_total(acc: NoteM, current: NoteM) -> NoteM:
-        return NoteM(
+    def calculate_total(acc: NoteM3, current: NoteM3) -> NoteM3:
+        return NoteM3(
             acc.excecutor,
             acc.amount +
             current.amount,
@@ -20,9 +20,9 @@ def get_notes_m3() -> List[NoteM]:
             current.hours,
             acc.with_out_ff +
             current.with_out_ff)
-    total = reduce(calculate_total, notes, NoteM("Total", 0, 0.0, 0))
+    total = reduce(calculate_total, notes, NoteM3("Total", 0, 0.0, 0))
     return notes + [total]
-    
+
 
 def get_notes_m2() -> List[NoteM2]:
     notes = [

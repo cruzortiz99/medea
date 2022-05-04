@@ -24,6 +24,7 @@ platformdirs==2.4.0
 pycodestyle==2.8.0
 pyinstaller==4.6
 pyinstaller-hooks-contrib==2021.3
+PyJWT==2.3.0
 pylint==2.11.1
 pyrsistent==0.18.1
 python-dateutil==2.8.2

@@ -10,6 +10,9 @@ import { joinClasses } from "../../../utils/css"
 import { getVersion } from "../../../utils/env"
 import { useObservable } from "../../../utils/rx/hooks"
 import { useScreenDimension } from "../../../utils/screen/hooks"
+import { faClipboard, faRectangleList, faFileLines, faCreditCard } from "@fortawesome/free-regular-svg-icons"
+import { faInfo, faRotate, faBell, faGear, faFile } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Loader from "../../atoms/Loader"
 import styles from "./AppMainTemplate.module.css"
 
@@ -27,31 +30,40 @@ function AppMainTemplate(props: AppMainTemplateProps) {
     {
       label: "Avisos y Fallas",
       href: PAGE_URL.ALERTS_FAILURES,
-      icon: <Dashboard />,
+      icon: <FontAwesomeIcon icon={faBell} style={{ paddingRight: "1.2em" }}/>,
     },
-    { label: "Ordenes", href: PAGE_URL.ORDERS, icon: <Dashboard /> },
-    { label: "Costos", href: PAGE_URL.BUDGET, icon: <Dashboard /> },
+    { label: "Ordenes", 
+      href: PAGE_URL.ORDERS, 
+      icon: <FontAwesomeIcon icon={faFileLines} style={{ paddingRight: "1.2em" }}/> 
+    },
+    { label: "Costos", 
+      href: PAGE_URL.BUDGET, 
+      icon: <FontAwesomeIcon icon={faCreditCard} style={{ paddingRight: "1.0em" }}/> 
+    },
     {
       label: "Historial de Equipos",
       href: PAGE_URL.EQUIPMENT_HISTORY,
-      icon: <Dashboard />,
+      icon: <FontAwesomeIcon icon={faRectangleList} style={{ paddingRight: "1.0em" }}/>,
     },
     {
       label: "Mantenimiento Preventivo",
       href: PAGE_URL.PREVENTIVE_MAINTENANCE,
-      icon: <Dashboard />,
+      icon: <FontAwesomeIcon icon={faGear} style={{ paddingRight: "1.2em" }}/>,
     },
     {
       label: "Actualizar datos",
       href: PAGE_URL.UPDATE_DATA,
-      icon: <Dashboard />,
+      icon: <FontAwesomeIcon icon={faRotate} style={{ paddingRight: "1.2em" }}/>,
     },
     {
       label: "Documentación",
       href: PAGE_URL.DOCUMENTATION,
-      icon: <Dashboard />,
+      icon: <FontAwesomeIcon icon={faFile} style={{ paddingRight: "1.4em" }}/>,
     },
-    { label: "Acerca de", href: PAGE_URL.ABOUT, icon: <Dashboard /> },
+    { label: "Acerca de",
+      href: PAGE_URL.ABOUT, 
+      icon: <FontAwesomeIcon icon={faInfo} style={{ paddingRight: "1.7em" }}/> 
+    },
   ]
   const [rightMenuOptions] = useObservable<
     RightMenuOption[],
@@ -111,7 +123,7 @@ function AppMainTemplate(props: AppMainTemplateProps) {
                       to={menuOption.href}
                       href={menuOption.href}
                       icon={menuOption.icon}
-                      style={{ height: "40px", paddingTop: "12px" }}
+                      style={{ height: "40px", paddingTop: "12px", paddingLeft: "1.5em" }}
                     >
                       {leftSideBarOpen && menuOption.label}
                     </Nav.Item>
