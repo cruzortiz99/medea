@@ -1,105 +1,169 @@
 import React from "react"
-import { Sidenav, Nav, Container, Header, Sidebar, Content, FlexboxGrid, Divider, Uploader } from "rsuite"
+import { Container, FlexboxGrid, Divider, Uploader, Panel, Button } from "rsuite"
 import { Dashboard } from "@rsuite/icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faInfo } from "@fortawesome/free-solid-svg-icons"
-import AppPanelContainer from "../../../components/atoms/PanelContainer"
-import AppPanel from "../../../components/atoms/Panel"
+import { faUpload } from "@fortawesome/free-solid-svg-icons"
+import styles from "./UploadFilesPage.module.css"
 
 
 function UploadFilesPage(): JSX.Element {
   return (
     <>
-      <Container>
-        <Sidebar
-          style={{
-            flex: "0 0 76px"
-          }}
-        >
-          <Sidenav>
-            <Sidenav.Header>
-              <Nav
-                style={{
-                  minHeight: "60px",
-                  height: "60px",
-                  marginBottom: "0px"
-                }}
-              >
-                <Nav.Item
-                  style={{
-                    paddingTop: "0.25rem",
-                    height: "100%"
-                  }}
-                  icon={
-                    <Dashboard
-                      style={{
-                        fontSize: "25px",
-                        height: "25px",
-                      }}
-                    />
-                  }
-                />
-              </Nav>
-            </Sidenav.Header>
-            <Sidenav>
-              <Sidenav.Body>
-                <Nav>
-                  <Nav.Item
-                    style={{
-                      height: "40px",
-                      paddingTop: "12px",
-                      paddingLeft: "1.5em"
-                    }}
-                  >
-                    <FontAwesomeIcon
-                      icon={faInfo}
-                      style={{
-                        paddingRight: "1.7em"
-                      }}
-                    />
-                  </Nav.Item>
-                </Nav>
-              </Sidenav.Body>
-            </Sidenav>
-          </Sidenav>
-        </Sidebar>
-        <Container
-          style={{
-            width: "100%",
-            height: "100%",
-            position: "relative",
-            padding: "10px"
-          }}
-        >
-          <Header>
-            <FlexboxGrid>
-              <FlexboxGrid.Item>
-                <h3>MEDEA</h3>
-              </FlexboxGrid.Item>
-            </FlexboxGrid>
-          </Header>
-          <Content>
-            <h4>Cargar Archivo</h4>
-            <Divider />
-            <AppPanelContainer>
-              <div>
-                <AppPanel>
+      <Container className={styles.flexContainer}>
+        <Container className={styles.flexTitle}>
+          <FlexboxGrid className={styles.flexPadding}>
+            <Dashboard
+              style={{
+                fontSize: "40px",
+                height: "40px",
+              }}
+            />
+          </FlexboxGrid>
+          <FlexboxGrid>
+            <h1>MEDEA</h1>
+          </FlexboxGrid>
+        </Container>
+        <Container>
+          <Panel
+            bordered
+            className={styles.panelContainer}
+          >
+            <Container
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center"
+              }}
+            >
+              <div style={{ paddingRight: "20px" }} >
+                <FlexboxGrid
+                  justify="center"
+                >
                   <Uploader
-                    action={""} 
-                    draggable
+                    action=""
+                    autoUpload={false}
                   >
                     <div
                       style={{
-                        lineHeight: "200px"
+                        lineHeight: "50px",
+                        padding: "8px 100px",
+                        border: "1px dashed black"
                       }}
                     >
                       Click or Drag files to this area to upload
                     </div>
                   </Uploader>
-                </AppPanel>
+                </FlexboxGrid>
+                <Divider className={styles.divider}/>
+                <FlexboxGrid
+                  justify="center"
+                >
+                  <Uploader
+                    action=""
+                    autoUpload={false}
+                  >
+                    <div 
+                      style={{
+                      lineHeight: "50px",
+                      padding: "8px 100px",
+                      border: "1px dashed black"
+                      }}
+                    >
+                      Click or Drag files to this area to upload
+                    </div>
+                  </Uploader>
+                </FlexboxGrid>
+                <Divider className={styles.divider}/>
+                <FlexboxGrid
+                  justify="center"
+                >
+                  <Uploader
+                    action=""
+                    autoUpload={false}
+                  >
+                    <div
+                      style={{
+                        lineHeight: "50px",
+                        padding: "8px 100px",
+                        border: "1px dashed black"
+                      }}
+                    >
+                      Click or Drag files to this area to upload
+                    </div>
+                  </Uploader>
+                </FlexboxGrid>
               </div>
-            </AppPanelContainer>
-          </Content>
+              <div>
+                <FlexboxGrid
+                  justify="center"
+                >
+                  <Uploader
+                    action=""
+                    autoUpload={false}
+                  >
+                    <div
+                      style={{
+                        lineHeight: "50px",
+                        padding: "8px 100px",
+                        border: "1px dashed black"
+                      }}
+                    >
+                      Click or Drag files to this area to upload
+                    </div>
+                  </Uploader>
+                </FlexboxGrid>
+                <Divider className={styles.divider}/>
+                <FlexboxGrid
+                  justify="center"
+                >
+                  <Uploader
+                    action=""
+                    autoUpload={false}
+                  >
+                    <div 
+                      style={{
+                        lineHeight: "50px",
+                        padding: "8px 100px",
+                        border: "1px dashed black"
+                      }}
+                    >
+                      Click or Drag files to this area to upload
+                    </div>
+                  </Uploader>
+                </FlexboxGrid>
+                <Divider className={styles.divider}/>
+                <FlexboxGrid
+                  justify="center"
+                >
+                  <Uploader
+                    action=""
+                    autoUpload={false}
+                  >
+                    <div
+                      style={{
+                        lineHeight: "50px",
+                        padding: "8px 100px",
+                        border: "1px dashed black"
+                      }}
+                    >
+                      Click or Drag files to this area to upload
+                    </div>
+                  </Uploader>
+                </FlexboxGrid>
+              </div>
+            </Container>
+            <Divider className={styles.divider}/>
+            <FlexboxGrid
+              justify="end"
+            >
+              <Button
+                appearance="primary"
+              >
+                Subir
+                <FontAwesomeIcon icon={faUpload} style={{ paddingLeft: "3px" }}/>
+              </Button>
+            </FlexboxGrid>
+          </Panel>
         </Container>
       </Container>
     </>
