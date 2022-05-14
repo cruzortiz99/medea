@@ -6,7 +6,7 @@ from rx import operators as op
 from config import HOST, MODE, PORT, SWAGGER_CONFIG
 from constants import ASSETS_FOLDER
 from docs import SWAGGER_TEMPLATE
-from modules.api import ALERT_AND_FAILURES, API_ROOT, UPLOAD
+from modules.api import ALERT_AND_FAILURES, API_ROOT
 from modules.web_app import WEB_APP
 from utils.browser import open_web_browser
 
@@ -16,7 +16,6 @@ APP = Flask(
 swagger = Swagger(APP, config=SWAGGER_CONFIG, template=SWAGGER_TEMPLATE)
 
 APP.register_blueprint(ALERT_AND_FAILURES)
-APP.register_blueprint(UPLOAD)
 APP.register_blueprint(API_ROOT)
 APP.register_blueprint(WEB_APP)
 
