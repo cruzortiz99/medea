@@ -2,12 +2,28 @@ Create UploadCsv
 ---
 tags:
   - Upload
-parame:
+requestBody:
   content:
     multipart/form-data:
       schema:
+        type: object
         properties:
-          # The property name 'file' will be used for all files.
-          csv:
+          file1:
             type: string
             format: binary
+responses:
+  200:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            data:
+              type: array
+              items:
+                type: object
+                properties:
+                  file:
+                    type: string
+                  size:
+                    type: number
