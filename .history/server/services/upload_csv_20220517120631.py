@@ -26,7 +26,6 @@ def saveFile (file: FileStorage) -> Dict:
         }
 
     file.save(os.path.join(route, filename))
-
     return {
         "file": filename,
         "size": len(file.stream.read())

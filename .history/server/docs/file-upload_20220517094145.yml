@@ -23,7 +23,7 @@ responses:
               items:
                 type: object
                 properties:
-                  file:
+                  csv:
                     type: string
                   size:
                     type: number

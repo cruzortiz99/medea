@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from pickle import NONE
 from typing import Dict, Iterable, List
 from werkzeug.datastructures import FileStorage
 from werkzeug.utils import secure_filename
@@ -18,15 +19,10 @@ def upload_csv(csv: Iterable) -> List:
 def saveFile (file: FileStorage) -> Dict:
     route = str(Path(ASSETS_FOLDER)) + '/app/static/files'
     filename = secure_filename(str(file.filename))
+    file.save(os.path.join(route, filename))
     file_ext = os.path.splitext(filename)[1]
     if file_ext not in ['.csv']:
-        return {
-            "error": filename + ' ' + 'incorrect format',
-            "code": 400
-        }
-
-    file.save(os.path.join(route, filename))
-
+        return NONE
     return {
         "file": filename,
         "size": len(file.stream.read())

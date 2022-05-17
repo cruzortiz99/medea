@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import Dict, Iterable, List
 from werkzeug.datastructures import FileStorage
 from werkzeug.utils import secure_filename
+from models.UploadCsv import UploadCsv
 from rx import operators as rx_op
 from rx import from_iterable
 from constants import ASSETS_FOLDER
@@ -15,18 +16,10 @@ def upload_csv(csv: Iterable) -> List:
     ).run()
     return response
 
-def saveFile (file: FileStorage) -> Dict:
+def saveFile (file: FileStorage) -> List:
     route = str(Path(ASSETS_FOLDER)) + '/app/static/files'
     filename = secure_filename(str(file.filename))
-    file_ext = os.path.splitext(filename)[1]
-    if file_ext not in ['.csv']:
-        return {
-            "error": filename + ' ' + 'incorrect format',
-            "code": 400
-        }
-
     file.save(os.path.join(route, filename))
-
     return {
         "file": filename,
         "size": len(file.stream.read())

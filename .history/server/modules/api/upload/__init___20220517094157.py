@@ -1,6 +1,9 @@
+from typing import Dict, List
+from rx import from_iterable
+from rx import operators as rx_op
 from constants import DOC_FOLDER
 from flasgger import swag_from
-from flask import Blueprint, Response, jsonify, request, abort
+from flask import Blueprint, Response, jsonify, request
 from models import APIResponseModel
 from services import upload_csv as upload_csv_service
 
@@ -17,5 +20,4 @@ def upload_csv() -> Response:
         return jsonify(APIResponseModel("Ok").__dict__)
     
     response = upload_csv_service.upload_csv(request.files.getlist('csv'))
-
     return jsonify(APIResponseModel(response).__dict__)

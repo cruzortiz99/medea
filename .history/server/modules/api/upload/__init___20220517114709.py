@@ -17,5 +17,8 @@ def upload_csv() -> Response:
         return jsonify(APIResponseModel("Ok").__dict__)
     
     response = upload_csv_service.upload_csv(request.files.getlist('csv'))
-
+    
+    if response is None:
+        abort(400)
+    
     return jsonify(APIResponseModel(response).__dict__)

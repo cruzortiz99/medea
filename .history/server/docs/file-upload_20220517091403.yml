@@ -8,7 +8,7 @@ requestBody:
       schema:
         type: object
         properties:
-          csv:
+          file1:
             type: string
             format: binary
 responses:
