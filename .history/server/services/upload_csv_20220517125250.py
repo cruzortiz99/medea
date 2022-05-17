@@ -10,7 +10,6 @@ from constants import ASSETS_FOLDER
 rule = '.csv'
 
 def upload_csv(csv: Iterable) -> List:
-    global rule
     rule = '.csv'
     response: List[Dict] = from_iterable(csv).pipe(
         rx_op.map(saveFile),
@@ -20,7 +19,6 @@ def upload_csv(csv: Iterable) -> List:
 
 
 def upload_xlsx(xlsx: Iterable) -> List:
-    global rule
     rule = '.xlsx'
     response: List[Dict] = from_iterable(xlsx).pipe(
         rx_op.map(saveFile),

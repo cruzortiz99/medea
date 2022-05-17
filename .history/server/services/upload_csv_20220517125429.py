@@ -7,7 +7,7 @@ from rx import operators as rx_op
 from rx import from_iterable
 from constants import ASSETS_FOLDER
 
-rule = '.csv'
+rule = '.img'
 
 def upload_csv(csv: Iterable) -> List:
     global rule

@@ -7,11 +7,8 @@ from rx import operators as rx_op
 from rx import from_iterable
 from constants import ASSETS_FOLDER
 
-rule = '.csv'
 
 def upload_csv(csv: Iterable) -> List:
-    global rule
-    rule = '.csv'
     response: List[Dict] = from_iterable(csv).pipe(
         rx_op.map(saveFile),
         rx_op.reduce(lambda acc, current: [*acc, current], [])
@@ -20,8 +17,6 @@ def upload_csv(csv: Iterable) -> List:
 
 
 def upload_xlsx(xlsx: Iterable) -> List:
-    global rule
-    rule = '.xlsx'
     response: List[Dict] = from_iterable(xlsx).pipe(
         rx_op.map(saveFile),
         rx_op.reduce(lambda acc, current: [*acc, current], [])
@@ -29,15 +24,15 @@ def upload_xlsx(xlsx: Iterable) -> List:
     return response
 
 def saveFile (file: FileStorage) -> Dict:
+    route = str(Path(ASSETS_FOLDER)) + '/app/static/files'
     filename = secure_filename(str(file.filename))
     file_ext = os.path.splitext(filename)[1]
-    if file_ext not in [rule]:
+    if file_ext not in ['.csv']:
         return {
             "error": filename + ' ' + 'incorrect format',
             "code": 400
         }
 
-    route = str(Path(ASSETS_FOLDER)) + '/app/static/files/' + str(file_ext)
     file.save(os.path.join(route, filename))
 
     return {

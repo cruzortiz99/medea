@@ -20,7 +20,6 @@ def upload_csv(csv: Iterable) -> List:
 
 
 def upload_xlsx(xlsx: Iterable) -> List:
-    global rule
     rule = '.xlsx'
     response: List[Dict] = from_iterable(xlsx).pipe(
         rx_op.map(saveFile),

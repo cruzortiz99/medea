@@ -22,10 +22,10 @@ def upload_csv() -> Response:
 
 @UPLOAD.route("/xlsx", methods=["POST", "OPTIONS"])
 @swag_from(DOC_FOLDER.joinpath("file-upload.yml"))
-def upload_xlsx() -> Response:
+def upload_csv() -> Response:
     if request.method == "OPTIONS":
         return jsonify(APIResponseModel("Ok").__dict__)
     
-    response = upload_csv_service.upload_xlsx(request.files.getlist('file'))
+    response = upload_csv_service.upload_csv(request.files.getlist('file'))
 
     return jsonify(APIResponseModel(response).__dict__)
