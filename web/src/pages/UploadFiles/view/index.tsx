@@ -1,4 +1,4 @@
-import React from "react"
+import React, { ReactNode, useRef, useState } from "react"
 import { Container, FlexboxGrid, Divider, Uploader, Panel, Button } from "rsuite"
 import { Dashboard } from "@rsuite/icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -6,7 +6,23 @@ import { faUpload } from "@fortawesome/free-solid-svg-icons"
 import styles from "./UploadFilesPage.module.css"
 
 
-function UploadFilesPage(): JSX.Element {
+export type UploadFilesPageViewProps = {
+  dataFile1: string
+  dataFile2: string
+  dataFile3: string
+  dataFile4: string
+  dataFile5: string
+  dataFile6: string
+}
+
+function UploadFilesPage(
+  props: UploadFilesPageViewProps
+): JSX.Element {
+  const [uploader1, setUploader1] = useState([])
+  const uploaderRef1 = useRef()
+  const startUpload = () => {
+    //uploaderRef1.current.start()
+  }
   return (
     <>
       <Container className={styles.flexContainer}>
@@ -40,8 +56,11 @@ function UploadFilesPage(): JSX.Element {
                   justify="center"
                 >
                   <Uploader
-                    action=""
+                    //value={uploader1}
+                    action={props.dataFile1}
                     autoUpload={false}
+                   //onChange={setUploader1}
+                    ref={uploaderRef1}
                   >
                     <div
                       style={{
@@ -59,7 +78,7 @@ function UploadFilesPage(): JSX.Element {
                   justify="center"
                 >
                   <Uploader
-                    action=""
+                    action={props.dataFile2}
                     autoUpload={false}
                   >
                     <div 
@@ -78,7 +97,7 @@ function UploadFilesPage(): JSX.Element {
                   justify="center"
                 >
                   <Uploader
-                    action=""
+                    action={props.dataFile3}
                     autoUpload={false}
                   >
                     <div
@@ -98,7 +117,7 @@ function UploadFilesPage(): JSX.Element {
                   justify="center"
                 >
                   <Uploader
-                    action=""
+                    action={props.dataFile4}
                     autoUpload={false}
                   >
                     <div
@@ -117,7 +136,7 @@ function UploadFilesPage(): JSX.Element {
                   justify="center"
                 >
                   <Uploader
-                    action=""
+                    action={props.dataFile5}
                     autoUpload={false}
                   >
                     <div 
@@ -136,7 +155,7 @@ function UploadFilesPage(): JSX.Element {
                   justify="center"
                 >
                   <Uploader
-                    action=""
+                    action={props.dataFile6}
                     autoUpload={false}
                   >
                     <div
@@ -158,6 +177,7 @@ function UploadFilesPage(): JSX.Element {
             >
               <Button
                 appearance="primary"
+                onClick={startUpload}
               >
                 Subir
                 <FontAwesomeIcon icon={faUpload} style={{ paddingLeft: "3px" }}/>
