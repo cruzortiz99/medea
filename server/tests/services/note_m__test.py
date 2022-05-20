@@ -1,11 +1,11 @@
-from typing import Callable, List
 import unittest
+from typing import List
 
 import rx
+from models.NoteM3 import NoteM3
 from rx import operators as op
 
 from services.note_m import get_notes_m3
-from models.NoteM3 import NoteM3
 
 
 class TestAlertAndFailures(unittest.TestCase):
