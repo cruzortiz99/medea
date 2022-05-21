@@ -1,0 +1,11 @@
+Create UploadCsv
+---
+tags:
+  - Upload
+parameters:
+  - name: csv
+    in: formData
+    required: true
+    schema:
+        $ref: '#/definitions/License'
+    description: The csv file

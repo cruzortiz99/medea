@@ -1,0 +1,11 @@
+Create UploadCsv
+---
+tags:
+  - Upload
+parameters:
+  - in: formData
+    schema:
+      name: csv
+      type: file
+      required: true
+      description: The file to upload.

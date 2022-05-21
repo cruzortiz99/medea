@@ -1,0 +1,12 @@
+Create UploadCsv
+---
+tags:
+  - Upload
+content:
+  multipart/form-data:
+    - name: csv
+      in: formData
+      required: true
+      description: The csv file
+      schema:
+        type: file
