@@ -20,9 +20,8 @@ function UploadFilesPage(
 ): JSX.Element {
   const [uploader1, setUploader1] = useState([])
   const uploaderRef1 = useRef()
-  const startUpload = () => {
-    //uploaderRef1.current.start()
-  }
+  const startUpload = uploaderRef1.current
+  
   return (
     <>
       <Container className={styles.flexContainer}>
@@ -59,7 +58,7 @@ function UploadFilesPage(
                     //value={uploader1}
                     action={props.dataFile1}
                     autoUpload={false}
-                   //onChange={setUploader1}
+                    //onChange={setUploader1}
                     ref={uploaderRef1}
                   >
                     <div

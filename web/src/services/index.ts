@@ -4,17 +4,17 @@ import { getAPI_URL } from "../utils/env"
 
 interface ServiceConsumerI {
   get(url: string, customHeaders: Record<string, string>): Observable<Response>
-  post<D>(
+  post<D extends BodyInit | null | undefined>(
     url: string,
     data: D,
     customHeaders: Record<string, string>
   ): Observable<Response>
-  put<D>(
+  put<D extends BodyInit | null | undefined>(
     url: string,
     data: D,
     customHeaders: Record<string, string>
   ): Observable<Response>
-  patch<D>(
+  patch<D extends BodyInit | null | undefined>(
     url: string,
     data: D,
     customHeaders: Record<string, string>
@@ -44,7 +44,7 @@ class ServiceConsumer implements ServiceConsumerI {
       mode: "cors",
     })
   }
-  post<D>(
+  post<D extends BodyInit | null | undefined>(
     url: string,
     data: D,
     customHeaders: Record<string, string> = {}
@@ -53,10 +53,10 @@ class ServiceConsumer implements ServiceConsumerI {
       headers: { ...this.defaultHeaders, ...customHeaders },
       method: "post",
       mode: "cors",
-      body: JSON.stringify(data),
+      body: data,
     })
   }
-  put<D>(
+  put<D extends BodyInit | null | undefined>(
     url: string,
     data: D,
     customHeaders?: Record<string, string>
@@ -65,10 +65,10 @@ class ServiceConsumer implements ServiceConsumerI {
       headers: { ...this.defaultHeaders, ...customHeaders },
       method: "put",
       mode: "cors",
-      body: JSON.stringify(data),
+      body: data,
     })
   }
-  patch<D>(
+  patch<D extends BodyInit | null | undefined>(
     url: string,
     data: D,
     customHeaders: Record<string, string>
@@ -77,7 +77,7 @@ class ServiceConsumer implements ServiceConsumerI {
       headers: { ...this.defaultHeaders, ...customHeaders },
       method: "patch",
       mode: "cors",
-      body: JSON.stringify(data),
+      body: data,
     })
   }
   delete(
