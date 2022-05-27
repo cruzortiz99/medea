@@ -1,9 +1,0 @@
-Create UploadCsv
----
-tags:
-  - Upload
-parameters:
-  - name: csv
-    in: formData
-    required: true
-    description: The csv file
