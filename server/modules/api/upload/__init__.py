@@ -3,7 +3,7 @@ from flasgger import swag_from
 from flask import Blueprint, Response, jsonify, request
 from models import APIResponseModel
 from services import upload_csv as upload_csv_service
-
+# TODO: Estos endpoints deben estar en el modulo root
 UPLOAD = Blueprint(
     "upload",
     __name__,
@@ -15,17 +15,18 @@ UPLOAD = Blueprint(
 def upload_csv() -> Response:
     if request.method == "OPTIONS":
         return jsonify(APIResponseModel("Ok").__dict__)
-    
+
     response = upload_csv_service.upload_csv(request.files.getlist('file'))
 
     return jsonify(APIResponseModel(response).__dict__)
+
 
 @UPLOAD.route("/xlsx", methods=["POST", "OPTIONS"])
 @swag_from(DOC_FOLDER.joinpath("file-upload.yml"))
 def upload_xlsx() -> Response:
     if request.method == "OPTIONS":
         return jsonify(APIResponseModel("Ok").__dict__)
-    
+
     response = upload_csv_service.upload_xlsx(request.files.getlist('file'))
 
     return jsonify(APIResponseModel(response).__dict__)
