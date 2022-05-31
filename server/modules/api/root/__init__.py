@@ -1,7 +1,7 @@
 from typing import Tuple
 import rx.operators as rx_op
 from models.APIError import APIError
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, Response
 from models.APIResponseModel import APIResponseModel
 from models.License import License
 from utils.errors import handle_error
@@ -9,6 +9,7 @@ from flasgger import swag_from
 from constants import DOC_FOLDER
 import services.license as license_service
 import json
+from services import upload_csv as upload_csv_service
 
 API_ROOT = Blueprint("api-root", __name__, url_prefix="/api")
 
@@ -78,3 +79,25 @@ def delete_license():
                     response, APIError) else response.status_code))
     ).run()
     return jsonify(response[0], response[1])
+
+
+@API_ROOT.route("/upload/csv", methods=["POST", "OPTIONS"])
+@swag_from(DOC_FOLDER.joinpath("file-upload.yml"))
+def upload_csv() -> Response:
+    if request.method == "OPTIONS":
+        return jsonify(APIResponseModel("Ok").__dict__)
+
+    response = upload_csv_service.upload_csv(request.files.getlist('file'))
+
+    return jsonify(APIResponseModel(response).__dict__)
+
+
+@API_ROOT.route("/upload/xlsx", methods=["POST", "OPTIONS"])
+@swag_from(DOC_FOLDER.joinpath("file-upload.yml"))
+def upload_xlsx() -> Response:
+    if request.method == "OPTIONS":
+        return jsonify(APIResponseModel("Ok").__dict__)
+
+    response = upload_csv_service.upload_xlsx(request.files.getlist('file'))
+
+    return jsonify(APIResponseModel(response).__dict__)
