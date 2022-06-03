@@ -3,6 +3,7 @@ from models import Repository
 import pathlib
 from constants import ASSETS_FOLDER
 import csv
+
 def getFolders(path: str):
     directory = pathlib.Path(str(ASSETS_FOLDER) + '/storage/' + path)
     if directory.exists():
@@ -27,6 +28,6 @@ def readCsv(directory):
         fileReader = csv.reader(file)
         for row in fileReader:
             if row:
-                data.append(row[0])
+                data.append(row)
     print(data)
     return []
