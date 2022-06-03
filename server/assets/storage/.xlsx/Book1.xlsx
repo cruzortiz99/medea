@@ -1,0 +1,2054 @@
+﻿<!doctype html public "-//w3c//dtd xhtml 1.0 transitional//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="ProgId" content="Excel.Sheet">
+<meta name="Generator" content="Aspose.Cell 22.2">
+<link rel="File-List" href="_files_files/filelist.xml">
+<link rel="Edit-Time-Data" href="_files_files/editdata.mso">
+<link rel="OLE-Object-Data" href="_files_files/oledata.mso">
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Develop</o:Author>
+  <o:Created>2022-05-12T17:09:57Z</o:Created>
+  <o:LastSaved>2022-05-12T17:10:35Z</o:LastSaved>
+</o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--table
+ {mso-displayed-decimal-separator:"\.";
+ mso-displayed-thousand-separator:"\,";}
+@page
+ {
+ mso-header-data:"&L
+
+
+
+
+
+
+
+
+    &G&C
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+";
+ mso-footer-data:"";
+ margin:0.47244094488189in 0.31496062992126in 0.47244094488189in 0.905511811023622in;
+ mso-header-margin:0.31496062992126in;
+ mso-footer-margin:0.31496062992126in;
+ mso-page-orientation:Portrait;
+ }
+tr
+ {mso-height-source:auto;
+ mso-ruby-visibility:none;}
+col
+ {mso-width-source:auto;
+ mso-ruby-visibility:none;}
+br
+ {mso-data-placement:same-cell;}
+ruby
+ {ruby-align:left;}
+.style0
+ {
+ mso-number-format:General;
+ text-align:general;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ mso-protection:locked visible;
+ mso-style-name:Normal;
+ mso-style-id:0;}
+.font0
+ {
+ color:#000000;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif"; }
+.font1
+ {
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Arial","sans-serif"; }
+.font2
+ {
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif"; }
+.font3
+ {
+ color:#000000;
+ font-size:8pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif"; }
+.font4
+ {
+ color:#000000;
+ font-size:11pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif"; }
+.font5
+ {
+ color:#000000;
+ font-size:12pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif"; }
+.font6
+ {
+ color:#000000;
+ font-size:10pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif"; }
+.font7
+ {
+ color:#000000;
+ font-size:9pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif"; }
+.font8
+ {
+ color:#000000;
+ font-size:9pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif"; }
+.font9
+ {
+ color:#000000;
+ font-size:7pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif"; }
+.font10
+ {
+ color:#800080;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ text-decoration:underline;
+ font-family:"Calibri","sans-serif"; }
+.font11
+ {
+ color:#FA7D00;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif"; }
+.font12
+ {
+ color:#44546A;
+ font-size:18pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif"; }
+.font13
+ {
+ color:#44546A;
+ font-size:11pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif"; }
+.font14
+ {
+ color:#44546A;
+ font-size:13pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif"; }
+.font15
+ {
+ color:#0000FF;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ text-decoration:underline;
+ font-family:"Calibri","sans-serif"; }
+.font16
+ {
+ color:#FFFFFF;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif"; }
+.font17
+ {
+ color:#3F3F3F;
+ font-size:11pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif"; }
+.font18
+ {
+ color:#FFFFFF;
+ font-size:11pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif"; }
+.font19
+ {
+ color:#FA7D00;
+ font-size:11pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif"; }
+.font20
+ {
+ color:#7F7F7F;
+ font-size:11pt;
+ font-weight:400;
+ font-style:italic;
+ font-family:"Calibri","sans-serif"; }
+.font21
+ {
+ color:#9C6500;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif"; }
+.font22
+ {
+ color:#FF0000;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif"; }
+.font23
+ {
+ color:#9C0006;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif"; }
+.font24
+ {
+ color:#44546A;
+ font-size:15pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif"; }
+.font25
+ {
+ color:#006100;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif"; }
+.font26
+ {
+ color:#3F3F76;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif"; }
+td
+ {mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:general;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ mso-protection:locked visible;
+ mso-ignore:padding;}
+.style0
+ {
+ text-align:general;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ mso-protection:locked visible;
+ mso-style-name:"Normal";
+ }
+.style1
+ {
+ text-align:general;
+ vertical-align:middle;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Arial","sans-serif";
+ mso-protection:locked visible;
+ }
+.style2
+ {
+ text-align:general;
+ vertical-align:middle;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Arial","sans-serif";
+ mso-protection:locked visible;
+ }
+.style3
+ {
+ text-align:general;
+ vertical-align:middle;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Arial","sans-serif";
+ mso-protection:locked visible;
+ }
+.style4
+ {
+ text-align:general;
+ vertical-align:middle;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Arial","sans-serif";
+ mso-protection:locked visible;
+ }
+.style5
+ {
+ text-align:general;
+ vertical-align:middle;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Arial","sans-serif";
+ mso-protection:locked visible;
+ }
+.style6
+ {
+ text-align:general;
+ vertical-align:middle;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Arial","sans-serif";
+ mso-protection:locked visible;
+ }
+.style7
+ {
+ text-align:general;
+ vertical-align:middle;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Arial","sans-serif";
+ mso-protection:locked visible;
+ }
+.style8
+ {
+ text-align:general;
+ vertical-align:middle;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Arial","sans-serif";
+ mso-protection:locked visible;
+ }
+.style9
+ {
+ text-align:general;
+ vertical-align:middle;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Arial","sans-serif";
+ mso-protection:locked visible;
+ }
+.style10
+ {
+ text-align:general;
+ vertical-align:middle;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Arial","sans-serif";
+ mso-protection:locked visible;
+ }
+.style11
+ {
+ text-align:general;
+ vertical-align:middle;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Arial","sans-serif";
+ mso-protection:locked visible;
+ }
+.style12
+ {
+ text-align:general;
+ vertical-align:middle;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Arial","sans-serif";
+ mso-protection:locked visible;
+ }
+.style13
+ {
+ text-align:general;
+ vertical-align:middle;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Arial","sans-serif";
+ mso-protection:locked visible;
+ }
+.style14
+ {
+ text-align:general;
+ vertical-align:middle;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Arial","sans-serif";
+ mso-protection:locked visible;
+ }
+.x15
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:general;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ mso-protection:locked visible;
+ }
+.x16
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:left;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ mso-protection:locked visible;
+ }
+.x17
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:general;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ mso-protection:locked visible;
+ }
+.x18
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x19
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:justify;
+ vertical-align:justify;
+ white-space:normal;word-wrap:break-word;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:8pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:none;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x20
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:justify;
+ vertical-align:justify;
+ white-space:normal;word-wrap:break-word;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:8pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:none;
+ border-right:1px solid #808080;
+ border-bottom:none;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x21
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:left;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:8pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:none;
+ border-right:1px solid #808080;
+ border-bottom:none;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x22
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:justify;
+ vertical-align:justify;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:8pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:none;
+ border-right:1px solid #808080;
+ border-bottom:none;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x23
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:justify;
+ vertical-align:justify;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:8pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:none;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x24
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:general;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ mso-protection:locked visible;
+ }
+.x25
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:general;
+ vertical-align:distributed;
+ white-space:normal;word-wrap:break-word;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ mso-protection:locked visible;
+ }
+.x26
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:#DAE3F3;
+ mso-pattern:auto none;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x27
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:11pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x28
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:bottom;
+ white-space:normal;word-wrap:break-word;
+ background:#DAE3F3;
+ mso-pattern:auto none;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x29
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:left;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:#DAE3F3;
+ mso-pattern:auto none;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x30
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:middle;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:11pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x31
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:left;
+ vertical-align:bottom;
+ white-space:normal;word-wrap:break-word;
+ background:#DAE3F3;
+ mso-pattern:auto none;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x32
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:left;
+ vertical-align:middle;
+ white-space:normal;word-wrap:break-word;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:11pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x33
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:#DAE3F3;
+ mso-pattern:auto none;
+ color:#000000;
+ font-size:12pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:none;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x34
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:#DAE3F3;
+ mso-pattern:auto none;
+ color:#000000;
+ font-size:12pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:none;
+ border-bottom:1px solid #808080;
+ border-left:none;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x35
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:general;
+ vertical-align:distributed;
+ white-space:normal;word-wrap:break-word;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:none;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x36
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:general;
+ vertical-align:distributed;
+ white-space:normal;word-wrap:break-word;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:none;
+ border-bottom:1px solid #808080;
+ border-left:none;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x37
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:#BDD7EE;
+ mso-pattern:auto none;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x38
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:middle;
+ white-space:normal;word-wrap:break-word;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:11pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x39
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:none;
+ border-bottom:none;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x40
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:none;
+ border-right:none;
+ border-bottom:none;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x41
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:none;
+ border-right:none;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x42
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:left;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:#DAE3F3;
+ mso-pattern:auto none;
+ color:#000000;
+ font-size:9pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:none;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x43
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:left;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:#DAE3F3;
+ mso-pattern:auto none;
+ color:#000000;
+ font-size:9pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:none;
+ border-bottom:1px solid #808080;
+ border-left:none;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x44
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:left;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:#DAE3F3;
+ mso-pattern:auto none;
+ color:#000000;
+ font-size:9pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:none;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x45
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:left;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:#DAE3F3;
+ mso-pattern:auto none;
+ color:#000000;
+ font-size:9pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:none;
+ border-bottom:1px solid #808080;
+ border-left:none;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x46
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:none;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x47
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:none;
+ border-right:1px solid #808080;
+ border-bottom:none;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x48
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:none;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x49
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:middle;
+ white-space:normal;word-wrap:break-word;
+ background:#DAE3F3;
+ mso-pattern:auto none;
+ color:#000000;
+ font-size:8pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x50
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:middle;
+ white-space:normal;word-wrap:break-word;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:11pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x51
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:#DAE3F3;
+ mso-pattern:auto none;
+ color:#000000;
+ font-size:7pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x52
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:none;
+ border-bottom:none;
+ border-left:none;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x53
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:none;
+ border-left:none;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x54
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ mso-protection:locked visible;
+ }
+.x55
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:none;
+ border-right:1px solid #808080;
+ border-bottom:none;
+ border-left:none;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x56
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:none;
+ border-right:none;
+ border-bottom:1px solid #808080;
+ border-left:none;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x57
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:none;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:none;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x58
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:left;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:#DAE3F3;
+ mso-pattern:auto none;
+ color:#000000;
+ font-size:9pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:none;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x59
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:left;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:#DAE3F3;
+ mso-pattern:auto none;
+ color:#000000;
+ font-size:9pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:none;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x60
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:middle;
+ white-space:nowrap;
+ background:#DAE3F3;
+ mso-pattern:auto none;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x61
+ {
+ mso-style-parent:style0;
+ mso-number-format:"dd\/mm\/yyyy\;\@";
+ text-align:center;
+ vertical-align:middle;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:11pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x62
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:middle;
+ white-space:normal;word-wrap:break-word;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x63
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:general;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ mso-protection:locked visible;
+ }
+.x64
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:distributed;
+ white-space:normal;word-wrap:break-word;
+ background:#DAE3F3;
+ mso-pattern:auto none;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x65
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:distributed;
+ white-space:normal;word-wrap:break-word;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:11pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x66
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:left;
+ vertical-align:middle;
+ white-space:normal;word-wrap:break-word;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:12pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x67
+ {
+ mso-style-parent:style0;
+ mso-number-format:"\#\,\#\#0";
+ text-align:left;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:12pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x68
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:left;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:12pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x69
+ {
+ mso-style-parent:style0;
+ mso-number-format:"dd\/mm\/yyyy\;\@";
+ text-align:center;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:11pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:1px solid #808080;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x70
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:#DAE3F3;
+ mso-pattern:auto none;
+ color:#000000;
+ font-size:12pt;
+ font-weight:700;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:none;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x71
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:general;
+ vertical-align:distributed;
+ white-space:normal;word-wrap:break-word;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ border-top:1px solid #808080;
+ border-right:1px solid #808080;
+ border-bottom:1px solid #808080;
+ border-left:none;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <x:ExcelWorkbook>
+  <x:ExcelWorksheets>
+   <x:ExcelWorksheet>
+    <x:Name>1245</x:Name>
+<x:WorksheetOptions>
+ <x:StandardWidth>704</x:StandardWidth>
+ <x:Print>
+  <x:ValidPrinterInfo/>
+  <x:PaperSizeIndex>5</x:PaperSizeIndex>
+  <x:Scale>98</x:Scale>
+  <x:HorizontalResolution>600</x:HorizontalResolution>
+  <x:VerticalResolution>600</x:VerticalResolution>
+  <x:HeaderPicture>
+   <x:Location>Left</x:Location>
+   <x:Source>image000_0LH.jpeg</x:Source>
+   <x:Height>431</x:Height>
+   <x:Width>579</x:Width>
+   <x:LockAspectRatio/>
+   <x:Brightness>70</x:Brightness>
+   <x:Contrast>14.99980544999417</x:Contrast>
+   <x:ColorType>Watermark</x:ColorType>
+  </x:HeaderPicture>
+ </x:Print>
+ <x:Zoom>95</x:Zoom>
+ <x:Selected/>
+ <x:TopRowVisible>15</x:TopRowVisible>
+</x:WorksheetOptions>
+   </x:ExcelWorksheet>
+  </x:ExcelWorksheets>
+  <x:WindowHeight>12495</x:WindowHeight>
+  <x:WindowWidth>28800</x:WindowWidth>
+  <x:WindowTopX>240</x:WindowTopX>
+  <x:WindowTopY>120</x:WindowTopY>
+  <x:RefModeR1C1/>
+  <x:TabRatio>600</x:TabRatio>
+  <x:ActiveSheet>0</x:ActiveSheet>
+ </x:ExcelWorkbook>
+ <x:ExcelName>
+  <x:Name>Print_Area</x:Name>
+  <x:SheetIndex>1</x:SheetIndex>
+  <x:Formula>='1245'!$A$1:$AD$55</x:Formula>
+ </x:ExcelName>
+</xml><![endif]-->
+</head>
+<body link='blue' vlink='purple' class='x17'>
+
+<table border='0' cellpadding='0' cellspacing='0' width='1656' style='border-collapse: 
+ collapse;table-layout:fixed;width:1242pt'>
+ <col class='x17' width='21' span='6' style='mso-width-source:userset;background:none;width:15.75pt'>
+ <col class='x17' width='18' style='mso-width-source:userset;background:none;width:13.5pt'>
+ <col class='x17' width='21' style='mso-width-source:userset;background:none;width:15.75pt'>
+ <col class='x17' width='15' style='mso-width-source:userset;background:none;width:11.25pt'>
+ <col class='x17' width='21' span='3' style='mso-width-source:userset;background:none;width:15.75pt'>
+ <col class='x17' width='16' style='mso-width-source:userset;background:none;width:12pt'>
+ <col class='x17' width='14' style='mso-width-source:userset;background:none;width:10.5pt'>
+ <col class='x17' width='16' style='mso-width-source:userset;background:none;width:12pt'>
+ <col class='x17' width='26' style='mso-width-source:userset;background:none;width:19.5pt'>
+ <col class='x17' width='15' style='mso-width-source:userset;background:none;width:11.25pt'>
+ <col class='x17' width='21' span='2' style='mso-width-source:userset;background:none;width:15.75pt'>
+ <col class='x17' width='14' style='mso-width-source:userset;background:none;width:10.5pt'>
+ <col class='x17' width='85' style='mso-width-source:userset;background:none;width:63.75pt'>
+ <col class='x17' width='21' style='mso-width-source:userset;background:none;width:15.75pt'>
+ <col class='x17' width='19' style='mso-width-source:userset;background:none;width:14.25pt'>
+ <col class='x17' width='21' span='4' style='mso-width-source:userset;background:none;width:15.75pt'>
+ <col class='x17' width='16' style='mso-width-source:userset;background:none;width:12pt'>
+ <col class='x17' width='26' style='mso-width-source:userset;background:none;width:19.5pt'>
+ <col class='x17' width='111' style='mso-width-source:userset;background:none;width:83.25pt'>
+ <col class='x17' width='22' span='16' style='mso-width-source:userset;background:none;width:16.5pt'>
+ <col class='x17' width='28' style='mso-width-source:userset;background:none;width:21pt'>
+ <col width='22' span='24' style='width:16.5pt'>
+ <tr height='17' style='mso-height-source:userset;height:12.75pt'>
+<td colspan='5' rowspan='8' height='160' class='x18' width='105' style='text-align: left;border-right:1px solid #808080;border-bottom:1px solid #808080;height:120pt;' align='left' valign='top'><span style='mso-ignore:vglayout;position:absolute;z-index:4;margin-left:5px;margin-top:74px;width:96px;height:54px'><img width='96' height='54' src="C:\Users\ContainerAdministrator\AppData\Local\Temp\_files_files/textBox_310320340350_3.png" name='CuadroTexto 4'></span><span style='mso-ignore:vglayout;position:absolute;z-index:3;margin-left:4px;margin-top:11px;width:99px;height:56px'><img width='99' height='56' src="C:\Users\ContainerAdministrator\AppData\Local\Temp\_files_files/image002.png" name='Imagen 3'></span><span  style='mso-ignore:vglayout2'><table cellpadding='0' cellspacing='0'><tr><td colspan='5' rowspan='8' height='160' class='x72' width='105' style='height:120pt;'><a name="Print_Area" ><span style='font-size:10pt;color:#000000;font-weight:400;text-decoration:none;text-line-through:none;font-family:"Calibri";'></span></a></td></tr></table></span></td>
+<td colspan='16' rowspan='2' height='49' class='x19' width='366' style='border-right:1px solid #808080;height:36.75pt;white-space:normal;word-wrap:break-word;'>Para la movilizar material propiedad del estado (Tubería petrolera, cabillas, guayas, cable, entre otros), es de carácter obligatorio presentar el contrato a los organismos de seguridad del estado.</td>
+<td colspan='9' rowspan='2' height='48' class='x28' width='277' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:36pt;'>IMPRIMIR AL DORSO DE LA GUIA</td>
+<td colspan='41' class='x17' width='908' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='33' style='mso-height-source:userset;height:24.75pt'>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='17' style='mso-height-source:userset;height:12.75pt'>
+<td colspan='16' class='x21' style='border-right:1px solid #808080;'>Transito REDIOR (SUCRE, ANZOATEGUI, MONAGAS) 0600-1800.</td>
+<td colspan='2' rowspan='3' height='45' class='x60' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:33.75pt;'>FECHA</td>
+<td colspan='7' rowspan='3' height='45' class='x61' x:num="44691" style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:33.75pt;'>10/05/2022</td>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='15' class='x16' style='mso-height-source:userset;height:11.25pt'>
+<td colspan='16' rowspan='5' height='95' class='x22' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:71.25pt;overflow:hidden;white-space:normal;word-wrap:break-word;'>Para trasladar piezas de vehículos, maquinaria agrícola y pesada que contengan ser<span style='display:none'>iales que puedan determinar la identificación de dicho bien (parte de carrocerías, motores, chasis), deben tener documentación que respalde la procedencia del mismo (título de propiedad, acta de desincorporación INTT) Facturas Documentos De Compra Venta, Providencia.</span></td>
+<td colspan='41' class='x16' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='15' class='x16' style='mso-height-source:userset;height:11.25pt'>
+<td colspan='41' class='x16' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='15' class='x16' style='mso-height-source:userset;height:11.25pt'>
+<td colspan='2' rowspan='3' height='63' class='x60' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:47.25pt;'>RUNPA</td>
+<td colspan='7' rowspan='3' height='63' class='x62' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:47.25pt;'>CZ-RUNPAEXT-004-2022</td>
+<td colspan='41' class='x16' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='15' class='x16' style='mso-height-source:userset;height:11.25pt'>
+<td colspan='41' class='x16' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='35' class='x16' style='mso-height-source:userset;height:26.25pt'>
+<td colspan='41' class='x16' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='3' style='mso-height-source:userset;height:2.25pt'>
+<td colspan='71' height='3' class='x24' style='mso-ignore:colspan;height:2.25pt;'><div style='display:block;overflow:hidden'></div></td>
+ </tr>
+ <tr height='17' style='mso-height-source:userset;height:12.75pt'>
+<td colspan='21' height='15' class='x26' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:11.25pt;'>NOMBRE DE LA EMPRESA</td>
+<td colspan='9' class='x26' style='border-right:1px solid #808080;border-bottom:1px solid #808080;'>RIF</td>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='20' style='mso-height-source:userset;height:15pt'>
+<td colspan='21' height='18' class='x27' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:13.5pt;'>PROTOCOL CAPITAL W.L.L.</td>
+<td colspan='9' class='x27' style='border-right:1px solid #808080;border-bottom:1px solid #808080;'>INTERNACIONAL : 82271</td>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='17' style='mso-height-source:userset;height:12.75pt'>
+<td colspan='4' rowspan='2' height='40' class='x28' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:30pt;'>CONDUCTOR Y VEHICULO</td>
+<td colspan='17' class='x26' style='border-right:1px solid #808080;border-bottom:1px solid #808080;'>NOMBRE Y APELLIDO</td>
+<td colspan='9' class='x64' style='border-right:1px solid #808080;border-bottom:1px solid #808080;'>CEDULA</td>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='25' style='mso-height-source:userset;height:18.75pt'>
+<td colspan='17' class='x27' style='border-right:1px solid #808080;border-bottom:1px solid #808080;'>&nbsp;JOSE GREGORIO GEDLER VERA	</td>
+<td colspan='9' class='x65' style='border-right:1px solid #808080;border-bottom:1px solid #808080;'>11845710</td>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='33' style='mso-height-source:userset;height:24.75pt'>
+<td colspan='3' height='31' class='x29' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:23.25pt;'>MARCA</td>
+<td colspan='5' class='x27' style='border-right:1px solid #808080;border-bottom:1px solid #808080;'>MACK</td>
+<td colspan='5' class='x26' style='border-right:1px solid #808080;border-bottom:1px solid #808080;'>BATEA</td>
+<td colspan='3' rowspan='3' height='150' class='x49' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:112.5pt;'>MATERIAL&nbsp;</td>
+<td colspan='14' rowspan='3' height='150' class='x66' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:112.5pt;'>desecho y desperdicios de chatarra ferrosa, provienen de nuestras maquinarias ya desincorporadas, 1.-MOTOTRAILLA MARCA CAT 621-B TIPO 45P SERIAL 685 1.- VIBRO-COMPACTADOR MARCA RAYGO 404-B 1.- TRACTOR DE ORUGA D9-G SERIAL 09-66'6437193&nbsp;</td>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='62' style='mso-height-source:userset;height:46.5pt'>
+<td colspan='3' height='60' class='x29' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:45pt;'>MODELO</td>
+<td colspan='5' class='x30' style='border-right:1px solid #808080;border-bottom:1px solid #808080;'>1980</td>
+<td colspan='5' class='x38' style='border-right:1px solid #808080;border-bottom:1px solid #808080;'>CARROCERIAS NINO</td>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='57' style='mso-height-source:userset;height:42.75pt'>
+<td colspan='3' height='55' class='x29' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:41.25pt;'>COLOR</td>
+<td colspan='5' class='x30' style='border-right:1px solid #808080;border-bottom:1px solid #808080;'>AZUL</td>
+<td colspan='5' class='x30' style='border-right:1px solid #808080;border-bottom:1px solid #808080;'>AMARILLO</td>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='33' style='mso-height-source:userset;height:24.75pt'>
+<td colspan='3' height='31' class='x29' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:23.25pt;'>PLACA</td>
+<td colspan='5' class='x30' style='border-right:1px solid #808080;border-bottom:1px solid #808080;'>A64AE3O</td>
+<td colspan='5' class='x50' style='border-right:1px solid #808080;border-bottom:1px solid #808080;'>A79AF2S</td>
+<td colspan='3' class='x51' style='border-right:1px solid #808080;border-bottom:1px solid #808080;'>TONELADAS</td>
+<td colspan='14' class='x67' style='border-right:1px solid #808080;border-bottom:1px solid #808080;'>30.000 KGS.</td>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='17' style='mso-height-source:userset;height:12.75pt'>
+<td colspan='4' rowspan='2' height='61' class='x31' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:45.75pt;'>DIRECCION DE ORIGEN</td>
+<td colspan='18' rowspan='2' height='61' class='x32' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:45.75pt;'>Final Av Jesús Subero a 100 metros del semáforo dirección a las 4 vías, detrás de la estación de servicio El Caris. El Tigre - Edo Anzoátegui</td>
+<td colspan='3' rowspan='2' height='61' class='x28' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:45.75pt;'>FECHA DE INICIO&nbsp;</td>
+<td colspan='5' rowspan='2' height='61' class='x69' x:num="44691" style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:45.75pt;'>10/05/2022</td>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='46' style='mso-height-source:userset;height:34.5pt'>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='17' style='mso-height-source:userset;height:12.75pt'>
+<td colspan='4' rowspan='2' height='43' class='x31' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:32.25pt;'>DIRECCION DE DESTINO</td>
+<td colspan='18' rowspan='2' height='43' class='x32' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:32.25pt;'>PATIO 21, 22 Y 23 DEL PUERTO INTERNACIONAL DE GUANTA ESTADO ANZOATEGUI&nbsp;</td>
+<td colspan='3' rowspan='2' height='43' class='x28' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:32.25pt;'>FECHA DE CIERRE</td>
+<td colspan='5' rowspan='2' height='43' class='x69' x:num="44694" style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:32.25pt;'>13/05/2022</td>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='28' style='mso-height-source:userset;height:21pt'>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='3' style='mso-height-source:userset;height:2.25pt'>
+<td colspan='71' height='3' class='x24' style='mso-ignore:colspan;height:2.25pt;'><div style='display:block;overflow:hidden'></div></td>
+ </tr>
+ <tr height='21' style='mso-height-source:userset;height:15.75pt'>
+<td colspan='30' height='19' class='x33' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:14.25pt;'>DELARACION JURADA DE ORIGEN LICITO</td>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='3' style='mso-height-source:userset;height:2.25pt'>
+<td colspan='71' height='3' class='x24' style='mso-ignore:colspan;height:2.25pt;'><div style='display:block;overflow:hidden'></div></td>
+ </tr>
+ <tr height='160' style='mso-height-source:userset;height:120pt'>
+<td colspan='30' height='158' class='x35' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:118.5pt;'><font class="font2" style="text-decoration: none;">Yo,<span style='mso-spacerun:yes;'>&nbsp;&nbsp;</span></font><font class="font6" style="text-decoration: none;">ORESTE DEL RIO SANDOVAL, de nacionalidad EXTRANJERO<span style='mso-spacerun:yes;'>&nbsp; </span>mayor de edad, titular deL<span style='mso-spacerun:yes;'>&nbsp; </span>PASAPORTE PANAMA: PA0715590, en representación de la Sociedad Mercantil. PROTOCOL CAPITAL W.L.L., Registro de Información Fiscal (R.I.F.) INTERNACIONAL : 82271&nbsp;</font><font class="font2" style="text-decoration: none;">&nbsp;</font><font class="font6" style="text-decoration: none;">DECLARO BAJO FE DE JURAMENTO</font><font class="font2" style="text-decoration: none;">, que los materiales antes detallados serán comercializados Nacionalmente a través de la&nbsp;</font><font class="font6" style="text-decoration: none;">CORPORACIÓN ECOSOCIALISTA EZEQUIEL ZAMORA, S.A</font><font class="font2" style="text-decoration: none;">., provienen de actividades licitas propias de la empresa que represento. Asimismo, declaro que no se cometieron delitos para la obtención de éstos, y en el caso de verificarse por los organismos del Estado irregularidades en el material o ilicitud en su obtención, la empresa que represento se hace responsable por los ilícitos penales que acarree tal conducta de conformidad con las leyes penales vigentes que rigen la materia, liberando de toda responsabilidad a&nbsp;</font><font class="font6" style="text-decoration: none;">CORPOEZ.</font></td>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='3' style='mso-height-source:userset;height:2.25pt'>
+<td colspan='71' height='3' class='x24' style='mso-ignore:colspan;height:2.25pt;'><div style='display:block;overflow:hidden'></div></td>
+ </tr>
+ <tr height='20' style='mso-height-source:userset;height:15pt'>
+<td colspan='7' height='18' class='x37' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:13.5pt;'>NOMBRE Y APELLIDO</td>
+<td colspan='9' class='x37' style='border-right:1px solid #808080;border-bottom:1px solid #808080;'>FIRMA Y SELLO</td>
+<td colspan='14' rowspan='13' height='207' class='x39' width='433' style='text-align: left;border-right:1px solid #808080;border-bottom:1px solid #808080;height:155.25pt;width:324.75pt;' align='left' valign='top'><span style='mso-ignore:vglayout;position:absolute;z-index:6;margin-left:32px;margin-top:21px;width:214px;height:144px'><img width='214' height='144' src="C:\Users\ContainerAdministrator\AppData\Local\Temp\_files_files/image000.jpeg" name='Imagen 5'></span><span  style='mso-ignore:vglayout2'><table cellpadding='0' cellspacing='0'><tr><td colspan='14' rowspan='13' height='207' class='x54' width='433' style='height:155.25pt;width:324.75pt;'></td></tr></table></span></td>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='17' style='mso-height-source:userset;height:12.75pt'>
+<td colspan='7' rowspan='8' height='122' class='x38' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:91.5pt;'>ORESTE DEL RIO SANDOVAL<br><br>Pasaporte Panama: PA0715590</td>
+<td colspan='9' rowspan='8' height='123' class='x39' width='171' style='text-align: left;border-right:1px solid #808080;border-bottom:1px solid #808080;height:92.25pt;width:128.25pt;' align='left' valign='top'><span style='mso-ignore:vglayout;position:absolute;z-index:1;margin-left:100px;margin-top:63px;width:71px;height:62px'><img width='71' height='62' src="C:\Users\ContainerAdministrator\AppData\Local\Temp\_files_files/image005.png" name='Imagen 1'></span><span style='mso-ignore:vglayout;position:absolute;z-index:2;margin-left:3px;margin-top:4px;width:98px;height:87px'><img width='98' height='87' src="C:\Users\ContainerAdministrator\AppData\Local\Temp\_files_files/image003.png" name='Imagen 2'></span><span  style='mso-ignore:vglayout2'><table cellpadding='0' cellspacing='0'><tr><td colspan='9' rowspan='8' height='123' class='x54' width='171' style='height:92.25pt;width:128.25pt;'></td></tr></table></span></td>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='17' style='mso-height-source:userset;height:12.75pt'>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='17' style='mso-height-source:userset;height:12.75pt'>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='17' style='mso-height-source:userset;height:12.75pt'>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='17' style='mso-height-source:userset;height:12.75pt'>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='15' style='mso-height-source:userset;height:11.25pt'>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='15' style='mso-height-source:userset;height:11.25pt'>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='9' style='mso-height-source:userset;height:6.75pt'>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='16' style='mso-height-source:userset;height:12pt'>
+<td colspan='16' height='14' class='x42' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:10.5pt;'>REGISTRO FOTOGRÁFICO:</td>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='16' style='mso-height-source:userset;height:12pt'>
+<td colspan='16' height='14' class='x44' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:10.5pt;'>1) Foto delantera del vehículo, donde se aprecie la placa.</td>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='16' style='mso-height-source:userset;height:12pt'>
+<td colspan='16' height='14' class='x44' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:10.5pt;'>2) Foto del material a trasladar (Primer plano).</td>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='16' style='mso-height-source:userset;height:12pt'>
+<td colspan='16' height='14' class='x44' style='border-right:1px solid #808080;border-bottom:1px solid #808080;height:10.5pt;'>3) Foto del material y vehículo. (General).</td>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='17' style='mso-height-source:userset;height:12.75pt'>
+<td colspan='16' rowspan='13' height='223' class='x46' width='315' style='text-align: left;border-right:1px solid #808080;border-bottom:1px solid #808080;height:167.25pt;width:236.25pt;' align='left' valign='top'><span style='mso-ignore:vglayout;position:absolute;z-index:7;margin-left:77px;margin-top:6px;width:212px;height:159px'><img width='212' height='159' src="C:\Users\ContainerAdministrator\AppData\Local\Temp\_files_files/image001.jpeg" name='Imagen 7'></span><span  style='mso-ignore:vglayout2'><table cellpadding='0' cellspacing='0'><tr><td colspan='16' rowspan='13' height='223' class='x54' width='315' style='height:167.25pt;width:236.25pt;'></td></tr></table></span></td>
+<td colspan='14' rowspan='13' height='223' class='x46' width='433' style='text-align: left;border-right:1px solid #808080;border-bottom:1px solid #808080;height:167.25pt;width:324.75pt;' align='left' valign='top'><span style='mso-ignore:vglayout;position:absolute;z-index:8;margin-left:199px;margin-top:17px;width:135px;height:149px'><img width='135' height='149' src="C:\Users\ContainerAdministrator\AppData\Local\Temp\_files_files/image004.jpeg" name='Imagen 8'></span><span style='mso-ignore:vglayout;position:absolute;z-index:9;margin-left:23px;margin-top:10px;width:109px;height:157px'><img width='109' height='157' src="C:\Users\ContainerAdministrator\AppData\Local\Temp\_files_files/image006.jpeg" name='Imagen 10'></span><span  style='mso-ignore:vglayout2'><table cellpadding='0' cellspacing='0'><tr><td colspan='14' rowspan='13' height='223' class='x54' width='433' style='height:167.25pt;width:324.75pt;'></td></tr></table></span></td>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='17' style='mso-height-source:userset;height:12.75pt'>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='20' style='mso-height-source:userset;height:15pt'>
+<td colspan='6' class='x17' style='mso-ignore:colspan;'></td>
+<td height='20' width='22' style='text-align: left;height:15pt;width:16.5pt;' align='left' valign='top'><span style='mso-ignore:vglayout;position:absolute;z-index:5;margin-left:0px;margin-top:0px;width:32px;height:32px'><img width='32' height='32' src="C:\Users\ContainerAdministrator\AppData\Local\Temp\_files_files/rectangle_310320340350_4.png" name='AutoShape 1'></span><span  style='mso-ignore:vglayout2'><table cellpadding='0' cellspacing='0'><tr><td height='20' width='22' style='height:15pt;width:16.5pt;'></td></tr></table></span></td>
+<td colspan='34' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='17' style='mso-height-source:userset;height:12.75pt'>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='17' style='mso-height-source:userset;height:12.75pt'>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='17' style='mso-height-source:userset;height:12.75pt'>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='17' style='mso-height-source:userset;height:12.75pt'>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='17' style='mso-height-source:userset;height:12.75pt'>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='17' style='mso-height-source:userset;height:12.75pt'>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='17' style='mso-height-source:userset;height:12.75pt'>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='17' style='mso-height-source:userset;height:12.75pt'>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='17' style='mso-height-source:userset;height:12.75pt'>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+ <tr height='17' style='mso-height-source:userset;height:12.75pt'>
+<td colspan='41' class='x17' style='mso-ignore:colspan;'></td>
+ </tr>
+<![if supportMisalignedColumns]>
+ <tr height='0' style='display:none'>
+  <td width='126' colspan='6' style='width:94.5pt'; mso-ignore:colspan;></td>
+  <td width='18' style='width:13.5pt'; ></td>
+  <td width='21' style='width:15.75pt'; ></td>
+  <td width='15' style='width:11.25pt'; ></td>
+  <td width='63' colspan='3' style='width:47.25pt'; mso-ignore:colspan;></td>
+  <td width='16' style='width:12pt'; ></td>
+  <td width='14' style='width:10.5pt'; ></td>
+  <td width='16' style='width:12pt'; ></td>
+  <td width='26' style='width:19.5pt'; ></td>
+  <td width='15' style='width:11.25pt'; ></td>
+  <td width='42' colspan='2' style='width:31.5pt'; mso-ignore:colspan;></td>
+  <td width='14' style='width:10.5pt'; ></td>
+  <td width='85' style='width:63.75pt'; ></td>
+  <td width='21' style='width:15.75pt'; ></td>
+  <td width='19' style='width:14.25pt'; ></td>
+  <td width='84' colspan='4' style='width:63pt'; mso-ignore:colspan;></td>
+  <td width='16' style='width:12pt'; ></td>
+  <td width='26' style='width:19.5pt'; ></td>
+  <td width='111' style='width:83.25pt'; ></td>
+  <td width='352' colspan='16' style='width:264pt'; mso-ignore:colspan;></td>
+  <td width='28' style='width:21pt'; ></td>
+  <td width='528' colspan='24' style='width:396pt'; mso-ignore:colspan;></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+<style>
+<!--
+.x72
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:bottom;
+ white-space:nowrap;
+ background:auto;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:10pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"Calibri","sans-serif";
+ mso-protection:locked visible;
+ }
+-->
+</style>
+</html>

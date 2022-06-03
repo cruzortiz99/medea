@@ -1,7 +1,7 @@
 from typing import Tuple
 import rx.operators as rx_op
 from models.APIError import APIError
-from flask import Blueprint, jsonify, request, Response
+from flask import Blueprint, jsonify, request, Response, abort
 from models.APIResponseModel import APIResponseModel
 from models.License import License
 from utils.errors import handle_error
@@ -10,6 +10,7 @@ from constants import DOC_FOLDER
 import services.license as license_service
 import json
 from services import upload_csv as upload_csv_service
+from services import repository
 
 API_ROOT = Blueprint("api-root", __name__, url_prefix="/api")
 
@@ -101,3 +102,18 @@ def upload_xlsx() -> Response:
     response = upload_csv_service.upload_xlsx(request.files.getlist('file'))
 
     return jsonify(APIResponseModel(response).__dict__)
+
+
+@API_ROOT.route("/repository/folders", methods=["GET", "OPTIONS"])
+@swag_from(DOC_FOLDER.joinpath("repository-folders.yml"))
+def folders() -> Response:
+    if request.method == "OPTIONS":
+        return jsonify(APIResponseModel("Ok").__dict__)
+    path = ''
+    if request.args.get('path'):
+        path = str(request.args.get('path'))
+        if repository.getFolders(path) == False:
+            return abort(400, 'Error in path')
+    
+    return jsonify(APIResponseModel(list(map(lambda folder: folder.__dict__, repository.getFolders(path)))).__dict__)
+
