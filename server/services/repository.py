@@ -2,7 +2,7 @@ from typing import List
 from models import Repository
 import pathlib
 from constants import ASSETS_FOLDER
-import csv
+import pandas as pd
 
 def getFolders(path: str):
     directory = pathlib.Path(str(ASSETS_FOLDER) + '/storage/' + path)
@@ -25,9 +25,8 @@ def getFile(suffix: str, directory: str):
 def readCsv(directory):
     data = []
     with open(directory, encoding="utf8") as file:
-        fileReader = csv.reader(file)
-        for row in fileReader:
-            if row:
-                data.append(row)
-    print(data)
-    return []
+        fileReader = pd.read_csv(directory)
+
+    return [{
+        data: pd.DataFrame(fileReader)
+    }]
