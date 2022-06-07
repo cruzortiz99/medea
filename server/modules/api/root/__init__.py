@@ -117,3 +117,4 @@ def folders() -> Response:
     
     return jsonify(APIResponseModel(list(map(lambda folder: folder.__dict__, repository.getFolders(path)))).__dict__)
 
+
