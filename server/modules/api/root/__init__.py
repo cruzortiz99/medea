@@ -1,7 +1,7 @@
 from typing import Tuple
 import rx.operators as rx_op
 from models.APIError import APIError
-from flask import Blueprint, jsonify, request, Response, abort
+from flask import Blueprint, jsonify, request, Response, make_response
 from models.APIResponseModel import APIResponseModel
 from models.License import License
 from utils.errors import handle_error
@@ -112,9 +112,6 @@ def folders() -> Response:
     path = ''
     if request.args.get('path'):
         path = str(request.args.get('path'))
-        if repository.getFolders(path) == False:
-            return abort(400, 'Error in path')
-    
+        if len(repository.getFolders(path)) == 0:
+            return make_response(jsonify("error in path"), 404)
     return jsonify(APIResponseModel(list(map(lambda folder: folder.__dict__, repository.getFolders(path)))).__dict__)
-
-

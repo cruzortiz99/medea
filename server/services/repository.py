@@ -3,6 +3,7 @@ from models import Repository
 import pathlib
 from constants import ASSETS_FOLDER
 import pandas as pd
+from pandas.core.frame import DataFrame
 
 def getFolders(path: str):
     directory = pathlib.Path(str(ASSETS_FOLDER) + '/storage/' + path)
@@ -14,8 +15,7 @@ def getFolders(path: str):
         for folder in directory.iterdir():
             folders.append(Repository(folder.name))
         return folders
-    
-    return False
+    return []
 
 def getFile(suffix: str, directory: str):
     match suffix:
@@ -23,10 +23,4 @@ def getFile(suffix: str, directory: str):
             return readCsv(directory)
 
 def readCsv(directory):
-    data = []
-    with open(directory, encoding="utf8") as file:
-        fileReader = pd.read_csv(directory)
-
-    return [{
-        data: pd.DataFrame(fileReader)
-    }]
+    return pd.read_csv(directory, sep=";")
