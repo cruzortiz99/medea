@@ -24,3 +24,5 @@ def getFile(suffix: str, directory: str):
 
 def readCsv(directory):
     return pd.read_csv(directory, sep=";")
+
+ 
