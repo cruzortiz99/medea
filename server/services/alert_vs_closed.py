@@ -1,28 +1,33 @@
 from typing import List
 from models.GraphPoint import GraphPoint
-import datetime
+from datetime import datetime, date
 from services.repository import getFolders
 from pandas.core.frame import DataFrame
 import pandas as pd
 
 
-def get_alert_vs_closed_graph() -> List[GraphPoint]:
-    dateRef = datetime.date(2021, 10, 27)
-    y = getDataList("DAL", dateRef)[0]
+def get_alert_vs_closed_graph(requestDate: str, plant: str) -> List[GraphPoint]:
+    dateObject = datetime.strptime(requestDate, "%Y/%m/%d")
+    dateRef = date(dateObject.year, dateObject.month, dateObject.day)
     return [
-        GraphPoint("bar", "red", list(map(monthInLetters, calculate(dateRef))), y, ["3"])
+        GraphPoint(
+            "bar",
+            "red",
+            list(map(monthInLetters, calculate(dateRef))),
+            getDataList(plant, dateRef)
+        )
     ]
 
 # Function that converts YYMM to letters Mmm and places the 'YY if it is January ("Jan").
 def monthInLetters(xmes):
-    Mmm = datetime.date(int("20"+xmes[:2]), int(xmes[2:4]), 1).strftime("%b")
+    Mmm = date(int("20"+xmes[:2]), int(xmes[2:4]), 1).strftime("%b")
     if Mmm == "Jan":
         Mmm = Mmm+"'"+xmes[:2]
     return Mmm
 
-def calculate (date):
-    # dateRef = datetime.date(2021, 10, 27)
-    monthIni = str(date.year)[2:] + str(date.month)
+# Create x-axis with the last 12 months.
+def calculate (dateNew):
+    monthIni = str(dateNew.year)[2:] + str(dateNew.month)
     month  = int(monthIni[2:4])
     year = int(monthIni[0:2])
     cmonth = str(month)
@@ -42,6 +47,8 @@ def calculate (date):
     AAMM = AAMM.rstrip().split(",")
     return AAMM
 
+# FI column. Indicates if the warning is a fault.
+# Calculate the values ​​for start month, period and plant.
 def calculateTheValuesForStartMonth (iw69Read, monthIni):
     df69 = DataFrame(iw69Read, columns = [
         "Aviso",
@@ -59,11 +66,13 @@ def calculateTheValuesForStartMonth (iw69Read, monthIni):
     df69["Planta"]    = df69["Ubicac.técnica"].apply(lambda x: x[:3])
     return df69
 
+# Eliminate duplicate notices in iw39.
 def clearData (iw39Read, plant):
     iw39Read = iw39Read[(iw39Read["Planta"] == plant) & (iw39Read["PER1"] == "X")]
     iw39Read = iw39Read.drop_duplicates(subset = "Aviso")
     return iw39Read
 
+# Create a new df (df1) by joining df_Emit and df_Conc.
 def mergeFile (iw69Read: str, iw39Read: str, monthIni: str, plant: str):
     df69 = calculateTheValuesForStartMonth(iw69Read, monthIni)
     df69 = clearData(df69, plant)
@@ -131,6 +140,12 @@ def calculatePer(monthIni):
         month = int(month) - 1
     return [PER1, PER2, monthIni]
 
+# Create a "No concluidos" column from the "Concluidos" column.
+# Create a column for Emit.
+# Create a df for avisos emitidos only.
+# Create a df only for avisos concluidos
+# Create a new df (df1) by joining df_Emit and df_Conc.
+# Convert Nan values ​​(if any) to 0.
 def createdNewFields(data):
     data["NotConcl"] = data["Concl"].apply(lambda x: "" if (x == "X") else "X")
     data["Emit"] = data.apply(lambda x: x["Concl"] + x["NotConcl"], axis = 1)
@@ -143,23 +158,26 @@ def createdNewFields(data):
     df1 = pd.merge(df_Emit, df_Conc, on = "MesInic", how = "outer" )
     return df1.fillna(0)
 
+# Returns the y-axis data
 def getDataList(plant: str, date: str) -> List:
-    data = setStatus('.csv/MED_IW69.csv', '.csv/MED_IW39.csv', date, plant)
-    data = createdNewFields(data)
-    Mes_c = []
-    Conc = []
-    Emit = []
-    for i in range(len(data)):
-        Mes_c = Mes_c + [data["MesInic"][i]]
-        Emit = Emit + [data["Emitidos"][i]]
-        Conc = Conc + [int(data["Conclx"][i])]
-    dataGraph = [
-        month_filling(Mes_c, Emit, date),
-        month_filling(Mes_c, Conc, date)
-    ]
-    return list(dataGraph)
+    try:
+        data = setStatus('.csv/MED_IW69.csv', '.csv/MED_IW39.csv', date, plant)
+        data = createdNewFields(data)
+        mothC = []
+        conc = []
+        emit = []
+        for i in range(len(data)):
+            mothC = mothC + [data["MesInic"][i]]
+            emit = emit + [data["Emitidos"][i]]
+            conc = conc + [int(data["Conclx"][i])]
 
-def month_filling(mesx, valorx, date):
+        return month_filling(mothC, emit, date)
+    except:
+        print("An exception occurred")
+        return []
+
+# This converts the content of dataframe into lists (to be able to graph)
+def month_filling(mesx, valorx, date) -> List[int]:
     K_list = "".join(mesx)
     N = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     AAMM = list(reversed(calculate(date)))
@@ -168,6 +186,6 @@ def month_filling(mesx, valorx, date):
     j = 0
     for i in range(12):
         if K_list.find(AAMM[i]) != -1:
-            N[i] = valorx[j]
+            N[i] = int(valorx[j])
             j = j + 1
     return N

@@ -3,6 +3,17 @@ Graph Alerted vs Closed
 tags:
   - Graph
   - Alerts And Failures
+parameters:
+  - name: date
+    in: query
+    example: '2021/10/27'
+    schema:
+      type: string
+  - name: plant
+    in: query
+    example: 'DAL'
+    schema:
+      type: string
 responses:
   200:
     description: Ok
