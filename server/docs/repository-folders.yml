@@ -1,17 +1,11 @@
-Graph Alerted vs Closed
+Repository
 ---
 tags:
-  - Graph
-  - Alerts And Failures
+  - Repository
 parameters:
-  - name: date
+  - name: path
     in: query
-    example: '2021/10/27'
-    schema:
-      type: string
-  - name: plant
-    in: query
-    example: 'DAL'
+    example: 'path/file.xlsx'
     schema:
       type: string
 responses:
@@ -25,4 +19,4 @@ responses:
             data:
               type: array
               items:
-                $ref: '#/definitions/GraphPoint'
+                $ref: '#/definitions/Repository'

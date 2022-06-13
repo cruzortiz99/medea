@@ -131,13 +131,15 @@ def equipments_tpef() -> Response:
                           methods=["GET", "OPTIONS"])
 @swag_from(DOC_FOLDER.joinpath("alerted-vs-closed-graph.yml"))
 def alerted_vs_closed_graph() -> Response:
+    date = request.args.get('date')
+    plant = request.args.get('plant')
     if request.method == "OPTIONS":
         return jsonify(APIResponseModel("ok").__dict__)
     return jsonify(APIResponseModel(
         list(map(lambda graph: {
             **graph.__dict__,
             "marker": graph.marker.__dict__
-        }, alert_vs_closed.get_alert_vs_closed_graph()))
+        }, alert_vs_closed.get_alert_vs_closed_graph(date, plant)))
     ).__dict__)
 
 

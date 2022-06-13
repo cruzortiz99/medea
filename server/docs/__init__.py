@@ -27,8 +27,10 @@ SWAGGER_TEMPLATE = {
         swagger_schema(),
         "TPEF": models.TPEF.swagger_schema(),
         "License": models.License.swagger_schema(),
-        "APIError": models.APIError.swagger_schema()
+        "APIError": models.APIError.swagger_schema(),
         "GraphOfAssignedOrder": models.GraphPoint.swagger_schema(),
         "GraphFailedEquipmentThatAffectedProduction": models.GraphPoint.swagger_schema(),
+        "UploadCsv": models.UploadCsv.swagger_schema(),
+        "Repository": models.Repository.swagger_schema()
     }
 }
