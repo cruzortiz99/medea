@@ -38,3 +38,11 @@ $ cd web
 $ npm install
 $ npm start
 ```
+### List of required .csv files of all migrations
+```shell
+* MED_IW39.csv
+* MED_IW69.csv
+* MED_IW69E.csv
+* MED_IH06.csv
+* MED_IW47.csv
+```
