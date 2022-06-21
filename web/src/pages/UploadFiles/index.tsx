@@ -10,6 +10,12 @@ function UploadFilesPage() {
       dataFile4=""
       dataFile5=""
       dataFile6=""
+      file1=""
+      file2=""
+      file3=""
+      file4=""
+      file5=""
+      file6=""
     />
   )
 }
