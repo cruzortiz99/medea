@@ -113,14 +113,9 @@ function UploadFilesPage(
                       autoUpload={false}
                       onChange={handleChange1}
                       ref={uploaderRef1}
+                      className={styles.lineUpload}
                     >
-                      <div 
-                        style={{
-                          lineHeight: "50px",
-                          padding: "8px 100px",
-                          border: "1px dashed black"
-                        }}
-                      >
+                      <div>
                         Click or Drag files to this area to upload
                       </div>
                     </Uploader>
@@ -160,7 +155,7 @@ function UploadFilesPage(
                         }}
                       >
                         Click or Drag files to this area to upload
-                      </div>
+                      </div> 
                     </Uploader>
                   </FlexboxGrid>
                 </div>
