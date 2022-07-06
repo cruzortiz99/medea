@@ -1,3 +1,2 @@
-class Repository:
-    def __init__(self) -> None:
-        pass
+from repository.repository_bridge import RepositoryBridge
+from repository.repository import create_repository
