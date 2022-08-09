@@ -29,6 +29,7 @@ SWAGGER_TEMPLATE = {
         "License": models.License.swagger_schema(),
         "APIError": models.APIError.swagger_schema(),
         "GraphOfAssignedOrder": models.GraphPoint.swagger_schema(),
-        "GraphFailedEquipmentThatAffectedProduction": models.GraphPoint.swagger_schema(),
+        "GraphFailedEquipmentThatAffectedProduction": models.GraphPoint.
+        swagger_schema(),
     }
 }

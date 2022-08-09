@@ -1,0 +1,39 @@
+Upload Files
+---
+tags:
+  - Root
+requestBody:
+  content:
+    multipart/form-data:
+      schema:
+        type: object
+        properties:
+          iw39:
+            type: string
+            format: binary
+            required: true
+          iw69:
+            type: string
+            format: binary
+          iw69e:
+            type: string
+            format: binary
+          ih06:
+            type: string
+            format: binary
+          iw47:
+            type: string
+            format: binary
+
+responses:
+  200:
+    description: Ok
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            data:
+              type: array
+              items:
+                type: string
