@@ -67,12 +67,6 @@ function UploadFilesPage(
     uploaderRef4.current
     uploaderRef5.current
     uploaderRef6.current
-    console.log(file1)
-    console.log(file2)
-    console.log(file3)
-    console.log(file4)
-    console.log(file5)
-    console.log(file6)
     dataFile.append("file", file1)
     dataFile.append("file", file2)
     dataFile.append("file", file3)
